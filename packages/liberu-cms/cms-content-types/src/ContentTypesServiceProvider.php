@@ -7,12 +7,15 @@ namespace Liberu\Cms\ContentTypes;
 use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
 use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
 use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
+use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryApiController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
@@ -32,6 +35,12 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
             $registry = $this->app->make(AdminResourceRegistryInterface::class);
             $registry->registerResource('content-types', ContentTypeResource::class);
             $registry->registerResource('content-types', ContentEntryResource::class);
+        }
+
+        if ($this->app->bound(ApiResourceRegistryInterface::class)) {
+            $registry = $this->app->make(ApiResourceRegistryInterface::class);
+            $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}', ContentEntryApiController::class, 'index', 'content.index'));
+            $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}/{slug}', ContentEntryApiController::class, 'show', 'content.show'));
         }
     }
 
