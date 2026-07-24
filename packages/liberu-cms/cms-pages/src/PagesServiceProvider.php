@@ -7,10 +7,13 @@ namespace Liberu\Cms\Pages;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Filament\PageResource;
+use Liberu\Cms\Pages\Http\Controllers\PageApiController;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Repositories\PageRepository;
 
@@ -29,6 +32,12 @@ final class PagesServiceProvider extends ModuleServiceProvider
 
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $this->app->make(AdminResourceRegistryInterface::class)->registerResource('pages', PageResource::class);
+        }
+
+        if ($this->app->bound(ApiResourceRegistryInterface::class)) {
+            $registry = $this->app->make(ApiResourceRegistryInterface::class);
+            $registry->registerEndpoint('pages', new ApiEndpoint('pages', PageApiController::class, 'index', 'pages.index'));
+            $registry->registerEndpoint('pages', new ApiEndpoint('pages/{slug}', PageApiController::class, 'show', 'pages.show'));
         }
     }
 

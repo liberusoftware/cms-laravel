@@ -7,11 +7,14 @@ namespace Liberu\Cms\Menus;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Menus\Contracts\MenuRepositoryInterface;
 use Liberu\Cms\Menus\Filament\MenuItemResource;
 use Liberu\Cms\Menus\Filament\MenuResource;
+use Liberu\Cms\Menus\Http\Controllers\MenuApiController;
 use Liberu\Cms\Menus\Models\Menu;
 use Liberu\Cms\Menus\Repositories\MenuRepository;
 
@@ -30,6 +33,13 @@ final class MenusServiceProvider extends ModuleServiceProvider
             $registry = $this->app->make(AdminResourceRegistryInterface::class);
             $registry->registerResource('menus', MenuResource::class);
             $registry->registerResource('menus', MenuItemResource::class);
+        }
+
+        if ($this->app->bound(ApiResourceRegistryInterface::class)) {
+            $this->app->make(ApiResourceRegistryInterface::class)->registerEndpoint(
+                'menus',
+                new ApiEndpoint('menus/{location}', MenuApiController::class, 'show', 'menus.show'),
+            );
         }
     }
 
