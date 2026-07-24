@@ -7,10 +7,13 @@ namespace Liberu\Cms\Posts;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
 use Liberu\Cms\Posts\Filament\PostResource;
+use Liberu\Cms\Posts\Http\Controllers\PostApiController;
 use Liberu\Cms\Posts\Models\Post;
 use Liberu\Cms\Posts\Repositories\PostRepository;
 
@@ -29,6 +32,12 @@ final class PostsServiceProvider extends ModuleServiceProvider
 
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $this->app->make(AdminResourceRegistryInterface::class)->registerResource('posts', PostResource::class);
+        }
+
+        if ($this->app->bound(ApiResourceRegistryInterface::class)) {
+            $registry = $this->app->make(ApiResourceRegistryInterface::class);
+            $registry->registerEndpoint('posts', new ApiEndpoint('posts', PostApiController::class, 'index', 'posts.index'));
+            $registry->registerEndpoint('posts', new ApiEndpoint('posts/{slug}', PostApiController::class, 'show', 'posts.show'));
         }
     }
 

@@ -18,6 +18,11 @@ use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
  */
 trait HasTenant
 {
+    public static function bootHasTenant(): void
+    {
+        static::addGlobalScope(new TenantScope);
+    }
+
     /**
      * @return BelongsTo<Model, $this>
      */

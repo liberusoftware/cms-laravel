@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66c123125ea01d42cca67d127427fc59",
+    "content-hash": "c2bcad798e323e1a7b604fac8b919abc",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5665,6 +5665,53 @@
                 "MIT"
             ],
             "description": "Admin module for Liberu CMS: a Filament panel plugin that surfaces the module system and content services to editors and administrators.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberu-cms/cms-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/liberu-cms/cms-api",
+                "reference": "e612dfbe6030deb8fd36e7eab5a563c5666c0140"
+            },
+            "require": {
+                "illuminate/console": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "illuminate/support": "^13.0",
+                "laravel/sanctum": "^4.0",
+                "liberu-cms/cms-contracts": "*",
+                "liberu-cms/cms-core": "*",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Api\\CmsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Api\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Api\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Delivery API for Liberu CMS: a versioned, read-only, Sanctum-authenticated JSON API that serves published content to decoupled frontends.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
