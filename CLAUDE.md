@@ -435,3 +435,17 @@ $pages->assertNoJavascriptErrors()->assertNoConsoleLogs();
 | decoration-slice | box-decoration-slice |
 | decoration-clone | box-decoration-clone |
 </laravel-boost-guidelines>
+
+## Agent skills
+
+### Issue tracker
+
+Issues and PRDs live in GitHub Issues via the `gh` CLI (`origin` = `ducz07/cms-laravel`, `upstream` = `liberu-cms/cms-laravel`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-role vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Multi-context: root `CONTEXT-MAP.md` pointing to a per-package `CONTEXT.md` under `packages/liberu-cms/cms-*`. See `docs/agents/domain.md`.
