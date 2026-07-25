@@ -15,8 +15,10 @@
             }
         </style>
 
-        @livewireStyles 
+        @livewireStyles
         @vite('resources/css/app.css')
+
+        @stack('head')
     </head>
 
     <body class="antialiased">

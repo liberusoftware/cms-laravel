@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2bcad798e323e1a7b604fac8b919abc",
+    "content-hash": "f024b89002a52d549fb31694582453cb",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -6140,6 +6140,50 @@
                 "MIT"
             ],
             "description": "Posts module for Liberu CMS: blog posts with taxonomy (categories & tags), workflow, versioning, and featured media.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberu-cms/cms-seo",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/liberu-cms/cms-seo",
+                "reference": "e6b87789d9912f6d031d377ae43ca039bb921578"
+            },
+            "require": {
+                "illuminate/contracts": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberu-cms/cms-contracts": "*",
+                "liberu-cms/cms-core": "*",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Seo\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Seo\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
