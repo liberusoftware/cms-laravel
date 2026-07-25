@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* Scan the host views and every CMS module's views for utility classes. */
+@source '../**/*.blade.php';
+@source '../../packages/liberu-cms/*/resources/**/*.blade.php';
 
 [x-cloak] {
     display: none;
