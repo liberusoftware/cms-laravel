@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42571ba05b40c757ad691c2dc973c76f",
+    "content-hash": "c787332d79a9699a88edc2865f05c127",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -6095,6 +6095,52 @@
                 "MIT"
             ],
             "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberu-cms/cms-notifications",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/liberu-cms/cms-notifications",
+                "reference": "b302d8ed9c7222f7ec67deac025c856ebaa44b9e"
+            },
+            "require": {
+                "illuminate/bus": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/queue": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberu-cms/cms-contracts": "*",
+                "liberu-cms/cms-core": "*",
+                "php": "^8.5",
+                "psr/log": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Notifications\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Notifications\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
             "transport-options": {
                 "symlink": true,
                 "relative": true
