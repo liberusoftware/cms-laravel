@@ -11,12 +11,14 @@ use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryApiController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
+use Liberu\Cms\ContentTypes\Search\ContentEntrySearchSource;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
 final class ContentTypesServiceProvider extends ModuleServiceProvider
@@ -52,6 +54,11 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Content entries', fn (): int => ContentEntry::count(), 'heroicon-o-rectangle-stack', 'primary'),
             );
+        }
+
+        if ($this->app->bound(SearchRegistryInterface::class)) {
+            $this->app->make(SearchRegistryInterface::class)
+                ->registerSource($this->app->make(ContentEntrySearchSource::class));
         }
     }
 }

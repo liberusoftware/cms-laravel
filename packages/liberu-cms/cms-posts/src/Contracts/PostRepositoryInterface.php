@@ -43,4 +43,11 @@ interface PostRepositoryInterface
      * @return array<int, Post>
      */
     public function byTag(string $tagSlug): array;
+
+    /**
+     * Live posts whose title or body matches the query.
+     *
+     * @return array<int, Post>
+     */
+    public function search(string $query, int $limit): array;
 }

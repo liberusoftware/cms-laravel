@@ -28,4 +28,11 @@ interface ContentEntryRepositoryInterface
      * @return array<int, ContentEntry>
      */
     public function published(): array;
+
+    /**
+     * Live entries whose title or field data matches the query.
+     *
+     * @return array<int, ContentEntry>
+     */
+    public function search(string $query, int $limit): array;
 }

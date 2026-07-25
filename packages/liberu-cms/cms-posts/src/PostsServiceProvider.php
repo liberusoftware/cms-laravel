@@ -10,12 +10,14 @@ use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
 use Liberu\Cms\Posts\Filament\PostResource;
 use Liberu\Cms\Posts\Http\Controllers\PostApiController;
 use Liberu\Cms\Posts\Models\Post;
 use Liberu\Cms\Posts\Repositories\PostRepository;
+use Liberu\Cms\Posts\Search\PostSearchSource;
 
 final class PostsServiceProvider extends ModuleServiceProvider
 {
@@ -49,6 +51,11 @@ final class PostsServiceProvider extends ModuleServiceProvider
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Posts', fn (): int => Post::count(), 'heroicon-o-newspaper', 'primary'),
             );
+        }
+
+        if ($this->app->bound(SearchRegistryInterface::class)) {
+            $this->app->make(SearchRegistryInterface::class)
+                ->registerSource($this->app->make(PostSearchSource::class));
         }
 
         if ($this->app->runningInConsole()) {
