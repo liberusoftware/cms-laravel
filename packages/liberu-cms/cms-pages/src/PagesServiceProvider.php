@@ -10,12 +10,14 @@ use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Seo\SitemapRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Filament\PageResource;
 use Liberu\Cms\Pages\Http\Controllers\PageApiController;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Repositories\PageRepository;
+use Liberu\Cms\Pages\Seo\PageSitemapProvider;
 
 final class PagesServiceProvider extends ModuleServiceProvider
 {
@@ -49,6 +51,11 @@ final class PagesServiceProvider extends ModuleServiceProvider
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Pages', fn (): int => Page::count(), 'heroicon-o-document-text', 'primary'),
             );
+        }
+
+        if ($this->app->bound(SitemapRegistryInterface::class)) {
+            $this->app->make(SitemapRegistryInterface::class)
+                ->registerProvider($this->app->make(PageSitemapProvider::class));
         }
 
         if ($this->app->runningInConsole()) {

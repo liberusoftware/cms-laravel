@@ -16,6 +16,7 @@ parameters:
         - packages/liberu-cms/cms-menus/src
         - packages/liberu-cms/cms-pages/src
         - packages/liberu-cms/cms-posts/src
+        - packages/liberu-cms/cms-seo/src
         - packages/liberu-cms/cms-themes/src
         - packages/liberu-cms/cms-users/src
         - packages/liberu-cms/cms-widgets/src
