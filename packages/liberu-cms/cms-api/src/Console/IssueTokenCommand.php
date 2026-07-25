@@ -16,9 +16,10 @@ use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
 final class IssueTokenCommand extends Command
 {
     protected $signature = 'cms-api:issue-token {team : The Team (tenant) id to issue a Delivery token for}
-        {--name=delivery : A human-readable label for the token}';
+        {--name=delivery : A human-readable label for the token}
+        {--write : Also grant write access (content:write) in addition to read}';
 
-    protected $description = 'Issue a read-only Delivery API token for a Team.';
+    protected $description = 'Issue a Delivery API token for a Team (read-only by default).';
 
     public function handle(TenantModelResolverInterface $resolver): int
     {
@@ -39,7 +40,13 @@ final class IssueTokenCommand extends Command
             return self::FAILURE;
         }
 
-        $token = $team->createToken((string) $this->option('name'), ['content:read']);
+        $abilities = ['content:read'];
+
+        if ($this->option('write')) {
+            $abilities[] = 'content:write';
+        }
+
+        $token = $team->createToken((string) $this->option('name'), $abilities);
 
         $this->info('Delivery token issued. Store it now — it will not be shown again:');
         $this->line($token->plainTextToken);

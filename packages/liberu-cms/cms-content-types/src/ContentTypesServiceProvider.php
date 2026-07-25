@@ -8,6 +8,7 @@ use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
 use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
 use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
 use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryApiController;
+use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryWriteController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
@@ -43,6 +44,9 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
             $registry = $this->app->make(ApiResourceRegistryInterface::class);
             $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}', ContentEntryApiController::class, 'index', 'content.index'));
             $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}/{slug}', ContentEntryApiController::class, 'show', 'content.show'));
+            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries', ContentEntryWriteController::class, 'store', 'content-entries.store', 'POST', ['abilities:content:write']));
+            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'update', 'content-entries.update', 'PUT', ['abilities:content:write']));
+            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'destroy', 'content-entries.destroy', 'DELETE', ['abilities:content:write']));
         }
     }
 

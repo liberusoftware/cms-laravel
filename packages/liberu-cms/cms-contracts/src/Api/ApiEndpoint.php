@@ -20,6 +20,7 @@ final class ApiEndpoint
      * @param  string  $action  The controller method to invoke.
      * @param  string  $name  Route-name suffix, e.g. "pages.index".
      * @param  string  $method  The HTTP verb.
+     * @param  array<int, string>  $middleware  Extra middleware applied on top of the API group (e.g. an ability check).
      */
     public function __construct(
         public string $uri,
@@ -27,5 +28,6 @@ final class ApiEndpoint
         public string $action,
         public string $name,
         public string $method = 'GET',
+        public array $middleware = [],
     ) {}
 }

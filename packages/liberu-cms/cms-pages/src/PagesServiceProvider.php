@@ -16,6 +16,7 @@ use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Filament\PageResource;
 use Liberu\Cms\Pages\Http\Controllers\PageApiController;
+use Liberu\Cms\Pages\Http\Controllers\PageWriteController;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Repositories\PageRepository;
 use Liberu\Cms\Pages\Search\PageSearchSource;
@@ -42,6 +43,9 @@ final class PagesServiceProvider extends ModuleServiceProvider
             $registry = $this->app->make(ApiResourceRegistryInterface::class);
             $registry->registerEndpoint('pages', new ApiEndpoint('pages', PageApiController::class, 'index', 'pages.index'));
             $registry->registerEndpoint('pages', new ApiEndpoint('pages/{slug}', PageApiController::class, 'show', 'pages.show'));
+            $registry->registerEndpoint('pages', new ApiEndpoint('pages', PageWriteController::class, 'store', 'pages.store', 'POST', ['abilities:content:write']));
+            $registry->registerEndpoint('pages', new ApiEndpoint('pages/{id}', PageWriteController::class, 'update', 'pages.update', 'PUT', ['abilities:content:write']));
+            $registry->registerEndpoint('pages', new ApiEndpoint('pages/{id}', PageWriteController::class, 'destroy', 'pages.destroy', 'DELETE', ['abilities:content:write']));
         }
     }
 

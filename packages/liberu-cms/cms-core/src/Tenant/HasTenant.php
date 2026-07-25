@@ -6,6 +6,7 @@ namespace Liberu\Cms\Core\Tenant;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
 
 /**
@@ -21,6 +22,18 @@ trait HasTenant
     public static function bootHasTenant(): void
     {
         static::addGlobalScope(new TenantScope);
+
+        static::creating(function (Model $model): void {
+            if ($model->getAttribute('team_id') !== null) {
+                return;
+            }
+
+            $tenantId = app(TenantContextInterface::class)->tenantId();
+
+            if ($tenantId !== null) {
+                $model->setAttribute('team_id', $tenantId);
+            }
+        });
     }
 
     /**
