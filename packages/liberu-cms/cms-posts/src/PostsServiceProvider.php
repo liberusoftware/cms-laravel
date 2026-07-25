@@ -15,6 +15,7 @@ use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
 use Liberu\Cms\Posts\Filament\PostResource;
 use Liberu\Cms\Posts\Http\Controllers\PostApiController;
+use Liberu\Cms\Posts\Http\Controllers\PostWriteController;
 use Liberu\Cms\Posts\Models\Post;
 use Liberu\Cms\Posts\Repositories\PostRepository;
 use Liberu\Cms\Posts\Search\PostSearchSource;
@@ -40,6 +41,9 @@ final class PostsServiceProvider extends ModuleServiceProvider
             $registry = $this->app->make(ApiResourceRegistryInterface::class);
             $registry->registerEndpoint('posts', new ApiEndpoint('posts', PostApiController::class, 'index', 'posts.index'));
             $registry->registerEndpoint('posts', new ApiEndpoint('posts/{slug}', PostApiController::class, 'show', 'posts.show'));
+            $registry->registerEndpoint('posts', new ApiEndpoint('posts', PostWriteController::class, 'store', 'posts.store', 'POST', ['abilities:content:write']));
+            $registry->registerEndpoint('posts', new ApiEndpoint('posts/{id}', PostWriteController::class, 'update', 'posts.update', 'PUT', ['abilities:content:write']));
+            $registry->registerEndpoint('posts', new ApiEndpoint('posts/{id}', PostWriteController::class, 'destroy', 'posts.destroy', 'DELETE', ['abilities:content:write']));
         }
     }
 

@@ -10,6 +10,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Contracts\HasApiTokens;
+use Laravel\Sanctum\Http\Middleware\CheckAbilities;
+use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 use Laravel\Sanctum\PersonalAccessToken;
 use Liberu\Cms\Api\Console\IssueTokenCommand;
 use Liberu\Cms\Api\Http\Middleware\ForceJsonResponse;
@@ -46,6 +48,10 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
 
     protected function bootModule(): void
     {
+        $router = $this->app->make('router');
+        $router->aliasMiddleware('abilities', CheckAbilities::class);
+        $router->aliasMiddleware('ability', CheckForAnyAbility::class);
+
         $this->configureRateLimiting();
         $this->registerRoutes();
 
@@ -108,6 +114,7 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
                 foreach ($endpoints as $group) {
                     foreach ($group as $endpoint) {
                         Route::match([$endpoint->method], $endpoint->uri, [$endpoint->controller, $endpoint->action])
+                            ->middleware($endpoint->middleware)
                             ->name('cms-api.'.$endpoint->name);
                     }
                 }
