@@ -16,15 +16,31 @@
         <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
           <div class="py-2 md:py-0 flex flex-col md:flex-row md:items-center md:justify-end gap-0.5 md:gap-1">
             
-            <x-filament-menu-builder::menu slug="main" />
-            {{-- {!! app(App\Services\MenuService::class)->buildMenu() !!} --}}
+            @php
+                $cmsMenu = app(\Liberu\Cms\Menus\Contracts\MenuRepositoryInterface::class)->forLocation('header');
+                $cmsMenuItems = $cmsMenu
+                    ? $cmsMenu->items()->whereNull('parent_id')->get()
+                    : collect();
+            @endphp
+
+            @forelse ($cmsMenuItems as $item)
+                <a wire:key="nav-{{ $item->id }}" href="{{ $item->url }}"
+                    class="p-2 flex items-center text-sm text-white/80 hover:text-white focus:outline-none focus:text-white">
+                    {{ $item->label }}
+                </a>
+            @empty
+                <a href="{{ url('/') }}"
+                    class="p-2 flex items-center text-sm text-white/80 hover:text-white focus:outline-none focus:text-white">Home</a>
+                <a href="{{ url('/about') }}"
+                    class="p-2 flex items-center text-sm text-white/80 hover:text-white focus:outline-none focus:text-white">About</a>
+            @endforelse
 
             <div class="relative flex flex-wrap items-center gap-x-1.5 md:ps-2.5 mt-1 md:mt-0 md:ms-1.5 before:block before:absolute before:top-1/2 before:-start-px before:w-px before:h-4 before:bg-white/30 before:-translate-y-1/2">
                 @if (auth()->check())
                     @php
                         $user = auth()->user();
                         $role = $user->hasRole('admin') ? 'admin' : 'user';
-                        $dashboardUrl = $role === 'admin' ? '/admin' : '/app';
+                        $dashboardUrl = '/app';
                     @endphp
 
                     <a href="{{ url($dashboardUrl) }}"
