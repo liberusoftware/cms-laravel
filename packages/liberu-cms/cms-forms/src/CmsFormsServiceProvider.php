@@ -7,8 +7,11 @@ namespace Liberu\Cms\Forms;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
+use Liberu\Cms\Forms\Filament\FormResource;
+use Liberu\Cms\Forms\Filament\FormSubmissionResource;
 use Liberu\Cms\Forms\Support\SubmissionValidator;
 
 /**
@@ -29,6 +32,12 @@ final class CmsFormsServiceProvider extends ModuleServiceProvider
         $this->mergeModuleConfig(__DIR__.'/../config/forms.php', 'cms-forms');
 
         $this->app->singleton(SubmissionValidator::class);
+
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $registry = $this->app->make(AdminResourceRegistryInterface::class);
+            $registry->registerResource('forms', FormResource::class);
+            $registry->registerResource('forms', FormSubmissionResource::class);
+        }
     }
 
     protected function bootModule(): void

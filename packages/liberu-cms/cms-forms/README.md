@@ -21,7 +21,9 @@ POST /forms/{slug}
 
 ## Defining a form
 
-Forms are created programmatically (a Filament admin surface is a follow-up):
+Manage forms in the admin panel (Filament) under **CMS → Forms**, where the field
+schema is edited as a repeatable list and submissions are viewed under **CMS →
+Form submissions**. Forms can also be created programmatically:
 
 ```php
 Form::create([

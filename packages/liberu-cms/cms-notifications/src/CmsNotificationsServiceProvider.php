@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Notifications;
 
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Events\Content\ContentPublished;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Contracts\Events\Form\FormSubmitted;
@@ -12,6 +13,7 @@ use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Notifications\Channels\ChannelManager;
 use Liberu\Cms\Notifications\Channels\LogChannel;
 use Liberu\Cms\Notifications\Channels\MailChannel;
+use Liberu\Cms\Notifications\Filament\NotificationLogResource;
 
 /**
  * Wires Notifications: the channel manager (with the built-in mail and log
@@ -35,6 +37,11 @@ final class CmsNotificationsServiceProvider extends ModuleServiceProvider
         ]));
 
         $this->app->singleton(NotificationDispatcher::class);
+
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $this->app->make(AdminResourceRegistryInterface::class)
+                ->registerResource('notifications', NotificationLogResource::class);
+        }
     }
 
     protected function bootModule(): void

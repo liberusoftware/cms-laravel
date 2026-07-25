@@ -5928,9 +5928,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/liberu-cms/cms-forms",
-                "reference": "3d7c20acb62d99d1e449c8660c2a382d33181e98"
+                "reference": "d9e9588ece913a6ca22c6dd391ada4d60408fbc3"
             },
             "require": {
+                "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/http": "^13.0",
@@ -6106,9 +6107,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/liberu-cms/cms-notifications",
-                "reference": "b302d8ed9c7222f7ec67deac025c856ebaa44b9e"
+                "reference": "8503e72f633dc726b02c27f5f54a2e9290942ef3"
             },
             "require": {
+                "filament/filament": "^5.0",
                 "illuminate/bus": "^13.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
