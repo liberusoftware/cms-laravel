@@ -28,6 +28,7 @@
         "liberu-cms/cms-content": "*",
         "liberu-cms/cms-content-types": "*",
         "liberu-cms/cms-contracts": "*",
+        "liberu-cms/cms-forms": "*",
         "liberu-cms/cms-core": "*",
         "liberu-cms/cms-hello": "*",
         "liberu-cms/cms-media": "*",
