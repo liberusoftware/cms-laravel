@@ -40,4 +40,22 @@ final class ContentEntryRepository implements ContentEntryRepositoryInterface
             ->get()
             ->all();
     }
+
+    public function search(string $query, int $limit): array
+    {
+        $like = '%'.addcslashes($query, '%_\\').'%';
+
+        return ContentEntry::query()
+            ->where('status', WorkflowState::Published->value)
+            ->where(function (Builder $inner): void {
+                $inner->whereNull('published_at')->orWhere('published_at', '<=', now());
+            })
+            ->where(function (Builder $inner) use ($like): void {
+                $inner->where('title', 'like', $like)
+                    ->orWhere('data', 'like', $like);
+            })
+            ->limit($limit)
+            ->get()
+            ->all();
+    }
 }

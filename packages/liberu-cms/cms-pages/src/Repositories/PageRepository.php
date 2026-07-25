@@ -41,4 +41,23 @@ final class PageRepository implements PageRepositoryInterface
             ->get()
             ->all();
     }
+
+    public function search(string $query, int $limit): array
+    {
+        $like = '%'.addcslashes($query, '%_\\').'%';
+
+        return Page::query()
+            ->where('status', WorkflowState::Published->value)
+            ->where(function (Builder $inner): void {
+                $inner->whereNull('published_at')->orWhere('published_at', '<=', now());
+            })
+            ->where(function (Builder $inner) use ($like): void {
+                $inner->where('title', 'like', $like)
+                    ->orWhere('content', 'like', $like)
+                    ->orWhere('excerpt', 'like', $like);
+            })
+            ->limit($limit)
+            ->get()
+            ->all();
+    }
 }

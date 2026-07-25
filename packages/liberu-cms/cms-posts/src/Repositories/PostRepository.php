@@ -47,6 +47,21 @@ final class PostRepository implements PostRepositoryInterface
             ->all();
     }
 
+    public function search(string $query, int $limit): array
+    {
+        $like = '%'.addcslashes($query, '%_\\').'%';
+
+        return $this->live()
+            ->where(function (Builder $inner) use ($like): void {
+                $inner->where('title', 'like', $like)
+                    ->orWhere('content', 'like', $like)
+                    ->orWhere('excerpt', 'like', $like);
+            })
+            ->limit($limit)
+            ->get()
+            ->all();
+    }
+
     /**
      * @return Builder<Post>
      */

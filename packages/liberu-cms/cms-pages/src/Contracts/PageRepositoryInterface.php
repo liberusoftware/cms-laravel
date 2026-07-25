@@ -29,4 +29,11 @@ interface PageRepositoryInterface
      * @return array<int, Page>
      */
     public function roots(): array;
+
+    /**
+     * Live pages whose title or body matches the query.
+     *
+     * @return array<int, Page>
+     */
+    public function search(string $query, int $limit): array;
 }
