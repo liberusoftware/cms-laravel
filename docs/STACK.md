@@ -35,18 +35,20 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 
 1. **Pest 5, not Pest 4.** The repo already required `pestphp/pest:5.x-dev`; the
    foundation guidelines mention Pest 4. We build on what is installed (Pest 5).
-2. **Module system: hand-rolled `packages/liberu-cms/*`.** `internachi/modular`
-   is installed but Phase 0 uses hand-rolled path-repository packages (namespace
-   `Liberu\Cms\*`) per an explicit project decision, matching Part A §4's literal
-   layout. See [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
+2. **Module system: hand-rolled `packages/liberu-cms/*`.** The CMS uses hand-rolled
+   path-repository packages (namespace `Liberu\Cms\*`) per an explicit project
+   decision, matching Part A §4's literal layout. `internachi/modular` was removed
+   in Phase 6 (it was never used) so the repo now has exactly one module system.
+   See [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
 3. **Laravel 13 confirmed.** The source material mentions both "Laravel 13"
    (target) and "Laravel 12 foundation" in one place. Laravel 13 is viable and
    installed, so 13 is the resolved target.
-4. **`config.audit.block-insecure: false`.** Required so the module workflow
-   (`composer update liberu-cms/*`) can re-solve on this locked dev stack, whose
-   upstream transitive deps carry advisories. `composer install` (CI) is
-   unaffected; advisories are still surfaced by `composer audit` in the security
-   workflow. Security tradeoff tracked in [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
+4. **`config.audit.block-insecure: true` (Phase 6).** Re-enabled once the tree was
+   clean: removing the unused `internachi/modular` dropped its `composer/composer`
+   subtree (the source of the transitive advisories), and phpseclib was bumped to
+   3.0.55 (CVE-2026-55599). `composer audit` now runs as a **blocking** job in the
+   security workflow, and `block-insecure: true` enforces the same gate on every
+   local `composer update`.
 5. **PHPStan scoped to the CMS packages.** Running max level over the pre-existing
    `app/` would flood with findings unrelated to Phase 0; raising `app/` is future
    work (tracked).

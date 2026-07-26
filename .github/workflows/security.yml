@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   deployment:
   workflow_dispatch:
 
@@ -14,6 +14,16 @@ env:
   DB_PASSWORD: secret
 
 jobs:
+
+  composer-audit:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+      - name: 'Blocking composer audit (fails the build on any known advisory)'
+        run: composer audit --no-interaction --locked
 
   phpcpd:
     runs-on: ubuntu-22.04

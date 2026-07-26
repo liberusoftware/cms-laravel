@@ -5,11 +5,12 @@ work continues; revisit when the owning phase arrives.
 
 ## Architecture & dependencies
 
-1. **`internachi/modular` is now unused.** Phase 0 hand-rolls
-   `packages/liberu-cms/*` (project decision). The `internachi/modular` package and
-   its `app-modules/` autoload/testsuite wiring remain installed but unused.
-   **Default:** leave installed for now. **Decision needed:** remove it (and the
-   `Modules\` autoload + `app-modules/*` phpunit entry) to avoid two module systems.
+1. **`internachi/modular` — RESOLVED (Phase 6).** It was never used (Phase 0
+   hand-rolls `packages/liberu-cms/*`). Removed the package from `composer.json`,
+   the `Modules\` autoload entry, and the `app-modules/*` PHPUnit testsuite entry
+   (the `app-modules/` scaffold never existed on disk). The repo now has exactly one
+   module system. Removing it also dropped its `composer/composer` subtree, which
+   cleared the transitive advisories behind Question 7.
 
 2. **Filament Shield vs. `spatie/laravel-permission`. — RESOLVED (Phase 1).**
    They are layered, not competing: Spatie is the permission engine (stores
@@ -58,12 +59,13 @@ work continues; revisit when the owning phase arrives.
 
 ## Security
 
-7. **`audit.block-insecure: false`.** Enables the module `composer update` workflow
-   on this locked dev stack (upstream transitive advisories on guzzle, psr7,
-   composer/composer). `composer install` (CI) does not re-solve and is unaffected.
-   **Mitigation:** keep `composer audit` in `.github/workflows/security.yml` as the
-   reporting gate. **Decision needed:** revisit once upstream deps clear the
-   advisories.
+7. **`audit.block-insecure` — RESOLVED (Phase 6): now `true`.** The advisories that
+   forced it `false` came from the `composer/composer` subtree pulled in by the
+   unused `internachi/modular` (Question 1); removing that package cleared them, and
+   phpseclib was bumped to 3.0.55 (CVE-2026-55599). `composer audit` is now a
+   **blocking** job in `.github/workflows/security.yml`, and `block-insecure: true`
+   enforces the same gate on every local `composer update`. Re-audit if a future
+   advisory appears (bump the affected dep rather than reopening the loophole).
 
 ## Dev environment
 
