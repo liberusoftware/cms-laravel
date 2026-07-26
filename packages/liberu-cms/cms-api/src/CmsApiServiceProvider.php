@@ -16,6 +16,7 @@ use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 use Laravel\Sanctum\PersonalAccessToken;
 use Liberu\Cms\Api\Console\IssueTokenCommand;
 use Liberu\Cms\Api\Console\PreviewLinkCommand;
+use Liberu\Cms\Api\Http\Controllers\OpenApiController;
 use Liberu\Cms\Api\Http\Controllers\PreviewController;
 use Liberu\Cms\Api\Http\Middleware\ForceJsonResponse;
 use Liberu\Cms\Api\Http\Middleware\SetApiTenant;
@@ -60,6 +61,7 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         $this->configureRateLimiting();
         $this->registerRoutes();
         $this->registerPreviewRoute();
+        $this->registerOpenApiRoute();
 
         if ($this->app->runningInConsole()) {
             $this->commands([IssueTokenCommand::class, PreviewLinkCommand::class]);
@@ -140,5 +142,16 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
             ->get('preview/{type}/{id}', PreviewController::class)
             ->whereNumber('id')
             ->name('cms-api.preview');
+    }
+
+    /**
+     * Registers the public OpenAPI document route. It carries no authentication:
+     * a consumer fetches the spec to generate a client before it holds a token.
+     */
+    private function registerOpenApiRoute(): void
+    {
+        Route::prefix('api/'.self::VERSION)
+            ->get('openapi.json', OpenApiController::class)
+            ->name('cms-api.openapi');
     }
 }
