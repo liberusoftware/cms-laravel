@@ -7,6 +7,7 @@ namespace Liberu\Cms\Api;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Contracts\HasApiTokens;
@@ -14,10 +15,13 @@ use Laravel\Sanctum\Http\Middleware\CheckAbilities;
 use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 use Laravel\Sanctum\PersonalAccessToken;
 use Liberu\Cms\Api\Console\IssueTokenCommand;
+use Liberu\Cms\Api\Console\PreviewLinkCommand;
+use Liberu\Cms\Api\Http\Controllers\PreviewController;
 use Liberu\Cms\Api\Http\Middleware\ForceJsonResponse;
 use Liberu\Cms\Api\Http\Middleware\SetApiTenant;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
 /**
@@ -44,6 +48,7 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         $this->mergeModuleConfig(__DIR__.'/../config/cors.php', 'cors');
 
         $this->app->singleton(ApiResourceRegistryInterface::class, ApiResourceRegistry::class);
+        $this->app->singleton(PreviewRegistryInterface::class, PreviewRegistry::class);
     }
 
     protected function bootModule(): void
@@ -54,9 +59,10 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
 
         $this->configureRateLimiting();
         $this->registerRoutes();
+        $this->registerPreviewRoute();
 
         if ($this->app->runningInConsole()) {
-            $this->commands([IssueTokenCommand::class]);
+            $this->commands([IssueTokenCommand::class, PreviewLinkCommand::class]);
 
             $this->publishes([
                 __DIR__.'/../config/cms-api.php' => $this->app->configPath('cms-api.php'),
@@ -119,5 +125,20 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
                     }
                 }
             });
+    }
+
+    /**
+     * Registers the unauthenticated preview route. It sits outside the token
+     * group: access is granted by a valid, unexpired signature (checked by
+     * ValidateSignature) rather than a Delivery token, so a shared link works
+     * without a login and stops working when it expires.
+     */
+    private function registerPreviewRoute(): void
+    {
+        Route::prefix('api/'.self::VERSION)
+            ->middleware([ValidateSignature::class, SubstituteBindings::class])
+            ->get('preview/{type}/{id}', PreviewController::class)
+            ->whereNumber('id')
+            ->name('cms-api.preview');
     }
 }

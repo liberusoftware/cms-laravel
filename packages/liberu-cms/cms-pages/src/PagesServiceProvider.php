@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
 use Liberu\Cms\Contracts\Seo\SitemapRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
@@ -18,6 +19,7 @@ use Liberu\Cms\Pages\Filament\PageResource;
 use Liberu\Cms\Pages\Http\Controllers\PageApiController;
 use Liberu\Cms\Pages\Http\Controllers\PageWriteController;
 use Liberu\Cms\Pages\Models\Page;
+use Liberu\Cms\Pages\Preview\PagePreviewSource;
 use Liberu\Cms\Pages\Repositories\PageRepository;
 use Liberu\Cms\Pages\Search\PageSearchSource;
 use Liberu\Cms\Pages\Seo\PageSitemapProvider;
@@ -46,6 +48,11 @@ final class PagesServiceProvider extends ModuleServiceProvider
             $registry->registerEndpoint('pages', new ApiEndpoint('pages', PageWriteController::class, 'store', 'pages.store', 'POST', ['abilities:content:write']));
             $registry->registerEndpoint('pages', new ApiEndpoint('pages/{id}', PageWriteController::class, 'update', 'pages.update', 'PUT', ['abilities:content:write']));
             $registry->registerEndpoint('pages', new ApiEndpoint('pages/{id}', PageWriteController::class, 'destroy', 'pages.destroy', 'DELETE', ['abilities:content:write']));
+        }
+
+        if ($this->app->bound(PreviewRegistryInterface::class)) {
+            $this->app->make(PreviewRegistryInterface::class)
+                ->registerSource($this->app->make(PagePreviewSource::class));
         }
     }
 

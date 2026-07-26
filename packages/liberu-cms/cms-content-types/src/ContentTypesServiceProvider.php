@@ -10,6 +10,7 @@ use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
 use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryApiController;
 use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryWriteController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
+use Liberu\Cms\ContentTypes\Preview\ContentEntryPreviewSource;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
 use Liberu\Cms\ContentTypes\Search\ContentEntrySearchSource;
@@ -19,6 +20,7 @@ use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
@@ -47,6 +49,11 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
             $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries', ContentEntryWriteController::class, 'store', 'content-entries.store', 'POST', ['abilities:content:write']));
             $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'update', 'content-entries.update', 'PUT', ['abilities:content:write']));
             $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'destroy', 'content-entries.destroy', 'DELETE', ['abilities:content:write']));
+        }
+
+        if ($this->app->bound(PreviewRegistryInterface::class)) {
+            $this->app->make(PreviewRegistryInterface::class)
+                ->registerSource($this->app->make(ContentEntryPreviewSource::class));
         }
     }
 

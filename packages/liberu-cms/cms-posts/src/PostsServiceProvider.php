@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
@@ -17,6 +18,7 @@ use Liberu\Cms\Posts\Filament\PostResource;
 use Liberu\Cms\Posts\Http\Controllers\PostApiController;
 use Liberu\Cms\Posts\Http\Controllers\PostWriteController;
 use Liberu\Cms\Posts\Models\Post;
+use Liberu\Cms\Posts\Preview\PostPreviewSource;
 use Liberu\Cms\Posts\Repositories\PostRepository;
 use Liberu\Cms\Posts\Search\PostSearchSource;
 
@@ -44,6 +46,11 @@ final class PostsServiceProvider extends ModuleServiceProvider
             $registry->registerEndpoint('posts', new ApiEndpoint('posts', PostWriteController::class, 'store', 'posts.store', 'POST', ['abilities:content:write']));
             $registry->registerEndpoint('posts', new ApiEndpoint('posts/{id}', PostWriteController::class, 'update', 'posts.update', 'PUT', ['abilities:content:write']));
             $registry->registerEndpoint('posts', new ApiEndpoint('posts/{id}', PostWriteController::class, 'destroy', 'posts.destroy', 'DELETE', ['abilities:content:write']));
+        }
+
+        if ($this->app->bound(PreviewRegistryInterface::class)) {
+            $this->app->make(PreviewRegistryInterface::class)
+                ->registerSource($this->app->make(PostPreviewSource::class));
         }
     }
 
