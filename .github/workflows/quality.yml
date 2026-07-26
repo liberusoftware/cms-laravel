@@ -34,13 +34,13 @@ jobs:
       - name: Generate application key
         run: php artisan key:generate
 
-      # --- Style: Phase 0 code must be Pint-clean (existing app/ debt tracked separately) ---
+      # --- Style: the whole repo must be Pint-clean ---
       - name: Pint (code style)
-        run: vendor/bin/pint --test packages/liberu-cms tests/Feature/Cms tests/Unit/Cms
+        run: vendor/bin/pint --test
 
-      # --- Static analysis: PHPStan at max level on every CMS package ---
+      # --- Static analysis: PHPStan at max level, whole repo (host debt baselined) ---
       - name: PHPStan (max level)
-        run: vendor/bin/phpstan analyse --no-progress --memory-limit=512M
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 
       # --- Refactoring safety: Rector must report no pending changes ---
       - name: Rector (dry run)

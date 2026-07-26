@@ -49,8 +49,13 @@ work continues; revisit when the owning phase arrives.
    is scoped to Phase 0 code (`packages/liberu-cms`, `tests/*/Cms`), which is clean.
    **Decision needed:** run repo-wide `pint` in a dedicated formatting commit.
 
-5. **PHPStan scope.** Max level runs on `packages/liberu-cms/*/src` only. **Decision
-   needed:** raise the pre-existing `app/` to a baseline (e.g. level 5) then climb.
+5. **PHPStan scope — RESOLVED (Phase 6).** `app/` and `database/` are now in the
+   analysed paths. The whole repo runs at **level max**; the CMS packages are
+   already clean, so the 173 pre-existing host errors are frozen in
+   `phpstan-baseline.neon`. CI is green including the host code. **Climb intent:**
+   burn down the baseline over time (delete entries as the underlying errors are
+   fixed); never regenerate it to absorb *new* errors — new host code must pass at
+   max like everything else.
 
 6. **Infection is non-blocking.** Local Herd PHP has no pcov/xdebug, so MSI could not
    be measured here; the CI step runs with `continue-on-error: true`. **Decision

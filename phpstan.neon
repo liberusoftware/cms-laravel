@@ -1,9 +1,16 @@
 includes:
     - vendor/larastan/larastan/extension.neon
+    # Frozen pre-existing debt in the host app/ and database/ (Phase 6, OQ#5).
+    # The whole repo is analysed at level max; the CMS packages are clean, so
+    # every baselined error lives in legacy host code. Climb by burning these
+    # down — never regenerate to absorb new errors.
+    - phpstan-baseline.neon
 
 parameters:
     level: max
     paths:
+        - app
+        - database
         - packages/liberu-cms/cms-admin/src
         - packages/liberu-cms/cms-api/src
         - packages/liberu-cms/cms-blocks/src

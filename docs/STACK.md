@@ -49,9 +49,10 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
    3.0.55 (CVE-2026-55599). `composer audit` now runs as a **blocking** job in the
    security workflow, and `block-insecure: true` enforces the same gate on every
    local `composer update`.
-5. **PHPStan scoped to the CMS packages.** Running max level over the pre-existing
-   `app/` would flood with findings unrelated to Phase 0; raising `app/` is future
-   work (tracked).
+5. **PHPStan covers the whole repo (Phase 6).** Max level now analyses `app/` and
+   `database/` alongside the CMS packages; the 173 pre-existing host findings are
+   frozen in `phpstan-baseline.neon` and burned down over time. The CMS packages
+   remain clean at max with no baseline entries.
 
 ## Dev environment (Docker / Sail)
 
