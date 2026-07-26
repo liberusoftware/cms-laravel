@@ -5676,9 +5676,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/liberu-cms/cms-api",
-                "reference": "e612dfbe6030deb8fd36e7eab5a563c5666c0140"
+                "reference": "0878f75b72c4382a1b24a4dfb7788644f91d4987"
             },
             "require": {
+                "filament/filament": "^5.0",
                 "illuminate/console": "^13.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",

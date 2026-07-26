@@ -7,6 +7,7 @@ namespace Liberu\Cms\Api;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Contracts\HasApiTokens;
@@ -14,10 +15,19 @@ use Laravel\Sanctum\Http\Middleware\CheckAbilities;
 use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 use Laravel\Sanctum\PersonalAccessToken;
 use Liberu\Cms\Api\Console\IssueTokenCommand;
+use Liberu\Cms\Api\Console\PreviewLinkCommand;
+use Liberu\Cms\Api\Filament\ApiTokenResource;
+use Liberu\Cms\Api\Http\Controllers\OpenApiController;
+use Liberu\Cms\Api\Http\Controllers\PreviewController;
 use Liberu\Cms\Api\Http\Middleware\ForceJsonResponse;
 use Liberu\Cms\Api\Http\Middleware\SetApiTenant;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
 /**
@@ -44,6 +54,11 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         $this->mergeModuleConfig(__DIR__.'/../config/cors.php', 'cors');
 
         $this->app->singleton(ApiResourceRegistryInterface::class, ApiResourceRegistry::class);
+        $this->app->singleton(PreviewRegistryInterface::class, PreviewRegistry::class);
+
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $this->app->make(AdminResourceRegistryInterface::class)->registerResource('api', ApiTokenResource::class);
+        }
     }
 
     protected function bootModule(): void
@@ -54,9 +69,12 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
 
         $this->configureRateLimiting();
         $this->registerRoutes();
+        $this->registerPreviewRoute();
+        $this->registerOpenApiRoute();
+        $this->declarePermissions();
 
         if ($this->app->runningInConsole()) {
-            $this->commands([IssueTokenCommand::class]);
+            $this->commands([IssueTokenCommand::class, PreviewLinkCommand::class]);
 
             $this->publishes([
                 __DIR__.'/../config/cms-api.php' => $this->app->configPath('cms-api.php'),
@@ -119,5 +137,46 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
                     }
                 }
             });
+    }
+
+    /**
+     * Registers the unauthenticated preview route. It sits outside the token
+     * group: access is granted by a valid, unexpired signature (checked by
+     * ValidateSignature) rather than a Delivery token, so a shared link works
+     * without a login and stops working when it expires.
+     */
+    private function registerPreviewRoute(): void
+    {
+        Route::prefix('api/'.self::VERSION)
+            ->middleware([ValidateSignature::class, SubstituteBindings::class])
+            ->get('preview/{type}/{id}', PreviewController::class)
+            ->whereNumber('id')
+            ->name('cms-api.preview');
+    }
+
+    /**
+     * Registers the public OpenAPI document route. It carries no authentication:
+     * a consumer fetches the spec to generate a client before it holds a token.
+     */
+    private function registerOpenApiRoute(): void
+    {
+        Route::prefix('api/'.self::VERSION)
+            ->get('openapi.json', OpenApiController::class)
+            ->name('cms-api.openapi');
+    }
+
+    /**
+     * Declares the module-owned permission that gates the token-management admin
+     * surface. Skipped when the Users module (the permission registrar) is absent.
+     */
+    private function declarePermissions(): void
+    {
+        if (! $this->app->bound(PermissionRegistrarInterface::class)) {
+            return;
+        }
+
+        $this->app->make(PermissionRegistrarInterface::class)->register(
+            new PermissionGroup('api-tokens', 'API Tokens', AccessScope::Module, ['manage']),
+        );
     }
 }

@@ -32,4 +32,19 @@ return [
         'max' => (int) env('CMS_API_MAX_PER_PAGE', 100),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Preview links
+    |--------------------------------------------------------------------------
+    |
+    | How long a minted preview link stays valid, in minutes. The link is a
+    | signed URL scoped to a single draft-inclusive item and its tenant; once it
+    | expires the signature no longer validates and the link 403s.
+    |
+    */
+
+    'preview' => [
+        'ttl' => (int) env('CMS_API_PREVIEW_TTL', 60),
+    ],
+
 ];
