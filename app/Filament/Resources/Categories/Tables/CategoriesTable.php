@@ -15,7 +15,7 @@ class CategoriesTable
     {
         return $table
             ->columns([
-                ImageColumn::make('image')->label(""),
+                ImageColumn::make('image')->label(''),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('slug')

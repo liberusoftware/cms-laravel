@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\Category;
 use App\Models\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,8 +16,8 @@ class CategoryModelTest extends TestCase
     {
         $collection = Collection::factory()->create();
         Category::create([
-            'name'          => 'Tech',
-            'slug'          => 'tech',
+            'name' => 'Tech',
+            'slug' => 'tech',
             'collection_id' => $collection->id,
         ]);
 
@@ -28,7 +29,7 @@ class CategoryModelTest extends TestCase
 
     public function test_category_has_fillable_attributes(): void
     {
-        $category = new Category();
+        $category = new Category;
 
         $this->assertContains('name', $category->getFillable());
         $this->assertContains('slug', $category->getFillable());
@@ -38,20 +39,20 @@ class CategoryModelTest extends TestCase
 
     public function test_category_belongs_to_collection(): void
     {
-        $category = new Category();
+        $category = new Category;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+            BelongsTo::class,
             $category->collection()
         );
     }
 
     public function test_category_belongs_to_team(): void
     {
-        $category = new Category();
+        $category = new Category;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+            BelongsTo::class,
             $category->team()
         );
     }
@@ -60,8 +61,8 @@ class CategoryModelTest extends TestCase
     {
         $collection = Collection::factory()->create(['name' => 'Blog']);
         $category = Category::create([
-            'name'          => 'Tech',
-            'slug'          => 'tech',
+            'name' => 'Tech',
+            'slug' => 'tech',
             'collection_id' => $collection->id,
         ]);
 

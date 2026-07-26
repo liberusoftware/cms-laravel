@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\Collection;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -15,8 +16,8 @@ class TagModelTest extends TestCase
     {
         $collection = Collection::factory()->create();
         Tag::create([
-            'name'          => 'Laravel',
-            'slug'          => 'laravel',
+            'name' => 'Laravel',
+            'slug' => 'laravel',
             'collection_id' => $collection->id,
         ]);
 
@@ -28,7 +29,7 @@ class TagModelTest extends TestCase
 
     public function test_tag_has_fillable_attributes(): void
     {
-        $tag = new Tag();
+        $tag = new Tag;
 
         $this->assertContains('name', $tag->getFillable());
         $this->assertContains('slug', $tag->getFillable());
@@ -38,20 +39,20 @@ class TagModelTest extends TestCase
 
     public function test_tag_belongs_to_collection(): void
     {
-        $tag = new Tag();
+        $tag = new Tag;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+            BelongsTo::class,
             $tag->collection()
         );
     }
 
     public function test_tag_belongs_to_team(): void
     {
-        $tag = new Tag();
+        $tag = new Tag;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+            BelongsTo::class,
             $tag->team()
         );
     }
@@ -60,8 +61,8 @@ class TagModelTest extends TestCase
     {
         $collection = Collection::factory()->create(['name' => 'Blog']);
         $tag = Tag::create([
-            'name'          => 'Laravel',
-            'slug'          => 'laravel',
+            'name' => 'Laravel',
+            'slug' => 'laravel',
             'collection_id' => $collection->id,
         ]);
 

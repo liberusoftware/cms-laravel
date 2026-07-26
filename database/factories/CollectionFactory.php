@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Collection>
+ * @extends Factory<Collection>
  */
 class CollectionFactory extends Factory
 {
@@ -17,8 +18,8 @@ class CollectionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'        => fake()->words(2, true),
-            'slug'        => fake()->unique()->slug(),
+            'name' => fake()->words(2, true),
+            'slug' => fake()->unique()->slug(),
             'description' => fake()->sentence(),
         ];
     }

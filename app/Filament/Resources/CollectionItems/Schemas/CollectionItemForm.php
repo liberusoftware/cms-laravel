@@ -4,8 +4,8 @@ namespace App\Filament\Resources\CollectionItems\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -33,7 +33,7 @@ class CollectionItemForm
                             ->required()
                             ->default('draft'),
                         DateTimePicker::make('published_at'),
-                    ])
+                    ]),
             ]);
     }
 }

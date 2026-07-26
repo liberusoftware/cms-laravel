@@ -3,13 +3,14 @@
 namespace Database\Factories;
 
 use App\Models\Collection;
+use App\Models\CollectionItem;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 use function Illuminate\Support\now;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CollectionItem>
+ * @extends Factory<CollectionItem>
  */
 class CollectionItemFactory extends Factory
 {
@@ -21,13 +22,13 @@ class CollectionItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'         => fake()->sentence(),
-            'slug'          => fake()->unique()->slug(),
-            'content'       => fake()->paragraphs(3, true),
-            'published_at'  => now(),
-            'status'        => "published",
+            'title' => fake()->sentence(),
+            'slug' => fake()->unique()->slug(),
+            'content' => fake()->paragraphs(3, true),
+            'published_at' => now(),
+            'status' => 'published',
             'collection_id' => Collection::factory(),
-            'user_id'       => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

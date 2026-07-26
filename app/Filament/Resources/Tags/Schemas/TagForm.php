@@ -25,7 +25,7 @@ class TagForm
                             ->required(),
                         TextInput::make('slug')
                             ->required(),
-                    ])
+                    ]),
             ]);
     }
 }
