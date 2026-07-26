@@ -51,7 +51,11 @@ jobs:
         run: php artisan test tests/Feature/Cms/ArchitectureTest.php tests/Feature/Cms/RemovabilityTest.php tests/Feature/Cms/EmbeddabilityTest.php
 
       # --- Mutation testing on the CMS kernel's business logic ---
-      # Non-blocking until the MSI thresholds are calibrated against real runs.
+      # CALIBRATION RUN (pcov wired above): this step is non-blocking so it always
+      # prints the kernel's real MSI / Covered Code MSI. Read those two numbers from
+      # this log, set minMsi/minCoveredMsi in infection.json just below them, then
+      # flip this step to blocking (delete `continue-on-error: true`). Until then the
+      # thresholds in infection.json (80/90) are aspirational, not enforced.
       - name: Infection (mutation testing)
         continue-on-error: true
         run: vendor/bin/infection --no-progress --threads=max --ignore-msi-with-no-mutations

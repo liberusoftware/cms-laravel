@@ -57,10 +57,14 @@ work continues; revisit when the owning phase arrives.
    fixed); never regenerate it to absorb *new* errors — new host code must pass at
    max like everything else.
 
-6. **Infection is non-blocking.** Local Herd PHP has no pcov/xdebug, so MSI could not
-   be measured here; the CI step runs with `continue-on-error: true`. **Decision
-   needed:** calibrate `minMsi`/`minCoveredMsi` against a real CI run, then make it
-   blocking.
+6. **Infection is non-blocking — two-step flip in progress (Phase 6).** Local Herd
+   PHP 8.5 has no pcov/xdebug, so MSI still can't be measured on the dev box. CI now
+   has `coverage: pcov` wired, and the Infection step is intentionally kept
+   `continue-on-error: true` for one **calibration run** that prints the kernel's
+   real MSI / Covered Code MSI (cms-core + cms-contracts scope). **Remaining step:**
+   read those two numbers from the CI log, set `minMsi`/`minCoveredMsi` in
+   `infection.json` just under them, and delete `continue-on-error: true` to make the
+   gate blocking. Widening the Infection scope beyond the kernel is deferred.
 
 ## Security
 
