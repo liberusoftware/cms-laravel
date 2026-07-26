@@ -16,10 +16,15 @@ use Laravel\Sanctum\Http\Middleware\CheckForAnyAbility;
 use Laravel\Sanctum\PersonalAccessToken;
 use Liberu\Cms\Api\Console\IssueTokenCommand;
 use Liberu\Cms\Api\Console\PreviewLinkCommand;
+use Liberu\Cms\Api\Filament\ApiTokenResource;
 use Liberu\Cms\Api\Http\Controllers\OpenApiController;
 use Liberu\Cms\Api\Http\Controllers\PreviewController;
 use Liberu\Cms\Api\Http\Middleware\ForceJsonResponse;
 use Liberu\Cms\Api\Http\Middleware\SetApiTenant;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
@@ -50,6 +55,10 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
 
         $this->app->singleton(ApiResourceRegistryInterface::class, ApiResourceRegistry::class);
         $this->app->singleton(PreviewRegistryInterface::class, PreviewRegistry::class);
+
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $this->app->make(AdminResourceRegistryInterface::class)->registerResource('api', ApiTokenResource::class);
+        }
     }
 
     protected function bootModule(): void
@@ -62,6 +71,7 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         $this->registerRoutes();
         $this->registerPreviewRoute();
         $this->registerOpenApiRoute();
+        $this->declarePermissions();
 
         if ($this->app->runningInConsole()) {
             $this->commands([IssueTokenCommand::class, PreviewLinkCommand::class]);
@@ -153,5 +163,20 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         Route::prefix('api/'.self::VERSION)
             ->get('openapi.json', OpenApiController::class)
             ->name('cms-api.openapi');
+    }
+
+    /**
+     * Declares the module-owned permission that gates the token-management admin
+     * surface. Skipped when the Users module (the permission registrar) is absent.
+     */
+    private function declarePermissions(): void
+    {
+        if (! $this->app->bound(PermissionRegistrarInterface::class)) {
+            return;
+        }
+
+        $this->app->make(PermissionRegistrarInterface::class)->register(
+            new PermissionGroup('api-tokens', 'API Tokens', AccessScope::Module, ['manage']),
+        );
     }
 }
