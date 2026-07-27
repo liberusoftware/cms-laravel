@@ -8,6 +8,7 @@ use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Contracts\Module\ModuleManagerInterface;
 use Liberu\Cms\Contracts\Module\ModuleRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleStateRepositoryInterface;
@@ -15,6 +16,7 @@ use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
 use Liberu\Cms\Core\Console\MakeModuleCommand;
 use Liberu\Cms\Core\Events\EventBus;
+use Liberu\Cms\Core\Hooks\HookBus;
 use Liberu\Cms\Core\Module\DatabaseModuleStateRepository;
 use Liberu\Cms\Core\Module\ModuleManager;
 use Liberu\Cms\Core\Module\ModuleRegistry;
@@ -52,6 +54,8 @@ final class CmsCoreServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(EventBusInterface::class, fn (): EventBus => new EventBus($this->app));
+
+        $this->app->singleton(HookBusInterface::class, fn (): HookBus => new HookBus($this->app));
 
         $this->app->bindIf(TenantModelResolverInterface::class, NullTenantResolver::class);
 

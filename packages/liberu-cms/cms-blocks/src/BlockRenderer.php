@@ -6,14 +6,23 @@ namespace Liberu\Cms\Blocks;
 
 use Liberu\Cms\Contracts\Block\BlockRendererInterface;
 use Liberu\Cms\Contracts\Block\BlockTypeInterface;
+use Liberu\Cms\Contracts\Hooks\Filters\BlockRenderFilter;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 
 /**
  * Recursively renders a block tree. An unknown block type renders to an empty
  * string rather than throwing, so a removed block type never breaks a page.
+ *
+ * Each block's HTML passes through the {@see BlockRenderFilter} hook point before
+ * it is emitted, so an extension can transform block output without replacing the
+ * renderer or the block type.
  */
 final readonly class BlockRenderer implements BlockRendererInterface
 {
-    public function __construct(private BlockTypeRegistry $registry) {}
+    public function __construct(
+        private BlockTypeRegistry $registry,
+        private HookBusInterface $hooks,
+    ) {}
 
     public function render(array $block): string
     {
@@ -27,7 +36,9 @@ final readonly class BlockRenderer implements BlockRendererInterface
         $data = is_array($block['data'] ?? null) ? $block['data'] : [];
         $children = is_array($block['children'] ?? null) ? $block['children'] : [];
 
-        return $type->render($data, $this->renderMany($children));
+        $html = $type->render($data, $this->renderMany($children));
+
+        return $this->hooks->apply(new BlockRenderFilter($html, $key, $data))->html;
     }
 
     public function renderMany(array $blocks): string
