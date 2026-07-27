@@ -4,11 +4,11 @@
 
 **Blocked by:** 04 — bundled with the security workstream; independent of 05.
 
-**Status:** ready-for-agent
+**Status:** DONE (branch `feature/cms-security-headers`, not pushed)
 
-- [ ] Production defaults: `.env.example` → `APP_DEBUG=false`, `APP_ENV=production` guidance; `SESSION_SECURE_COOKIE=true` for non-local; document `URL::forceScheme('https')` / edge HSTS.
-- [ ] A `SecurityHeaders` middleware applied to web (and API) responses: `Strict-Transport-Security`, `X-Frame-Options: DENY` (or frame-ancestors), `X-Content-Type-Options: nosniff`, `Referrer-Policy`, and a **Content-Security-Policy in report-only mode initially** (Filament/Livewire rely on inline scripts — enforcing CSP outright breaks the panel; ship report-only, tune, then flip to enforcing in a later pass).
-- [ ] Headers must not break the Filament panel or the public site; test both still render.
-- [ ] A **production-readiness checklist** doc (debug off, HTTPS/HSTS, secure cookies, queue worker, storage perms, `composer audit` clean, APP_KEY set). *(Docs file — explicitly in scope for this ticket.)*
-- [ ] Behavior guarantees: responses carry the expected security headers (feature test asserting header presence on a public + a panel route); CSP is report-only and does not block panel assets.
-- [ ] DoD: headers present + tested; prod checklist written; Pint + PHPStan max + full suite green.
+- [x] Production guidance in `.env.example`: comment on `APP_ENV`/`APP_DEBUG` (prod = production + false, links the checklist); added `SESSION_SECURE_COOKIE=false` (comment: true in prod) + `SECURITY_HSTS_ENABLED`/`SECURITY_CSP_ENABLED`/`SECURITY_CSP_REPORT_ONLY`. Kept local defaults working (local/true) — the prod flip lives in the checklist. `URL::forceScheme('https')` / edge HSTS documented there.
+- [x] `App\Http\Middleware\SecurityHeaders` (config-driven, new `config/security-headers.php`) appended **globally** in `bootstrap/app.php` (web + API): HSTS (gated), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, and **CSP report-only by default** (flips to enforcing when `SECURITY_CSP_REPORT_ONLY=false`); policy allows `'unsafe-inline'`/`'unsafe-eval'` + `frame-ancestors 'none'`.
+- [x] Headers don't break panel/public — tests assert `/` and `/app/login` render 200 with headers.
+- [x] `docs/PRODUCTION-CHECKLIST.md` written (debug off, HTTPS/HSTS/forceScheme, secure cookies, caches, migrate + baseline seed, queue worker, storage perms, `--no-dev`, `composer audit`, APP_KEY, npm build, no-stack-trace verify).
+- [x] `tests/Feature/SecurityHeadersTest.php` (5): headers on public + panel; CSP report-only (enforcing header absent); enforcing variant when report-only off; HSTS omitted when disabled.
+- [x] DoD: headers present + tested; checklist written; Pint + PHPStan max clean; full suite **548 green on SQLite** (MySQL + Postgres via ticket-03 CI matrix).
