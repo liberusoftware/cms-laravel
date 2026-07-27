@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Module;
  *
  * Each module's service provider registers its descriptor here during boot,
  * regardless of enabled state, so the dependency graph is always complete.
+ *
+ * @internal Kernel wiring; not part of the public extension API and may change without notice.
  */
 interface ModuleRegistryInterface
 {

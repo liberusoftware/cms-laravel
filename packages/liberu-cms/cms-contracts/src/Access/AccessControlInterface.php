@@ -15,6 +15,8 @@ use Illuminate\Contracts\Auth\Authenticatable;
  * The implementation lives in the Users module and is backed by the framework
  * gate (which Shield/Spatie populate); swapping the backend changes nothing for
  * consumers.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface AccessControlInterface
 {

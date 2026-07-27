@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Media;
  *
  * Uploading (which involves framework request types) is a Media-module concern;
  * consumers only need to resolve, list, and detach media by key.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface MediaRepositoryInterface
 {

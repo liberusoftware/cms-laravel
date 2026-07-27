@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Liberu\Cms\Content\Support\HtmlSanitizer;
 use Liberu\Cms\Core\Http\Concerns\EmbedsFeaturedMedia;
+use Liberu\Cms\Core\Http\Concerns\FiltersApiResource;
 use Liberu\Cms\Posts\Models\Category;
 use Liberu\Cms\Posts\Models\Post;
 use Liberu\Cms\Posts\Models\Tag;
@@ -22,13 +23,14 @@ use Liberu\Cms\Posts\Models\Tag;
 final class PostResource extends JsonResource
 {
     use EmbedsFeaturedMedia;
+    use FiltersApiResource;
 
     /**
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
     {
-        return [
+        return $this->withApiResourceFilter([
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
@@ -44,6 +46,6 @@ final class PostResource extends JsonResource
                 'slug' => $tag->slug,
             ])->values()->all(),
             'published_at' => $this->publishedAt()?->format(\DateTimeInterface::ATOM),
-        ];
+        ]);
     }
 }

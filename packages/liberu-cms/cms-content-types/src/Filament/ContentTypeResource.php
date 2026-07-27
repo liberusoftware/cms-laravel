@@ -21,9 +21,9 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Liberu\Cms\ContentTypes\Fields\FieldType;
 use Liberu\Cms\ContentTypes\Filament\Pages\ListContentTypes;
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use UnitEnum;
 
@@ -86,8 +86,8 @@ final class ContentTypeResource extends Resource
                                 ->required()
                                 ->maxLength(255),
                             Select::make('type')
-                                ->options(FieldType::options())
-                                ->default(FieldType::Text->value)
+                                ->options(app(FieldTypeRegistryInterface::class)->options())
+                                ->default('text')
                                 ->required(),
                             Toggle::make('required')
                                 ->default(false),

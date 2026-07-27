@@ -7,6 +7,8 @@ namespace Liberu\Cms\Contracts\Content;
 /**
  * A point-in-time snapshot of a content item, used for version history and
  * rollback (Part B §14).
+ *
+ * @api This interface is part of the public extension API.
  */
 interface RevisionInterface
 {

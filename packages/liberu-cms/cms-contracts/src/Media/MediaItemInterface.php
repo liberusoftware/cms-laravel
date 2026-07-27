@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Media;
  *
  * Content modules reference media by key and resolve the item through the
  * MediaRepository; they never touch the media model, disk, or storage backend.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface MediaItemInterface
 {

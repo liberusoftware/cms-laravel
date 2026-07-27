@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Liberu\Cms\Content\Support\HtmlSanitizer;
 use Liberu\Cms\Core\Http\Concerns\EmbedsFeaturedMedia;
+use Liberu\Cms\Core\Http\Concerns\FiltersApiResource;
 use Liberu\Cms\Pages\Models\Page;
 
 /**
@@ -20,13 +21,14 @@ use Liberu\Cms\Pages\Models\Page;
 final class PageResource extends JsonResource
 {
     use EmbedsFeaturedMedia;
+    use FiltersApiResource;
 
     /**
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
     {
-        return [
+        return $this->withApiResourceFilter([
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
@@ -35,6 +37,6 @@ final class PageResource extends JsonResource
             'content' => app(HtmlSanitizer::class)->sanitize($this->content),
             'featured_media' => $this->featuredMediaPayload($this->featuredMedia()),
             'published_at' => $this->publishedAt()?->format(\DateTimeInterface::ATOM),
-        ];
+        ]);
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentTypes\Schema;
 
-use Liberu\Cms\ContentTypes\Fields\FieldType;
 use RuntimeException;
 
 final class InvalidContentData extends RuntimeException
@@ -19,8 +18,8 @@ final class InvalidContentData extends RuntimeException
         return new self("The field [{$field}] is required.", $field);
     }
 
-    public static function wrongType(string $field, FieldType $type): self
+    public static function wrongType(string $field, string $type): self
     {
-        return new self("The field [{$field}] must be of type [{$type->value}].", $field);
+        return new self("The field [{$field}] must be of type [{$type}].", $field);
     }
 }

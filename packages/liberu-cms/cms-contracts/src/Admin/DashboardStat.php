@@ -12,6 +12,8 @@ use Closure;
  * The value is a closure evaluated at render time (never at registration), so a
  * module can hand the Admin module a live count of its own models without the
  * Admin module ever importing them.
+ *
+ * @api This class is part of the public extension API.
  */
 final readonly class DashboardStat
 {

@@ -11,6 +11,8 @@ use Liberu\Cms\Blocks\Types\HeadingBlock;
 use Liberu\Cms\Blocks\Types\ImageBlock;
 use Liberu\Cms\Blocks\Types\TextBlock;
 use Liberu\Cms\Contracts\Block\BlockRendererInterface;
+use Liberu\Cms\Contracts\Block\BlockTypeRegistryInterface;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 
@@ -24,9 +26,11 @@ final class BlocksServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(BlockTypeRegistry::class);
+        $this->app->alias(BlockTypeRegistry::class, BlockTypeRegistryInterface::class);
 
         $this->app->singleton(BlockRendererInterface::class, fn (): BlockRenderer => new BlockRenderer(
             $this->app->make(BlockTypeRegistry::class),
+            $this->app->make(HookBusInterface::class),
         ));
     }
 

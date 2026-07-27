@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Module;
  * Implementations must degrade gracefully: when backing storage is not yet
  * available (e.g. before migrations run), reads fall back to the default so
  * the application still boots.
+ *
+ * @internal Kernel wiring; not part of the public extension API and may change without notice.
  */
 interface ModuleStateRepositoryInterface
 {

@@ -6,6 +6,7 @@ namespace Liberu\Cms\Menus\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\Core\Http\Concerns\FiltersApiResource;
 use Liberu\Cms\Menus\Models\Menu;
 use Liberu\Cms\Menus\Models\MenuItem;
 
@@ -18,16 +19,18 @@ use Liberu\Cms\Menus\Models\MenuItem;
  */
 final class MenuResource extends JsonResource
 {
+    use FiltersApiResource;
+
     /**
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
     {
-        return [
+        return $this->withApiResourceFilter([
             'name' => $this->name,
             'location' => $this->location,
             'items' => $this->buildTree($this->items()->get()->all(), null),
-        ];
+        ]);
     }
 
     /**

@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Liberu\Cms\Blocks;
 
 use Liberu\Cms\Contracts\Block\BlockTypeInterface;
+use Liberu\Cms\Contracts\Block\BlockTypeRegistryInterface;
 
 /**
  * The catalogue of available block types. Modules and themes register their own
  * types here; the renderer resolves them by key.
  */
-final class BlockTypeRegistry
+final class BlockTypeRegistry implements BlockTypeRegistryInterface
 {
     /**
      * @var array<string, BlockTypeInterface>

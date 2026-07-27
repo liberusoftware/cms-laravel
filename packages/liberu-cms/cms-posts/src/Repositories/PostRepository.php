@@ -6,43 +6,46 @@ namespace Liberu\Cms\Posts\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Core\Database\Concerns\FiltersContentQueries;
 use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
 use Liberu\Cms\Posts\Models\Post;
 
 final class PostRepository implements PostRepositoryInterface
 {
+    use FiltersContentQueries;
+
     public function find(int $id): ?Post
     {
-        return Post::query()->find($id);
+        return $this->filterContentQuery('posts.find', Post::query()->whereKey($id))->first();
     }
 
     public function findBySlug(string $slug): ?Post
     {
-        return Post::query()->where('slug', $slug)->first();
+        return $this->filterContentQuery('posts.find_by_slug', Post::query()->where('slug', $slug))->first();
     }
 
     public function published(): array
     {
-        return $this->live()->get()->all();
+        return $this->filterContentQuery('posts.published', $this->live())->get()->all();
     }
 
     public function featured(): array
     {
-        return $this->live()->where('is_featured', true)->get()->all();
+        return $this->filterContentQuery('posts.featured', $this->live()->where('is_featured', true))->get()->all();
     }
 
     public function byCategory(string $categorySlug): array
     {
-        return $this->live()
-            ->whereHas('categories', fn (Builder $query) => $query->where('slug', $categorySlug))
+        return $this->filterContentQuery('posts.by_category', $this->live()
+            ->whereHas('categories', fn (Builder $query) => $query->where('slug', $categorySlug)))
             ->get()
             ->all();
     }
 
     public function byTag(string $tagSlug): array
     {
-        return $this->live()
-            ->whereHas('tags', fn (Builder $query) => $query->where('slug', $tagSlug))
+        return $this->filterContentQuery('posts.by_tag', $this->live()
+            ->whereHas('tags', fn (Builder $query) => $query->where('slug', $tagSlug)))
             ->get()
             ->all();
     }
@@ -51,13 +54,13 @@ final class PostRepository implements PostRepositoryInterface
     {
         $like = '%'.addcslashes($query, '%_\\').'%';
 
-        return $this->live()
+        return $this->filterContentQuery('posts.search', $this->live()
             ->where(function (Builder $inner) use ($like): void {
                 $inner->where('title', 'like', $like)
                     ->orWhere('content', 'like', $like)
                     ->orWhere('excerpt', 'like', $like);
             })
-            ->limit($limit)
+            ->limit($limit))
             ->get()
             ->all();
     }

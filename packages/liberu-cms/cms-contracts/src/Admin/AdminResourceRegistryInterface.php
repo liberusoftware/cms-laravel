@@ -15,6 +15,8 @@ namespace Liberu\Cms\Contracts\Admin;
  * Resources are model-backed CRUD surfaces; pages are standalone Filament pages
  * (used by modules whose state is a registry rather than an Eloquent model, such
  * as themes and widgets).
+ *
+ * @api This interface is part of the public extension API.
  */
 interface AdminResourceRegistryInterface
 {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
-use Liberu\Cms\ContentTypes\Fields\FieldType;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
 use Liberu\Cms\ContentTypes\Schema\InvalidContentData;
@@ -33,7 +32,7 @@ it('exposes its schema as field definitions', function (): void {
 
     expect($definitions)->toHaveCount(2)
         ->and($definitions[0]->name)->toBe('summary')
-        ->and($definitions[0]->type)->toBe(FieldType::Text)
+        ->and($definitions[0]->type)->toBe('text')
         ->and($definitions[0]->required)->toBeTrue();
 });
 

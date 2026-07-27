@@ -6,38 +6,41 @@ namespace Liberu\Cms\Pages\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Core\Database\Concerns\FiltersContentQueries;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Models\Page;
 
 final class PageRepository implements PageRepositoryInterface
 {
+    use FiltersContentQueries;
+
     public function find(int $id): ?Page
     {
-        return Page::query()->find($id);
+        return $this->filterContentQuery('pages.find', Page::query()->whereKey($id))->first();
     }
 
     public function findBySlug(string $slug): ?Page
     {
-        return Page::query()->where('slug', $slug)->first();
+        return $this->filterContentQuery('pages.find_by_slug', Page::query()->where('slug', $slug))->first();
     }
 
     public function published(): array
     {
-        return Page::query()
+        return $this->filterContentQuery('pages.published', Page::query()
             ->where('status', WorkflowState::Published->value)
             ->where(function (Builder $query): void {
                 $query->whereNull('published_at')->orWhere('published_at', '<=', now());
             })
-            ->orderByDesc('published_at')
+            ->orderByDesc('published_at'))
             ->get()
             ->all();
     }
 
     public function roots(): array
     {
-        return Page::query()
+        return $this->filterContentQuery('pages.roots', Page::query()
             ->whereNull('parent_id')
-            ->orderBy('title')
+            ->orderBy('title'))
             ->get()
             ->all();
     }
@@ -46,7 +49,7 @@ final class PageRepository implements PageRepositoryInterface
     {
         $like = '%'.addcslashes($query, '%_\\').'%';
 
-        return Page::query()
+        return $this->filterContentQuery('pages.search', Page::query()
             ->where('status', WorkflowState::Published->value)
             ->where(function (Builder $inner): void {
                 $inner->whereNull('published_at')->orWhere('published_at', '<=', now());
@@ -56,7 +59,7 @@ final class PageRepository implements PageRepositoryInterface
                     ->orWhere('content', 'like', $like)
                     ->orWhere('excerpt', 'like', $like);
             })
-            ->limit($limit)
+            ->limit($limit))
             ->get()
             ->all();
     }

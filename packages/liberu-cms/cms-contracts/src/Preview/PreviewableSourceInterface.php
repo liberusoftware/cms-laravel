@@ -13,6 +13,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * so the preview endpoint can resolve any type without importing a module.
  * Lookups return the item regardless of workflow state; the shared tenancy scope
  * still constrains them to the current tenant.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface PreviewableSourceInterface
 {

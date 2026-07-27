@@ -9,6 +9,8 @@ use Liberu\Cms\Contracts\Events\CmsEvent;
 /**
  * Emitted when a public form submission is accepted and stored. Notification,
  * CRM, and automation modules listen for this to react to new submissions.
+ *
+ * @api This class is part of the public extension API.
  */
 final readonly class FormSubmitted implements CmsEvent
 {

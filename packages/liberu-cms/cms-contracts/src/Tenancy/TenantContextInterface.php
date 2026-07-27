@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Tenancy;
  * request. The API auth middleware sets it from the authenticated Team; the host
  * tenancy resolver reads it before falling back to the Filament panel's tenant,
  * so the panel and the API share one source of truth for tenancy.
+ *
+ * @internal Kernel wiring; not part of the public extension API and may change without notice.
  */
 interface TenantContextInterface
 {

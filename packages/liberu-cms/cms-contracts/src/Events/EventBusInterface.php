@@ -11,6 +11,8 @@ use Closure;
  * events. Wrapping the framework dispatcher keeps the boundary type-safe
  * (only CmsEvent instances cross it) and provides one place to later add
  * cross-application transport without touching any module.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface EventBusInterface
 {

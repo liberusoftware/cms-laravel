@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Module;
  * A module ships exactly one implementation of this contract (its descriptor).
  * The descriptor carries only metadata; it never performs work. Discovery,
  * enable/disable, and boot ordering are driven from the values returned here.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface ModuleInterface
 {

@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Module;
  * The manager is the single authority other systems consult to decide whether
  * a module's functionality should load. Modules never inspect each other's
  * state directly; they ask the manager.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface ModuleManagerInterface
 {

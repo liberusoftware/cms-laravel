@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Seo;
  * for the content it exposes on the public site and registers it with the
  * sitemap registry, so the SEO module aggregates every module's URLs without
  * ever importing a module.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface SitemapUrlProviderInterface
 {
