@@ -5,17 +5,19 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentTypes\Fields;
 
 /**
- * One field in a content type's schema.
+ * One field in a content type's schema. `type` is a field-kind key resolved
+ * through the FieldTypeRegistry (e.g. "text", "number", or a custom "color"),
+ * never a fixed enum, so third-party kinds are first-class.
  */
 final readonly class FieldDefinition
 {
     /**
-     * @param  array<int, string>  $options  Choices for a Select field.
+     * @param  list<string>  $options  Choices for a Select field.
      */
     public function __construct(
         public string $name,
         public string $label,
-        public FieldType $type,
+        public string $type,
         public bool $required = false,
         public array $options = [],
     ) {}
@@ -31,7 +33,7 @@ final readonly class FieldDefinition
         return new self(
             name: is_string($data['name'] ?? null) ? $data['name'] : '',
             label: is_string($data['label'] ?? null) ? $data['label'] : '',
-            type: FieldType::tryFrom(is_string($type) ? $type : 'text') ?? FieldType::Text,
+            type: is_string($type) ? $type : 'text',
             required: (bool) ($data['required'] ?? false),
             options: is_array($options) ? array_values(array_filter($options, is_string(...))) : [],
         );
@@ -45,7 +47,7 @@ final readonly class FieldDefinition
         return [
             'name' => $this->name,
             'label' => $this->label,
-            'type' => $this->type->value,
+            'type' => $this->type,
             'required' => $this->required,
             'options' => $this->options,
         ];

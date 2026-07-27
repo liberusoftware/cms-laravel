@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentTypes\Schema;
 
-use Liberu\Cms\ContentTypes\Fields\FieldType;
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 
 /**
  * Validates a content entry's data against its type's field schema: required
- * fields must be present, values must roughly match their declared type, and
- * fields not in the schema are dropped.
+ * fields must be present, values must roughly match their declared kind (as
+ * defined in the FieldTypeRegistry), and fields not in the schema are dropped.
  */
 final class SchemaValidator
 {
+    public function __construct(private readonly FieldTypeRegistryInterface $registry) {}
+
     /**
      * @param  array<string, mixed>  $data
      * @return array<string, mixed> The data limited to the schema's fields.
@@ -38,13 +40,10 @@ final class SchemaValidator
         return array_intersect_key($data, array_flip($names));
     }
 
-    private function matchesType(FieldType $type, mixed $value): bool
+    private function matchesType(string $type, mixed $value): bool
     {
-        return match ($type) {
-            FieldType::Number => is_int($value) || is_float($value) || (is_string($value) && is_numeric($value)),
-            FieldType::Boolean => is_bool($value),
-            FieldType::Media => is_int($value),
-            default => is_string($value),
-        };
+        $definition = $this->registry->get($type);
+
+        return $definition !== null && ($definition->matches)($value);
     }
 }

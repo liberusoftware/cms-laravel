@@ -9,12 +9,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
@@ -24,12 +21,13 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\ContentTypes\Fields\FieldDefinition;
-use Liberu\Cms\ContentTypes\Fields\FieldType;
 use Liberu\Cms\ContentTypes\Filament\Pages\ListContentEntries;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
+use RuntimeException;
 use UnitEnum;
 
 /**
@@ -146,16 +144,15 @@ final class ContentEntryResource extends Resource
     private static function componentFor(FieldDefinition $field): Field
     {
         $name = "data.{$field->name}";
+        $definition = app(FieldTypeRegistryInterface::class)->get($field->type);
 
-        $component = match ($field->type) {
-            FieldType::Textarea, FieldType::RichText => Textarea::make($name)->rows(5),
-            FieldType::Number => TextInput::make($name)->numeric(),
-            FieldType::Boolean => Toggle::make($name),
-            FieldType::Date => DatePicker::make($name),
-            FieldType::Select => Select::make($name)->options(array_combine($field->options, $field->options)),
-            FieldType::Media => TextInput::make($name)->numeric()->helperText('Media ID'),
-            FieldType::Text => TextInput::make($name)->maxLength(255),
-        };
+        $component = $definition === null
+            ? TextInput::make($name)
+            : ($definition->component)($name, $field->options);
+
+        if (! $component instanceof Field) {
+            throw new RuntimeException("Field type [{$field->type}] did not produce a form field.");
+        }
 
         return $component
             ->label($field->label)
