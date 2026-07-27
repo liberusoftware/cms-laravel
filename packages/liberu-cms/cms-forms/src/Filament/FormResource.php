@@ -20,6 +20,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Forms\Fields\FormFieldType;
 use Liberu\Cms\Forms\Filament\Pages\ListForms;
 use Liberu\Cms\Forms\Models\Form;
@@ -31,6 +32,8 @@ use UnitEnum;
  */
 final class FormResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = Form::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInboxArrowDown;
@@ -42,6 +45,11 @@ final class FormResource extends Resource
     protected static ?string $navigationLabel = 'Forms';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'forms';
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -47,5 +47,8 @@ class CoreSetupSeeder extends Seeder
         // 3. Assign super_admin role
         $admin->assignRole($superAdminRole);
 
+        // 4. Materialise CMS permissions and map them onto the baseline roles so
+        //    the admin (super_admin) can actually use the gated admin panel.
+        $this->call(CmsBaselineRolesSeeder::class);
     }
 }

@@ -24,6 +24,7 @@ use Filament\Tables\Table;
 use Liberu\Cms\ContentTypes\Fields\FieldType;
 use Liberu\Cms\ContentTypes\Filament\Pages\ListContentTypes;
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use UnitEnum;
 
 /**
@@ -32,6 +33,8 @@ use UnitEnum;
  */
 final class ContentTypeResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = ContentType::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
@@ -45,6 +48,11 @@ final class ContentTypeResource extends Resource
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static bool $isScopedToTenant = false;
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'content-types';
+    }
 
     public static function form(Schema $schema): Schema
     {

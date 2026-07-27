@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Liberu\Cms\Media;
 
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
@@ -57,6 +60,12 @@ final class MediaServiceProvider extends ModuleServiceProvider
         if ($this->app->bound(AdminDashboardRegistryInterface::class)) {
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Media', fn (): int => Media::count(), 'heroicon-o-photo', 'primary'),
+            );
+        }
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('media', 'Media', AccessScope::Media, ['view', 'update', 'delete']),
             );
         }
 

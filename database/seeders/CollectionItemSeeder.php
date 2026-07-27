@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Collection;
 use App\Models\CollectionItem;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CollectionItemSeeder extends Seeder

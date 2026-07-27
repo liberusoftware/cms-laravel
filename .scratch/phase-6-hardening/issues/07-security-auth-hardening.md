@@ -1,0 +1,14 @@
+# 07 — Security: authentication hardening
+
+**What to build:** Tighten identity and access defaults — breached-password checks, enforced 2FA for privileged roles, and a defined self-registration → team/role model — closing OWASP A02/A07 recommendations and A04 (insecure design: undefined registration access).
+
+**Blocked by:** 04 (policies/roles) — the 2FA enforcement and default-role assignment reference the role set defined there.
+
+**Status:** DONE (branch `feature/cms-auth-hardening`, not pushed)
+
+- [x] `->uncompromised()` added in `PasswordValidationRules::passwordRules()` — the shared source for registration (`CreateNewUser`), reset (`ResetUserPassword`), and change (`UpdateUserPassword`). The base `TestCase` binds a no-network `UncompromisedVerifier` stub so the suite never calls HaveIBeenPwned; production uses the real verifier.
+- [x] **2FA enforced for privileged roles.** The installed plugin was disabled (`TwoFactorAuthenticationPlugin::make()` never called `->enableTwoFactorAuthentication()`, so its setup route/menu weren't registered) — enabled it. New `EnsureTwoFactorForPrivilegedUsers` panel authMiddleware: a signed-in user holding `super_admin`/`admin` (config `two-factor.privileged_roles`) without 2FA is redirected to `filament.app.two-factor.setup`; 2FA/logout routes are allow-listed to avoid a loop. Non-privileged users pass; `TWO_FACTOR_ENFORCE=false` disables it. Role check pins the permission team to the user's `current_team_id` first (deterministic regardless of tenant-resolution order). Used the plugin's setup page, NOT its force-all `forceTwoFactorSetup()` (which would hit every user).
+- [x] Self-registration → team/role documented in `docs/REGISTRATION-ACCESS.md`: registrant gets a personal team (`createPersonalTeam`) + that team's `super_admin` role scoped to their own tenant (least-privilege per tenant; tenant scoping blocks cross-tenant access). Includes the lock-down knobs (remove `->registration()` / `Features::registration()`, provision by invite) and the deliberate open-registration decision.
+- [x] Throttles confirmed/documented: `login` (5/min) + `two-factor` (5/min) limiters active in `FortifyServiceProvider`; password-reset link throttled by the password broker; email verification feature is currently disabled (noted — enable `Features::emailVerification()` to require it).
+- [x] Behaviour guarantees tested — `tests/Feature/Auth/PasswordHardeningTest.php` (compromised password rejected, uncompromised accepted via `CreateNewUser`) + `tests/Feature/Auth/TwoFactorEnforcementTest.php` (privileged-no-2FA redirected, privileged-with-2FA passes, non-privileged passes, disabled toggle passes).
+- [x] DoD: auth defaults hardened + tested; registration access model documented; Pint + PHPStan max clean; full suite **554 green on SQLite** (MySQL + Postgres via ticket-03 CI matrix).

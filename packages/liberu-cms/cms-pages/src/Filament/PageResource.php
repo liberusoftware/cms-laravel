@@ -20,6 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Pages\Filament\Pages\ListPages;
 use Liberu\Cms\Pages\Models\Page;
 use UnitEnum;
@@ -31,6 +32,8 @@ use UnitEnum;
  */
 final class PageResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = Page::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
@@ -42,6 +45,11 @@ final class PageResource extends Resource
     protected static ?string $navigationLabel = 'Pages';
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'pages';
+    }
 
     public static function form(Schema $schema): Schema
     {

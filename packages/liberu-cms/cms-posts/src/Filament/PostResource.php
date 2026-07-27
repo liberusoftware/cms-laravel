@@ -22,6 +22,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Posts\Filament\Pages\ListPosts;
 use Liberu\Cms\Posts\Models\Post;
 use UnitEnum;
@@ -32,6 +33,8 @@ use UnitEnum;
  */
 final class PostResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = Post::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
@@ -43,6 +46,11 @@ final class PostResource extends Resource
     protected static ?string $navigationLabel = 'Posts';
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'posts';
+    }
 
     public static function form(Schema $schema): Schema
     {

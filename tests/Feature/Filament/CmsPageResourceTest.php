@@ -17,6 +17,7 @@ beforeEach(function (): void {
     $this->user = User::factory()->create();
     $this->team = Team::factory()->create(['user_id' => $this->user->id]);
     $this->actingAs($this->user);
+    grantCmsPermissions($this->user, $this->team, ['pages.view', 'pages.create', 'pages.update', 'pages.delete']);
 
     $panel = Filament::getPanel('app');
     Filament::setCurrentPanel($panel);

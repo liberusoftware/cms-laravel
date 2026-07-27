@@ -17,6 +17,7 @@ beforeEach(function (): void {
     $this->user = User::factory()->create();
     $this->team = Team::factory()->create(['user_id' => $this->user->id]);
     $this->actingAs($this->user);
+    grantCmsPermissions($this->user, $this->team, ['notification-logs.view', 'notification-logs.delete']);
 
     $panel = Filament::getPanel('app');
     Filament::setCurrentPanel($panel);

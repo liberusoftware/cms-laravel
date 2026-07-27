@@ -5,11 +5,12 @@ work continues; revisit when the owning phase arrives.
 
 ## Architecture & dependencies
 
-1. **`internachi/modular` is now unused.** Phase 0 hand-rolls
-   `packages/liberu-cms/*` (project decision). The `internachi/modular` package and
-   its `app-modules/` autoload/testsuite wiring remain installed but unused.
-   **Default:** leave installed for now. **Decision needed:** remove it (and the
-   `Modules\` autoload + `app-modules/*` phpunit entry) to avoid two module systems.
+1. **`internachi/modular` — RESOLVED (Phase 6).** It was never used (Phase 0
+   hand-rolls `packages/liberu-cms/*`). Removed the package from `composer.json`,
+   the `Modules\` autoload entry, and the `app-modules/*` PHPUnit testsuite entry
+   (the `app-modules/` scaffold never existed on disk). The repo now has exactly one
+   module system. Removing it also dropped its `composer/composer` subtree, which
+   cleared the transitive advisories behind Question 7.
 
 2. **Filament Shield vs. `spatie/laravel-permission`. — RESOLVED (Phase 1).**
    They are layered, not competing: Spatie is the permission engine (stores
@@ -48,30 +49,43 @@ work continues; revisit when the owning phase arrives.
    is scoped to Phase 0 code (`packages/liberu-cms`, `tests/*/Cms`), which is clean.
    **Decision needed:** run repo-wide `pint` in a dedicated formatting commit.
 
-5. **PHPStan scope.** Max level runs on `packages/liberu-cms/*/src` only. **Decision
-   needed:** raise the pre-existing `app/` to a baseline (e.g. level 5) then climb.
+5. **PHPStan scope — RESOLVED (Phase 6).** `app/` and `database/` are now in the
+   analysed paths. The whole repo runs at **level max**; the CMS packages are
+   already clean, so the 173 pre-existing host errors are frozen in
+   `phpstan-baseline.neon`. CI is green including the host code. **Climb intent:**
+   burn down the baseline over time (delete entries as the underlying errors are
+   fixed); never regenerate it to absorb *new* errors — new host code must pass at
+   max like everything else.
 
-6. **Infection is non-blocking.** Local Herd PHP has no pcov/xdebug, so MSI could not
-   be measured here; the CI step runs with `continue-on-error: true`. **Decision
-   needed:** calibrate `minMsi`/`minCoveredMsi` against a real CI run, then make it
-   blocking.
+6. **Infection is non-blocking — two-step flip in progress (Phase 6).** Local Herd
+   PHP 8.5 has no pcov/xdebug, so MSI still can't be measured on the dev box. CI now
+   has `coverage: pcov` wired, and the Infection step is intentionally kept
+   `continue-on-error: true` for one **calibration run** that prints the kernel's
+   real MSI / Covered Code MSI (cms-core + cms-contracts scope). **Remaining step:**
+   read those two numbers from the CI log, set `minMsi`/`minCoveredMsi` in
+   `infection.json` just under them, and delete `continue-on-error: true` to make the
+   gate blocking. Widening the Infection scope beyond the kernel is deferred.
 
 ## Security
 
-7. **`audit.block-insecure: false`.** Enables the module `composer update` workflow
-   on this locked dev stack (upstream transitive advisories on guzzle, psr7,
-   composer/composer). `composer install` (CI) does not re-solve and is unaffected.
-   **Mitigation:** keep `composer audit` in `.github/workflows/security.yml` as the
-   reporting gate. **Decision needed:** revisit once upstream deps clear the
-   advisories.
+7. **`audit.block-insecure` — RESOLVED (Phase 6): now `true`.** The advisories that
+   forced it `false` came from the `composer/composer` subtree pulled in by the
+   unused `internachi/modular` (Question 1); removing that package cleared them, and
+   phpseclib was bumped to 3.0.55 (CVE-2026-55599). `composer audit` is now a
+   **blocking** job in `.github/workflows/security.yml`, and `block-insecure: true`
+   enforces the same gate on every local `composer update`. Re-audit if a future
+   advisory appears (bump the affected dep rather than reopening the loophole).
 
 ## Dev environment
 
-8. **PostgreSQL not in `docker-compose.yml`.** Compose ships MySQL + Redis +
-   Meilisearch + Mailpit. Database code is written portably (schema/query builder),
-   but the dev stack only spins up MySQL. **Default:** MySQL for dev. **Decision
-   needed:** add a `postgres` service behind a compose profile and run the suite
-   against both in CI (Phase 6 portability DoD).
+8. **PostgreSQL portability — RESOLVED (Phase 6, ticket 03).** A `postgres`
+   service now sits behind a `postgres` compose profile (MySQL stays the default
+   dev DB), and `.github/workflows/tests.yml` runs the full Pest suite across a
+   `sqlite`/`mysql`/`pgsql` matrix — the portability DoD. Two engine-specific
+   bugs the Postgres leg would surface were fixed: `content_entries.data` is now
+   `longText` (Postgres rejects `LIKE` against a `json` column, which the search
+   query needs), and `DatabaseModuleStateRepository` normalises boolean reads
+   explicitly (pdo_pgsql can return `'t'`/`'f'`, and `(bool) 'f'` is `true`).
 
 ## Framework
 

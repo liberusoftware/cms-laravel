@@ -7,6 +7,9 @@ namespace Liberu\Cms\Forms;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
@@ -45,6 +48,12 @@ final class CmsFormsServiceProvider extends ModuleServiceProvider
         $this->loadModuleMigrations(__DIR__.'/../database/migrations');
         $this->configureRateLimiting();
         $this->loadModuleRoutesFrom(__DIR__.'/../routes/web.php');
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $registrar = $this->app->make(PermissionRegistrarInterface::class);
+            $registrar->register(new PermissionGroup('forms', 'Forms', AccessScope::Content, ['view', 'create', 'update', 'delete']));
+            $registrar->register(new PermissionGroup('form-submissions', 'Form submissions', AccessScope::Content, ['view', 'delete']));
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

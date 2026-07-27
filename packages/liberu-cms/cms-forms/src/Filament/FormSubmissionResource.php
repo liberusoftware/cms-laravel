@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Forms\Filament\Pages\ListFormSubmissions;
 use Liberu\Cms\Forms\Models\FormSubmission;
 use UnitEnum;
@@ -22,6 +23,8 @@ use UnitEnum;
  */
 final class FormSubmissionResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = FormSubmission::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInbox;
@@ -31,6 +34,11 @@ final class FormSubmissionResource extends Resource
     protected static ?string $slug = 'cms-form-submissions';
 
     protected static ?string $navigationLabel = 'Form submissions';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'form-submissions';
+    }
 
     public static function canCreate(): bool
     {

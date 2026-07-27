@@ -14,7 +14,6 @@
         "bursteri/socialstream": "^7.0",
         "filament/filament": "^5.0",
         "filament/spatie-laravel-settings-plugin": "^5.0",
-        "internachi/modular": "^3.0",
         "laravel/framework": "^13.0",
         "laravel/horizon": "^5.47",
         "laravel/jetstream": "^5.1",
@@ -24,6 +23,7 @@
         "laravel/tinker": "^3.0",
         "liberu-cms/cms-admin": "*",
         "liberu-cms/cms-api": "*",
+        "liberu-cms/cms-audit": "*",
         "liberu-cms/cms-blocks": "*",
         "liberu-cms/cms-content": "*",
         "liberu-cms/cms-content-types": "*",
@@ -66,8 +66,7 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "Modules\\": "app-modules/"
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
@@ -131,7 +130,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "audit": {
-            "block-insecure": false
+            "block-insecure": true
         },
         "allow-plugins": {
             "pestphp/pest-plugin": true,

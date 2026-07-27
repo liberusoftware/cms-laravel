@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\EnsureTwoFactorForPrivilegedUsers;
 use App\Http\Middleware\SetPermissionsTeam;
 use App\Models\Team;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -69,11 +70,13 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                EnsureTwoFactorForPrivilegedUsers::class,
             ])
             ->plugins([
                 CmsAdminPlugin::make(),
                 new SocialstreamPlugin,
-                TwoFactorAuthenticationPlugin::make(),
+                TwoFactorAuthenticationPlugin::make()
+                    ->enableTwoFactorAuthentication(),
                 FilamentShieldPlugin::make()
                     ->navigationGroup('Administration')
                     ->tenantOwnershipRelationshipName('teams'),

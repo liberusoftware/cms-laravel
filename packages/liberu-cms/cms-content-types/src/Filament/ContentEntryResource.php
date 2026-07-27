@@ -29,6 +29,7 @@ use Liberu\Cms\ContentTypes\Filament\Pages\ListContentEntries;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use UnitEnum;
 
 /**
@@ -39,6 +40,8 @@ use UnitEnum;
  */
 final class ContentEntryResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = ContentEntry::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInboxStack;
@@ -50,6 +53,11 @@ final class ContentEntryResource extends Resource
     protected static ?string $navigationLabel = 'Content Entries';
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'content-entries';
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Menus;
 
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
@@ -50,6 +53,12 @@ final class MenusServiceProvider extends ModuleServiceProvider
         if ($this->app->bound(AdminDashboardRegistryInterface::class)) {
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Menus', fn (): int => Menu::count(), 'heroicon-o-bars-3', 'primary'),
+            );
+        }
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('menus', 'Menus', AccessScope::Content, ['view', 'create', 'update', 'delete']),
             );
         }
     }

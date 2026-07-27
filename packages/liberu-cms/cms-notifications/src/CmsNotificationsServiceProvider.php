@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Notifications;
 
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Events\Content\ContentPublished;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
@@ -52,6 +55,12 @@ final class CmsNotificationsServiceProvider extends ModuleServiceProvider
             $this->app->make(EventBusInterface::class),
             $this->app->make(NotificationDispatcher::class),
         );
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('notification-logs', 'Notification logs', AccessScope::Module, ['view', 'delete']),
+            );
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

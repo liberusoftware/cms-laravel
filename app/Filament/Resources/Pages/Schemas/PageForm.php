@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Pages\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class PageForm
@@ -26,7 +26,7 @@ class PageForm
                         'default' => 'Default',
                         'home' => 'Home',
                     ])
-                    ->required(),                
+                    ->required(),
                 TextInput::make('status')
                     ->required()
                     ->default('draft'),

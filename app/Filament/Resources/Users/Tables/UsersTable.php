@@ -15,7 +15,7 @@ class UsersTable
     {
         return $table
             ->columns([
-                ImageColumn::make('profile_photo_url')->label(""),
+                ImageColumn::make('profile_photo_url')->label(''),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('email')

@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use App\Models\Collection;
 use App\Models\CollectionItem;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -27,7 +29,7 @@ class CollectionModelTest extends TestCase
 
     public function test_collection_has_fillable_attributes(): void
     {
-        $collection = new Collection();
+        $collection = new Collection;
 
         $this->assertContains('name', $collection->getFillable());
         $this->assertContains('slug', $collection->getFillable());
@@ -35,30 +37,30 @@ class CollectionModelTest extends TestCase
 
     public function test_collection_has_many_items(): void
     {
-        $collection = new Collection();
+        $collection = new Collection;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\HasMany::class,
+            HasMany::class,
             $collection->items()
         );
     }
 
     public function test_collection_has_many_categories(): void
     {
-        $collection = new Collection();
+        $collection = new Collection;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\HasMany::class,
+            HasMany::class,
             $collection->categories()
         );
     }
 
     public function test_collection_belongs_to_team(): void
     {
-        $collection = new Collection();
+        $collection = new Collection;
 
         $this->assertInstanceOf(
-            \Illuminate\Database\Eloquent\Relations\BelongsTo::class,
+            BelongsTo::class,
             $collection->team()
         );
     }
@@ -69,7 +71,7 @@ class CollectionModelTest extends TestCase
         $collection = Collection::factory()->create();
         CollectionItem::factory()->count(3)->create([
             'collection_id' => $collection->id,
-            'user_id'       => $user->id,
+            'user_id' => $user->id,
         ]);
 
         $this->assertCount(3, $collection->items);

@@ -35,24 +35,36 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 
 1. **Pest 5, not Pest 4.** The repo already required `pestphp/pest:5.x-dev`; the
    foundation guidelines mention Pest 4. We build on what is installed (Pest 5).
-2. **Module system: hand-rolled `packages/liberu-cms/*`.** `internachi/modular`
-   is installed but Phase 0 uses hand-rolled path-repository packages (namespace
-   `Liberu\Cms\*`) per an explicit project decision, matching Part A §4's literal
-   layout. See [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
+2. **Module system: hand-rolled `packages/liberu-cms/*`.** The CMS uses hand-rolled
+   path-repository packages (namespace `Liberu\Cms\*`) per an explicit project
+   decision, matching Part A §4's literal layout. `internachi/modular` was removed
+   in Phase 6 (it was never used) so the repo now has exactly one module system.
+   See [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
 3. **Laravel 13 confirmed.** The source material mentions both "Laravel 13"
    (target) and "Laravel 12 foundation" in one place. Laravel 13 is viable and
    installed, so 13 is the resolved target.
-4. **`config.audit.block-insecure: false`.** Required so the module workflow
-   (`composer update liberu-cms/*`) can re-solve on this locked dev stack, whose
-   upstream transitive deps carry advisories. `composer install` (CI) is
-   unaffected; advisories are still surfaced by `composer audit` in the security
-   workflow. Security tradeoff tracked in [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
-5. **PHPStan scoped to the CMS packages.** Running max level over the pre-existing
-   `app/` would flood with findings unrelated to Phase 0; raising `app/` is future
-   work (tracked).
+4. **`config.audit.block-insecure: true` (Phase 6).** Re-enabled once the tree was
+   clean: removing the unused `internachi/modular` dropped its `composer/composer`
+   subtree (the source of the transitive advisories), and phpseclib was bumped to
+   3.0.55 (CVE-2026-55599). `composer audit` now runs as a **blocking** job in the
+   security workflow, and `block-insecure: true` enforces the same gate on every
+   local `composer update`.
+5. **PHPStan covers the whole repo (Phase 6).** Max level now analyses `app/` and
+   `database/` alongside the CMS packages; the 173 pre-existing host findings are
+   frozen in `phpstan-baseline.neon` and burned down over time. The CMS packages
+   remain clean at max with no baseline entries.
+6. **`content_entries.data` is `longText`, not `json` (Phase 6, ticket 03).** The
+   Delivery-API search runs a portable `LIKE` over the raw payload, and PostgreSQL
+   rejects `LIKE` against a `json`/`jsonb` column. The model's `array` cast still
+   (de)serialises it transparently, so nothing above the schema changed. Other JSON
+   columns (forms `fields`, submissions `data`/`meta`, content-types `fields`) stay
+   `json` — they are only ever array-cast, never queried with SQL.
 
 ## Dev environment (Docker / Sail)
 
 `docker-compose.yml` boots app (Octane/RoadRunner), queue worker, MySQL, Redis,
 Mailpit, and **Meilisearch** (search). PHP build arg corrected to 8.5. A
-PostgreSQL profile is not yet included — see [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
+**PostgreSQL** service sits behind the `postgres` compose profile (`docker compose
+--profile postgres up`); MySQL remains the default dev DB. CI proves portability by
+running the full Pest suite against sqlite, mysql, and pgsql — see
+[OPEN-QUESTIONS #8](OPEN-QUESTIONS.md).

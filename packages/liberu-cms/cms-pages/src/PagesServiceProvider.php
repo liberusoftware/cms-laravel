@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Pages;
 
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
@@ -74,6 +77,12 @@ final class PagesServiceProvider extends ModuleServiceProvider
         if ($this->app->bound(SearchRegistryInterface::class)) {
             $this->app->make(SearchRegistryInterface::class)
                 ->registerSource($this->app->make(PageSearchSource::class));
+        }
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('pages', 'Pages', AccessScope::Content, ['view', 'create', 'update', 'delete']),
+            );
         }
 
         if ($this->app->runningInConsole()) {
