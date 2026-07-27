@@ -20,6 +20,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Contracts\Hooks\Filters\AdminFormSchemaFilter;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Pages\Filament\Pages\ListPages;
 use Liberu\Cms\Pages\Models\Page;
@@ -53,7 +55,7 @@ final class PageResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema->components([
+        $components = [
             Section::make()
                 ->columns(2)
                 ->schema([
@@ -84,7 +86,11 @@ final class PageResource extends Resource
                         ->rows(10)
                         ->columnSpanFull(),
                 ]),
-        ]);
+        ];
+
+        return $schema->components(
+            app(HookBusInterface::class)->apply(new AdminFormSchemaFilter($components, 'pages'))->components
+        );
     }
 
     public static function table(Table $table): Table

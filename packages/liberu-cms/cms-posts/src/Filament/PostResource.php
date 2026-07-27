@@ -22,6 +22,8 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Contracts\Hooks\Filters\AdminFormSchemaFilter;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Posts\Filament\Pages\ListPosts;
 use Liberu\Cms\Posts\Models\Post;
@@ -54,7 +56,7 @@ final class PostResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema->components([
+        $components = [
             Section::make()
                 ->columns(2)
                 ->schema([
@@ -90,7 +92,11 @@ final class PostResource extends Resource
                         ->rows(10)
                         ->columnSpanFull(),
                 ]),
-        ]);
+        ];
+
+        return $schema->components(
+            app(HookBusInterface::class)->apply(new AdminFormSchemaFilter($components, 'posts'))->components
+        );
     }
 
     public static function table(Table $table): Table

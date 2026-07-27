@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\Core\Http\Concerns\FiltersApiResource;
 
 /**
  * The Delivery API wire shape for a Content-Entry: its type key, title, slug,
@@ -18,6 +19,8 @@ use Liberu\Cms\ContentTypes\Models\ContentType;
  */
 final class ContentEntryResource extends JsonResource
 {
+    use FiltersApiResource;
+
     /**
      * @return array<string, mixed>
      */
@@ -25,13 +28,13 @@ final class ContentEntryResource extends JsonResource
     {
         $type = $this->type;
 
-        return [
+        return $this->withApiResourceFilter([
             'id' => $this->id,
             'type' => $type instanceof ContentType ? $type->key : null,
             'title' => $this->title,
             'slug' => $this->slug,
             'fields' => $this->data ?? [],
             'published_at' => $this->publishedAt()?->format(\DateTimeInterface::ATOM),
-        ];
+        ]);
     }
 }
