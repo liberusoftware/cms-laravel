@@ -14,6 +14,9 @@ use Liberu\Cms\Contracts\Module\ModuleRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleStateRepositoryInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
+use Liberu\Cms\Core\Console\MakeBlockCommand;
+use Liberu\Cms\Core\Console\MakeFieldTypeCommand;
+use Liberu\Cms\Core\Console\MakeHookCommand;
 use Liberu\Cms\Core\Console\MakeModuleCommand;
 use Liberu\Cms\Core\Events\EventBus;
 use Liberu\Cms\Core\Hooks\HookBus;
@@ -87,6 +90,9 @@ final class CmsCoreServiceProvider extends ServiceProvider
 
             $this->commands([
                 MakeModuleCommand::class,
+                MakeBlockCommand::class,
+                MakeHookCommand::class,
+                MakeFieldTypeCommand::class,
             ]);
         }
     }
