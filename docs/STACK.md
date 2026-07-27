@@ -53,9 +53,18 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
    `database/` alongside the CMS packages; the 173 pre-existing host findings are
    frozen in `phpstan-baseline.neon` and burned down over time. The CMS packages
    remain clean at max with no baseline entries.
+6. **`content_entries.data` is `longText`, not `json` (Phase 6, ticket 03).** The
+   Delivery-API search runs a portable `LIKE` over the raw payload, and PostgreSQL
+   rejects `LIKE` against a `json`/`jsonb` column. The model's `array` cast still
+   (de)serialises it transparently, so nothing above the schema changed. Other JSON
+   columns (forms `fields`, submissions `data`/`meta`, content-types `fields`) stay
+   `json` — they are only ever array-cast, never queried with SQL.
 
 ## Dev environment (Docker / Sail)
 
 `docker-compose.yml` boots app (Octane/RoadRunner), queue worker, MySQL, Redis,
 Mailpit, and **Meilisearch** (search). PHP build arg corrected to 8.5. A
-PostgreSQL profile is not yet included — see [OPEN-QUESTIONS](OPEN-QUESTIONS.md).
+**PostgreSQL** service sits behind the `postgres` compose profile (`docker compose
+--profile postgres up`); MySQL remains the default dev DB. CI proves portability by
+running the full Pest suite against sqlite, mysql, and pgsql — see
+[OPEN-QUESTIONS #8](OPEN-QUESTIONS.md).

@@ -55,7 +55,21 @@ final class DatabaseModuleStateRepository implements ModuleStateRepositoryInterf
             return $default;
         }
 
-        return $this->cache[$key] = (bool) $value;
+        return $this->cache[$key] = $this->normalizeBool($value);
+    }
+
+    /**
+     * Normalise a boolean read straight off the driver. PostgreSQL's pdo_pgsql
+     * can hand back `'t'`/`'f'` strings, and `(bool) 'f'` is `true` — so cast
+     * against the known falsey representations instead of leaning on `(bool)`.
+     */
+    private function normalizeBool(mixed $value): bool
+    {
+        if (is_bool($value)) {
+            return $value;
+        }
+
+        return ! in_array($value, [0, '0', 'f', 'false', 'off', 'no', ''], true);
     }
 
     public function setEnabled(string $key, bool $enabled): void

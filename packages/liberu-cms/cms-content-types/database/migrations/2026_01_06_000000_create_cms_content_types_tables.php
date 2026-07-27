@@ -25,7 +25,10 @@ return new class extends Migration
             $table->foreignId('content_type_id')->constrained('cms_content_types')->cascadeOnDelete();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->json('data')->nullable();
+            // longText, not json: search() runs a portable `LIKE` over the raw
+            // payload, and PostgreSQL rejects `LIKE` against a json/jsonb column.
+            // The model's `array` cast still (de)serializes it transparently.
+            $table->longText('data')->nullable();
             $table->string('status')->default('draft')->index();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

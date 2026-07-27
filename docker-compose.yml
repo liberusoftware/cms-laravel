@@ -73,6 +73,26 @@ services:
       timeout: 5s
       retries: 5
 
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - '${FORWARD_PG_PORT:-5432}:5432'
+    environment:
+      POSTGRES_DB: '${DB_DATABASE:-liberu}'
+      POSTGRES_USER: '${DB_USERNAME:-liberu}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - appnet
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${DB_USERNAME:-liberu} -d ${DB_DATABASE:-liberu}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles:
+      - postgres
+
   redis:
     image: redis:7-alpine
     ports:
@@ -118,6 +138,8 @@ networks:
 
 volumes:
   mysql:
+    driver: local
+  postgres:
     driver: local
   redis:
     driver: local

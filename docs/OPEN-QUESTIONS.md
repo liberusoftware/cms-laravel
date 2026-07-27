@@ -78,11 +78,14 @@ work continues; revisit when the owning phase arrives.
 
 ## Dev environment
 
-8. **PostgreSQL not in `docker-compose.yml`.** Compose ships MySQL + Redis +
-   Meilisearch + Mailpit. Database code is written portably (schema/query builder),
-   but the dev stack only spins up MySQL. **Default:** MySQL for dev. **Decision
-   needed:** add a `postgres` service behind a compose profile and run the suite
-   against both in CI (Phase 6 portability DoD).
+8. **PostgreSQL portability — RESOLVED (Phase 6, ticket 03).** A `postgres`
+   service now sits behind a `postgres` compose profile (MySQL stays the default
+   dev DB), and `.github/workflows/tests.yml` runs the full Pest suite across a
+   `sqlite`/`mysql`/`pgsql` matrix — the portability DoD. Two engine-specific
+   bugs the Postgres leg would surface were fixed: `content_entries.data` is now
+   `longText` (Postgres rejects `LIKE` against a `json` column, which the search
+   query needs), and `DatabaseModuleStateRepository` normalises boolean reads
+   explicitly (pdo_pgsql can return `'t'`/`'f'`, and `(bool) 'f'` is `true`).
 
 ## Framework
 
