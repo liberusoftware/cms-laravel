@@ -23,6 +23,7 @@
         "laravel/tinker": "^3.0",
         "liberu-cms/cms-admin": "*",
         "liberu-cms/cms-api": "*",
+        "liberu-cms/cms-audit": "*",
         "liberu-cms/cms-blocks": "*",
         "liberu-cms/cms-content": "*",
         "liberu-cms/cms-content-types": "*",

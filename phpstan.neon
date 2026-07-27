@@ -13,6 +13,7 @@ parameters:
         - database
         - packages/liberu-cms/cms-admin/src
         - packages/liberu-cms/cms-api/src
+        - packages/liberu-cms/cms-audit/src
         - packages/liberu-cms/cms-blocks/src
         - packages/liberu-cms/cms-content/src
         - packages/liberu-cms/cms-content-types/src

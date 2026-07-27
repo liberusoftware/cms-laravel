@@ -1,0 +1,97 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Models\Team;
+use App\Models\User;
+use Filament\Facades\Filament;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
+use Liberu\Cms\Audit\Filament\AuditLogResource;
+use Liberu\Cms\Audit\Models\AuditLog;
+use Liberu\Cms\Contracts\Content\WorkflowState;
+use Liberu\Cms\Contracts\Events\Content\ContentPublished;
+use Liberu\Cms\Contracts\Events\Content\ContentStateChanged;
+use Liberu\Cms\Contracts\Events\EventBusInterface;
+
+uses(RefreshDatabase::class);
+
+it('records a successful login with the actor', function (): void {
+    $user = User::factory()->create(['email' => 'editor@example.com']);
+
+    Auth::login($user);
+
+    $log = AuditLog::query()->where('action', 'auth.login')->sole();
+    expect($log->actor_id)->toBe((string) $user->id)
+        ->and($log->actor_label)->toBe('editor@example.com');
+});
+
+it('records a failed login attempt with the attempted email but no actor', function (): void {
+    Auth::attempt(['email' => 'ghost@example.com', 'password' => 'wrong-password']);
+
+    $log = AuditLog::query()->where('action', 'auth.failed')->sole();
+    expect($log->actor_id)->toBeNull()
+        ->and($log->actor_label)->toBe('ghost@example.com');
+});
+
+it('records a logout', function (): void {
+    $user = User::factory()->create();
+    Auth::login($user);
+    Auth::logout();
+
+    expect(AuditLog::query()->where('action', 'auth.logout')->count())->toBe(1);
+});
+
+it('records a content publish with its subject', function (): void {
+    app(EventBusInterface::class)->dispatch(new ContentPublished('page', 42));
+
+    $log = AuditLog::query()->where('action', 'content.published')->sole();
+    expect($log->subject_type)->toBe('page')
+        ->and($log->subject_id)->toBe('42');
+});
+
+it('records a workflow state change with from/to metadata', function (): void {
+    app(EventBusInterface::class)->dispatch(
+        new ContentStateChanged('post', 7, WorkflowState::Draft, WorkflowState::Published),
+    );
+
+    $log = AuditLog::query()->where('action', 'content.state_changed')->sole();
+    expect($log->subject_id)->toBe('7')
+        ->and($log->metadata)->toBe(['from' => 'draft', 'to' => 'published']);
+});
+
+it('produces exactly one row per event', function (): void {
+    app(EventBusInterface::class)->dispatch(new ContentPublished('page', 1));
+
+    expect(AuditLog::query()->count())->toBe(1);
+});
+
+it('refuses to update an audit record', function (): void {
+    $log = AuditLog::query()->create(['action' => 'auth.login']);
+
+    expect(fn () => $log->update(['action' => 'tampered']))
+        ->toThrow(RuntimeException::class);
+});
+
+it('refuses to delete an audit record', function (): void {
+    $log = AuditLog::query()->create(['action' => 'auth.login']);
+
+    expect(fn () => $log->delete())->toThrow(RuntimeException::class);
+});
+
+it('gates the viewer behind the audit.view permission', function (): void {
+    $user = User::factory()->create();
+    $team = Team::factory()->create(['user_id' => $user->id]);
+    $this->actingAs($user);
+    Filament::setCurrentPanel(Filament::getPanel('app'));
+    Filament::setTenant($team);
+    setPermissionsTeamId($team->id);
+
+    expect(AuditLogResource::canViewAny())->toBeFalse();
+
+    grantCmsPermissions($user, $team, ['audit.view']);
+
+    expect(AuditLogResource::canViewAny())->toBeTrue()
+        ->and(AuditLogResource::canCreate())->toBeFalse()
+        ->and(AuditLogResource::canDelete(new AuditLog))->toBeFalse();
+});
