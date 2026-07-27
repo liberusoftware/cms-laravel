@@ -5214,9 +5214,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/liberu-cms/cms-hello",
-                "reference": "45fa7447bc47bdf84865be864daa6ff6f983487d"
+                "reference": "10af79d5c5826d7c7a3033a2f1f9260cf0c9f284"
             },
             "require": {
+                "filament/filament": "^5.0",
                 "liberu-cms/cms-contracts": "*",
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"

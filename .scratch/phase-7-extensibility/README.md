@@ -7,16 +7,16 @@ runtime plugin install (extensions are Composer packages added at deploy time).
 Foundation-first order; each ticket is a stacked feature branch (user pushes/PRs
 bottom-up). Base: new branch off `feature/cms-auth-hardening` HEAD (`2538bf1`).
 
-Full design: `docs/specs/phase-7-extensibility.md`.
+Full design: `docs/specs/phase-7-extensibility.md`. **Status: COMPLETE — all six tickets done** (branch `feature/cms-hooks`, not pushed).
 
-| # | Ticket | Workstream | Blocked by |
-|---|--------|-----------|-----------|
-| 01 | HookBus foundation (tracer: block render) | Hooks | — (first) |
-| 02 | Remaining 3 core filter points | Hooks | 01 |
-| 03 | `FieldTypeRegistry` (open closed seam) | Extension points | — (parallelizable; stacked after 02) |
-| 04 | Scaffolding generators | DX | 01 + 03 |
-| 05 | Public contract catalog + stability | Public API | 01 + 03 (+ 02) |
-| 06 | Reference extension (`cms-hello`) + dev guide | Docs / proof | all |
+| # | Ticket | Workstream | Status |
+|---|--------|-----------|--------|
+| 01 | HookBus foundation (tracer: block render) | Hooks | ✅ done (21d7d5a) |
+| 02 | Remaining 3 core filter points | Hooks | ✅ done (676ad35) |
+| 03 | `FieldTypeRegistry` (open closed seam) | Extension points | ✅ done (beed908) |
+| 04 | Scaffolding generators | DX | ✅ done (735b96f) |
+| 05 | Public contract catalog + stability | Public API | ✅ done (e81da7c) |
+| 06 | Reference extension (`cms-hello`) + dev guide | Docs / proof | ✅ done |
 
 Deferred to a later increment: extension **settings surface**, **version-compat
 declaration**, **webhooks**. After Phase 7: Phase 6.5 (Performance / Observability /

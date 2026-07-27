@@ -1,8 +1,8 @@
 # Phase 7 — Extensibility (plan)
 
-Status: **planned** (not started). Base branch: new branch off
-`feature/cms-auth-hardening` HEAD (`2538bf1`), continuing the stacked,
-push-bottom-up workflow used through Phases 5–6.
+Status: **COMPLETE** (branch `feature/cms-hooks`, off `feature/cms-auth-hardening`
+HEAD `2538bf1`, continuing the stacked, push-bottom-up workflow used through
+Phases 5–6). All six tickets done; see `.scratch/phase-7-extensibility/`.
 
 ## Thesis
 
