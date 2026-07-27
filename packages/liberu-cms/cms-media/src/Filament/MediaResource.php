@@ -17,6 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Media\Filament\Pages\ListMedia;
 use Liberu\Cms\Media\Models\Media;
 use UnitEnum;
@@ -29,6 +30,8 @@ use UnitEnum;
  */
 final class MediaResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = Media::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
@@ -40,6 +43,11 @@ final class MediaResource extends Resource
     protected static ?string $navigationLabel = 'Media';
 
     protected static ?string $recordTitleAttribute = 'file_name';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'media';
+    }
 
     public static function canCreate(): bool
     {

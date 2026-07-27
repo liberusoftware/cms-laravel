@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Notifications\Filament\Pages\ListNotificationLogs;
 use Liberu\Cms\Notifications\Models\NotificationLog;
 use UnitEnum;
@@ -23,6 +24,8 @@ use UnitEnum;
  */
 final class NotificationLogResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = NotificationLog::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBellAlert;
@@ -34,6 +37,11 @@ final class NotificationLogResource extends Resource
     protected static ?string $navigationLabel = 'Notifications';
 
     protected static bool $isScopedToTenant = false;
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'notification-logs';
+    }
 
     public static function canCreate(): bool
     {

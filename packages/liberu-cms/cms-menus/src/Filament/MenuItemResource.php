@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
 use Liberu\Cms\Menus\Filament\Pages\ListMenuItems;
 use Liberu\Cms\Menus\Models\MenuItem;
 use UnitEnum;
@@ -28,6 +29,8 @@ use UnitEnum;
  */
 final class MenuItemResource extends Resource
 {
+    use AuthorizesWithPermissions;
+
     protected static ?string $model = MenuItem::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLink;
@@ -39,6 +42,11 @@ final class MenuItemResource extends Resource
     protected static ?string $navigationLabel = 'Menu Items';
 
     protected static ?string $recordTitleAttribute = 'label';
+
+    protected static function cmsPermissionKey(): string
+    {
+        return 'menus';
+    }
 
     public static function form(Schema $schema): Schema
     {

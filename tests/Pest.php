@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Config\Repository;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\ConnectionResolverInterface;
@@ -8,9 +10,30 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Facade;
 use Liberu\Cms\Core\CmsCoreServiceProvider;
 use Liberu\Cms\Hello\HelloServiceProvider;
+use Liberu\Cms\Users\Access\SyncPermissions;
+use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
 uses(TestCase::class)->in('Feature', 'Unit');
+
+/**
+ * Materialise the module-declared CMS permissions and grant the given subset to
+ * a user within their team's permission scope (via a dedicated test role). Used
+ * by the Filament resource tests, which are gated by module-owned permissions.
+ *
+ * @param  array<int, string>  $permissions  Fully-qualified names, e.g. ["pages.view"].
+ */
+function grantCmsPermissions(User $user, Team $team, array $permissions): void
+{
+    setPermissionsTeamId($team->id);
+    app(SyncPermissions::class)();
+
+    $role = Role::firstOrCreate(['name' => 'cms-test', 'team_id' => $team->id, 'guard_name' => 'web']);
+    $role->givePermissionTo($permissions);
+    $user->syncRoles([$role]);
+
+    setPermissionsTeamId($team->id);
+}
 
 /**
  * Boot the CMS kernel and the Hello module inside a fresh, bare Laravel

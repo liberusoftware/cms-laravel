@@ -14,6 +14,9 @@ use Liberu\Cms\ContentTypes\Preview\ContentEntryPreviewSource;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
 use Liberu\Cms\ContentTypes\Search\ContentEntrySearchSource;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
@@ -70,6 +73,12 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
         if ($this->app->bound(SearchRegistryInterface::class)) {
             $this->app->make(SearchRegistryInterface::class)
                 ->registerSource($this->app->make(ContentEntrySearchSource::class));
+        }
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $registrar = $this->app->make(PermissionRegistrarInterface::class);
+            $registrar->register(new PermissionGroup('content-types', 'Content types', AccessScope::Content, ['view', 'create', 'update', 'delete']));
+            $registrar->register(new PermissionGroup('content-entries', 'Content entries', AccessScope::Content, ['view', 'create', 'update', 'delete']));
         }
     }
 }
