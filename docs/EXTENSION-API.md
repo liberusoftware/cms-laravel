@@ -92,6 +92,10 @@ designation fails the build, so the catalogue below cannot silently drift.
 ### Media
 - `Media\MediaRepositoryInterface` + `Media\MediaItemInterface` — query the media library and read a media item (URL, metadata).
 
+### Observability
+- `Health\HealthCheckInterface` + `Health\HealthCheckRegistryInterface` — contribute a readiness probe for a dependency your module owns (coarse ok/fail + criticality); it appears in `GET /health/ready`.
+- `Metrics\MetricsRecorderInterface` — record a counter / timing / gauge without knowing the backend; resolve it from the container (guard with `bound()`), or bind your own recorder to replace the log-channel default.
+
 ## Not public (`@internal`)
 
 These are kernel wiring — do not depend on them:
