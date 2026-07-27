@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Search;
  * queries every content type without ever importing a module. Implementations
  * must return only published content; tenant scoping is applied by the shared
  * tenancy scope during the request.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface SearchableSourceInterface
 {

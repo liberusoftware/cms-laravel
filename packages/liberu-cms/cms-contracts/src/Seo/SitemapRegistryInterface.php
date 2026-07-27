@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Seo;
  * its provider during the register phase; the SEO module reads the catalogue
  * when it renders sitemap.xml — so the sitemap tracks the installed modules
  * without the SEO module importing one. Mirrors the admin and API registries.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface SitemapRegistryInterface
 {

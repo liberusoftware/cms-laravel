@@ -11,6 +11,8 @@ namespace Liberu\Cms\Contracts\Api;
  * class and method that serve it, and a route-name suffix. The API package
  * reads these descriptors to define the versioned route group, so it never
  * imports the module's controller by name.
+ *
+ * @api This class is part of the public extension API.
  */
 final class ApiEndpoint
 {

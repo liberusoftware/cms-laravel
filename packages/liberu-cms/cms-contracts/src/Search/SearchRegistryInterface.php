@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Search;
  * source; the search module reads the catalogue to query every content type — so
  * search tracks the installed modules without importing one. Mirrors the admin,
  * API, and sitemap registries.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface SearchRegistryInterface
 {

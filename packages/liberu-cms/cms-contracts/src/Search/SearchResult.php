@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Search;
  * models so the search module can rank and serialize results across every
  * content type without knowing any concrete class. The consumer maps `type` +
  * `slug` to its own route.
+ *
+ * @api This class is part of the public extension API.
  */
 final class SearchResult
 {

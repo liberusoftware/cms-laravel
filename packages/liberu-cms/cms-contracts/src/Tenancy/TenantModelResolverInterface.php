@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * The host application binds an implementation that names its own tenant model
  * (e.g. a Team). Modules resolve the class through this contract to build their
  * `team()` relationship, so no module ever references a host class.
+ *
+ * @internal Kernel wiring; not part of the public extension API and may change without notice.
  */
 interface TenantModelResolverInterface
 {

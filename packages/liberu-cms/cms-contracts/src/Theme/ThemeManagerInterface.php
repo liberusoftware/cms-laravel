@@ -7,6 +7,8 @@ namespace Liberu\Cms\Contracts\Theme;
 /**
  * Registers themes, tracks the active one, and resolves view overrides along
  * the theme inheritance chain (child theme wins over its parent).
+ *
+ * @api This interface is part of the public extension API.
  */
 interface ThemeManagerInterface
 {

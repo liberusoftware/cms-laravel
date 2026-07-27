@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Preview;
  * its source; the preview endpoint reads the catalogue to resolve a type key to
  * its model and resource — so preview tracks the installed modules without
  * importing one. Mirrors the admin, API, search, and sitemap registries.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface PreviewRegistryInterface
 {

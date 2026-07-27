@@ -11,6 +11,8 @@ use DateTimeInterface;
  *
  * Implemented by every content model (pages, posts, custom types) so consumers
  * can reason about publication state without knowing the concrete class.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface PublishableInterface
 {

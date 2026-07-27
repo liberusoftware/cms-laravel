@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Access;
  * Modules register their PermissionGroups during boot; the Users module reads
  * the catalogue to materialise the permissions into the backend and to render
  * them in admin surfaces. No module writes permissions directly.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface PermissionRegistrarInterface
 {

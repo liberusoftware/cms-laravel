@@ -10,6 +10,8 @@ use DateTimeInterface;
  * A single entry in the sitemap: an absolute URL and its optional crawl hints.
  * Content modules build these for their public URLs and hand them to the sitemap
  * registry; the SEO module renders them into sitemap.xml.
+ *
+ * @api This class is part of the public extension API.
  */
 final class SitemapUrl
 {

@@ -6,6 +6,8 @@ namespace Liberu\Cms\Contracts\Widget;
 
 /**
  * A dashboard/sidebar/footer widget that renders itself to HTML.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface WidgetInterface
 {

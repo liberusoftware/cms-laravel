@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Content;
  *
  * Content models delegate transition validation here so every content type
  * shares one consistent lifecycle policy.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface WorkflowInterface
 {

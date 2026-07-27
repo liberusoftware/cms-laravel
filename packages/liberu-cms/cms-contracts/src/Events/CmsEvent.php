@@ -10,6 +10,8 @@ namespace Liberu\Cms\Contracts\Events;
  * Cross-module communication happens only through events implementing this
  * interface, dispatched via the EventBus. A module emits; other modules listen.
  * Neither side imports the other's concrete classes.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface CmsEvent
 {

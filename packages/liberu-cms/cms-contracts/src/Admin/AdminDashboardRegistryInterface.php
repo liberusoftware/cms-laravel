@@ -9,6 +9,8 @@ namespace Liberu\Cms\Contracts\Admin;
  *
  * Modules register their stats when they boot; the Admin module reads the
  * catalogue and renders each one, evaluating its value closure at render time.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface AdminDashboardRegistryInterface
 {

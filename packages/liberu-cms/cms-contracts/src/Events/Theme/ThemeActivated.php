@@ -9,6 +9,8 @@ use Liberu\Cms\Contracts\Events\CmsEvent;
 /**
  * Emitted when the active theme changes. Caches and asset pipelines listen so
  * they can flush and rebuild.
+ *
+ * @api This class is part of the public extension API.
  */
 final readonly class ThemeActivated implements CmsEvent
 {

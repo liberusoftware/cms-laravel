@@ -10,6 +10,8 @@ use Liberu\Cms\Contracts\Events\CmsEvent;
 /**
  * Emitted whenever a content item moves between editorial states. Carries only
  * identifiers and states, so listeners stay decoupled from the content model.
+ *
+ * @api This class is part of the public extension API.
  */
 final readonly class ContentStateChanged implements CmsEvent
 {

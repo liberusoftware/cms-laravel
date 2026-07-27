@@ -11,6 +11,8 @@ namespace Liberu\Cms\Contracts\Access;
  * view/create/update/delete/publish) and the platform materialises the
  * fully-qualified permission names (`pages.view`, …) into the permission
  * backend. Consumers authorize against those names via AccessControlInterface.
+ *
+ * @api This class is part of the public extension API.
  */
 final readonly class PermissionGroup
 {

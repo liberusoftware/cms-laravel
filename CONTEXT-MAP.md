@@ -2,6 +2,8 @@
 
 The CMS is a multi-context system; each context is a Composer package under `packages/liberu-cms/cms-*`. This map lists the contexts that have a documented glossary. Contexts gain a `CONTEXT.md` lazily, as their language is resolved during design — absence here means "not yet documented," not "no such context."
 
+The stable surface a third-party extension may build against is catalogued in [docs/EXTENSION-API.md](./docs/EXTENSION-API.md) (the `@api` contracts + the semver/deprecation policy), guarded by `tests/Feature/Cms/PublicApiTest.php`.
+
 ## Contexts
 
 - [CMS API](./packages/liberu-cms/cms-api/CONTEXT.md) — headless HTTP delivery layer serving published content to decoupled frontends

@@ -11,6 +11,8 @@ namespace Liberu\Cms\Contracts\Api;
  * with its module key. The API module reads the catalogue in boot() to define
  * the versioned route group — so the API surface tracks the installed modules
  * without the API module ever importing one. Mirrors AdminResourceRegistry.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface ApiResourceRegistryInterface
 {

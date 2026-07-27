@@ -7,6 +7,8 @@ namespace Liberu\Cms\Contracts\Theme;
 /**
  * A registered theme: a named set of Blade views, optionally inheriting from a
  * parent theme so it need only override the views it changes.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface ThemeInterface
 {

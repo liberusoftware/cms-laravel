@@ -7,6 +7,8 @@ namespace Liberu\Cms\Contracts\Block;
 /**
  * A kind of content block (text, image, CTA, …). Given its data and the
  * already-rendered HTML of any nested children, it returns its own HTML.
+ *
+ * @api This interface is part of the public extension API.
  */
 interface BlockTypeInterface
 {
