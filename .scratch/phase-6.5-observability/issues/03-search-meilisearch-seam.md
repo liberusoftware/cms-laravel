@@ -8,7 +8,7 @@ readiness check (via the active driver) and search query metrics.
 
 **Blocked by:** 01 (needs the health + metrics contracts). Parallel with 02 and 04.
 
-**Status:** PLANNED
+**Status:** DONE
 
 ## Driver seam (`cms-search`)
 

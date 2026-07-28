@@ -20,6 +20,7 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 | `bezhansalleh/filament-shield` `^4.0` | RBAC / permissions | Phase 1: kept behind the Users module's permission contract |
 | `biostate/filament-menu-builder` `^5.0` | Navigation admin | Phase 3: kept behind the Menu module's contract |
 | `spatie/laravel-permission` `^7.0` | Permission storage | See open question on Shield vs. Spatie reconciliation |
+| `laravel/scout` `^11.0` | Search index driver | Phase 6.5: required by `cms-search`, behind `SearchIndexInterface`. Opt-in via `cms-search.driver=scout` (Meilisearch); the DB `LIKE` driver stays the default. CI proves the Scout wiring on the collection engine — no Meilisearch service. |
 
 ## Quality tooling
 

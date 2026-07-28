@@ -25,12 +25,13 @@ criticality (config-overridable under `cms-observability.readiness.critical`):
 | `cache` | degraded | 200 (`degraded`) |
 | `queue` | degraded | 200 (`degraded`) |
 | `storage` | degraded | 200 (`degraded`) |
+| `search` | degraded | 200 (`degraded`) |
 
 Only the database is critical by default: the app cannot serve without it, but it
 *can* serve with cache / queue / storage degraded — so those must never pull a node
-out of rotation. The `storage` check is contributed by `cms-media` through
-`HealthCheckRegistryInterface` — observability imports no feature module. `cms-search`
-adds a `search` check the same way in ticket 03.
+out of rotation. The `storage` check is contributed by `cms-media` and the `search`
+check by `cms-search` (backed by its active driver's `isReady()`), both through
+`HealthCheckRegistryInterface` — observability imports no feature module.
 
 ## Metrics
 

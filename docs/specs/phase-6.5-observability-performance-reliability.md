@@ -169,6 +169,10 @@ nothing above the driver changes:
   the `SearchResult` DTO, and the ranking.
 - **New dependency:** `laravel/scout` (approved).
 - **Search health check** (see readiness) asks the *active driver*'s `isReady()`.
+  `DatabaseSearchIndex::isReady()` genuinely probes the DB; `ScoutSearchIndex::isReady()`
+  confirms the Scout engine resolves (real reachability for the collection engine),
+  with a **deep Meilisearch index ping deferred** as a documented seam — unverifiable
+  on this stack, same honesty bar as Redis / Octane.
 
 ## Tickets (execution order)
 

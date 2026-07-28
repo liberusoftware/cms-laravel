@@ -127,6 +127,8 @@ it('exposes the core public extension contracts under their expected namespaces'
     'Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface',
     'Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface',
     'Liberu\Cms\Contracts\Search\SearchRegistryInterface',
+    'Liberu\Cms\Contracts\Search\SearchIndexInterface',
+    'Liberu\Cms\Contracts\Search\ScoutSearchableSourceInterface',
     'Liberu\Cms\Contracts\Seo\SitemapRegistryInterface',
     'Liberu\Cms\Contracts\Health\HealthCheckInterface',
     'Liberu\Cms\Contracts\Health\HealthCheckRegistryInterface',

@@ -72,6 +72,8 @@ designation fails the build, so the catalogue below cannot silently drift.
 ### Search
 - `Search\SearchRegistryInterface` — register a searchable source into the Delivery API search endpoint.
 - `Search\SearchableSourceInterface` + `Search\SearchResult` — implement a source and shape its results.
+- `Search\SearchIndexInterface` — the swappable backend that executes matching (database `LIKE` by default, Scout/Meilisearch opt-in) and reports `isReady()`; bind your own to replace the driver behind the unchanged query surface.
+- `Search\ScoutSearchableSourceInterface` — implement (in addition to `SearchableSourceInterface`) to opt a source's model into the Scout driver via `scoutSearch()`.
 
 ### SEO / sitemap
 - `Seo\SitemapRegistryInterface` — register a sitemap URL provider.
