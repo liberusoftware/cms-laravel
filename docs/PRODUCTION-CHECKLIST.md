@@ -46,8 +46,39 @@ headers) covered by OWASP A05/A02.
 - [ ] `composer audit` clean (enforced in CI; `audit.block-insecure` is on).
 - [ ] Front-end assets built: `npm ci && npm run build`.
 
+## Observability & health probes
+
+- [ ] **Liveness** — point the platform's liveness probe at `GET /up` (framework;
+      "did the process boot?"), restarting the pod on failure.
+- [ ] **Readiness** — point the load balancer / k8s `readinessProbe` at
+      `GET /health/ready` (`cms-observability`). It returns **503** only when the
+      critical database check fails and **200 `degraded`** for cache/queue/storage/
+      search, so a non-critical hiccup never drains the node. Unauthenticated,
+      untenanted, per-IP throttled (`CMS_READINESS_THROTTLE`, default 60/min).
+- [ ] **Metrics** — the default `LogMetricsRecorder` writes to the `cms-metrics`
+      log channel (`CMS_METRICS_CHANNEL`); ship that channel somewhere, or bind a
+      real recorder (Pulse / StatsD / Prometheus) to `MetricsRecorderInterface`.
+      See [PERFORMANCE.md](PERFORMANCE.md#metrics-in-production).
+
+## Performance & scaling (see [PERFORMANCE.md](PERFORMANCE.md))
+
+- [ ] **Redis flip** for `CACHE_STORE`, `SESSION_DRIVER`, `QUEUE_CONNECTION`
+      (local stays `database`) — required once you run more than one web node.
+- [ ] **Horizon** supervising the Redis queue (`php artisan horizon`), restarted
+      on deploy; the bare `queue:work` above is the single-node fallback.
+- [ ] **Failed-job retention**: schedule `php artisan queue:prune-failed --hours=168`.
+- [ ] **Search**: leave `SEARCH_DRIVER=database` unless you need scale, then flip to
+      `scout` with a reachable Meilisearch (`MEILISEARCH_HOST`/`MEILISEARCH_KEY`) and
+      run `scout:import`.
+- [ ] **OPcache** enabled with `validate_timestamps=0` (reset on deploy); config/
+      route/view/event caches built (above).
+- [ ] **Octane** only if validated — see the Filament/Livewire statefulness caveats
+      in PERFORMANCE.md; it is **not** the default run mode.
+
 ## Verify
 
 - [ ] A public page and the `/app` panel both render over HTTPS.
 - [ ] Response headers include the security set above (curl `-I`).
 - [ ] Hitting a bad route returns a generic error page, **not** a stack trace.
+- [ ] `GET /health/ready` returns `200` with `status: ok` (or `degraded` with the
+      failing check named), and `503` when the database is unreachable.

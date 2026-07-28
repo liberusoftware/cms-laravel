@@ -7,7 +7,7 @@ in docs (Phase-6 `SecurityHeaders`/CSP precedent). Sequenced last so it document
 
 **Blocked by:** 02, 03, 04 (documents their surface).
 
-**Status:** PLANNED
+**Status:** DONE
 
 ## `docs/PERFORMANCE.md` (new; referenced from `PRODUCTION-CHECKLIST.md`)
 
