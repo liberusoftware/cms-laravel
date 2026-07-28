@@ -7,7 +7,7 @@ job and nothing else needs it.
 
 **Blocked by:** 01 (needs the metrics seam for the failure metric). Parallel with 02/03.
 
-**Status:** PLANNED
+**Status:** DONE
 
 ## Harden `SendNotification` (`cms-notifications`)
 
