@@ -34,7 +34,7 @@ final readonly class NotificationDispatcher
                 context: $context,
             );
 
-            NotificationLog::create([
+            $log = NotificationLog::create([
                 'event' => $event,
                 'channel' => $channel,
                 'recipient' => $recipients === [] ? null : implode(', ', $recipients),
@@ -42,7 +42,7 @@ final readonly class NotificationDispatcher
                 'context' => $context,
             ]);
 
-            SendNotification::dispatch($message);
+            SendNotification::dispatch($message, $log->id);
         }
     }
 

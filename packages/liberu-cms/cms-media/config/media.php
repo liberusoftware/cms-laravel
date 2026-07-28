@@ -40,4 +40,20 @@ return [
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Readiness
+    |--------------------------------------------------------------------------
+    |
+    | Whether the media storage health check (contributed to the observability
+    | readiness probe) is critical. Degraded by default: the app still serves
+    | content while uploads are unavailable, so a storage hiccup never pulls the
+    | instance out of rotation.
+    |
+    */
+
+    'readiness' => [
+        'critical' => false,
+    ],
+
 ];

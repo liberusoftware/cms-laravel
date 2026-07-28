@@ -24,6 +24,7 @@ parameters:
         - packages/liberu-cms/cms-media/src
         - packages/liberu-cms/cms-menus/src
         - packages/liberu-cms/cms-notifications/src
+        - packages/liberu-cms/cms-observability/src
         - packages/liberu-cms/cms-pages/src
         - packages/liberu-cms/cms-posts/src
         - packages/liberu-cms/cms-search/src

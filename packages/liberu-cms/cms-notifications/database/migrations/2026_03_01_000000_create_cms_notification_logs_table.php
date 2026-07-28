@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('recipient')->nullable();
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->json('context')->nullable();
+            $table->string('status')->default('pending')->index();
             $table->timestamps();
         });
     }

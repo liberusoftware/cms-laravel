@@ -72,6 +72,8 @@ designation fails the build, so the catalogue below cannot silently drift.
 ### Search
 - `Search\SearchRegistryInterface` — register a searchable source into the Delivery API search endpoint.
 - `Search\SearchableSourceInterface` + `Search\SearchResult` — implement a source and shape its results.
+- `Search\SearchIndexInterface` — the swappable backend that executes matching (database `LIKE` by default, Scout/Meilisearch opt-in) and reports `isReady()`; bind your own to replace the driver behind the unchanged query surface.
+- `Search\ScoutSearchableSourceInterface` — implement (in addition to `SearchableSourceInterface`) to opt a source's model into the Scout driver via `scoutSearch()`.
 
 ### SEO / sitemap
 - `Seo\SitemapRegistryInterface` — register a sitemap URL provider.
@@ -91,6 +93,10 @@ designation fails the build, so the catalogue below cannot silently drift.
 
 ### Media
 - `Media\MediaRepositoryInterface` + `Media\MediaItemInterface` — query the media library and read a media item (URL, metadata).
+
+### Observability
+- `Health\HealthCheckInterface` + `Health\HealthCheckRegistryInterface` — contribute a readiness probe for a dependency your module owns (coarse ok/fail + criticality); it appears in `GET /health/ready`.
+- `Metrics\MetricsRecorderInterface` — record a counter / timing / gauge without knowing the backend; resolve it from the container (guard with `bound()`), or bind your own recorder to replace the log-channel default.
 
 ## Not public (`@internal`)
 

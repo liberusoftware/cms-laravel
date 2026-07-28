@@ -35,4 +35,21 @@ return [
 
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Delivery queue
+    |--------------------------------------------------------------------------
+    |
+    | Retry policy for the SendNotification job under at-least-once delivery.
+    | `tries` bounds the attempts; `backoff` is the seconds to wait before each
+    | retry (the last value repeats). Delivery is idempotency-guarded on the
+    | NotificationLog row, so a retry after a successful send does not re-deliver.
+    |
+    */
+
+    'queue' => [
+        'tries' => (int) env('NOTIFICATIONS_TRIES', 3),
+        'backoff' => [10, 30, 60],
+    ],
+
 ];

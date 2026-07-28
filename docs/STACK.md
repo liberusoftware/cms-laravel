@@ -20,6 +20,7 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 | `bezhansalleh/filament-shield` `^4.0` | RBAC / permissions | Phase 1: kept behind the Users module's permission contract |
 | `biostate/filament-menu-builder` `^5.0` | Navigation admin | Phase 3: kept behind the Menu module's contract |
 | `spatie/laravel-permission` `^7.0` | Permission storage | See open question on Shield vs. Spatie reconciliation |
+| `laravel/scout` `^11.0` | Search index driver | Phase 6.5: required by `cms-search`, behind `SearchIndexInterface`. Opt-in via `cms-search.driver=scout` (Meilisearch); the DB `LIKE` driver stays the default. CI proves the Scout wiring on the collection engine — no Meilisearch service. |
 
 ## Quality tooling
 
@@ -59,6 +60,15 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
    (de)serialises it transparently, so nothing above the schema changed. Other JSON
    columns (forms `fields`, submissions `data`/`meta`, content-types `fields`) stay
    `json` — they are only ever array-cast, never queried with SQL.
+7. **No metrics backend bundled (Phase 6.5).** Observability ships the `cms-observability`
+   module as *seams with zero-infra defaults*: readiness (`GET /health/ready`) over a
+   module-contributed check registry, and a `MetricsRecorderInterface` whose default
+   binding writes to an isolated log channel. **Laravel Pulse is deliberately not
+   installed** — it drags in migrations, a dashboard, and a storage backend that cannot
+   be verified on the dev box, and softens the module's removability. An operator binds
+   their own recorder (Pulse / StatsD / Prometheus). Distributed tracing / OpenTelemetry
+   is out of scope, left as a documented seam. See
+   [ADR 0003](adr/0003-observability-as-seams.md).
 
 ## Dev environment (Docker / Sail)
 

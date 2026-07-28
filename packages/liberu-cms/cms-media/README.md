@@ -35,11 +35,20 @@ $media->url();
 | `disk` | `public` | Storage disk for uploads. |
 | `max_size_kb` | `20480` | Maximum upload size. |
 | `allowed_mime_types` | image/video/audio/doc set | Accepted content types. |
+| `readiness.critical` | `false` | Whether a storage-check failure pulls the instance out of rotation (503) vs. degraded (200). |
 
 ## Events
 
 - **Emits:** `Liberu\Cms\Contracts\Events\Media\MediaUploaded`.
 - **Listens:** none.
+
+## Readiness
+
+Contributes a `storage` health check (a put/delete probe on the media disk) to
+the observability readiness registry via `HealthCheckRegistryInterface`, guarded
+by `bound()` so it is inert when observability is absent. **Degraded**, not
+critical: the app still serves content while uploads are unavailable. The Media
+module imports the contract only — nothing from `cms-observability`.
 
 ## Extension points / roadmap
 
