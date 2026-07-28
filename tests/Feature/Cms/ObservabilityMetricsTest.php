@@ -9,6 +9,7 @@ use Liberu\Cms\Contracts\Events\Form\FormSubmitted;
 use Liberu\Cms\Contracts\Metrics\MetricsRecorderInterface;
 use Liberu\Cms\Observability\Metrics\LogMetricsRecorder;
 use Liberu\Cms\Observability\Metrics\NullMetricsRecorder;
+use Tests\Fixtures\RecordingMetricsRecorder;
 
 uses(RefreshDatabase::class);
 
@@ -24,26 +25,12 @@ it('binds the null recorder when metrics are disabled', function (): void {
 });
 
 it('increments a domain counter when its event crosses the bus', function (): void {
-    $recorder = new class implements MetricsRecorderInterface
-    {
-        /** @var array<int, string> */
-        public array $names = [];
-
-        public function increment(string $name, int $by = 1, array $tags = []): void
-        {
-            $this->names[] = $name;
-        }
-
-        public function timing(string $name, float $milliseconds, array $tags = []): void {}
-
-        public function gauge(string $name, float $value, array $tags = []): void {}
-    };
-
+    $recorder = new RecordingMetricsRecorder;
     app()->instance(MetricsRecorderInterface::class, $recorder);
 
     $bus = app(EventBusInterface::class);
     $bus->dispatch(new ContentPublished('page', 1));
     $bus->dispatch(new FormSubmitted('contact', 1, null, []));
 
-    expect($recorder->names)->toContain('content.published', 'form.submitted');
+    expect($recorder->names())->toContain('content.published', 'form.submitted');
 });

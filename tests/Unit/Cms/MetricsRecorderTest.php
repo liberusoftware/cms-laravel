@@ -8,11 +8,11 @@ use Liberu\Cms\Contracts\Events\Content\ContentStateChanged;
 use Liberu\Cms\Contracts\Events\Form\FormSubmitted;
 use Liberu\Cms\Contracts\Events\Media\MediaUploaded;
 use Liberu\Cms\Contracts\Media\MediaItemInterface;
-use Liberu\Cms\Contracts\Metrics\MetricsRecorderInterface;
 use Liberu\Cms\Observability\Metrics\LogMetricsRecorder;
 use Liberu\Cms\Observability\Metrics\MetricsSubscriber;
 use Liberu\Cms\Observability\Metrics\NullMetricsRecorder;
 use Psr\Log\AbstractLogger;
+use Tests\Fixtures\RecordingMetricsRecorder;
 
 /**
  * A PSR logger that captures each record as {message, context}.
@@ -28,27 +28,6 @@ function logSpy(): AbstractLogger
         {
             $this->records[] = ['message' => (string) $message, 'context' => $context];
         }
-    };
-}
-
-/**
- * A recorder that captures each increment call as [name, by, tags].
- */
-function spyRecorder(): MetricsRecorderInterface
-{
-    return new class implements MetricsRecorderInterface
-    {
-        /** @var array<int, array{0: string, 1: int, 2: array<string, scalar>}> */
-        public array $increments = [];
-
-        public function increment(string $name, int $by = 1, array $tags = []): void
-        {
-            $this->increments[] = [$name, $by, $tags];
-        }
-
-        public function timing(string $name, float $milliseconds, array $tags = []): void {}
-
-        public function gauge(string $name, float $value, array $tags = []): void {}
     };
 }
 
@@ -75,7 +54,7 @@ it('honours the contract as a safe no-op when disabled', function (): void {
 })->throwsNoExceptions();
 
 it('maps each domain event to its counter', function (): void {
-    $recorder = spyRecorder();
+    $recorder = new RecordingMetricsRecorder;
     $subscriber = new MetricsSubscriber($recorder);
 
     $subscriber->handleContentPublished(new ContentPublished('page', 1));
@@ -83,10 +62,10 @@ it('maps each domain event to its counter', function (): void {
     $subscriber->handleFormSubmitted(new FormSubmitted('contact', 1, null, []));
     $subscriber->handleMediaUploaded(new MediaUploaded(Mockery::mock(MediaItemInterface::class)));
 
-    expect(array_column($recorder->increments, 0))->toBe([
+    expect($recorder->names())->toBe([
         'content.published',
         'content.state_changed',
         'form.submitted',
         'media.uploaded',
-    ])->and($recorder->increments[1][2])->toBe(['from' => 'draft', 'to' => 'published']);
+    ])->and($recorder->calls[1]['tags'])->toBe(['from' => 'draft', 'to' => 'published']);
 });

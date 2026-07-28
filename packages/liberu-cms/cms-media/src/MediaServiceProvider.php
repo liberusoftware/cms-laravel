@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\Media;
 
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
@@ -12,10 +13,12 @@ use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
+use Liberu\Cms\Contracts\Health\HealthCheckRegistryInterface;
 use Liberu\Cms\Contracts\Media\MediaRepositoryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Media\Filament\MediaResource;
+use Liberu\Cms\Media\Health\StorageHealthCheck;
 use Liberu\Cms\Media\Media\MediaRepository;
 use Liberu\Cms\Media\Media\StoreUpload;
 use Liberu\Cms\Media\Models\Media;
@@ -57,6 +60,8 @@ final class MediaServiceProvider extends ModuleServiceProvider
     {
         $this->loadModuleMigrations(__DIR__.'/../database/migrations');
 
+        $this->registerHealthCheck();
+
         if ($this->app->bound(AdminDashboardRegistryInterface::class)) {
             $this->app->make(AdminDashboardRegistryInterface::class)->registerStat(
                 new DashboardStat('Media', fn (): int => Media::count(), 'heroicon-o-photo', 'primary'),
@@ -74,5 +79,27 @@ final class MediaServiceProvider extends ModuleServiceProvider
                 __DIR__.'/../config/media.php' => $this->app->configPath('cms-media.php'),
             ], 'cms-media-config');
         }
+    }
+
+    /**
+     * Contribute the media disk's writability probe to the readiness registry,
+     * when observability is present. Criticality is owned by this module's own
+     * config (defaulting to degraded), so nothing here reaches into the
+     * observability module.
+     */
+    private function registerHealthCheck(): void
+    {
+        if (! $this->app->bound(HealthCheckRegistryInterface::class)) {
+            return;
+        }
+
+        $config = $this->app->make(ConfigRepository::class);
+        $disk = $config->get('cms-media.disk');
+
+        $this->app->make(HealthCheckRegistryInterface::class)->register(new StorageHealthCheck(
+            $this->app->make(FilesystemFactory::class),
+            is_string($disk) ? $disk : 'public',
+            (bool) $config->get('cms-media.readiness.critical', false),
+        ));
     }
 }

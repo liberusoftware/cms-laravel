@@ -7,8 +7,10 @@ namespace Liberu\Cms\Observability;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Cache\Factory as CacheFactory;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Http\Kernel as HttpKernel;
 use Illuminate\Contracts\Queue\Factory as QueueFactory;
 use Illuminate\Database\ConnectionResolverInterface;
+use Illuminate\Foundation\Http\Kernel as FoundationHttpKernel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Liberu\Cms\Contracts\Events\Content\ContentPublished;
@@ -24,6 +26,7 @@ use Liberu\Cms\Observability\Health\Checks\CacheHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\DatabaseHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\QueueHealthCheck;
 use Liberu\Cms\Observability\Health\HealthCheckRegistry;
+use Liberu\Cms\Observability\Http\Middleware\RecordApiMetrics;
 use Liberu\Cms\Observability\Metrics\LogMetricsRecorder;
 use Liberu\Cms\Observability\Metrics\MetricsSubscriber;
 use Liberu\Cms\Observability\Metrics\NullMetricsRecorder;
@@ -66,6 +69,7 @@ final class CmsObservabilityServiceProvider extends ModuleServiceProvider
         $this->configureRateLimiting();
         $this->loadModuleRoutesFrom(__DIR__.'/../routes/web.php');
         $this->subscribeMetrics();
+        $this->recordApiMetrics();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -150,5 +154,24 @@ final class CmsObservabilityServiceProvider extends ModuleServiceProvider
         $bus->listen(ContentStateChanged::class, fn (ContentStateChanged $event) => $subscriber()->handleContentStateChanged($event));
         $bus->listen(FormSubmitted::class, fn (FormSubmitted $event) => $subscriber()->handleFormSubmitted($event));
         $bus->listen(MediaUploaded::class, fn (MediaUploaded $event) => $subscriber()->handleMediaUploaded($event));
+    }
+
+    /**
+     * Self-append the API-metrics middleware to the global stack. It filters
+     * itself to `api/v1/*`, so cms-api never references it and no other path is
+     * measured. Idempotent (`pushMiddleware` skips duplicates), and a no-op in a
+     * console/bare app with no HTTP kernel.
+     */
+    private function recordApiMetrics(): void
+    {
+        if (! $this->app->bound(HttpKernel::class)) {
+            return;
+        }
+
+        $kernel = $this->app->make(HttpKernel::class);
+
+        if ($kernel instanceof FoundationHttpKernel) {
+            $kernel->pushMiddleware(RecordApiMetrics::class);
+        }
     }
 }

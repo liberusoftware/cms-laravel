@@ -24,11 +24,13 @@ criticality (config-overridable under `cms-observability.readiness.critical`):
 | `database` | **critical** | **503** (`down`) |
 | `cache` | degraded | 200 (`degraded`) |
 | `queue` | degraded | 200 (`degraded`) |
+| `storage` | degraded | 200 (`degraded`) |
 
 Only the database is critical by default: the app cannot serve without it, but it
-*can* serve with cache / queue degraded — so those must never pull a node out of
-rotation. Other modules add their own checks (search, media) in later tickets via
-`HealthCheckRegistryInterface`.
+*can* serve with cache / queue / storage degraded — so those must never pull a node
+out of rotation. The `storage` check is contributed by `cms-media` through
+`HealthCheckRegistryInterface` — observability imports no feature module. `cms-search`
+adds a `search` check the same way in ticket 03.
 
 ## Metrics
 
@@ -45,6 +47,11 @@ is an operator step (documented in `docs/PERFORMANCE.md`).
 Domain counters are recorded by a pure EventBus listener (zero coupling, like the
 audit and notifications subscribers): `content.published`,
 `content.state_changed`, `form.submitted`, `media.uploaded`.
+
+The `RecordApiMetrics` middleware records `api.request` count + latency tagged by
+route name and status. It self-appends to the global middleware stack and
+self-filters to `api/v1/*`, so `cms-api` never references it and no other path
+(web, `/health/ready`, `/up`) is measured.
 
 ## Design
 

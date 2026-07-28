@@ -6,7 +6,7 @@ a middleware that `cms-observability` owns but `cms-api` never references.
 
 **Blocked by:** 01. Parallel with 03 and 04.
 
-**Status:** PLANNED
+**Status:** DONE
 
 ## Media storage health check (`cms-media`)
 
