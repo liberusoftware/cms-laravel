@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Liberu\Cms\Pages\Models\Page;
 
 Route::get('/dashboard', function () {
-    return redirect(auth()->user()?->hasRole('admin') ? '/admin' : '/app');
+    return redirect('/admin');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [PageController::class, 'show']);

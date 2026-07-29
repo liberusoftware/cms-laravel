@@ -27,14 +27,14 @@ it('adds the security headers to a public web response', function (): void {
 });
 
 it('adds the security headers to the panel login page without breaking it', function (): void {
-    $response = $this->get('/app/login');
+    $response = $this->get('/admin/login');
 
     $response->assertSuccessful();
     assertBaselineSecurityHeaders($response);
 });
 
 it('ships the content security policy in report-only mode so it cannot block panel assets', function (): void {
-    $response = $this->get('/app/login');
+    $response = $this->get('/admin/login');
 
     $response->assertHeader('Content-Security-Policy-Report-Only')
         ->assertHeaderMissing('Content-Security-Policy');
@@ -47,7 +47,7 @@ it('ships the content security policy in report-only mode so it cannot block pan
 it('enforces the policy when report-only is disabled', function (): void {
     config()->set('security-headers.csp.report_only', false);
 
-    $response = $this->get('/app/login');
+    $response = $this->get('/admin/login');
 
     $response->assertHeader('Content-Security-Policy')
         ->assertHeaderMissing('Content-Security-Policy-Report-Only');
@@ -56,5 +56,5 @@ it('enforces the policy when report-only is disabled', function (): void {
 it('omits HSTS when disabled', function (): void {
     config()->set('security-headers.hsts.enabled', false);
 
-    $this->get('/app/login')->assertHeaderMissing('Strict-Transport-Security');
+    $this->get('/admin/login')->assertHeaderMissing('Strict-Transport-Security');
 });

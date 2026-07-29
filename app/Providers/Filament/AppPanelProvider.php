@@ -36,7 +36,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('app')
-            ->path('/app')
+            ->path('/admin')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->colors(['primary' => Color::Gray])
             ->brandLogo('https://laravel.com/img/logomark.min.svg')
