@@ -18,7 +18,7 @@ return [
         'groups' => [
             [
                 'user_agent' => '*',
-                'disallow' => ['/admin', '/app', '/livewire'],
+                'disallow' => ['/admin', '/livewire'],
             ],
         ],
     ],

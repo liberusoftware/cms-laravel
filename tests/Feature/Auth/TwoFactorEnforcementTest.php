@@ -17,7 +17,7 @@ beforeEach(function (): void {
 
 function passThrough(User $user): Response
 {
-    $request = Request::create('/app', 'GET');
+    $request = Request::create('/admin', 'GET');
     $request->setUserResolver(fn (): User => $user);
 
     return app(EnsureTwoFactorForPrivilegedUsers::class)
