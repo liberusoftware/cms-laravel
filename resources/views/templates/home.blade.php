@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :title="$page->title">
     @push('head')
         <x-cms-seo::meta
             :title="$page->title"
