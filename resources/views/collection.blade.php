@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :title="$collection->name">
     <div class="max-w-6xl mx-auto px-4 py-12">
         {{-- Header --}}
         <header class="mb-10">
@@ -15,7 +15,7 @@
 
         {{-- Items --}}
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            @forelse($collection->items as $item)
+            @forelse($items as $item)
                 <a
                     href="{{ url($collection->slug . '/' . $item->slug) }}"
                     class="group block rounded-xl border border-gray-200 p-6 transition hover:border-gray-300 hover:shadow-sm"
@@ -40,5 +40,11 @@
                 </p>
             @endforelse
         </div>
+
+        @if($items->hasPages())
+            <div class="mt-12">
+                {{ $items->links() }}
+            </div>
+        @endif
     </div>
 </x-layouts.app>

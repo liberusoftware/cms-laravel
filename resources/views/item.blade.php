@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :title="$item->title">
     <article class="max-w-3xl mx-auto px-4 py-12">
         {{-- Header --}}
         <header class="mb-8">
