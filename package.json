@@ -12,7 +12,7 @@
         "concurrently": "^10.0.1",
         "laravel-vite-plugin": "3.1",
         "tailwindcss": "^4.3.0",
-        "vite": "^8.0.14"
+        "vite": "^8.2.0"
     },
     "dependencies": {
         "vite-plugin-static-copy": "4.1"
