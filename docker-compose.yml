@@ -7,7 +7,7 @@ services:
         PHP_VERSION: '8.5'
         WWWUSER: '${WWWUSER:-1000}'
         WWWGROUP: '${WWWGROUP:-1000}'
-    image: boilerplate-laravel:latest
+    image: cms-laravel:latest
     ports:
       - '${APP_PORT:-8000}:80'
     environment:
@@ -35,7 +35,7 @@ services:
       dockerfile: Dockerfile
       args:
         PHP_VERSION: '8.5'
-    image: boilerplate-laravel:latest
+    image: cms-laravel:latest
     environment:
       CONTAINER_MODE: worker
       WORKER_COMMAND: 'php /var/www/html/artisan queue:work --sleep=3 --tries=3 --max-time=3600'

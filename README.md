@@ -9,12 +9,12 @@
 ![](https://img.shields.io/badge/Livewire-4-informational?style=flat&logo=Livewire&color=fb70a9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg)
-[![Latest Release](https://img.shields.io/github/v/release/liberu-cms/cms-laravel)](https://github.com/liberu-cms/cms-laravel/releases)
-[![codecov](https://codecov.io/gh/liberu-cms/cms-laravel/branch/main/graph/badge.svg)](https://codecov.io/gh/liberu-cms/cms-laravel)
+[![Latest Release](https://img.shields.io/github/v/release/liberusoftware/cms-laravel)](https://github.com/liberusoftware/cms-laravel/releases)
+[![codecov](https://codecov.io/gh/liberusoftware/cms-laravel/branch/main/graph/badge.svg)](https://codecov.io/gh/liberusoftware/cms-laravel)
 
-[![Install](https://github.com/liberu-cms/cms-laravel/actions/workflows/install.yml/badge.svg)](https://github.com/liberu-cms/cms-laravel/actions/workflows/install.yml)
-[![Tests](https://github.com/liberu-cms/cms-laravel/actions/workflows/tests.yml/badge.svg)](https://github.com/liberu-cms/cms-laravel/actions/workflows/tests.yml)
-[![Docker](https://github.com/liberu-cms/cms-laravel/actions/workflows/main.yml/badge.svg)](https://github.com/liberu-cms/cms-laravel/actions/workflows/main.yml)
+[![Install](https://github.com/liberusoftware/cms-laravel/actions/workflows/install.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/install.yml)
+[![Tests](https://github.com/liberusoftware/cms-laravel/actions/workflows/tests.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/tests.yml)
+[![Docker](https://github.com/liberusoftware/cms-laravel/actions/workflows/main.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/main.yml)
 
 ## About Liberu CMS
 
@@ -53,9 +53,8 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 * [Accounting](https://github.com/liberu-accounting/accounting-laravel)
 * [Automation](https://github.com/liberu-automation/automation-laravel)
 * [Billing](https://github.com/liberu-billing/billing-laravel)
-* [Boilerplate](https://github.com/liberusoftware/boilerplate)
 * [Browser Game](https://github.com/liberu-browser-game/browser-game-laravel)
-* [CMS](https://github.com/liberu-cms/cms-laravel)
+* [CMS](https://github.com/liberusoftware/cms-laravel)
 * [Control Panel](https://github.com/liberu-control-panel/control-panel-laravel)
 * [CRM](https://github.com/liberu-crm/crm-laravel)
 * [E-Commerce](https://github.com/liberu-ecommerce/ecommerce-laravel)
@@ -78,7 +77,7 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 The easiest way to get started is to run the included setup script from the command line. It will guide you through copying your environment file, installing dependencies, running migrations, and seeding the database.
 
 ```bash
-git clone https://github.com/liberu-cms/cms-laravel.git
+git clone https://github.com/liberusoftware/cms-laravel.git
 cd cms-laravel
 ./setup.sh
 ```
@@ -94,7 +93,7 @@ The script will prompt you to confirm each step, including whether to overwrite 
 If you prefer to install manually, run the following commands:
 
 ```bash
-git clone https://github.com/liberu-cms/cms-laravel.git
+git clone https://github.com/liberusoftware/cms-laravel.git
 cd cms-laravel
 cp .env.example .env
 composer install
@@ -128,7 +127,23 @@ Once running, access the application at `http://localhost`. For more details, se
 
 ### Graphical Installer
 
-For users who prefer a GUI-based setup, a graphical installer is available. Download and run it from the [Releases page](https://github.com/liberu-cms/cms-laravel/releases) — it walks you through environment configuration and installation without needing to use the command line.
+For users who prefer a GUI-based setup, a graphical installer is available. Download and run it from the [Releases page](https://github.com/liberusoftware/cms-laravel/releases) — it walks you through environment configuration and installation without needing to use the command line.
+
+## Testing and coverage
+
+Run the application test suite with:
+
+```bash
+php artisan test
+```
+
+Generate the CI coverage report with:
+
+```bash
+php artisan test --coverage-clover=coverage.xml
+```
+
+Coverage is reported for the CMS application and its modules on the `main` branch through Codecov.
 
 ## Contributing
 
@@ -142,7 +157,7 @@ Contributions are warmly welcome! Whether you want to fix a bug, add a feature, 
 4. Submit a pull request to the `main` branch with a clear description of what you've changed and why.
 5. The maintainers will review your PR and may request changes before merging.
 
-If you're not comfortable writing code, raising a [GitHub Issue](https://github.com/liberu-cms/cms-laravel/issues) is equally valuable — it helps us track bugs, ideas, and improvements.
+If you're not comfortable writing code, raising a [GitHub Issue](https://github.com/liberusoftware/cms-laravel/issues) is equally valuable — it helps us track bugs, ideas, and improvements.
 
 We believe in an inclusive, collaborative community where every contribution is respected and appreciated.
 
@@ -165,5 +180,5 @@ This permissive approach makes Liberu CMS an ideal foundation for both individua
 
 ## Contributors
 
-<a href = "https://github.com/liberu-cms/cms-laravel/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=liberu-cms/cms-laravel"/>
+<a href = "https://github.com/liberusoftware/cms-laravel/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=liberusoftware/cms-laravel"/>
