@@ -2,7 +2,7 @@
 
 /* Scan the host views and every CMS module's views for utility classes. */
 @source '../**/*.blade.php';
-@source '../../packages/liberu-cms/*/resources/**/*.blade.php';
+@source '../../modules/*/resources/**/*.blade.php';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 [x-cloak] {

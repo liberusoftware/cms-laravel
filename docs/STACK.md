@@ -27,8 +27,8 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 | Tool | Version | Scope |
 |------|---------|-------|
 | Laravel Pint | `^1.24` | Phase 0 packages + CMS tests are clean; repo-wide debt tracked separately |
-| PHPStan + Larastan | `^2.2` / `^3.10` | **max** level on `packages/liberu-cms/*/src` |
-| Rector | `^2.4` | `app`, `database`, `packages/liberu-cms`, `tests` |
+| PHPStan + Larastan | `^2.2` / `^3.10` | **max** level on `modules/*/src` |
+| Rector | `^2.4` | `app`, `database`, `modules`, `tests` |
 | Pest | `5.x-dev` | Unit, Feature, and per-package `Modules` suites |
 | Infection | `^0.34` | Mutation testing on `cms-core` / `cms-contracts` (CI, non-blocking for now) |
 
@@ -36,7 +36,7 @@ constrained in `composer.json`; actual resolved versions come from `composer.loc
 
 1. **Pest 5, not Pest 4.** The repo already required `pestphp/pest:5.x-dev`; the
    foundation guidelines mention Pest 4. We build on what is installed (Pest 5).
-2. **Module system: hand-rolled `packages/liberu-cms/*`.** The CMS uses hand-rolled
+2. **Module system: hand-rolled `modules/*`.** The CMS uses hand-rolled
    path-repository packages (namespace `Liberu\Cms\*`) per an explicit project
    decision, matching Part A §4's literal layout. `internachi/modular` was removed
    in Phase 6 (it was never used) so the repo now has exactly one module system.

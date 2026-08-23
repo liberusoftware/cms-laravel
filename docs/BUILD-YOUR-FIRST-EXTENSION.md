@@ -3,7 +3,7 @@
 A Liberu CMS extension is an ordinary Composer package that talks to the platform
 only through the public contracts in `liberu-cms/cms-contracts` (see
 [EXTENSION-API.md](./EXTENSION-API.md)). This guide builds one from scratch. The
-in-repo `packages/liberu-cms/cms-hello` package is the worked example — it exercises
+in-repo `modules/cms-hello` package is the worked example — it exercises
 every seam below and is covered by `tests/Feature/Cms/HelloReferenceExtensionTest.php`.
 
 ## 1. Scaffold the module
@@ -14,7 +14,7 @@ composer update liberu-cms/cms-portfolio
 php artisan migrate
 ```
 
-You now have `packages/liberu-cms/cms-portfolio` with a service provider that boots,
+You now have `modules/cms-portfolio` with a service provider that boots,
 enables, and disables out of the box. Everything below is added to that module.
 
 ## 2. Add a block
@@ -116,7 +116,7 @@ if ($this->app->bound(ApiResourceRegistryInterface::class)) {
 
 ## Shipping it as a real (out-of-tree) package
 
-The in-repo example lives under `packages/`, but a third-party extension is just a
+The in-repo example lives under `modules/`, but a third-party extension is just a
 Composer package. In your host app's `composer.json`:
 
 ```jsonc

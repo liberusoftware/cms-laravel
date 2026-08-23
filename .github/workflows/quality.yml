@@ -44,7 +44,7 @@ jobs:
 
       # --- Refactoring safety: Rector must report no pending changes ---
       - name: Rector (dry run)
-        run: vendor/bin/rector process packages/liberu-cms --dry-run --no-progress-bar
+        run: vendor/bin/rector process modules --dry-run --no-progress-bar
 
       # --- Architecture: dependency direction + disable-any-module removability ---
       - name: Architecture & removability guards

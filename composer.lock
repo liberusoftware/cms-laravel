@@ -4971,7 +4971,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-admin",
+                "url": "modules/cms-admin",
                 "reference": "ad64bce5161822251325294166f1be3167451d4e"
             },
             "require": {
@@ -5014,7 +5014,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-api",
+                "url": "modules/cms-api",
                 "reference": "0878f75b72c4382a1b24a4dfb7788644f91d4987"
             },
             "require": {
@@ -5062,7 +5062,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-audit",
+                "url": "modules/cms-audit",
                 "reference": "5dd967c087fbb99a5c34f7905d07ac9390b2eb3a"
             },
             "require": {
@@ -5108,7 +5108,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-blocks",
+                "url": "modules/cms-blocks",
                 "reference": "6c68de192e047562f87f23ab2dd18f32fbb81832"
             },
             "require": {
@@ -5149,7 +5149,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-content",
+                "url": "modules/cms-content",
                 "reference": "f6436e7d9e902b8a04b781d6068cbe368e5a8479"
             },
             "require": {
@@ -5192,7 +5192,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-content-types",
+                "url": "modules/cms-content-types",
                 "reference": "c1bd178cef46285962005d635d89748122c9546f"
             },
             "require": {
@@ -5238,7 +5238,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-contracts",
+                "url": "modules/cms-contracts",
                 "reference": "cda2f50df1f7c29803eddf3a21b29bed283faa9f"
             },
             "require": {
@@ -5269,7 +5269,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-core",
+                "url": "modules/cms-core",
                 "reference": "70dc5fec46c2bd9471a130bcc3f0ad7ca633b6be"
             },
             "require": {
@@ -5313,7 +5313,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-forms",
+                "url": "modules/cms-forms",
                 "reference": "d9e9588ece913a6ca22c6dd391ada4d60408fbc3"
             },
             "require": {
@@ -5361,7 +5361,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-hello",
+                "url": "modules/cms-hello",
                 "reference": "10af79d5c5826d7c7a3033a2f1f9260cf0c9f284"
             },
             "require": {
@@ -5402,7 +5402,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-media",
+                "url": "modules/cms-media",
                 "reference": "cf956c8a7727733ce643d836bf557795c0eecbb2"
             },
             "require": {
@@ -5448,7 +5448,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-menus",
+                "url": "modules/cms-menus",
                 "reference": "d290cddcf1dbc2e8d71df82e7406d32834c0c4d4"
             },
             "require": {
@@ -5493,7 +5493,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-notifications",
+                "url": "modules/cms-notifications",
                 "reference": "8503e72f633dc726b02c27f5f54a2e9290942ef3"
             },
             "require": {
@@ -5540,7 +5540,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-observability",
+                "url": "modules/cms-observability",
                 "reference": "8bf9efd85d50578183c3a140ff69c96f960f3fcd"
             },
             "require": {
@@ -5587,7 +5587,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-pages",
+                "url": "modules/cms-pages",
                 "reference": "44d7c0624e15102f8917ee9ccad3f8aa7d5a515a"
             },
             "require": {
@@ -5633,7 +5633,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-posts",
+                "url": "modules/cms-posts",
                 "reference": "dfc623ec969b64343dbc56227cc9f7130378cca8"
             },
             "require": {
@@ -5679,7 +5679,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-search",
+                "url": "modules/cms-search",
                 "reference": "2e99a53b30b1c8d0a033da72286be09bfad773e5"
             },
             "require": {
@@ -5724,7 +5724,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-seo",
+                "url": "modules/cms-seo",
                 "reference": "e6b87789d9912f6d031d377ae43ca039bb921578"
             },
             "require": {
@@ -5768,7 +5768,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-themes",
+                "url": "modules/cms-themes",
                 "reference": "990e3cc755a260a13a8e92c35ee07451a3fbde1c"
             },
             "require": {
@@ -5812,7 +5812,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-users",
+                "url": "modules/cms-users",
                 "reference": "591f050a8589ed353ee9822f6c5c9b008740aec4"
             },
             "require": {
@@ -5857,7 +5857,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "packages/liberu-cms/cms-widgets",
+                "url": "modules/cms-widgets",
                 "reference": "fe5bf4ef61c9f2c9b90c5aa2c8d509ab226e6df6"
             },
             "require": {

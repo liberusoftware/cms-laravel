@@ -115,7 +115,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "packages/liberu-cms/*",
+            "url": "modules/*",
             "options": {
                 "symlink": true
             }

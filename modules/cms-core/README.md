@@ -55,7 +55,7 @@ composer update liberu-cms/cms-portfolio
 php artisan migrate
 ```
 
-The generated package under `packages/liberu-cms/cms-portfolio` conforms to the
+The generated package under `modules/cms-portfolio` conforms to the
 module contract and passes CI before you add a single feature.
 
 ## Events

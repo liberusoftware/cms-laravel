@@ -18,7 +18,7 @@ function cmsPackageNamespaces(): array
 {
     $packages = [];
 
-    foreach (glob(base_path('packages/liberu-cms/*'), GLOB_ONLYDIR) as $dir) {
+    foreach (glob(base_path('modules/*'), GLOB_ONLYDIR) as $dir) {
         $composer = json_decode(file_get_contents("{$dir}/composer.json"), true);
         $roots = array_keys($composer['autoload']['psr-4'] ?? []);
 
@@ -68,7 +68,7 @@ it('keeps module dependencies pointing only inward (no sideways or backward impo
     }
 
     foreach ($ownNamespacesByPackage as $package => $ownNamespaces) {
-        $src = base_path("packages/liberu-cms/{$package}/src");
+        $src = base_path("modules/{$package}/src");
 
         if (! is_dir($src)) {
             continue;
@@ -101,7 +101,7 @@ it('never lets a module reach into the host application namespace', function ():
     $violations = [];
 
     foreach (cmsPackageNamespaces() as $package) {
-        $src = base_path("packages/liberu-cms/{$package}/src");
+        $src = base_path("modules/{$package}/src");
 
         if (! is_dir($src)) {
             continue;

@@ -11,7 +11,7 @@ use Symfony\Component\Finder\Finder;
  */
 function contractTypes(): array
 {
-    $base = base_path('packages/liberu-cms/cms-contracts/src');
+    $base = base_path('modules/cms-contracts/src');
     $types = [];
 
     foreach (Finder::create()->files()->in($base)->name('*.php') as $file) {

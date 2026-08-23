@@ -15,7 +15,7 @@ use Liberu\Cms\Contracts\Hooks\Filter;
  */
 function generatedArtifactPaths(): array
 {
-    $src = base_path('packages/liberu-cms/cms-hello/src');
+    $src = base_path('modules/cms-hello/src');
 
     return [
         "{$src}/Blocks/DemoCardBlock.php",
@@ -35,7 +35,7 @@ it('scaffolds a registerable block type', function (): void {
     $this->artisan('cms:make-block', ['module' => 'hello', 'name' => 'DemoCard'])
         ->assertSuccessful();
 
-    $path = base_path('packages/liberu-cms/cms-hello/src/Blocks/DemoCardBlock.php');
+    $path = base_path('modules/cms-hello/src/Blocks/DemoCardBlock.php');
     expect(File::exists($path))->toBeTrue();
 
     $class = 'Liberu\\Cms\\Hello\\Blocks\\DemoCardBlock';
@@ -55,7 +55,7 @@ it('scaffolds both sides of a hook', function (): void {
     $this->artisan('cms:make-hook', ['module' => 'hello', 'name' => 'DemoSignal'])
         ->assertSuccessful();
 
-    $base = base_path('packages/liberu-cms/cms-hello/src/Hooks');
+    $base = base_path('modules/cms-hello/src/Hooks');
     expect(File::exists("{$base}/DemoSignalFilter.php"))->toBeTrue()
         ->and(File::exists("{$base}/DemoSignalListener.php"))->toBeTrue();
 
@@ -76,7 +76,7 @@ it('scaffolds a custom field type that registers into the registry', function ()
     $this->artisan('cms:make-field-type', ['module' => 'hello', 'name' => 'DemoRating'])
         ->assertSuccessful();
 
-    $path = base_path('packages/liberu-cms/cms-hello/src/Fields/DemoRatingFieldType.php');
+    $path = base_path('modules/cms-hello/src/Fields/DemoRatingFieldType.php');
     expect(File::exists($path))->toBeTrue();
 
     $class = 'Liberu\\Cms\\Hello\\Fields\\DemoRatingFieldType';

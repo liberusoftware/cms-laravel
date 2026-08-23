@@ -5,8 +5,8 @@
     "$schema": "vendor/infection/infection/resources/schema.json",
     "source": {
         "directories": [
-            "packages/liberu-cms/cms-core/src",
-            "packages/liberu-cms/cms-contracts/src"
+            "modules/cms-core/src",
+            "modules/cms-contracts/src"
         ]
     },
     "mutators": {

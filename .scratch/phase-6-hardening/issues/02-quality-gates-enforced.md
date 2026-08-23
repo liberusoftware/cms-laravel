@@ -8,7 +8,7 @@
 
 Pint (OQ#4):
 - [ ] Run `vendor/bin/pint` repo-wide in a **single dedicated formatting commit** (no logic changes).
-- [ ] Unscope the CI Pint gate so it covers the whole repo, not just `packages/liberu-cms` + `tests/*/Cms`.
+- [ ] Unscope the CI Pint gate so it covers the whole repo, not just `modules` + `tests/*/Cms`.
 
 PHPStan on `app/` (OQ#5):
 - [ ] Add `app/` (and `database/`) to the PHPStan paths at a **baseline**: generate `phpstan-baseline.neon` to freeze existing debt, pick a starting level, wire into CI. Do NOT fix all findings now.

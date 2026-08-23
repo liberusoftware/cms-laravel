@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 /**
  * Scaffolds a new, §5-conforming CMS module package under
- * packages/liberu-cms/cms-{key} and wires it into the root composer.json.
+ * modules/cms-{key} and wires it into the root composer.json.
  *
  * The generated module boots, enables, and disables out of the box, so it can
  * pass CI before a single feature is written.
@@ -36,7 +36,7 @@ final class MakeModuleCommand extends Command
         $key = Str::kebab($studly);
         $foundational = (bool) $this->option('foundational');
 
-        $base = base_path("packages/liberu-cms/cms-{$key}");
+        $base = base_path("modules/cms-{$key}");
 
         if ($this->files->isDirectory($base)) {
             $this->components->error("Module [cms-{$key}] already exists at {$base}.");
@@ -66,7 +66,7 @@ final class MakeModuleCommand extends Command
 
         $this->addToRootComposer($key);
 
-        $this->components->info("Module [cms-{$key}] created at packages/liberu-cms/cms-{$key}.");
+        $this->components->info("Module [cms-{$key}] created at modules/cms-{$key}.");
         $this->components->bulletList([
             'Run: composer update liberu-cms/cms-'.$key,
             'Then: php artisan migrate',

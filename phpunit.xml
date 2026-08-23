@@ -8,7 +8,7 @@
             <directory>tests/Feature</directory>
         </testsuite>
     <testsuite name="Modules">
-            <directory suffix="Test.php">./packages/liberu-cms/*/tests</directory>
+            <directory suffix="Test.php">./modules/*/tests</directory>
         </testsuite>
     </testsuites>
     <source>

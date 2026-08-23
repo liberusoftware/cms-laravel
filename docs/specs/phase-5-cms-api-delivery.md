@@ -18,7 +18,7 @@ Introduce a **Delivery API**: a versioned (`/api/v1`), read-only JSON HTTP surfa
 
 The API is delivered as a new infrastructure package, `cms-api`, that owns versioning, authentication, the tenant context, rate limiting, and error handling. Each content module registers its own endpoints and Eloquent Resources into the API through a registry contract, so the API package never imports a content module — the same shape as the Phase 4 `AdminResourceRegistry`.
 
-See `docs/adr/0001-delivery-api-auth-and-tenancy.md` for the auth/tenancy decision, and `packages/liberu-cms/cms-api/CONTEXT.md` for the glossary.
+See `docs/adr/0001-delivery-api-auth-and-tenancy.md` for the auth/tenancy decision, and `modules/cms-api/CONTEXT.md` for the glossary.
 
 ## User Stories
 

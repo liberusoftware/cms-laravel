@@ -8,7 +8,7 @@ documented, opt-in configuration, mirroring the Phase-6 `SecurityHeaders` / CSP
 approach. Work the [production checklist](PRODUCTION-CHECKLIST.md) alongside this
 guide; it is the actionable step list, this is the *why*.
 
-Observability is the companion to this guide: `packages/liberu-cms/cms-observability`
+Observability is the companion to this guide: `modules/cms-observability`
 answers "is the system healthy right now?" ([readiness](#readiness--liveness)) and
 "what is it doing?" ([metrics](#metrics-in-production)). See
 [ADR 0003](adr/0003-observability-as-seams.md).

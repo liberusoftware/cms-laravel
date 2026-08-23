@@ -10,7 +10,7 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/app',
         __DIR__.'/database',
-        __DIR__.'/packages/liberu-cms',
+        __DIR__.'/modules',
         __DIR__.'/tests',
     ])
     ->withPhpSets(php85: true)

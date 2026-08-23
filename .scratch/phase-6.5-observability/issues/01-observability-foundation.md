@@ -22,7 +22,7 @@ here; keep them in sync if design shifts.
       `timing(string, float $ms, array $tags = [])`, `gauge(string, float, array $tags = [])`.
 - [ ] `PublicApiTest` stays green (every new contract `@api` or `@internal`).
 
-## Package (`packages/liberu-cms/cms-observability`)
+## Package (`modules/cms-observability`)
 
 - [ ] New package `Liberu\Cms\Observability`, deps = `cms-contracts` + `cms-core` only;
       added to root composer require + `phpstan.neon`; installed via

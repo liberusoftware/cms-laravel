@@ -6,7 +6,7 @@ work continues; revisit when the owning phase arrives.
 ## Architecture & dependencies
 
 1. **`internachi/modular` — RESOLVED (Phase 6).** It was never used (Phase 0
-   hand-rolls `packages/liberu-cms/*`). Removed the package from `composer.json`,
+   hand-rolls `modules/*`). Removed the package from `composer.json`,
    the `Modules\` autoload entry, and the `app-modules/*` PHPUnit testsuite entry
    (the `app-modules/` scaffold never existed on disk). The repo now has exactly one
    module system. Removing it also dropped its `composer/composer` subtree, which
@@ -46,7 +46,7 @@ work continues; revisit when the owning phase arrives.
 
 4. **Pre-existing style debt.** `vendor/bin/pint --test` flags many existing
    `app/`, `config/`, `database/`, and `tests/` files. **Default:** the CI Pint gate
-   is scoped to Phase 0 code (`packages/liberu-cms`, `tests/*/Cms`), which is clean.
+   is scoped to Phase 0 code (`modules`, `tests/*/Cms`), which is clean.
    **Decision needed:** run repo-wide `pint` in a dedicated formatting commit.
 
 5. **PHPStan scope — RESOLVED (Phase 6).** `app/` and `database/` are now in the

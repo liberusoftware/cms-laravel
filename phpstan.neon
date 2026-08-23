@@ -11,26 +11,26 @@ parameters:
     paths:
         - app
         - database
-        - packages/liberu-cms/cms-admin/src
-        - packages/liberu-cms/cms-api/src
-        - packages/liberu-cms/cms-audit/src
-        - packages/liberu-cms/cms-blocks/src
-        - packages/liberu-cms/cms-content/src
-        - packages/liberu-cms/cms-content-types/src
-        - packages/liberu-cms/cms-contracts/src
-        - packages/liberu-cms/cms-core/src
-        - packages/liberu-cms/cms-forms/src
-        - packages/liberu-cms/cms-hello/src
-        - packages/liberu-cms/cms-media/src
-        - packages/liberu-cms/cms-menus/src
-        - packages/liberu-cms/cms-notifications/src
-        - packages/liberu-cms/cms-observability/src
-        - packages/liberu-cms/cms-pages/src
-        - packages/liberu-cms/cms-posts/src
-        - packages/liberu-cms/cms-search/src
-        - packages/liberu-cms/cms-seo/src
-        - packages/liberu-cms/cms-themes/src
-        - packages/liberu-cms/cms-users/src
-        - packages/liberu-cms/cms-widgets/src
+        - modules/cms-admin/src
+        - modules/cms-api/src
+        - modules/cms-audit/src
+        - modules/cms-blocks/src
+        - modules/cms-content/src
+        - modules/cms-content-types/src
+        - modules/cms-contracts/src
+        - modules/cms-core/src
+        - modules/cms-forms/src
+        - modules/cms-hello/src
+        - modules/cms-media/src
+        - modules/cms-menus/src
+        - modules/cms-notifications/src
+        - modules/cms-observability/src
+        - modules/cms-pages/src
+        - modules/cms-posts/src
+        - modules/cms-search/src
+        - modules/cms-seo/src
+        - modules/cms-themes/src
+        - modules/cms-users/src
+        - modules/cms-widgets/src
         - tests/Fixtures
     treatPhpDocTypesAsCertain: false

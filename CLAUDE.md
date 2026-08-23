@@ -448,4 +448,4 @@ Default five-role vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `
 
 ### Domain docs
 
-Multi-context: root `CONTEXT-MAP.md` pointing to a per-package `CONTEXT.md` under `packages/liberu-cms/cms-*`. See `docs/agents/domain.md`.
+Multi-context: root `CONTEXT-MAP.md` pointing to a per-package `CONTEXT.md` under `modules/cms-*`. See `docs/agents/domain.md`.

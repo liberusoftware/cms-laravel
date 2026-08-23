@@ -30,7 +30,7 @@ abstract class AbstractMakeArtifactCommand extends Command
     protected function resolveTarget(): ?array
     {
         $moduleKey = Str::kebab(Str::studly($this->argument('module')));
-        $base = base_path("packages/liberu-cms/cms-{$moduleKey}");
+        $base = base_path("modules/cms-{$moduleKey}");
 
         if (! $this->files->isDirectory($base)) {
             $this->components->error("Module [cms-{$moduleKey}] does not exist. Run cms:make-module first.");
