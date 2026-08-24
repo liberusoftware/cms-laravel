@@ -1,0 +1,1 @@
+{"name":"module-cms-rich-text-editor-filament","package":"liberusoftware/module-cms-rich-text-editor-filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\RichTextEditorFilament\\RichTextEditorFilamentServiceProvider"]}

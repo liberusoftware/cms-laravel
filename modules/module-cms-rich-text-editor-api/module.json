@@ -1,0 +1,1 @@
+{"name":"module-cms-rich-text-editor-api","package":"liberusoftware/module-cms-rich-text-editor-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\RichTextEditorApi\\RichTextEditorApiServiceProvider"]}

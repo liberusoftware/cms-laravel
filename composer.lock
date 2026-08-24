@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a886eaedcd280a138c1dc1ea40b43add",
+    "content-hash": "d20a09e5be54c6ccf306187ce17b69a3",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7681,6 +7681,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Revisions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-rich-text-editor",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-rich-text-editor",
+                "reference": "e0a81ad49a5450b86553eb9e2bf66afa00d5a073"
+            },
+            "require": {
+                "liberusoftware/module-cms-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-rich-text-editor",
+                    "capability": "rich-text-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RichTextEditor\\RichTextEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RichTextEditor\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS semantic rich text editing and sanitization.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-rich-text-editor-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-rich-text-editor-api",
+                "reference": "4f2b4a106bac8f8cc12c0a41198eb1415c94dcc6"
+            },
+            "require": {
+                "liberusoftware/module-cms-rich-text-editor": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-rich-text-editor-api",
+                    "core": "liberusoftware/module-cms-rich-text-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RichTextEditorApi\\RichTextEditorApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RichTextEditorApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Rich Text Editor.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-rich-text-editor-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-rich-text-editor-filament",
+                "reference": "d6a7a7029afd11257d0aeeda4934fcf73ccee3df"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-rich-text-editor": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-rich-text-editor-filament",
+                    "core": "liberusoftware/module-cms-rich-text-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RichTextEditorFilament\\RichTextEditorFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RichTextEditorFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Rich Text Editor.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-rich-text-editor-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-rich-text-editor-livewire",
+                "reference": "bb4e691d03a1a0aa62ba7dce1192f1e15051d305"
+            },
+            "require": {
+                "liberusoftware/module-cms-rich-text-editor": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-rich-text-editor-livewire",
+                    "core": "liberusoftware/module-cms-rich-text-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RichTextEditorLivewire\\RichTextEditorLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RichTextEditorLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Rich Text Editor.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
