@@ -1,0 +1,1 @@
+{"name":"module-cms-sitemaps-api","package":"liberusoftware/module-cms-sitemaps-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\SitemapsApi\\SitemapsApiServiceProvider"]}

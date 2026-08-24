@@ -1,0 +1,1 @@
+{"name":"module-cms-sitemaps-filament","package":"liberusoftware/module-cms-sitemaps-filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\SitemapsFilament\\SitemapsFilamentServiceProvider"]}

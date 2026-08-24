@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "220d0b7c3fa3443c1e9bf4de2c9037c6",
+    "content-hash": "5a618563a4bc5efeb36259dc1a7b5bef",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8520,6 +8520,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Site Recipes.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-sitemaps",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-sitemaps",
+                "reference": "e12b36aefc4906595a4d4155aff3a07806347b15"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-sitemaps",
+                    "capability": "sitemaps"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Sitemaps\\SitemapsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Sitemaps\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS site-aware sitemap indexes and delivery.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-sitemaps-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-sitemaps-api",
+                "reference": "e401e1163e34a31fcff85d2f058824d74f55d8d0"
+            },
+            "require": {
+                "liberusoftware/module-cms-sitemaps": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-sitemaps-api",
+                    "core": "liberusoftware/module-cms-sitemaps"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SitemapsApi\\SitemapsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SitemapsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Sitemaps.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-sitemaps-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-sitemaps-filament",
+                "reference": "e4d32cc51f2b3d35d22fac6b06b259dc89d4c51a"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-sitemaps": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-sitemaps-filament",
+                    "core": "liberusoftware/module-cms-sitemaps"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SitemapsFilament\\SitemapsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SitemapsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Sitemaps.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-sitemaps-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-sitemaps-livewire",
+                "reference": "8833219650805917ac42e68be4c16fb6de8934b7"
+            },
+            "require": {
+                "liberusoftware/module-cms-sitemaps": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-sitemaps-livewire",
+                    "core": "liberusoftware/module-cms-sitemaps"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SitemapsLivewire\\SitemapsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SitemapsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Sitemaps.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
