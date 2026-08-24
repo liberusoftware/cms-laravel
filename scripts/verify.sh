@@ -39,11 +39,35 @@ XDEBUG_MODE=coverage php -d memory_limit=-1 artisan test \
     --coverage-clover=coverage.xml \
     --min=100
 
+php <<'PHP'
+$coverage = simplexml_load_file('coverage.xml');
+
+if ($coverage === false || ! isset($coverage->project->metrics)) {
+    fwrite(STDERR, "Coverage report is missing or malformed.\n");
+    exit(1);
+}
+
+$metrics = $coverage->project->metrics;
+$covered = (int) $metrics['coveredstatements'];
+$total = (int) $metrics['statements'];
+
+printf("Coverage: %d/%d executable statements\n", $covered, $total);
+
+if ($total === 0 || $covered !== $total) {
+    fwrite(STDERR, "The release-scope coverage gate requires 100% executable-statement coverage.\n");
+    exit(1);
+}
+PHP
+
 echo '== Frontend assets =='
 npm ci --no-audit --no-fund
 npm run build
 
 echo '== Deployment configuration =='
+if ! command -v docker >/dev/null 2>&1; then
+    echo 'Docker is required for deployment configuration validation but is not installed.' >&2
+    exit 1
+fi
 docker compose config --quiet
 bash k8s/validate.sh
 
