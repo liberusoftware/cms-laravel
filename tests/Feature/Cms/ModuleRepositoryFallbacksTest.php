@@ -41,3 +41,8 @@ it('drops unnamed form fields while retaining the named field label fallback', f
     expect(app(SubmissionValidator::class)->validate($form, ['message' => 'hello']))
         ->toBe(['message' => 'hello']);
 });
+
+it('runs the permission synchronization command successfully', function (): void {
+    $this->artisan('cms:sync-permissions')
+        ->assertExitCode(0);
+});
