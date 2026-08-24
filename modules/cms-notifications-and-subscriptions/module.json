@@ -1,0 +1,1 @@
+{"name":"module-cms-notifications-and-subscriptions","title":"Notifications and Subscriptions","description":"Content follows and notification delivery preferences.","version":"0.1.0","providers":["Liberu\\Cms\\NotificationsAndSubscriptions\\NotificationsAndSubscriptionsServiceProvider"]}

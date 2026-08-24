@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f707613873d3a940a5e2f022b0e006e8",
+    "content-hash": "37bce672381dd8a519d0eff3a5237a67",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6167,6 +6167,160 @@
                 "issues": "https://github.com/liberusoftware/module-cms-notifications/issues",
                 "source": "https://github.com/liberusoftware/module-cms-notifications"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-notifications-and-subscriptions",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-notifications-and-subscriptions",
+                "reference": "38a3967098616aabd0b6dc39c6a1797222b6530c"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-notifications-and-subscriptions",
+                    "capability": "notifications-and-subscriptions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NotificationsAndSubscriptions\\NotificationsAndSubscriptionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NotificationsAndSubscriptions\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS follows, digests, preferences, unsubscribe, and delivery state.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-notifications-and-subscriptions-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-notifications-and-subscriptions-api",
+                "reference": "258d8006deb80f26c14cb8b3a79352ead9827c26"
+            },
+            "require": {
+                "liberusoftware/module-cms-notifications-and-subscriptions": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-notifications-and-subscriptions-api",
+                    "core": "liberusoftware/module-cms-notifications-and-subscriptions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NotificationsAndSubscriptionsApi\\NotificationsAndSubscriptionsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NotificationsAndSubscriptionsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Notifications and Subscriptions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-notifications-and-subscriptions-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-notifications-and-subscriptions-filament",
+                "reference": "5ad4bd4772e2bfa56d5eaf8a2f63c9798946febf"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-notifications-and-subscriptions": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-notifications-and-subscriptions-filament",
+                    "core": "liberusoftware/module-cms-notifications-and-subscriptions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NotificationsAndSubscriptionsFilament\\NotificationsAndSubscriptionsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NotificationsAndSubscriptionsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Notifications and Subscriptions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-notifications-and-subscriptions-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-notifications-and-subscriptions-livewire",
+                "reference": "76baed432588d0951248a21220f81a71e656b69c"
+            },
+            "require": {
+                "liberusoftware/module-cms-notifications-and-subscriptions": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-notifications-and-subscriptions-livewire",
+                    "core": "liberusoftware/module-cms-notifications-and-subscriptions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NotificationsAndSubscriptionsLivewire\\NotificationsAndSubscriptionsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NotificationsAndSubscriptionsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Notifications and Subscriptions.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

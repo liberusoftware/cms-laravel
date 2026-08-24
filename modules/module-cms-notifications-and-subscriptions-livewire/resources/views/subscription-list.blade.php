@@ -1,0 +1,1 @@
+<div><ul>@forelse ($subscriptions as $subscription)<li>{{ $subscription->subject_type }}:{{ $subscription->subject_id }} · {{ $subscription->frequency }} · {{ $subscription->active ? 'active' : 'unsubscribed' }}</li>@empty<li>No subscriptions.</li>@endforelse</ul></div>
