@@ -40,15 +40,22 @@ records that deliberate boundary.
 
 *(This section should list any architectural patterns, coding standards, or other conventions that deviate from the Liberu documentation.)*
 
-*   Composer modules use the `liberusoftware/cms-*` vendor namespace and the
-    Liberu installer manifests, but currently resolve from local path
-    repositories. They have not yet been published as independent public
-    repositories or submitted to Packagist.
+*   The application resolves package sources from local path repositories for
+    development reproducibility. The 22 independently released package
+    sources are also mirrored to their public `liberusoftware/module-*`
+    repositories, each with a `v0.1.0` tag, protected `main`, and a blocking
+    `package-quality` workflow. Packagist submission and public-index
+    verification remain outstanding.
 *   The full owned-source test suite passes (680 tests, 1,760 assertions), but
     the measured coverage is 95.2% of statements and 85.9% of methods. The
     required 100% gate is therefore intentionally blocking.
 *   The final major release, independent package repositories, Packagist
     submissions, and production deployment verification remain outstanding.
+
+The package inventory and repository URLs are recorded in
+[`docs/PACKAGES.md`](PACKAGES.md). Packagist publication requires an approved
+Packagist account/token or an authorized submission through the Packagist web
+flow; no such credential is present in this environment.
 
 ## 3. Migration Plan
 
