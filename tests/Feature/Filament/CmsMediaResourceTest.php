@@ -90,6 +90,24 @@ it('uploads a file through the header action', function (): void {
     expect(Media::query()->where('file_name', 'new-upload.png')->exists())->toBeTrue();
 });
 
+it('ignores an upload action without a file', function (): void {
+    Livewire::test(ListMedia::class)
+        ->callAction('upload', ['folder' => 'empty']);
+
+    expect(Media::query()->count())->toBe(0);
+});
+
+it('notifies when the upload action rejects a file', function (): void {
+    Storage::fake('public');
+    config()->set('cms-media.allowed_mime_types', ['image/jpeg']);
+
+    Livewire::test(ListMedia::class)
+        ->callAction('upload', ['file' => UploadedFile::fake()->create('script.php', 8, 'application/x-php')])
+        ->assertNotified('Upload rejected.');
+
+    expect(Media::query()->count())->toBe(0);
+});
+
 it('scopes media to the current tenant', function (): void {
     Filament::setTenant($this->team);
     $mine = makeMedia(['file_name' => 'mine.jpg', 'path' => 'media/mine.jpg']);

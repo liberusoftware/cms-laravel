@@ -101,3 +101,22 @@ it('refuses to disable a module other enabled modules depend on', function (): v
 
     expect(app(ModuleManagerInterface::class)->isEnabled('media'))->toBeTrue();
 });
+
+it('reports a rejected module enable operation', function (): void {
+    actingAsModuleAdmin();
+
+    app(ModuleManagerInterface::class)->disable('pages');
+    app(ModuleManagerInterface::class)->disable('posts');
+    app(ModuleManagerInterface::class)->disable('media');
+
+    Livewire::test(ModuleManagement::class)
+        ->call('enable', 'pages')
+        ->assertNotified('That change was rejected.');
+});
+
+it('falls back to the default navigation group for invalid configuration', function (): void {
+    actingAsModuleAdmin();
+    config()->set('cms-admin.navigation_group', ['invalid']);
+
+    expect(ModuleManagement::getNavigationGroup())->toBe('CMS');
+});
