@@ -1,9 +1,11 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "liberusoftware/cms-laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Liberu CMS: a modular Laravel application with API, Filament, and Livewire foundations.",
     "keywords": [
+        "cms",
+        "liberu",
         "laravel",
         "framework"
     ],
