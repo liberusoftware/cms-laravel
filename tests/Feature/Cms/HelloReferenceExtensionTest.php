@@ -5,6 +5,9 @@ declare(strict_types=1);
 use App\Models\Team;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Filament\Schemas\Schema;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
@@ -74,4 +77,15 @@ it('gates the greetings admin resource by the hello permission', function (): vo
     grantCmsPermissions($user, $team, ['hello.view']);
 
     expect(GreetingResource::canViewAny())->toBeTrue();
+});
+
+it('builds the greeting resource schema, table, and route map', function (): void {
+    $schema = GreetingResource::form(Schema::make());
+    $table = GreetingResource::table(
+        Table::make(Mockery::mock(HasTable::class)),
+    );
+
+    expect($schema->getComponents())->toHaveCount(1)
+        ->and($table->getColumns())->toHaveCount(2)
+        ->and(GreetingResource::getPages())->toHaveKey('index');
 });
