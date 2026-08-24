@@ -50,7 +50,9 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Verify installed module sources are reproducible
-        run: git diff --exit-code -- modules themes
+        # The application intentionally keeps package sources under modules/;
+        # there is no separate themes/ tree in this repository.
+        run: git diff --exit-code -- modules
 
       - name: Prepare application
         run: |
@@ -69,6 +71,8 @@ jobs:
           php artisan test --coverage-clover=coverage.xml --min=100
           npm ci --no-audit --no-fund
           npm run build
+          docker compose config --quiet
+          bash k8s/validate.sh
 
       - name: Publish verified GitHub Release
         env:
@@ -76,4 +80,6 @@ jobs:
           TAG: ${{ steps.release.outputs.tag }}
         run: |
           test "$(git rev-parse HEAD)" = "$(git rev-list -n 1 "$TAG")"
+          git fetch origin main --quiet
+          git merge-base --is-ancestor "$TAG" origin/main
           gh release create "$TAG" --verify-tag --generate-notes --title "$TAG"
