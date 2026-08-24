@@ -52,6 +52,20 @@ it('rejects a file that exceeds the size limit', function (): void {
         ->toThrow(InvalidUpload::class);
 });
 
+it('rejects an upload that PHP marked as invalid', function (): void {
+    $file = new UploadedFile(__FILE__, 'invalid.php', 'application/x-php', UPLOAD_ERR_INI_SIZE, true);
+
+    expect(fn () => app(StoreUpload::class)($file))->toThrow(InvalidUpload::class);
+});
+
+it('stores an image upload without dimensions when its metadata is unreadable', function (): void {
+    $file = UploadedFile::fake()->create('not-an-image.jpg', 1, 'image/jpeg');
+
+    $media = app(StoreUpload::class)($file);
+
+    expect($media->metadata())->toBe([]);
+});
+
 it('finds media and lists it by folder through the repository', function (): void {
     $a = app(StoreUpload::class)(UploadedFile::fake()->image('a.jpg'), 'gallery');
     app(StoreUpload::class)(UploadedFile::fake()->image('b.jpg'), 'other');

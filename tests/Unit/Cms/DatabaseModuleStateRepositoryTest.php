@@ -34,6 +34,7 @@ test('it normalizes common database boolean representations', function (mixed $v
 })->with([
     [0, false], ['0', false], ['f', false], ['false', false], ['off', false], ['no', false], ['', false],
     [1, true], ['1', true], ['t', true], ['true', true], ['on', true], ['yes', true],
+    [true, true], [false, false],
 ]);
 
 test('it falls back safely when the module table is not available', function (): void {
