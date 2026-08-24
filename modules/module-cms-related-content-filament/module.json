@@ -1,0 +1,1 @@
+{"name":"module-cms-related-content-filament","package":"liberusoftware/module-cms-related-content-filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\RelatedContentFilament\\RelatedContentFilamentServiceProvider"]}

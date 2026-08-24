@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8d6b587e1d3cc9740f5453134591e9b",
+    "content-hash": "3132bf698c8be3cdc68c5b048cc3dfda",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7371,6 +7371,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Regions and Widgets.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-related-content",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-related-content",
+                "reference": "e95bc2e84f091227b59fc442008109e2362a7fa8"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-related-content",
+                    "capability": "related-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RelatedContent\\RelatedContentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RelatedContent\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS related content domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-related-content-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-related-content-api",
+                "reference": "d086dadd3f8574a24f3148ca3be1d204a5431b93"
+            },
+            "require": {
+                "liberusoftware/module-cms-related-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-related-content-api",
+                    "core": "liberusoftware/module-cms-related-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RelatedContentApi\\RelatedContentApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RelatedContentApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Related Content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-related-content-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-related-content-filament",
+                "reference": "0667b051ed6f30e2f59dc0f886c0d2c6a17fd720"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-related-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-related-content-filament",
+                    "core": "liberusoftware/module-cms-related-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RelatedContentFilament\\RelatedContentFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RelatedContentFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Related Content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-related-content-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-related-content-livewire",
+                "reference": "9c8a5b3f96b4b91792d43a83a3317791750693f3"
+            },
+            "require": {
+                "liberusoftware/module-cms-related-content": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-related-content-livewire",
+                    "core": "liberusoftware/module-cms-related-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RelatedContentLivewire\\RelatedContentLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RelatedContentLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Related Content.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
