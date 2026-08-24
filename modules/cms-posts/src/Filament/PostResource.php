@@ -37,16 +37,22 @@ final class PostResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Post::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-posts';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Posts';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static function cmsPermissionKey(): string
@@ -54,6 +60,7 @@ final class PostResource extends Resource
         return 'posts';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         $components = [
@@ -99,6 +106,7 @@ final class PostResource extends Resource
         );
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -136,6 +144,7 @@ final class PostResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

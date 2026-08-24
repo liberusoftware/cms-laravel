@@ -1,7 +1,7 @@
 {
-    "name": "liberu-cms/cms-contracts",
+    "name": "liberusoftware/cms-contracts",
     "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -15,6 +15,11 @@
     "autoload-dev": {
         "psr-4": {
             "Liberu\\Cms\\Contracts\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "liberu": {
+            "name": "cms-contracts"
         }
     },
     "minimum-stability": "dev",

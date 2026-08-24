@@ -1,13 +1,13 @@
 {
-    "name": "liberu-cms/cms-blocks",
+    "name": "liberusoftware/cms-blocks",
     "description": "Block system and page-builder rendering for Liberu CMS: a registry of block types and a recursive, XSS-safe renderer.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*",
+        "liberusoftware/cms-contracts": "*",
+        "liberusoftware/cms-core": "*",
         "illuminate/support": "^13.0"
     },
     "autoload": {
@@ -21,6 +21,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-blocks"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Blocks\\BlocksServiceProvider"

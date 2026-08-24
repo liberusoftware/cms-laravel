@@ -10,8 +10,10 @@ use Liberu\Cms\Forms\Filament\FormResource;
 
 final class ListForms extends ListRecords
 {
+    #[\Override]
     protected static string $resource = FormResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

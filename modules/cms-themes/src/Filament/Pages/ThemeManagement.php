@@ -19,14 +19,19 @@ use UnitEnum;
  */
 class ThemeManagement extends Page
 {
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSwatch;
 
+    #[\Override]
     protected string $view = 'cms-themes::filament.pages.theme-management';
 
+    #[\Override]
     protected static ?string $title = 'Themes';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Themes';
 
+    #[\Override]
     public static function getNavigationGroup(): string|UnitEnum|null
     {
         return 'CMS';

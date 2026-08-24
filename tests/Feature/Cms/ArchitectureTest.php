@@ -19,6 +19,12 @@ function cmsPackageNamespaces(): array
     $packages = [];
 
     foreach (glob(base_path('modules/*'), GLOB_ONLYDIR) as $dir) {
+        // The implementation indexes under modules/{features,core,api,...}
+        // are documentation directories, not Composer packages.
+        if (! is_file("{$dir}/composer.json")) {
+            continue;
+        }
+
         $composer = json_decode(file_get_contents("{$dir}/composer.json"), true);
         $roots = array_keys($composer['autoload']['psr-4'] ?? []);
 

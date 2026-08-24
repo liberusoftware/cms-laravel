@@ -10,8 +10,10 @@ use Liberu\Cms\Hello\Filament\GreetingResource;
 
 final class ListGreetings extends ListRecords
 {
+    #[\Override]
     protected static string $resource = GreetingResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

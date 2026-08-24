@@ -30,26 +30,35 @@ use UnitEnum;
  */
 final class ApiTokenResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = PersonalAccessToken::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-api-tokens';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'API tokens';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'name';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
+    #[\Override]
     public static function canViewAny(): bool
     {
         return app()->bound(AccessControlInterface::class)
             && app(AccessControlInterface::class)->can('api-tokens.manage');
     }
 
+    #[\Override]
     public static function canCreate(): bool
     {
         return false;
@@ -70,6 +79,7 @@ final class ApiTokenResource extends Resource
             ->where('tokenable_id', $tenant->getKey());
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -103,6 +113,7 @@ final class ApiTokenResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

@@ -1,7 +1,7 @@
 # Build your first extension
 
 A Liberu CMS extension is an ordinary Composer package that talks to the platform
-only through the public contracts in `liberu-cms/cms-contracts` (see
+only through the public contracts in `liberusoftware/cms-contracts` (see
 [EXTENSION-API.md](./EXTENSION-API.md)). This guide builds one from scratch. The
 in-repo `modules/cms-hello` package is the worked example — it exercises
 every seam below and is covered by `tests/Feature/Cms/HelloReferenceExtensionTest.php`.
@@ -10,7 +10,7 @@ every seam below and is covered by `tests/Feature/Cms/HelloReferenceExtensionTes
 
 ```bash
 php artisan cms:make-module Portfolio
-composer update liberu-cms/cms-portfolio
+composer update liberusoftware/cms-portfolio
 php artisan migrate
 ```
 
@@ -135,7 +135,7 @@ pointing at your service provider (both are in the `cms:make-module` output).
 ### The two hard rules
 
 1. **Never import the host `App\` namespace**, and never import another module's
-   concrete classes — talk only to `liberu-cms/cms-contracts` (and events). This is
+   concrete classes — talk only to `liberusoftware/cms-contracts` (and events). This is
    enforced by `tests/Feature/Cms/ArchitectureTest.php`; violate it and CI fails.
 2. **Depend only on `@api` contracts.** Anything marked `@internal` may change in any
    release. See [EXTENSION-API.md](./EXTENSION-API.md) for the catalog and the

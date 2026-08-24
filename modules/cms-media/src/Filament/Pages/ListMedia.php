@@ -16,8 +16,10 @@ use Liberu\Cms\Media\Media\StoreUpload;
 
 final class ListMedia extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MediaResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

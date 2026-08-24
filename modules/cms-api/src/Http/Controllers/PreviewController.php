@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Api\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\Contracts\Preview\PreviewableSourceInterface;
 use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -28,7 +30,7 @@ final readonly class PreviewController
     {
         $source = $this->registry->source($type);
 
-        if ($source === null) {
+        if (! $source instanceof PreviewableSourceInterface) {
             throw new NotFoundHttpException;
         }
 
@@ -36,7 +38,7 @@ final readonly class PreviewController
 
         $model = $source->find($id);
 
-        if ($model === null) {
+        if (! $model instanceof Model) {
             throw new NotFoundHttpException;
         }
 

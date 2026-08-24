@@ -40,16 +40,22 @@ final class ContentEntryResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = ContentEntry::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInboxStack;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-content-entries';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Content Entries';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static function cmsPermissionKey(): string
@@ -57,6 +63,7 @@ final class ContentEntryResource extends Resource
         return 'content-entries';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -89,6 +96,7 @@ final class ContentEntryResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -162,6 +170,7 @@ final class ContentEntryResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

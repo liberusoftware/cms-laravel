@@ -10,8 +10,10 @@ use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
 
 final class ListContentTypes extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ContentTypeResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

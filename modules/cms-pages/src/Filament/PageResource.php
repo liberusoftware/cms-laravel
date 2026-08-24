@@ -36,16 +36,22 @@ final class PageResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Page::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-pages';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Pages';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static function cmsPermissionKey(): string
@@ -53,6 +59,7 @@ final class PageResource extends Resource
         return 'pages';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         $components = [
@@ -93,6 +100,7 @@ final class PageResource extends Resource
         );
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -128,6 +136,7 @@ final class PageResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

@@ -25,14 +25,19 @@ final class FormSubmissionResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = FormSubmission::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInbox;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-form-submissions';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Form submissions';
 
     protected static function cmsPermissionKey(): string
@@ -40,11 +45,13 @@ final class FormSubmissionResource extends Resource
         return 'form-submissions';
     }
 
+    #[\Override]
     public static function canCreate(): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -75,6 +82,7 @@ final class FormSubmissionResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

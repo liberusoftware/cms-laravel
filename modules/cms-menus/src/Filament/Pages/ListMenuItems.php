@@ -10,8 +10,10 @@ use Liberu\Cms\Menus\Filament\MenuItemResource;
 
 final class ListMenuItems extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MenuItemResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

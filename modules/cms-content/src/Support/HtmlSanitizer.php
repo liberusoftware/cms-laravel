@@ -13,9 +13,9 @@ use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
  * handlers, and dangerous URL schemes — the fix for stored XSS (OWASP A03) when
  * content is echoed as raw HTML.
  */
-final class HtmlSanitizer
+final readonly class HtmlSanitizer
 {
-    private readonly SymfonyHtmlSanitizer $sanitizer;
+    private SymfonyHtmlSanitizer $sanitizer;
 
     public function __construct()
     {
