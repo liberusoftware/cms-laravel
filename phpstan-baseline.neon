@@ -397,12 +397,6 @@ parameters:
 			path: app/Support/FilamentTenantResolver.php
 
 		-
-			message: '#^Trait App\\Traits\\HasProfilePhoto is used zero times and is not analysed\.$#'
-			identifier: trait.unused
-			count: 1
-			path: app/Traits/HasProfilePhoto.php
-
-		-
 			message: '#^Parameter \#1 \$state of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\ConnectedAccount\>\:\:state\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>, Illuminate\\Database\\Eloquent\\Model\|null\)\: array\<string, mixed\>\), Closure\(array, App\\Models\\User\)\: array\{provider\: string, user_id\: int\} given\.$#'
 			identifier: argument.type
 			count: 1
