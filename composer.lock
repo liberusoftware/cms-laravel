@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9333840ebfd3a375a134d2939555792",
+    "content-hash": "bc60769a34a17fa491914617fb745b1f",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8828,6 +8828,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Static Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-syndication-and-feeds",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-syndication-and-feeds",
+                "reference": "03e64139a3f2b50c864d2e1a8795270b4ee670b1"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-syndication-and-feeds",
+                    "capability": "syndication-and-feeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SyndicationAndFeeds\\SyndicationAndFeedsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SyndicationAndFeeds\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS RSS, Atom, structured feeds, imports, and syndication.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-syndication-and-feeds-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-syndication-and-feeds-api",
+                "reference": "c7680d2433d2cee3d9d2863d73c0e42a6f6d1ef5"
+            },
+            "require": {
+                "liberusoftware/module-cms-syndication-and-feeds": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-syndication-and-feeds-api",
+                    "core": "liberusoftware/module-cms-syndication-and-feeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SyndicationAndFeedsApi\\SyndicationAndFeedsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SyndicationAndFeedsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Syndication and Feeds.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-syndication-and-feeds-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-syndication-and-feeds-filament",
+                "reference": "972057b2bd194cd0aaaaa6e45d31ddc79138b483"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-syndication-and-feeds": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-syndication-and-feeds-filament",
+                    "core": "liberusoftware/module-cms-syndication-and-feeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SyndicationAndFeedsFilament\\SyndicationAndFeedsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SyndicationAndFeedsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Syndication and Feeds.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-syndication-and-feeds-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-syndication-and-feeds-livewire",
+                "reference": "cfa131ab4d7e57189b853ee1edfcea42a7e9e4ed"
+            },
+            "require": {
+                "liberusoftware/module-cms-syndication-and-feeds": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-syndication-and-feeds-livewire",
+                    "core": "liberusoftware/module-cms-syndication-and-feeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SyndicationAndFeedsLivewire\\SyndicationAndFeedsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SyndicationAndFeedsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Syndication and Feeds.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
