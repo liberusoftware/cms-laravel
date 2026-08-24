@@ -1,0 +1,11 @@
+{
+    "name": "module-cms-blocks",
+    "package": "liberusoftware/module-cms-blocks",
+    "version": "0.1.0",
+    "layers": [
+        "core"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Blocks\\BlocksServiceProvider"
+    ]
+}

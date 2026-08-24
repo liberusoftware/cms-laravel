@@ -1,0 +1,9 @@
+{
+    "name": "module-cms-contracts",
+    "package": "liberusoftware/module-cms-contracts",
+    "version": "0.1.0",
+    "layers": [
+        "core"
+    ],
+    "service_providers": []
+}

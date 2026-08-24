@@ -1,6 +1,6 @@
 # CMS API modules
 
-The API adapter is `liberusoftware/cms-api`. Content, page, post, menu, form,
+The API adapter is `liberusoftware/module-cms-api`. Content, page, post, menu, form,
 search, SEO, preview, and token endpoints are registered by the owning module
 through the public contracts and the API registry. Controllers validate input,
 resolve authenticated tenant/team context, and delegate domain behavior to

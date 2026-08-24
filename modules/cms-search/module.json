@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-search",
+    "package": "liberusoftware/module-cms-search",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Search\\CmsSearchServiceProvider"
+    ]
+}

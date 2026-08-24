@@ -1,13 +1,13 @@
 {
-    "name": "liberusoftware/cms-seo",
+    "name": "liberusoftware/module-cms-seo",
     "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
     "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberusoftware/cms-contracts": "^0.1",
-        "liberusoftware/cms-core": "^0.1",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1",
         "illuminate/contracts": "^13.0",
         "illuminate/http": "^13.0",
         "illuminate/routing": "^13.0",
@@ -25,7 +25,7 @@
     },
     "extra": {
         "liberu": {
-            "name": "cms-seo"
+            "name": "module-cms-seo"
         },
         "laravel": {
             "providers": [

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43e9c7793ea7803d1f353ef55a73f657",
+    "content-hash": "586911aced217261301880cfec4c7e7f",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4967,1004 +4967,11 @@
             "time": "2026-03-08T20:05:35+00:00"
         },
         {
-            "name": "liberusoftware/cms-admin",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-admin",
-                "reference": "7f7859976c56629cbf2fcb0d5b05bd5422050c27"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-admin"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Admin\\AdminServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Admin\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Admin\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Admin module for Liberu CMS: a Filament panel plugin that surfaces the module system and content services to editors and administrators.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-api",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-api",
-                "reference": "38c544817464b932594c65eb0c67e258b060494e"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/console": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/routing": "^13.0",
-                "illuminate/support": "^13.0",
-                "laravel/sanctum": "^4.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-api"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Api\\CmsApiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Api\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Api\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Delivery API for Liberu CMS: a versioned, read-only, Sanctum-authenticated JSON API that serves published content to decoupled frontends.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-audit",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-audit",
-                "reference": "927f4ee9c306556c600242800a6359c79c38951d"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/auth": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-audit"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Audit\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Audit\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Audit logging for Liberu CMS: turns security-relevant events into append-only audit records with a read-only admin viewer.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-blocks",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-blocks",
-                "reference": "3c9f46562400902fbb14157f7d6f3258d9e83e42"
-            },
-            "require": {
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-blocks"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Blocks\\BlocksServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Blocks\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Blocks\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Block system and page-builder rendering for Liberu CMS: a registry of block types and a recursive, XSS-safe renderer.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-content",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-content",
-                "reference": "55684a333b16b17aa79cad5dfd7acc69adb73299"
-            },
-            "require": {
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "php": "^8.5",
-                "symfony/html-sanitizer": "^7.0|^8.0"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-content"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Content\\ContentServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Content\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Content\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Content foundation for Liberu CMS: editorial workflow and versioning shared by every content module.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-content-types",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-content-types",
-                "reference": "4a792cd90d3347fe9308325fe875781dfb83e63d"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "^0.1",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-content-types"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\ContentTypes\\ContentTypesServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\ContentTypes\\": "src/",
-                    "Liberu\\Cms\\ContentTypes\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\ContentTypes\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Custom content types for Liberu CMS: JSON field schemas and validated content entries with workflow and versioning.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-contracts",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-contracts",
-                "reference": "4dc4edb9b0578ad732a0c7758d86da53b1c91e56"
-            },
-            "require": {
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-contracts"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Contracts\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Contracts\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-core",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-core",
-                "reference": "b6ae812bbf8a2784f80b4df8263c69629bc5525f"
-            },
-            "require": {
-                "illuminate/console": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/events": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-core"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Core\\CmsCoreServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Core\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Core\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "The Liberu CMS kernel: module registry, lifecycle manager, event bus, base module classes, and the module generator.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-forms",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-forms",
-                "reference": "de629a627cb8feed2d0a7284487e46be5aedd6e4"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/routing": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "^0.1",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-forms"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Forms\\CmsFormsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Forms\\": "src/",
-                    "Liberu\\Cms\\Forms\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Forms\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Forms module for Liberu CMS: public form definitions and spam-protected submissions that emit a FormSubmitted event.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-hello",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-hello",
-                "reference": "f0a4d746936c17fb31e9c3be1b008ca53a34ec22"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-hello"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Hello\\HelloServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Hello\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Hello\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A trivial proof-of-concept Liberu CMS module that exercises the whole pipeline: descriptor, isolation, contract, service, event, route, migration, config, and tests.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-media",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-media",
-                "reference": "3feaf27cf73a639c5dd41f7bf6b16046f8ed0a87"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/filesystem": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-media"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Media\\MediaServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Media\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Media\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Media library for Liberu CMS: secure uploads, storage, folders, and metadata behind a content-agnostic contract.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-menus",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-menus",
-                "reference": "df796fcb257e18075d3057f663c30a301a3a2ac0"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-menus"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Menus\\MenusServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Menus\\": "src/",
-                    "Liberu\\Cms\\Menus\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Menus\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-notifications",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-notifications",
-                "reference": "a32d6e5af3bbecd068765cabd91c4014790b50ae"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/bus": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/queue": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5",
-                "psr/log": "^3.0"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-notifications"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Notifications\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Notifications\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-observability",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-observability",
-                "reference": "9cc3d1e0a363342ff9488503d6aa4e65e4eb034c"
-            },
-            "require": {
-                "illuminate/cache": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/log": "^13.0",
-                "illuminate/queue": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-observability"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Observability\\CmsObservabilityServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Observability\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Observability\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Observability for Liberu CMS: a public readiness probe backed by a module-contributed health-check registry, and a backend-agnostic metrics recorder with a zero-infra log-channel default.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-pages",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-pages",
-                "reference": "edb229174a2bc024a145b633b7fc2b818d3651bc"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "^0.1",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-pages"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Pages\\PagesServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Pages\\": "src/",
-                    "Liberu\\Cms\\Pages\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Pages\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Pages module for Liberu CMS: hierarchical pages with editorial workflow, versioning, slugs, and featured media.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-posts",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-posts",
-                "reference": "209d21250c40701b0c955ff7ae09a31d0efd3214"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "^0.1",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-posts"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Posts\\PostsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Posts\\": "src/",
-                    "Liberu\\Cms\\Posts\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Posts\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Posts module for Liberu CMS: blog posts with taxonomy (categories & tags), workflow, versioning, and featured media.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-search",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-search",
-                "reference": "f0fe07048fe8934a17f0c2ed5cb19ee6371eefc4"
-            },
-            "require": {
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/support": "^13.0",
-                "laravel/scout": "^11.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-search"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Search\\CmsSearchServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Search\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Search\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Search module for Liberu CMS: full-text search over published content across every content type, exposed on the Delivery API.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-seo",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-seo",
-                "reference": "ecd45806748acff72e1cffaaccdaa739d07f51dd"
-            },
-            "require": {
-                "illuminate/contracts": "^13.0",
-                "illuminate/http": "^13.0",
-                "illuminate/routing": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-seo"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Seo\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Seo\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-themes",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-themes",
-                "reference": "8ecdcb2fd9d7b1368da12d5aa7d34e110ae4dd7a"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-themes"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Themes\\ThemesServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Themes\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Themes\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Theme engine for Liberu CMS: registration, inheritance, override resolution, and switching of Blade themes.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-users",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-users",
-                "reference": "d5b51f05943055c101397ffb5f09e827307b1c49"
-            },
-            "require": {
-                "illuminate/auth": "^13.0",
-                "illuminate/console": "^13.0",
-                "illuminate/contracts": "^13.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5",
-                "spatie/laravel-permission": "^7.0"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-users"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Users\\UsersServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Users\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Users\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Identity & Access for Liberu CMS: the authorization boundary and permission registry every other module depends on.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "liberusoftware/cms-widgets",
-            "version": "0.1.0",
-            "dist": {
-                "type": "path",
-                "url": "modules/cms-widgets",
-                "reference": "bb11c238ea7f7cbd42e9872f1aa90d5a5d47b073"
-            },
-            "require": {
-                "filament/filament": "^5.0",
-                "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "^0.1",
-                "liberusoftware/cms-core": "^0.1",
-                "php": "^8.5"
-            },
-            "type": "liberu-module",
-            "extra": {
-                "liberu": {
-                    "name": "cms-widgets"
-                },
-                "laravel": {
-                    "providers": [
-                        "Liberu\\Cms\\Widgets\\WidgetsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Liberu\\Cms\\Widgets\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Liberu\\Cms\\Widgets\\Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Widget system for Liberu CMS: a registry of area-scoped widgets (sidebar, dashboard, footer) with ordered rendering.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
             "name": "liberusoftware/composer-installer",
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/liberusoftware/composer-installer.git",
+                "url": "git@github.com:liberusoftware/composer-installer.git",
                 "reference": "470e3b95f6232424c69d67e4f7dad6f3619c37c4"
             },
             "dist": {
@@ -6004,15 +5011,478 @@
             "time": "2026-08-05T07:59:00+00:00"
         },
         {
+            "name": "liberusoftware/module-cms-admin",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-admin",
+                "reference": "cb92cc9e2497692269b39a2e5b23fb1fbae6ba7d"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-admin"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Admin\\AdminServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Admin\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Admin\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Admin module for Liberu CMS: a Filament panel plugin that surfaces the module system and content services to editors and administrators.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-api",
+                "reference": "4d6bcbc6965f60ecac9634c6ab541b3ebac32694"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/console": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "illuminate/support": "^13.0",
+                "laravel/sanctum": "^4.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-api"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Api\\CmsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Api\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Api\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Delivery API for Liberu CMS: a versioned, read-only, Sanctum-authenticated JSON API that serves published content to decoupled frontends.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-audit",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-audit",
+                "reference": "f09e6dbb487b64ef66582f287e93272cef5dd9b7"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/auth": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-audit"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Audit\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Audit\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Audit logging for Liberu CMS: turns security-relevant events into append-only audit records with a read-only admin viewer.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-blocks",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-blocks",
+                "reference": "8944d4cece8c905a813c292d1994d6f6d904545d"
+            },
+            "require": {
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-blocks"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Blocks\\BlocksServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Blocks\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Blocks\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Block system and page-builder rendering for Liberu CMS: a registry of block types and a recursive, XSS-safe renderer.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content",
+                "reference": "3ab742c5faa113cda1343017ec599af6c4de2a48"
+            },
+            "require": {
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "php": "^8.5",
+                "symfony/html-sanitizer": "^7.0|^8.0"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Content\\ContentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Content\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Content\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Content foundation for Liberu CMS: editorial workflow and versioning shared by every content module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-types",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-types",
+                "reference": "d44aacc356e3aa2a7101724ec5e04b970a75bf36"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-content": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentTypes\\ContentTypesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTypes\\": "src/",
+                    "Liberu\\Cms\\ContentTypes\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTypes\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Custom content types for Liberu CMS: JSON field schemas and validated content entries with workflow and versioning.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-contracts",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-contracts",
+                "reference": "40d8654458971f7e2fe9e02411cc9fd9ed728a8f"
+            },
+            "require": {
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-contracts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Contracts\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Contracts\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-core",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-core",
+                "reference": "bb2518ef2c2c5936433aa891700583055d756896"
+            },
+            "require": {
+                "illuminate/console": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/events": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Core\\CmsCoreServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Core\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Core\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The Liberu CMS kernel: module registry, lifecycle manager, event bus, base module classes, and the module generator.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-forms",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-forms",
+                "reference": "78b44e88abd499a42a355b016c743be67f006d69"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-content": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-forms"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Forms\\CmsFormsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Forms\\": "src/",
+                    "Liberu\\Cms\\Forms\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Forms\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Forms module for Liberu CMS: public form definitions and spam-protected submissions that emit a FormSubmitted event.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-hello",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-hello",
+                "reference": "ce3ce8e55d13cf497541f287fec74abb3cb8cad4"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-hello"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Hello\\HelloServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Hello\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Hello\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A trivial proof-of-concept Liberu CMS module that exercises the whole pipeline: descriptor, isolation, contract, service, event, route, migration, config, and tests.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-hello-livewire",
             "version": "0.1.0",
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-hello-livewire",
-                "reference": "119a0c4cf3a86b7646b12468d3b5950bbe8146f6"
+                "reference": "d52edee86ec5cfa80060941797ce643008162762"
             },
             "require": {
-                "liberusoftware/cms-hello": "^0.1",
+                "liberusoftware/module-cms-hello": "^0.1",
                 "livewire/livewire": "^4.0",
                 "php": "^8.5"
             },
@@ -6020,7 +5490,7 @@
             "extra": {
                 "liberu": {
                     "name": "module-cms-hello-livewire",
-                    "core": "liberusoftware/cms-hello"
+                    "core": "liberusoftware/module-cms-hello"
                 },
                 "laravel": {
                     "providers": [
@@ -6042,6 +5512,536 @@
                 "MIT"
             ],
             "description": "Livewire 4 presentation adapter for the Liberu CMS Hello module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-media",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-media",
+                "reference": "78a39045f25843665a1350fa34b585796baec8b6"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/filesystem": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-media"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Media\\MediaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Media\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Media\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Media library for Liberu CMS: secure uploads, storage, folders, and metadata behind a content-agnostic contract.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-menus",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-menus",
+                "reference": "f579d000e6af052bc9bf865acd9820ead3c82238"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-menus"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Menus\\MenusServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Menus\\": "src/",
+                    "Liberu\\Cms\\Menus\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Menus\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-notifications",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-notifications",
+                "reference": "7c0cce9ae81f724dd5ed23cb1005c7381205e0cc"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/bus": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/queue": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5",
+                "psr/log": "^3.0"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-notifications"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Notifications\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Notifications\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-observability",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-observability",
+                "reference": "921293b648724a939db7fa1499f90b017196707d"
+            },
+            "require": {
+                "illuminate/cache": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/log": "^13.0",
+                "illuminate/queue": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-observability"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Observability\\CmsObservabilityServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Observability\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Observability\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Observability for Liberu CMS: a public readiness probe backed by a module-contributed health-check registry, and a backend-agnostic metrics recorder with a zero-infra log-channel default.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-pages",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-pages",
+                "reference": "60fc9fd500bcabbc41ef6745e81f5e66721b13e8"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-content": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-pages"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Pages\\PagesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Pages\\": "src/",
+                    "Liberu\\Cms\\Pages\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Pages\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Pages module for Liberu CMS: hierarchical pages with editorial workflow, versioning, slugs, and featured media.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-posts",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-posts",
+                "reference": "a818ad095b9524b490706535a680c8600923cc9a"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-content": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-posts"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Posts\\PostsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Posts\\": "src/",
+                    "Liberu\\Cms\\Posts\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Posts\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Posts module for Liberu CMS: blog posts with taxonomy (categories & tags), workflow, versioning, and featured media.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-search",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-search",
+                "reference": "6d1a17acce867b3886eea20b4cc5e61232e369d1"
+            },
+            "require": {
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/support": "^13.0",
+                "laravel/scout": "^11.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-search"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Search\\CmsSearchServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Search\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Search\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Search module for Liberu CMS: full-text search over published content across every content type, exposed on the Delivery API.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-seo",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-seo",
+                "reference": "03c5545d4b5f0485b74ff40a97e1fb6e8c1a262b"
+            },
+            "require": {
+                "illuminate/contracts": "^13.0",
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-seo"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Seo\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Seo\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-themes",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-themes",
+                "reference": "d9bb6d4c2ae29373a5c2f39f0288047cd667f18b"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-themes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Themes\\ThemesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Themes\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Themes\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Theme engine for Liberu CMS: registration, inheritance, override resolution, and switching of Blade themes.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-users",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-users",
+                "reference": "adac7a311ab3b8dc03588c8e6933562353730e9a"
+            },
+            "require": {
+                "illuminate/auth": "^13.0",
+                "illuminate/console": "^13.0",
+                "illuminate/contracts": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5",
+                "spatie/laravel-permission": "^7.0"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-users"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Users\\UsersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Users\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Users\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Identity & Access for Liberu CMS: the authorization boundary and permission registry every other module depends on.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-widgets",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-widgets",
+                "reference": "1b5884add4d792b816feb1348c452c91381a52d8"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-widgets"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Widgets\\WidgetsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Widgets\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\Widgets\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Widget system for Liberu CMS: a registry of area-scoped widgets (sidebar, dashboard, footer) with ordered rendering.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

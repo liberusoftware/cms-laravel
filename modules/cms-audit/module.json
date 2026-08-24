@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-audit",
+    "package": "liberusoftware/module-cms-audit",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-admin",
+    "package": "liberusoftware/module-cms-admin",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Admin\\AdminServiceProvider"
+    ]
+}

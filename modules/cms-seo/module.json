@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-seo",
+    "package": "liberusoftware/module-cms-seo",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"
+    ]
+}

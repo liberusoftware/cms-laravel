@@ -1,0 +1,13 @@
+{
+    "name": "module-cms-content-types",
+    "package": "liberusoftware/module-cms-content-types",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\ContentTypes\\ContentTypesServiceProvider"
+    ]
+}

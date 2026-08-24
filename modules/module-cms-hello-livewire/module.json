@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-hello-livewire",
+    "package": "liberusoftware/module-cms-hello-livewire",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "livewire"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\HelloLivewire\\HelloLivewireServiceProvider"
+    ]
+}

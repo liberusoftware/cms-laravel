@@ -15,7 +15,7 @@ function withTemporaryModuleBase(callable $callback): void
     File::makeDirectory("{$temporaryBase}/modules", 0755, true);
     File::put("{$temporaryBase}/composer.json", json_encode([
         'require' => [
-            'liberusoftware/cms-core' => '^0.1',
+            'liberusoftware/module-cms-core' => '^0.1',
         ],
     ], JSON_THROW_ON_ERROR));
 
@@ -43,11 +43,12 @@ it('scaffolds a bounded foundational module and updates the root manifest', func
         expect(File::exists("{$module}/src/PortfolioModule.php"))->toBeTrue()
             ->and(File::exists("{$module}/src/PortfolioServiceProvider.php"))->toBeTrue()
             ->and(File::exists("{$module}/database/migrations/.gitkeep"))->toBeTrue()
-            ->and($manifest['name'])->toBe('liberusoftware/cms-portfolio')
+            ->and($manifest['name'])->toBe('liberusoftware/module-cms-portfolio')
             ->and($manifest['type'])->toBe('liberu-module')
-            ->and($manifest['require']['liberusoftware/cms-contracts'])->toBe('^0.1')
-            ->and($manifest['require']['liberusoftware/cms-core'])->toBe('^0.1')
-            ->and($root['require']['liberusoftware/cms-portfolio'])->toBe('^0.1');
+            ->and($manifest['extra']['liberu']['name'])->toBe('module-cms-portfolio')
+            ->and($manifest['require']['liberusoftware/module-cms-contracts'])->toBe('^0.1')
+            ->and($manifest['require']['liberusoftware/module-cms-core'])->toBe('^0.1')
+            ->and($root['require']['liberusoftware/module-cms-portfolio'])->toBe('^0.1');
     });
 });
 

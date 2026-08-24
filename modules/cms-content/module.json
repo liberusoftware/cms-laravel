@@ -1,0 +1,11 @@
+{
+    "name": "module-cms-content",
+    "package": "liberusoftware/module-cms-content",
+    "version": "0.1.0",
+    "layers": [
+        "core"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Content\\ContentServiceProvider"
+    ]
+}

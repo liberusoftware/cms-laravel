@@ -1,12 +1,12 @@
 {
-    "name": "liberusoftware/cms-content",
+    "name": "liberusoftware/module-cms-content",
     "description": "Content foundation for Liberu CMS: editorial workflow and versioning shared by every content module.",
     "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberusoftware/cms-contracts": "^0.1",
+        "liberusoftware/module-cms-contracts": "^0.1",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",
         "illuminate/support": "^13.0",
@@ -24,7 +24,7 @@
     },
     "extra": {
         "liberu": {
-            "name": "cms-content"
+            "name": "module-cms-content"
         },
         "laravel": {
             "providers": [

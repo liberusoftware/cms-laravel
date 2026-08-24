@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-notifications",
+    "package": "liberusoftware/module-cms-notifications",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"
+    ]
+}

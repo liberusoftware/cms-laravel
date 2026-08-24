@@ -6,6 +6,22 @@ echo '== Composer metadata and security =='
 composer validate --no-check-publish
 composer audit --locked --no-interaction
 
+echo '== Independent module metadata and boundaries =='
+for package_manifest in modules/*/composer.json; do
+    package_dir="${package_manifest%/*}"
+
+    jq -e '.name | startswith("liberusoftware/module-")' "$package_manifest" >/dev/null
+    test -f "$package_dir/README.md"
+    test -f "$package_dir/CHANGELOG.md"
+    test -f "$package_dir/module.json"
+    jq -e --arg package "$(jq -r '.name' "$package_manifest")" '.package == $package' "$package_dir/module.json" >/dev/null
+
+    if rg -n '(^|[^A-Za-z])App\\' "$package_dir/src"; then
+        echo "Application coupling found in $package_dir" >&2
+        exit 1
+    fi
+done
+
 echo '== PHP quality =='
 vendor/bin/pint --test
 vendor/bin/phpstan analyse --no-progress --memory-limit=1G
