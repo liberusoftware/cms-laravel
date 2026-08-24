@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c64b58896f495b2e0333a383fced83e6",
+    "content-hash": "f707613873d3a940a5e2f022b0e006e8",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6222,6 +6222,160 @@
                 "issues": "https://github.com/liberusoftware/module-cms-observability/issues",
                 "source": "https://github.com/liberusoftware/module-cms-observability"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-offline-and-pwa",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-offline-and-pwa",
+                "reference": "61100168a1d57cb42973fbcd565f0ca1e2e78b39"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-offline-and-pwa",
+                    "capability": "offline-and-pwa"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\OfflineAndPwa\\OfflineAndPwaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\OfflineAndPwa\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS offline pages, PWA manifests, service workers, and cache policies.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-offline-and-pwa-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-offline-and-pwa-api",
+                "reference": "185adebaa2be79a7642b41dd5ec736d0b9e10da3"
+            },
+            "require": {
+                "liberusoftware/module-cms-offline-and-pwa": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-offline-and-pwa-api",
+                    "core": "liberusoftware/module-cms-offline-and-pwa"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\OfflineAndPwaApi\\OfflineAndPwaApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\OfflineAndPwaApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Offline and PWA.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-offline-and-pwa-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-offline-and-pwa-filament",
+                "reference": "81a618f6c4f902297a36f4791b0e737601797839"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-offline-and-pwa": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-offline-and-pwa-filament",
+                    "core": "liberusoftware/module-cms-offline-and-pwa"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\OfflineAndPwaFilament\\OfflineAndPwaFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\OfflineAndPwaFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Offline and PWA.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-offline-and-pwa-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-offline-and-pwa-livewire",
+                "reference": "57b0f5f0c8de7128fdd7aef493d6fedb606568f0"
+            },
+            "require": {
+                "liberusoftware/module-cms-offline-and-pwa": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-offline-and-pwa-livewire",
+                    "core": "liberusoftware/module-cms-offline-and-pwa"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\OfflineAndPwaLivewire\\OfflineAndPwaLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\OfflineAndPwaLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Offline and PWA.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
