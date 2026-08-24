@@ -3,6 +3,11 @@
     "description": "Posts module for Liberu CMS: blog posts with taxonomy (categories & tags), workflow, versioning, and featured media.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-posts",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-posts/issues",
+        "source": "https://github.com/liberusoftware/module-cms-posts"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

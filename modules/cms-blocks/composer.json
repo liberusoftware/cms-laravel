@@ -3,6 +3,11 @@
     "description": "Block system and page-builder rendering for Liberu CMS: a registry of block types and a recursive, XSS-safe renderer.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-blocks",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-blocks/issues",
+        "source": "https://github.com/liberusoftware/module-cms-blocks"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

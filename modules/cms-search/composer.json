@@ -3,6 +3,11 @@
     "description": "Search module for Liberu CMS: full-text search over published content across every content type, exposed on the Delivery API.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-search",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-search/issues",
+        "source": "https://github.com/liberusoftware/module-cms-search"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

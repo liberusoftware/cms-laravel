@@ -1,5 +1,11 @@
 # cms-hello
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-hello
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-hello
+
 A trivial proof-of-concept module. It exists to exercise the entire module
 pipeline end to end and to be the module CI enables, disables, and re-enables.
 

@@ -1,5 +1,11 @@
 # cms-audit
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-audit
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-audit
+
 Audit logging for Liberu CMS. Turns security-relevant events into **append-only**
 audit records (Part B §18 / OWASP A09), with a read-only admin viewer.
 

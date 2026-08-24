@@ -1,5 +1,11 @@
 # cms-pages
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-pages
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-pages
+
 Hierarchical pages for Liberu CMS, built on the content foundation.
 
 Depends on the **Media** module (declared in the descriptor) so it cannot be

@@ -1,5 +1,11 @@
 # cms-themes
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-themes
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-themes
+
 The theme engine for Liberu CMS: register Blade themes, inherit from a parent
 theme, resolve view overrides along the inheritance chain, and switch the active
 theme at runtime.

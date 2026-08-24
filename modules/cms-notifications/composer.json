@@ -3,6 +3,11 @@
     "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-notifications",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-notifications/issues",
+        "source": "https://github.com/liberusoftware/module-cms-notifications"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

@@ -3,6 +3,11 @@
     "description": "Audit logging for Liberu CMS: turns security-relevant events into append-only audit records with a read-only admin viewer.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-audit",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-audit/issues",
+        "source": "https://github.com/liberusoftware/module-cms-audit"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

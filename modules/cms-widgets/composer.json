@@ -3,6 +3,11 @@
     "description": "Widget system for Liberu CMS: a registry of area-scoped widgets (sidebar, dashboard, footer) with ordered rendering.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-widgets",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-widgets/issues",
+        "source": "https://github.com/liberusoftware/module-cms-widgets"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

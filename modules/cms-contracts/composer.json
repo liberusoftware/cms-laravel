@@ -3,6 +3,11 @@
     "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-contracts",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-contracts/issues",
+        "source": "https://github.com/liberusoftware/module-cms-contracts"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5"

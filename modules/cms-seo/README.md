@@ -1,5 +1,11 @@
 # CMS SEO
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-seo
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-seo
+
 SEO for the server-rendered (standalone) site: a public `sitemap.xml` and
 `robots.txt`, plus `<head>` meta / OpenGraph / JSON-LD tags for content pages.
 Both the sitemap and the head tags are unauthenticated and unscoped — they

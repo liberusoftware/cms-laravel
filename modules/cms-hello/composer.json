@@ -3,6 +3,11 @@
     "description": "A trivial proof-of-concept Liberu CMS module that exercises the whole pipeline: descriptor, isolation, contract, service, event, route, migration, config, and tests.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-hello",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-hello/issues",
+        "source": "https://github.com/liberusoftware/module-cms-hello"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

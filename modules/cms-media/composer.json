@@ -3,6 +3,11 @@
     "description": "Media library for Liberu CMS: secure uploads, storage, folders, and metadata behind a content-agnostic contract.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-media",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-media/issues",
+        "source": "https://github.com/liberusoftware/module-cms-media"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

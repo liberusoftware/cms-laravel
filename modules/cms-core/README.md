@@ -1,5 +1,11 @@
 # cms-core
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-core
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-core
+
 The Liberu CMS kernel. It turns a plain Laravel application into a host for
 independently installable, removable modules — standalone, embedded, or headless.
 

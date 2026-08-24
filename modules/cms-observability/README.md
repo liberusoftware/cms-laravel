@@ -1,5 +1,11 @@
 # cms-observability
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-observability
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-observability
+
 The operability layer for Liberu CMS (Phase 6.5). Answers *"is the system healthy
 right now?"* (readiness) and *"what is it doing?"* (metrics) as removable seams
 with zero-infra defaults. Owns no domain data; feature modules contribute checks

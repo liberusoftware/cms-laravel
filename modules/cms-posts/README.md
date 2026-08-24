@@ -1,5 +1,11 @@
 # cms-posts
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-posts
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-posts
+
 Blog posts with taxonomy for Liberu CMS, built on the content foundation.
 
 Depends on the **Media** module (descriptor) and the **cms-content** foundation

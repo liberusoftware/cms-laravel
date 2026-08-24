@@ -1,5 +1,11 @@
 # cms-contracts
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-contracts
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-contracts
+
 The shared vocabulary of Liberu CMS: interfaces, cross-module events, and DTOs.
 
 **Everything depends on this package; this package depends on nothing** (only PHP).

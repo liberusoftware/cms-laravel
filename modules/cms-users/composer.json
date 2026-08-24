@@ -3,6 +3,11 @@
     "description": "Identity & Access for Liberu CMS: the authorization boundary and permission registry every other module depends on.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-users",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-users/issues",
+        "source": "https://github.com/liberusoftware/module-cms-users"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

@@ -1,5 +1,11 @@
 # cms-content
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-content
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-content
+
 The content foundation for Liberu CMS: **editorial workflow** and **versioning**,
 shared by every content module (Pages, Posts, custom types).
 

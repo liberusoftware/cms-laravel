@@ -1,5 +1,11 @@
 # cms-widgets
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-widgets
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-widgets
+
 The widget system for Liberu CMS: register widgets and render them by area
 (sidebar, dashboard, footer).
 

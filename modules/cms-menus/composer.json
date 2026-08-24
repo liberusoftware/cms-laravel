@@ -3,6 +3,11 @@
     "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-menus",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
+        "source": "https://github.com/liberusoftware/module-cms-menus"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",

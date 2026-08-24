@@ -3,6 +3,11 @@
     "description": "Observability for Liberu CMS: a public readiness probe backed by a module-contributed health-check registry, and a backend-agnostic metrics recorder with a zero-infra log-channel default.",
     "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-observability",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-observability/issues",
+        "source": "https://github.com/liberusoftware/module-cms-observability"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
