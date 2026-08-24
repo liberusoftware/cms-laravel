@@ -1,0 +1,1 @@
+{"name":"module-cms-security-operations","package":"liberusoftware/module-cms-security-operations","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\SecurityOperations\\SecurityOperationsServiceProvider"]}

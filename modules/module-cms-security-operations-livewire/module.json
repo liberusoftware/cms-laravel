@@ -1,0 +1,1 @@
+{"name":"module-cms-security-operations-livewire","package":"liberusoftware/module-cms-security-operations-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\SecurityOperationsLivewire\\SecurityOperationsLivewireServiceProvider"]}

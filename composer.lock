@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d20a09e5be54c6ccf306187ce17b69a3",
+    "content-hash": "c74d853ce3037821742be9de9298e697",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7888,6 +7888,160 @@
                 "issues": "https://github.com/liberusoftware/module-cms-search/issues",
                 "source": "https://github.com/liberusoftware/module-cms-search"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-security-operations",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-security-operations",
+                "reference": "6789bbbdb57d72fb480a2c91f6aeb5fdef2e6bdf"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-security-operations",
+                    "capability": "security-operations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SecurityOperations\\SecurityOperationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SecurityOperations\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS security operations and integrity tooling.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-security-operations-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-security-operations-api",
+                "reference": "0e3143e5ed6a707678d80a126a8843e93002d282"
+            },
+            "require": {
+                "liberusoftware/module-cms-security-operations": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-security-operations-api",
+                    "core": "liberusoftware/module-cms-security-operations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SecurityOperationsApi\\SecurityOperationsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SecurityOperationsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Security Operations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-security-operations-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-security-operations-filament",
+                "reference": "0f343fbef6f4df4a4213f5c06e449d0d79071df0"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-security-operations": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-security-operations-filament",
+                    "core": "liberusoftware/module-cms-security-operations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SecurityOperationsFilament\\SecurityOperationsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SecurityOperationsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Security Operations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-security-operations-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-security-operations-livewire",
+                "reference": "90e04065b153d02158202b879306556e45170c3c"
+            },
+            "require": {
+                "liberusoftware/module-cms-security-operations": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-security-operations-livewire",
+                    "core": "liberusoftware/module-cms-security-operations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SecurityOperationsLivewire\\SecurityOperationsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SecurityOperationsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Security Operations.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
