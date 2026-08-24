@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Actions\Socialstream\HandleInvalidState;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Laravel\Socialite\Two\InvalidStateException;
 use Liberu\Cms\Blocks\Types\CodeBlock;
+use Liberu\Cms\Content\Revisions\Revision;
 use Liberu\Cms\Contracts\Content\WorkflowState;
 use Liberu\Cms\Contracts\Events\Content\ContentStateChanged;
 use Liberu\Cms\Contracts\Events\Media\MediaUploaded;
@@ -18,6 +22,9 @@ use Liberu\Cms\Hello\Events\HelloGreeted;
 use Liberu\Cms\Observability\Health\Checks\CacheHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\DatabaseHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\QueueHealthCheck;
+use Liberu\Cms\Posts\Http\Resources\PostResource;
+use Liberu\Cms\Posts\Models\Post;
+use Liberu\Cms\Posts\Preview\PostPreviewSource;
 use Liberu\Cms\Search\Health\SearchHealthCheck;
 use Liberu\Cms\Seo\Http\Controllers\RobotsController;
 use Liberu\Cms\Themes\AbstractTheme;
@@ -136,3 +143,28 @@ it('skips malformed robots groups and non-string disallow values', function (): 
     expect($response->getContent())->toContain("User-agent: *\nDisallow: /admin")
         ->and($response->getContent())->toContain('Sitemap: ');
 });
+
+it('exposes revision and preview adapter values without loading records', function (): void {
+    $revision = new Revision([
+        'revision_number' => 3,
+        'snapshot' => ['title' => 'Draft'],
+    ]);
+
+    $posts = Mockery::mock('Liberu\\Cms\\Posts\\Contracts\\PostRepositoryInterface');
+    $posts->shouldReceive('find')->once()->with(404)->andReturn(null);
+    $preview = new PostPreviewSource($posts);
+    $resource = $preview->toResource(new Post(['title' => 'Preview']));
+
+    expect($revision->revisionable())->toBeInstanceOf(MorphTo::class)
+        ->and($revision->revisionNumber())->toBe(3)
+        ->and($revision->snapshot())->toBe(['title' => 'Draft'])
+        ->and($preview->typeKey())->toBe('posts')
+        ->and($preview->find(404))->toBeNull()
+        ->and($resource)->toBeInstanceOf(PostResource::class);
+});
+
+it('rethrows invalid social login state exceptions', function (): void {
+    $exception = new InvalidStateException;
+
+    (new HandleInvalidState)->handle($exception);
+})->throws(InvalidStateException::class);
