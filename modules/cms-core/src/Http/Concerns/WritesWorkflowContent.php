@@ -34,7 +34,7 @@ trait WritesWorkflowContent
      */
     protected function shouldTransition(WorkflowState $from, ?WorkflowState $to): bool
     {
-        if ($to === null || $to === $from) {
+        if (! $to instanceof WorkflowState || $to === $from) {
             return false;
         }
 

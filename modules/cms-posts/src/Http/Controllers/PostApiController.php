@@ -33,7 +33,7 @@ final readonly class PostApiController
             default => $this->posts->published(),
         };
 
-        $posts = (new Collection($posts))->loadMissing(['categories', 'tags']);
+        $posts = new Collection($posts)->loadMissing(['categories', 'tags']);
 
         return PostResource::collection(ApiPagination::fromArray($posts->all()));
     }

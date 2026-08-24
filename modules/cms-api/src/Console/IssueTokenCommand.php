@@ -15,10 +15,12 @@ use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
  */
 final class IssueTokenCommand extends Command
 {
+    #[\Override]
     protected $signature = 'cms-api:issue-token {team : The Team (tenant) id to issue a Delivery token for}
         {--name=delivery : A human-readable label for the token}
         {--write : Also grant write access (content:write) in addition to read}';
 
+    #[\Override]
     protected $description = 'Issue a Delivery API token for a Team (read-only by default).';
 
     public function handle(TenantModelResolverInterface $resolver): int

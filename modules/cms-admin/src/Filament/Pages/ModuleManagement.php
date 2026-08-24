@@ -23,19 +23,25 @@ use UnitEnum;
  */
 class ModuleManagement extends Page
 {
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPuzzlePiece;
 
+    #[\Override]
     protected string $view = 'cms-admin::filament.pages.module-management';
 
+    #[\Override]
     protected static ?string $title = 'Modules';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Modules';
 
+    #[\Override]
     public static function canAccess(): bool
     {
         return app(AccessControlInterface::class)->can('modules.view');
     }
 
+    #[\Override]
     public static function getNavigationGroup(): string|UnitEnum|null
     {
         $group = config('cms-admin.navigation_group', 'CMS');

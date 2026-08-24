@@ -10,8 +10,10 @@ use Liberu\Cms\Posts\Filament\PostResource;
 
 final class ListPosts extends ListRecords
 {
+    #[\Override]
     protected static string $resource = PostResource::class;
 
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [

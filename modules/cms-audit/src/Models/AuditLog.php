@@ -43,11 +43,11 @@ final class AuditLog extends Model
     #[\Override]
     protected static function booted(): void
     {
-        self::updating(function (): void {
+        self::updating(function (): never {
             throw new RuntimeException('Audit log records are append-only and cannot be updated.');
         });
 
-        self::deleting(function (): void {
+        self::deleting(function (): never {
             throw new RuntimeException('Audit log records are append-only and cannot be deleted.');
         });
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentTypes\Schema;
 
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\Contracts\Fields\FieldTypeDefinition;
 use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 
 /**
@@ -12,9 +13,9 @@ use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
  * fields must be present, values must roughly match their declared kind (as
  * defined in the FieldTypeRegistry), and fields not in the schema are dropped.
  */
-final class SchemaValidator
+final readonly class SchemaValidator
 {
-    public function __construct(private readonly FieldTypeRegistryInterface $registry) {}
+    public function __construct(private FieldTypeRegistryInterface $registry) {}
 
     /**
      * @param  array<string, mixed>  $data
@@ -44,6 +45,6 @@ final class SchemaValidator
     {
         $definition = $this->registry->get($type);
 
-        return $definition !== null && ($definition->matches)($value);
+        return $definition instanceof FieldTypeDefinition && ($definition->matches)($value);
     }
 }

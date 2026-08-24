@@ -34,7 +34,7 @@ final readonly class PageWriteController
 
         $page = Page::create($data + ['status' => WorkflowState::Draft->value]);
 
-        if ($status !== null && $this->shouldTransition($page->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($page->workflowState(), $status)) {
             $page->transitionTo($status);
         }
 
@@ -56,7 +56,7 @@ final readonly class PageWriteController
             $page->update($data);
         }
 
-        if ($status !== null && $this->shouldTransition($page->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($page->workflowState(), $status)) {
             $page->transitionTo($status);
         }
 

@@ -32,18 +32,25 @@ final class GreetingResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Greeting::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftRight;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-greetings';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Greetings';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'name';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
     protected static function cmsPermissionKey(): string
@@ -51,6 +58,7 @@ final class GreetingResource extends Resource
         return 'hello';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -67,6 +75,7 @@ final class GreetingResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -91,6 +100,7 @@ final class GreetingResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

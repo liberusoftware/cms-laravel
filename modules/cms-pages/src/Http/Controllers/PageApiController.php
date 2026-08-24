@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\Core\Support\ApiPagination;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Http\Resources\PageResource;
+use Liberu\Cms\Pages\Models\Page;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -29,7 +30,7 @@ final readonly class PageApiController
     {
         $page = $this->pages->findBySlug($slug);
 
-        if ($page === null || ! $page->isLive()) {
+        if (! $page instanceof Page || ! $page->isLive()) {
             throw new NotFoundHttpException;
         }
 

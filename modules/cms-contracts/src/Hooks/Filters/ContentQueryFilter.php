@@ -23,15 +23,15 @@ use Liberu\Cms\Contracts\Hooks\Filter;
  *
  * @api This filter point is part of the public extension API.
  */
-final class ContentQueryFilter implements Filter
+final readonly class ContentQueryFilter implements Filter
 {
     /**
      * @param  string  $key  Stable query identity, e.g. "pages.published" (read-only).
      * @param  Builder<TModel>  $query  The query to adapt in place.
      */
     public function __construct(
-        public readonly string $key,
-        public readonly Builder $query,
+        public string $key,
+        public Builder $query,
     ) {}
 
     public function name(): string

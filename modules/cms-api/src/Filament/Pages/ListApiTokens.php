@@ -15,11 +15,13 @@ use Liberu\Cms\Api\Filament\ApiTokenResource;
 
 final class ListApiTokens extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ApiTokenResource::class;
 
     /**
      * @return array<int, Action>
      */
+    #[\Override]
     protected function getHeaderActions(): array
     {
         return [
