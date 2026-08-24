@@ -33,7 +33,7 @@ final class ContentType extends Model
      * @var list<string>
      */
     #[\Override]
-    protected $fillable = ['key', 'name', 'singular_label', 'plural_label', 'fields'];
+    protected $fillable = ['key', 'name', 'singular_label', 'plural_label', 'fields', 'schema_version', 'schema_history'];
 
     /**
      * @return array<string, string>
@@ -41,7 +41,7 @@ final class ContentType extends Model
     #[\Override]
     protected function casts(): array
     {
-        return ['fields' => 'array'];
+        return ['fields' => 'array', 'schema_version' => 'integer', 'schema_history' => 'array'];
     }
 
     /**
@@ -55,6 +55,31 @@ final class ContentType extends Model
             FieldDefinition::fromArray(...),
             $this->fields ?? [],
         );
+    }
+
+    /**
+     * Replace the field schema while retaining an immutable migration trail.
+     *
+     * @param  array<int, array<string, mixed>>  $fields
+     */
+    public function migrateSchema(array $fields, ?string $reason = null): self
+    {
+        $history = $this->schema_history ?? [];
+        $history[] = [
+            'version' => ((int) ($this->schema_version ?? 1)) + 1,
+            'fields' => $this->fields ?? [],
+            'reason' => $reason,
+            'migrated_at' => now()->toAtomString(),
+        ];
+
+        $this->fill([
+            'fields' => $fields,
+            'schema_version' => count($history) + 1,
+            'schema_history' => $history,
+        ]);
+        $this->save();
+
+        return $this;
     }
 
     /**

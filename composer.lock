@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "586911aced217261301880cfec4c7e7f",
+    "content-hash": "457ec4c05587a2c957420f321b396b30",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2332,21 +2332,21 @@
         },
         {
             "name": "graham-campbell/result-type",
-            "version": "v1.1.5",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Result-Type.git",
-                "reference": "ef5e784ad5cf6c86fb262e3231aa11d84552fa12"
+                "reference": "adccca3324eece92ca35463648c12b9e6293c05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/ef5e784ad5cf6c86fb262e3231aa11d84552fa12",
-                "reference": "ef5e784ad5cf6c86fb262e3231aa11d84552fa12",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/adccca3324eece92ca35463648c12b9e6293c05b",
+                "reference": "adccca3324eece92ca35463648c12b9e6293c05b",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2.5 || ^8.0",
-                "phpoption/phpoption": "^1.9.6"
+                "phpoption/phpoption": "^1.10"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.5.52 || ^9.6.34 || ^10.5.63 || ^11.5.55 || ^12.5.14"
@@ -2378,7 +2378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GrahamCampbell/Result-Type/issues",
-                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.1.5"
+                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.2.0"
             },
             "funding": [
                 {
@@ -2390,26 +2390,26 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-23T22:27:24+00:00"
+            "time": "2026-08-24T09:06:52+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.15.3",
+            "version": "7.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc"
+                "reference": "ee80339fd9177ba44c49cdb653ff02a4d1106b9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc",
-                "reference": "ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee80339fd9177ba44c49cdb653ff02a4d1106b9a",
+                "reference": "ee80339fd9177ba44c49cdb653ff02a4d1106b9a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.5.2",
-                "guzzlehttp/psr7": "^2.13",
+                "guzzlehttp/promises": "^2.5.3",
+                "guzzlehttp/psr7": "^2.13.1",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
@@ -2502,7 +2502,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.15.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.15.5"
             },
             "funding": [
                 {
@@ -2518,20 +2518,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-05T19:48:21+00:00"
+            "time": "2026-08-24T09:21:06+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.5.2",
+            "version": "2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "2823687acff28b2dbe67b2508a6b300e2c3fa4ce"
+                "reference": "cde49999552d185d64715fe9c1f77a2aadd2f9f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/2823687acff28b2dbe67b2508a6b300e2c3fa4ce",
-                "reference": "2823687acff28b2dbe67b2508a6b300e2c3fa4ce",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/cde49999552d185d64715fe9c1f77a2aadd2f9f1",
+                "reference": "cde49999552d185d64715fe9c1f77a2aadd2f9f1",
                 "shasum": ""
             },
             "require": {
@@ -2586,7 +2586,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.5.2"
+                "source": "https://github.com/guzzle/promises/tree/2.5.3"
             },
             "funding": [
                 {
@@ -2602,20 +2602,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-05T19:30:54+00:00"
+            "time": "2026-08-24T09:11:28+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.13.0",
+            "version": "2.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "dad89620b7a6edb60c15858442eb2e408b45d8f4"
+                "reference": "95e7828100de18b4e269fb1703be530082d5166d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dad89620b7a6edb60c15858442eb2e408b45d8f4",
-                "reference": "dad89620b7a6edb60c15858442eb2e408b45d8f4",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/95e7828100de18b4e269fb1703be530082d5166d",
+                "reference": "95e7828100de18b4e269fb1703be530082d5166d",
                 "shasum": ""
             },
             "require": {
@@ -2705,7 +2705,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.13.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.13.1"
             },
             "funding": [
                 {
@@ -2721,20 +2721,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-16T22:23:49+00:00"
+            "time": "2026-08-24T09:13:11+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/uri-template.git",
-                "reference": "516c3bf2af176c532d5b59b3430292f7e9ecccb1"
+                "reference": "7a466ad606491eb6528c717482f7cca77f1851f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/uri-template/zipball/516c3bf2af176c532d5b59b3430292f7e9ecccb1",
-                "reference": "516c3bf2af176c532d5b59b3430292f7e9ecccb1",
+                "url": "https://api.github.com/repos/guzzle/uri-template/zipball/7a466ad606491eb6528c717482f7cca77f1851f3",
+                "reference": "7a466ad606491eb6528c717482f7cca77f1851f3",
                 "shasum": ""
             },
             "require": {
@@ -2791,7 +2791,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/uri-template/issues",
-                "source": "https://github.com/guzzle/uri-template/tree/v2.0.0"
+                "source": "https://github.com/guzzle/uri-template/tree/v2.0.1"
             },
             "funding": [
                 {
@@ -2807,7 +2807,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-20T13:40:43+00:00"
+            "time": "2026-08-24T17:13:02+00:00"
         },
         {
             "name": "kalnoy/nestedset",
@@ -5016,7 +5016,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-admin",
-                "reference": "cb92cc9e2497692269b39a2e5b23fb1fbae6ba7d"
+                "reference": "603ac1859cefb5e76ebd3fd8a7fff685bb6f386d"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5051,6 +5051,11 @@
                 "MIT"
             ],
             "description": "Admin module for Liberu CMS: a Filament panel plugin that surfaces the module system and content services to editors and administrators.",
+            "homepage": "https://github.com/liberusoftware/module-cms-admin",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-admin/issues",
+                "source": "https://github.com/liberusoftware/module-cms-admin"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5062,7 +5067,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-api",
-                "reference": "4d6bcbc6965f60ecac9634c6ab541b3ebac32694"
+                "reference": "4835da394bbb65c1251b644ca64e95fae12d39e1"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5102,6 +5107,11 @@
                 "MIT"
             ],
             "description": "Delivery API for Liberu CMS: a versioned, read-only, Sanctum-authenticated JSON API that serves published content to decoupled frontends.",
+            "homepage": "https://github.com/liberusoftware/module-cms-api",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-api/issues",
+                "source": "https://github.com/liberusoftware/module-cms-api"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5113,7 +5123,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-audit",
-                "reference": "f09e6dbb487b64ef66582f287e93272cef5dd9b7"
+                "reference": "6286dc7861f6070584f5a67bc520be42d067e8bb"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5151,6 +5161,11 @@
                 "MIT"
             ],
             "description": "Audit logging for Liberu CMS: turns security-relevant events into append-only audit records with a read-only admin viewer.",
+            "homepage": "https://github.com/liberusoftware/module-cms-audit",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-audit/issues",
+                "source": "https://github.com/liberusoftware/module-cms-audit"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5162,7 +5177,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-blocks",
-                "reference": "8944d4cece8c905a813c292d1994d6f6d904545d"
+                "reference": "fb289b66937fefbea921fe61eee2994936c6c352"
             },
             "require": {
                 "illuminate/support": "^13.0",
@@ -5195,6 +5210,92 @@
                 "MIT"
             ],
             "description": "Block system and page-builder rendering for Liberu CMS: a registry of block types and a recursive, XSS-safe renderer.",
+            "homepage": "https://github.com/liberusoftware/module-cms-blocks",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-blocks/issues",
+                "source": "https://github.com/liberusoftware/module-cms-blocks"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-collections",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-collections",
+                "reference": "2112d02b331fd307adeb7d82d661f8b24893280b"
+            },
+            "require": {
+                "liberusoftware/module-cms-content": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Collections\\CollectionsServiceProvider"
+                    ]
+                },
+                "liberu": {
+                    "name": "module-cms-collections"
+                },
+                "liberu-module": {
+                    "name": "module-cms-collections"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Collections\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Collections and collection items for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-collections-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-collections-livewire",
+                "reference": "a378be4971b6a0b3a7b4e637dada8fc7cf966d97"
+            },
+            "require": {
+                "liberusoftware/module-cms-collections": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-collections-livewire",
+                    "core": "liberusoftware/module-cms-collections"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CollectionsLivewire\\CollectionsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CollectionsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 presentation adapter for Structured Collections.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5206,7 +5307,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content",
-                "reference": "3ab742c5faa113cda1343017ec599af6c4de2a48"
+                "reference": "ef6fdb124ca271fc4382beadce18e031ccdd5dc4"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5241,6 +5342,129 @@
                 "MIT"
             ],
             "description": "Content foundation for Liberu CMS: editorial workflow and versioning shared by every content module.",
+            "homepage": "https://github.com/liberusoftware/module-cms-content",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-content/issues",
+                "source": "https://github.com/liberusoftware/module-cms-content"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-entities-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-entities-api",
+                "reference": "6f7d45e09605ecc3de02f776523d211160b79ec1"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-entities-api",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentEntitiesApi\\ContentEntitiesApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentEntitiesApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "HTTP API adapter for CMS Content Entities.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-entities-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-entities-filament",
+                "reference": "8b6fd799b0e8e4cab4edfeba0c2df7360b00e6e5"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-admin": "^0.1",
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-entities-filament",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentEntitiesFilament\\ContentEntitiesFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentEntitiesFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament 5 adapter for CMS Content Entities.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-entities-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-entities-livewire",
+                "reference": "7f67dc7ef37dac119cdb5e971c2f227c0fec6d05"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-entities-livewire",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentEntitiesLivewire\\ContentEntitiesLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentEntitiesLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 adapter for CMS Content Entities.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5252,7 +5476,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content-types",
-                "reference": "d44aacc356e3aa2a7101724ec5e04b970a75bf36"
+                "reference": "1b461ce4c96a8b14c1768f90e68d683f4092c4b7"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5290,6 +5514,11 @@
                 "MIT"
             ],
             "description": "Custom content types for Liberu CMS: JSON field schemas and validated content entries with workflow and versioning.",
+            "homepage": "https://github.com/liberusoftware/module-cms-content-types",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-content-types/issues",
+                "source": "https://github.com/liberusoftware/module-cms-content-types"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5301,7 +5530,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-contracts",
-                "reference": "40d8654458971f7e2fe9e02411cc9fd9ed728a8f"
+                "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
                 "php": "^8.5"
@@ -5326,6 +5555,11 @@
                 "MIT"
             ],
             "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
+            "homepage": "https://github.com/liberusoftware/module-cms-contracts",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-contracts/issues",
+                "source": "https://github.com/liberusoftware/module-cms-contracts"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5336,8 +5570,8 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-core",
-                "reference": "bb2518ef2c2c5936433aa891700583055d756896"
+                "url": "modules/module-cms-core",
+                "reference": "acdb8a58777e29b6f8dda27d47550e87216367dd"
             },
             "require": {
                 "illuminate/console": "^13.0",
@@ -5373,6 +5607,250 @@
                 "MIT"
             ],
             "description": "The Liberu CMS kernel: module registry, lifecycle manager, event bus, base module classes, and the module generator.",
+            "homepage": "https://github.com/liberusoftware/module-cms-core",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-core/issues",
+                "source": "https://github.com/liberusoftware/module-cms-core"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-core-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-core-api",
+                "reference": "30f505e7673f7ea4bb0ad5e13f124393b07f2055"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "illuminate/routing": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-core-api",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CoreApi\\CoreApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CoreApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "HTTP API presentation adapter for the Liberu CMS Core module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-core-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-core-filament",
+                "reference": "b3ca67536218173282a4619a8d904975bfab9acb"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-admin": "^0.1",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-core-filament",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CoreFilament\\CoreFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CoreFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament 5 presentation adapter for the Liberu CMS Core module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-core-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-core-livewire",
+                "reference": "d16059526a050ad0b7ed8b3b77f5d3a66a1eff86"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-core-livewire",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CoreLivewire\\CoreLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CoreLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 presentation adapter for the Liberu CMS Core module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-field-system-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-field-system-api",
+                "reference": "7fd0ee339873c1782282af0afb91e10e288f46af"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-field-system-api",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\FieldSystemApi\\FieldSystemApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\FieldSystemApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "HTTP API adapter for the Liberu CMS Field System.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-field-system-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-field-system-filament",
+                "reference": "530850528138d59541b99c70660d94eb2eda9e75"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-admin": "^0.1",
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-field-system-filament",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\FieldSystemFilament\\FieldSystemFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\FieldSystemFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament 5 adapter for the Liberu CMS Field System.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-field-system-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-field-system-livewire",
+                "reference": "c40e4dac70ab28f7d6c5d936a1ebc456b560769a"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-types": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-field-system-livewire",
+                    "core": "liberusoftware/module-cms-content-types"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\FieldSystemLivewire\\FieldSystemLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\FieldSystemLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 adapter for the Liberu CMS Field System.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5384,7 +5862,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-forms",
-                "reference": "78b44e88abd499a42a355b016c743be67f006d69"
+                "reference": "17e2c0e2d89417a21785497799d699e5d08eaee0"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5424,6 +5902,11 @@
                 "MIT"
             ],
             "description": "Forms module for Liberu CMS: public form definitions and spam-protected submissions that emit a FormSubmitted event.",
+            "homepage": "https://github.com/liberusoftware/module-cms-forms",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-forms/issues",
+                "source": "https://github.com/liberusoftware/module-cms-forms"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5435,7 +5918,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-hello",
-                "reference": "ce3ce8e55d13cf497541f287fec74abb3cb8cad4"
+                "reference": "9674e67f98ced6ca3dfcbcd843f9b6511a3d8f11"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5468,6 +5951,11 @@
                 "MIT"
             ],
             "description": "A trivial proof-of-concept Liberu CMS module that exercises the whole pipeline: descriptor, isolation, contract, service, event, route, migration, config, and tests.",
+            "homepage": "https://github.com/liberusoftware/module-cms-hello",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-hello/issues",
+                "source": "https://github.com/liberusoftware/module-cms-hello"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5479,7 +5967,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-hello-livewire",
-                "reference": "d52edee86ec5cfa80060941797ce643008162762"
+                "reference": "42111f1f138f5a68829211279488e7c2dad6216e"
             },
             "require": {
                 "liberusoftware/module-cms-hello": "^0.1",
@@ -5512,6 +6000,11 @@
                 "MIT"
             ],
             "description": "Livewire 4 presentation adapter for the Liberu CMS Hello module.",
+            "homepage": "https://github.com/liberusoftware/module-cms-hello-livewire",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-hello-livewire/issues",
+                "source": "https://github.com/liberusoftware/module-cms-hello-livewire"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5523,7 +6016,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-media",
-                "reference": "78a39045f25843665a1350fa34b585796baec8b6"
+                "reference": "09f037ad0eb455e408faa572c18f05a85f717760"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5561,6 +6054,11 @@
                 "MIT"
             ],
             "description": "Media library for Liberu CMS: secure uploads, storage, folders, and metadata behind a content-agnostic contract.",
+            "homepage": "https://github.com/liberusoftware/module-cms-media",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-media/issues",
+                "source": "https://github.com/liberusoftware/module-cms-media"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5572,7 +6070,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-menus",
-                "reference": "f579d000e6af052bc9bf865acd9820ead3c82238"
+                "reference": "dd562ad880f8512eec0f4870012f25c64b4f2a93"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5609,6 +6107,11 @@
                 "MIT"
             ],
             "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
+            "homepage": "https://github.com/liberusoftware/module-cms-menus",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
+                "source": "https://github.com/liberusoftware/module-cms-menus"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5620,7 +6123,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-notifications",
-                "reference": "7c0cce9ae81f724dd5ed23cb1005c7381205e0cc"
+                "reference": "da2c8ff7b09ef7e7d96ea05741235062d187c5af"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5659,6 +6162,11 @@
                 "MIT"
             ],
             "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
+            "homepage": "https://github.com/liberusoftware/module-cms-notifications",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-notifications/issues",
+                "source": "https://github.com/liberusoftware/module-cms-notifications"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5670,7 +6178,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-observability",
-                "reference": "921293b648724a939db7fa1499f90b017196707d"
+                "reference": "babe152a971f0805c8a7d51bedbcc1fd9c0a4b3f"
             },
             "require": {
                 "illuminate/cache": "^13.0",
@@ -5709,6 +6217,11 @@
                 "MIT"
             ],
             "description": "Observability for Liberu CMS: a public readiness probe backed by a module-contributed health-check registry, and a backend-agnostic metrics recorder with a zero-infra log-channel default.",
+            "homepage": "https://github.com/liberusoftware/module-cms-observability",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-observability/issues",
+                "source": "https://github.com/liberusoftware/module-cms-observability"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5720,7 +6233,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-pages",
-                "reference": "60fc9fd500bcabbc41ef6745e81f5e66721b13e8"
+                "reference": "9502e042ec517a1c5416fb45d219461999b666f3"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5758,6 +6271,435 @@
                 "MIT"
             ],
             "description": "Pages module for Liberu CMS: hierarchical pages with editorial workflow, versioning, slugs, and featured media.",
+            "homepage": "https://github.com/liberusoftware/module-cms-pages",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-pages/issues",
+                "source": "https://github.com/liberusoftware/module-cms-pages"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-pages-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-pages-api",
+                "reference": "8c62a6d354721e0dca927e935f090b7baccc8646"
+            },
+            "require": {
+                "liberusoftware/module-cms-pages": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-pages-api",
+                    "core": "liberusoftware/module-cms-pages"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PagesApi\\PagesApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PagesApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API presentation adapter for CMS Pages.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-pages-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-pages-filament",
+                "reference": "fb1f9f5f144b9a29c5473046351df06259f102b6"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-pages": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-pages-filament",
+                    "core": "liberusoftware/module-cms-pages"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PagesFilament\\PagesFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PagesFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament 5 presentation adapter for CMS Pages.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-pages-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-pages-livewire",
+                "reference": "3c5dac7149f9b3c7ce5bc314ef09d3d0ba1d7d85"
+            },
+            "require": {
+                "liberusoftware/module-cms-pages": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-pages-livewire",
+                    "core": "liberusoftware/module-cms-pages"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PagesLivewire\\PagesLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PagesLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 presentation adapter for CMS Pages.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-personalization",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-personalization",
+                "reference": "b8ef6ec2c0655ac5453b752d515befe24eca4688"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-personalization",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Personalization\\PersonalizationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Personalization\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Personalization domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-personalization-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-personalization-api",
+                "reference": "d270f6fbd0cb809665d1205cd3f96cb23c21cfa3"
+            },
+            "require": {
+                "liberusoftware/module-cms-personalization": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-personalization-api",
+                    "core": "liberusoftware/module-cms-personalization"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PersonalizationApi\\PersonalizationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PersonalizationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Personalization.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-personalization-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-personalization-filament",
+                "reference": "80040713928a28e25634a743d6d909ebfe257b55"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-personalization": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-personalization-filament",
+                    "core": "liberusoftware/module-cms-personalization"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PersonalizationFilament\\PersonalizationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PersonalizationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Personalization.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-personalization-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-personalization-livewire",
+                "reference": "bfe839d45301e6b8a3be172b5a6b1c5c685de4d6"
+            },
+            "require": {
+                "liberusoftware/module-cms-personalization": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-personalization-livewire",
+                    "core": "liberusoftware/module-cms-personalization"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PersonalizationLivewire\\PersonalizationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PersonalizationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Personalization.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-polls-and-surveys",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-polls-and-surveys",
+                "reference": "5dccb54b3806217e2286cfdaf9b983eada200093"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-polls-and-surveys",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PollsAndSurveys\\PollsAndSurveysServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PollsAndSurveys\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Polls and Surveys domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-polls-and-surveys-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-polls-and-surveys-api",
+                "reference": "cc6ff5cd176087edd889945e8f35b3cffd5ba549"
+            },
+            "require": {
+                "liberusoftware/module-cms-polls-and-surveys": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-polls-and-surveys-api",
+                    "core": "liberusoftware/module-cms-polls-and-surveys"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PollsAndSurveysApi\\PollsAndSurveysApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PollsAndSurveysApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Polls and Surveys.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-polls-and-surveys-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-polls-and-surveys-filament",
+                "reference": "02496d4296ae63511c7ebd95147150155dbcfa25"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-polls-and-surveys": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-polls-and-surveys-filament",
+                    "core": "liberusoftware/module-cms-polls-and-surveys"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PollsAndSurveysFilament\\PollsAndSurveysFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PollsAndSurveysFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Polls and Surveys.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-polls-and-surveys-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-polls-and-surveys-livewire",
+                "reference": "fb1096a23dc0819215537353bf76c1c21f08dbd0"
+            },
+            "require": {
+                "liberusoftware/module-cms-polls-and-surveys": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-polls-and-surveys-livewire",
+                    "core": "liberusoftware/module-cms-polls-and-surveys"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PollsAndSurveysLivewire\\PollsAndSurveysLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PollsAndSurveysLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Polls and Surveys.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5769,7 +6711,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-posts",
-                "reference": "a818ad095b9524b490706535a680c8600923cc9a"
+                "reference": "b6932731c739ee693ecbcb2593f8672aed8f7cd7"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5807,6 +6749,357 @@
                 "MIT"
             ],
             "description": "Posts module for Liberu CMS: blog posts with taxonomy (categories & tags), workflow, versioning, and featured media.",
+            "homepage": "https://github.com/liberusoftware/module-cms-posts",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-posts/issues",
+                "source": "https://github.com/liberusoftware/module-cms-posts"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-publishing",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-publishing",
+                "reference": "c49dd703874ec85cd53a211667ef69cdd0355383"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-publishing",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Publishing\\PublishingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Publishing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Publishing domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-publishing-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-publishing-api",
+                "reference": "0bb7d4f61da078b99479c2c36ebfdf0a5088f0aa"
+            },
+            "require": {
+                "liberusoftware/module-cms-publishing": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-publishing-api",
+                    "core": "liberusoftware/module-cms-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PublishingApi\\PublishingApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PublishingApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-publishing-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-publishing-filament",
+                "reference": "0d9740d058ee3c0b78bdaae5bad8115844bd3485"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-publishing": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-publishing-filament",
+                    "core": "liberusoftware/module-cms-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PublishingFilament\\PublishingFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PublishingFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-publishing-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-publishing-livewire",
+                "reference": "88359c3626ff0d2fa3edb1820df97631e991ad8c"
+            },
+            "require": {
+                "liberusoftware/module-cms-publishing": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-publishing-livewire",
+                    "core": "liberusoftware/module-cms-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\PublishingLivewire\\PublishingLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\PublishingLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-recommendations",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-recommendations",
+                "reference": "16dc0cc171db2b4d74787742da43ebd05e99ba4f"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-recommendations",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Recommendations\\RecommendationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Recommendations\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Recommendations domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-recommendations-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-recommendations-api",
+                "reference": "2f1f3f1e4e75bb892223cdb6111fbd87e4de4742"
+            },
+            "require": {
+                "liberusoftware/module-cms-recommendations": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-recommendations-api",
+                    "core": "liberusoftware/module-cms-recommendations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RecommendationsApi\\RecommendationsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RecommendationsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Recommendations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-recommendations-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-recommendations-filament",
+                "reference": "3c73cbea9d265825b19c1623075eb3e80ab262e4"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-recommendations": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-recommendations-filament",
+                    "core": "liberusoftware/module-cms-recommendations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RecommendationsFilament\\RecommendationsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RecommendationsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Recommendations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-recommendations-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-recommendations-livewire",
+                "reference": "cdc4db81e72b45a67bdbab778072af91916f5e17"
+            },
+            "require": {
+                "liberusoftware/module-cms-recommendations": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-recommendations-livewire",
+                    "core": "liberusoftware/module-cms-recommendations"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RecommendationsLivewire\\RecommendationsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RecommendationsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Recommendations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-redirects",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-redirects",
+                "reference": "473e36c8ebaa3e2a7780e718cc2d820d6a582ba9"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-redirects",
+                    "core": "liberusoftware/module-cms-core"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Redirects\\RedirectsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Redirects\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Redirects domain module.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5818,7 +7111,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-search",
-                "reference": "6d1a17acce867b3886eea20b4cc5e61232e369d1"
+                "reference": "e968c199abb1bd3bcf76e89574915c520c7caba1"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5855,6 +7148,11 @@
                 "MIT"
             ],
             "description": "Search module for Liberu CMS: full-text search over published content across every content type, exposed on the Delivery API.",
+            "homepage": "https://github.com/liberusoftware/module-cms-search",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-search/issues",
+                "source": "https://github.com/liberusoftware/module-cms-search"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5866,7 +7164,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-seo",
-                "reference": "03c5545d4b5f0485b74ff40a97e1fb6e8c1a262b"
+                "reference": "e6640c2a9159aa47644367d904b38e34648a2e9c"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5902,6 +7200,11 @@
                 "MIT"
             ],
             "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
+            "homepage": "https://github.com/liberusoftware/module-cms-seo",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-seo/issues",
+                "source": "https://github.com/liberusoftware/module-cms-seo"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5913,7 +7216,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-themes",
-                "reference": "d9bb6d4c2ae29373a5c2f39f0288047cd667f18b"
+                "reference": "ecb71a480660248efea9b06c1b3271beb22320af"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5949,6 +7252,11 @@
                 "MIT"
             ],
             "description": "Theme engine for Liberu CMS: registration, inheritance, override resolution, and switching of Blade themes.",
+            "homepage": "https://github.com/liberusoftware/module-cms-themes",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-themes/issues",
+                "source": "https://github.com/liberusoftware/module-cms-themes"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -5960,7 +7268,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-users",
-                "reference": "adac7a311ab3b8dc03588c8e6933562353730e9a"
+                "reference": "3225a987737f1f223c08b200aecba63de5d621fc"
             },
             "require": {
                 "illuminate/auth": "^13.0",
@@ -5997,6 +7305,11 @@
                 "MIT"
             ],
             "description": "Identity & Access for Liberu CMS: the authorization boundary and permission registry every other module depends on.",
+            "homepage": "https://github.com/liberusoftware/module-cms-users",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-users/issues",
+                "source": "https://github.com/liberusoftware/module-cms-users"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6008,7 +7321,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-widgets",
-                "reference": "1b5884add4d792b816feb1348c452c91381a52d8"
+                "reference": "a6895aa6b76a7122e828a01469c135d612015dcd"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -6042,6 +7355,11 @@
                 "MIT"
             ],
             "description": "Widget system for Liberu CMS: a registry of area-scoped widgets (sidebar, dashboard, footer) with ordered rendering.",
+            "homepage": "https://github.com/liberusoftware/module-cms-widgets",
+            "support": {
+                "issues": "https://github.com/liberusoftware/module-cms-widgets/issues",
+                "source": "https://github.com/liberusoftware/module-cms-widgets"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6049,16 +7367,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v4.4.1",
+            "version": "v4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "0c925c55b4a5c134f2fb147efa4b9f53a837d866"
+                "reference": "4a030935e6c255c89a114b00ece66326f78157c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/0c925c55b4a5c134f2fb147efa4b9f53a837d866",
-                "reference": "0c925c55b4a5c134f2fb147efa4b9f53a837d866",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/4a030935e6c255c89a114b00ece66326f78157c0",
+                "reference": "4a030935e6c255c89a114b00ece66326f78157c0",
                 "shasum": ""
             },
             "require": {
@@ -6113,7 +7431,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v4.4.1"
+                "source": "https://github.com/livewire/livewire/tree/v4.4.2"
             },
             "funding": [
                 {
@@ -6121,7 +7439,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-18T11:39:06+00:00"
+            "time": "2026-08-24T15:02:06+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -7161,16 +8479,16 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.9.6",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "778a0d3e31119bbfa938e18d3cd297c5b492561f"
+                "reference": "67b192b6a42ec03944b972d6e633ddec78ad2c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/778a0d3e31119bbfa938e18d3cd297c5b492561f",
-                "reference": "778a0d3e31119bbfa938e18d3cd297c5b492561f",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/67b192b6a42ec03944b972d6e633ddec78ad2c6d",
+                "reference": "67b192b6a42ec03944b972d6e633ddec78ad2c6d",
                 "shasum": ""
             },
             "require": {
@@ -7220,7 +8538,7 @@
             ],
             "support": {
                 "issues": "https://github.com/schmittjoh/php-option/issues",
-                "source": "https://github.com/schmittjoh/php-option/tree/1.9.6"
+                "source": "https://github.com/schmittjoh/php-option/tree/1.10.0"
             },
             "funding": [
                 {
@@ -7232,7 +8550,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-23T22:19:20+00:00"
+            "time": "2026-08-24T00:54:40+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -9022,16 +10340,16 @@
         },
         {
             "name": "spatie/invade",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/invade.git",
-                "reference": "b920f6411d21df4e8610a138e2e87ae4957d7f63"
+                "reference": "f929c7b6e75fceeefa7b41a491e91274bafb17af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/invade/zipball/b920f6411d21df4e8610a138e2e87ae4957d7f63",
-                "reference": "b920f6411d21df4e8610a138e2e87ae4957d7f63",
+                "url": "https://api.github.com/repos/spatie/invade/zipball/f929c7b6e75fceeefa7b41a491e91274bafb17af",
+                "reference": "f929c7b6e75fceeefa7b41a491e91274bafb17af",
                 "shasum": ""
             },
             "require": {
@@ -9069,7 +10387,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/invade/tree/2.1.0"
+                "source": "https://github.com/spatie/invade/tree/2.1.1"
             },
             "funding": [
                 {
@@ -9077,7 +10395,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-17T09:06:10+00:00"
+            "time": "2026-08-24T12:39:05+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -11061,16 +12379,16 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.38.1",
+            "version": "v1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "dc21118016c039a66235cf93d96b435ffb282412"
+                "reference": "51b5ff5ba85452b31ec6f55490b08148612339d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/dc21118016c039a66235cf93d96b435ffb282412",
-                "reference": "dc21118016c039a66235cf93d96b435ffb282412",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/51b5ff5ba85452b31ec6f55490b08148612339d9",
+                "reference": "51b5ff5ba85452b31ec6f55490b08148612339d9",
                 "shasum": ""
             },
             "require": {
@@ -11124,7 +12442,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.38.1"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.42.0"
             },
             "funding": [
                 {
@@ -11144,20 +12462,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-25T15:22:23+00:00"
+            "time": "2026-08-24T10:51:20+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.38.0",
+            "version": "v1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b"
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/2d446c214bdbe5b71bde5011b060a05fece3ae6b",
-                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/aa20edea75bd9c48cfecc8360922e5a6e5c44502",
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502",
                 "shasum": ""
             },
             "require": {
@@ -11209,7 +12527,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.38.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.42.0"
             },
             "funding": [
                 {
@@ -11229,7 +12547,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-25T13:48:31+00:00"
+            "time": "2026-08-07T06:33:24+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -12957,16 +14275,16 @@
         },
         {
             "name": "ueberdosis/tiptap-php",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ueberdosis/tiptap-php.git",
-                "reference": "74bfb7be1c8c6102b240f3879b7f984a6ab87b97"
+                "reference": "0561e2146edbcdc622b5d4008d0ee02582f8642b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ueberdosis/tiptap-php/zipball/74bfb7be1c8c6102b240f3879b7f984a6ab87b97",
-                "reference": "74bfb7be1c8c6102b240f3879b7f984a6ab87b97",
+                "url": "https://api.github.com/repos/ueberdosis/tiptap-php/zipball/0561e2146edbcdc622b5d4008d0ee02582f8642b",
+                "reference": "0561e2146edbcdc622b5d4008d0ee02582f8642b",
                 "shasum": ""
             },
             "require": {
@@ -13006,7 +14324,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ueberdosis/tiptap-php/issues",
-                "source": "https://github.com/ueberdosis/tiptap-php/tree/2.1.1"
+                "source": "https://github.com/ueberdosis/tiptap-php/tree/2.1.2"
             },
             "funding": [
                 {
@@ -13022,27 +14340,27 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2026-06-12T18:19:46+00:00"
+            "time": "2026-08-11T08:47:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.6.4",
+            "version": "v5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b"
+                "reference": "301c07936b16d88628b126b01d082ba153cf4c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/416df702837983f8d5ff48c9c3fee4f5f57b980b",
-                "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/301c07936b16d88628b126b01d082ba153cf4c40",
+                "reference": "301c07936b16d88628b126b01d082ba153cf4c40",
                 "shasum": ""
             },
             "require": {
                 "ext-pcre": "*",
-                "graham-campbell/result-type": "^1.1.4",
+                "graham-campbell/result-type": "^1.2",
                 "php": "^7.2.5 || ^8.0",
-                "phpoption/phpoption": "^1.9.5",
+                "phpoption/phpoption": "^1.10",
                 "symfony/polyfill-ctype": "^1.26",
                 "symfony/polyfill-mbstring": "^1.26",
                 "symfony/polyfill-php80": "^1.26"
@@ -13086,7 +14404,7 @@
                     "homepage": "https://github.com/vlucas"
                 }
             ],
-            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "description": "Loads environment variables from `.env` to `$_ENV` and `$_SERVER` automagically, and optionally to `getenv()`.",
             "keywords": [
                 "dotenv",
                 "env",
@@ -13094,7 +14412,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v5.6.4"
+                "source": "https://github.com/vlucas/phpdotenv/tree/v5.7.0"
             },
             "funding": [
                 {
@@ -13106,7 +14424,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-06T19:11:50+00:00"
+            "time": "2026-08-24T18:07:49+00:00"
         },
         {
             "name": "voku/portable-ascii",

@@ -1,0 +1,1 @@
+{"name":"module-cms-publishing","package":"liberusoftware/module-cms-publishing","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\Publishing\\PublishingServiceProvider"]}

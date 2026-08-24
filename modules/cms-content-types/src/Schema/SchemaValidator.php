@@ -23,22 +23,35 @@ final readonly class SchemaValidator
      */
     public function validate(ContentType $type, array $data): array
     {
-        $names = [];
+        $validated = [];
 
         foreach ($type->fieldDefinitions() as $field) {
-            $names[] = $field->name;
-            $value = $data[$field->name] ?? null;
+            if ($field->computed || ! $this->conditionMatches($field->condition, $data)) {
+                continue;
+            }
+
+            $value = array_key_exists($field->name, $data) ? $data[$field->name] : $field->default;
 
             if ($field->required && ($value === null || $value === '')) {
                 throw InvalidContentData::missingRequired($field->name);
             }
 
-            if ($value !== null && ! $this->matchesType($field->type, $value)) {
+            if ($value !== null && $field->cardinality === 'many' && ! is_array($value)) {
+                throw InvalidContentData::wrongType($field->name, 'array');
+            }
+
+            $values = $field->cardinality === 'many' ? $value : [$value];
+            if ($value !== null && ! $this->matchesValues($field->type, $values)) {
                 throw InvalidContentData::wrongType($field->name, $field->type);
+            }
+
+            $this->validateRules($field->name, $value, $field->validation);
+            if (array_key_exists($field->name, $data) || $field->default !== null) {
+                $validated[$field->name] = $value;
             }
         }
 
-        return array_intersect_key($data, array_flip($names));
+        return $validated;
     }
 
     private function matchesType(string $type, mixed $value): bool
@@ -46,5 +59,47 @@ final readonly class SchemaValidator
         $definition = $this->registry->get($type);
 
         return $definition instanceof FieldTypeDefinition && ($definition->matches)($value);
+    }
+
+    /** @param list<mixed> $values */
+    private function matchesValues(string $type, array $values): bool
+    {
+        foreach ($values as $value) {
+            if (! $this->matchesType($type, $value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /** @param array<string, mixed>|null $condition */
+    private function conditionMatches(?array $condition, array $data): bool
+    {
+        if ($condition === null || ! is_string($condition['field'] ?? null)) {
+            return true;
+        }
+
+        return ($data[$condition['field']] ?? null) === ($condition['equals'] ?? null);
+    }
+
+    /** @param array<string, mixed> $rules */
+    private function validateRules(string $field, mixed $value, array $rules): void
+    {
+        if ($value === null) {
+            return;
+        }
+        if (isset($rules['min']) && is_numeric($value) && $value < $rules['min']) {
+            throw InvalidContentData::ruleFailed($field, 'minimum');
+        }
+        if (isset($rules['max']) && is_numeric($value) && $value > $rules['max']) {
+            throw InvalidContentData::ruleFailed($field, 'maximum');
+        }
+        if (isset($rules['minItems']) && is_array($value) && count($value) < (int) $rules['minItems']) {
+            throw InvalidContentData::ruleFailed($field, 'minimum item count');
+        }
+        if (isset($rules['maxItems']) && is_array($value) && count($value) > (int) $rules['maxItems']) {
+            throw InvalidContentData::ruleFailed($field, 'maximum item count');
+        }
     }
 }

@@ -1,0 +1,1 @@
+{"name":"module-cms-personalization","package":"liberusoftware/module-cms-personalization","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\Personalization\\PersonalizationServiceProvider"]}

@@ -1,0 +1,18 @@
+{
+    "name": "liberusoftware/module-cms-field-system-filament",
+    "description": "Filament 5 adapter for the Liberu CMS Field System.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "filament/filament": "^5.0",
+        "liberusoftware/module-cms-content-types": "^0.1",
+        "liberusoftware/module-cms-admin": "^0.1"
+    },
+    "autoload": {"psr-4": {"Liberu\\Cms\\FieldSystemFilament\\": "src/"}},
+    "extra": {
+        "liberu": {"name": "module-cms-field-system-filament", "core": "liberusoftware/module-cms-content-types"},
+        "laravel": {"providers": ["Liberu\\Cms\\FieldSystemFilament\\FieldSystemFilamentServiceProvider"]}
+    }
+}

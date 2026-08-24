@@ -1,0 +1,19 @@
+{
+    "name": "liberusoftware/module-cms-core-livewire",
+    "description": "Livewire 4 presentation adapter for the Liberu CMS Core module.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "livewire/livewire": "^4.0",
+        "liberusoftware/module-cms-core": "^0.1"
+    },
+    "autoload": {"psr-4": {"Liberu\\Cms\\CoreLivewire\\": "src/"}},
+    "extra": {
+        "liberu": {"name": "module-cms-core-livewire", "core": "liberusoftware/module-cms-core"},
+        "laravel": {"providers": ["Liberu\\Cms\\CoreLivewire\\CoreLivewireServiceProvider"]}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

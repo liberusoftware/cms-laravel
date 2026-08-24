@@ -31,6 +31,8 @@ final class PageFactory extends Factory
             'template' => 'default',
             'status' => WorkflowState::Draft->value,
             'published_at' => null,
+            'is_home' => false,
+            'is_error' => false,
         ];
     }
 
@@ -48,6 +50,7 @@ final class PageFactory extends Factory
             'title' => 'Home',
             'slug' => 'home',
             'template' => 'home',
+            'is_home' => true,
         ]);
     }
 }

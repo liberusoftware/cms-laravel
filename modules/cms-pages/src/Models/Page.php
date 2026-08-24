@@ -31,6 +31,8 @@ use Liberu\Cms\Pages\Database\Factories\PageFactory;
  * @property int|null $featured_media_id
  * @property int|null $team_id
  * @property int|null $user_id
+ * @property bool $is_home
+ * @property bool $is_error
  */
 final class Page extends Model implements PublishableInterface
 {
@@ -60,6 +62,8 @@ final class Page extends Model implements PublishableInterface
         'featured_media_id',
         'team_id',
         'user_id',
+        'is_home',
+        'is_error',
     ];
 
     #[\Override]
@@ -69,7 +73,16 @@ final class Page extends Model implements PublishableInterface
             if (blank($page->slug) && filled($page->title)) {
                 $page->slug = Slugger::unique($page, $page->title);
             }
+
+            if ($page->parent_id !== null && (int) $page->parent_id === (int) $page->getKey()) {
+                throw new \InvalidArgumentException('A page cannot be its own parent.');
+            }
         });
+    }
+
+    protected function casts(): array
+    {
+        return ['is_home' => 'boolean', 'is_error' => 'boolean', 'published_at' => 'datetime'];
     }
 
     /**
@@ -86,6 +99,81 @@ final class Page extends Model implements PublishableInterface
     public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id');
+    }
+
+    /** @return HasMany<PageAlias, $this> */
+    public function aliases(): HasMany
+    {
+        return $this->hasMany(PageAlias::class);
+    }
+
+    /**
+     * Return the canonical URL path assembled from every ancestor slug.
+     */
+    public function path(): string
+    {
+        $segments = [];
+        $page = $this;
+        $seen = [];
+
+        while ($page !== null && ! isset($seen[$page->getKey()])) {
+            $seen[$page->getKey()] = true;
+            array_unshift($segments, trim((string) $page->slug, '/'));
+            $page = $page->relationLoaded('parent') ? $page->parent : $page->parent()->first();
+        }
+
+        return '/'.implode('/', array_filter($segments));
+    }
+
+    /** @return list<Page> */
+    public function breadcrumbs(): array
+    {
+        $trail = [];
+        $page = $this;
+        $seen = [];
+
+        while ($page !== null && ! isset($seen[$page->getKey()])) {
+            $seen[$page->getKey()] = true;
+            array_unshift($trail, $page);
+            $page = $page->relationLoaded('parent') ? $page->parent : $page->parent()->first();
+        }
+
+        return $trail;
+    }
+
+    public function addAlias(string $path): PageAlias
+    {
+        $path = '/'.trim($path, '/');
+
+        return $this->aliases()->firstOrCreate(['path' => $path], ['team_id' => $this->team_id]);
+    }
+
+    public function isHome(): bool
+    {
+        return (bool) $this->is_home;
+    }
+
+    public function isErrorPage(): bool
+    {
+        return (bool) $this->is_error;
+    }
+
+    public function markAsHome(): void
+    {
+        self::query()
+            ->when($this->team_id === null, fn ($query) => $query->whereNull('team_id'), fn ($query) => $query->where('team_id', $this->team_id))
+            ->where($this->getKeyName(), '!=', $this->getKey())
+            ->update(['is_home' => false]);
+        $this->forceFill(['is_home' => true])->save();
+    }
+
+    public function markAsError(): void
+    {
+        self::query()
+            ->when($this->team_id === null, fn ($query) => $query->whereNull('team_id'), fn ($query) => $query->where('team_id', $this->team_id))
+            ->where($this->getKeyName(), '!=', $this->getKey())
+            ->update(['is_error' => false]);
+        $this->forceFill(['is_error' => true])->save();
     }
 
     public function featuredMedia(): ?MediaItemInterface

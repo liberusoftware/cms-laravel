@@ -1,0 +1,9 @@
+{
+    "name": "liberusoftware/module-cms-pages-livewire",
+    "description": "Livewire 4 presentation adapter for CMS Pages.",
+    "type": "liberu-module", "version": "0.1.0", "license": "MIT",
+    "require": {"php": "^8.5", "livewire/livewire": "^4.0", "liberusoftware/module-cms-pages": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\PagesLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-pages-livewire", "core": "liberusoftware/module-cms-pages"}, "laravel": {"providers": ["Liberu\\Cms\\PagesLivewire\\PagesLivewireServiceProvider"]}},
+    "minimum-stability": "dev", "prefer-stable": true
+}

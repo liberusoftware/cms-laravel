@@ -1,0 +1,1 @@
+{"name":"module-cms-polls-and-surveys-livewire","package":"liberusoftware/module-cms-polls-and-surveys-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\PollsAndSurveysLivewire\\PollsAndSurveysLivewireServiceProvider"]}

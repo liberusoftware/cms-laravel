@@ -12,6 +12,7 @@ use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
@@ -92,6 +93,8 @@ final class PageResource extends Resource
                     Textarea::make('content')
                         ->rows(10)
                         ->columnSpanFull(),
+                    Toggle::make('is_home')->label('Home page'),
+                    Toggle::make('is_error')->label('Error page'),
                 ]),
         ];
 

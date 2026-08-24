@@ -1,0 +1,11 @@
+{
+    "name": "liberusoftware/module-cms-pages-api",
+    "description": "API presentation adapter for CMS Pages.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-pages": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\PagesApi\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-pages-api", "core": "liberusoftware/module-cms-pages"}, "laravel": {"providers": ["Liberu\\Cms\\PagesApi\\PagesApiServiceProvider"]}},
+    "minimum-stability": "dev", "prefer-stable": true
+}

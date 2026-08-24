@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-content-entities-api",
+    "description": "HTTP API adapter for CMS Content Entities.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-content-types": "^0.1", "liberusoftware/module-cms-api": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\ContentEntitiesApi\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-content-entities-api", "core": "liberusoftware/module-cms-content-types"}, "laravel": {"providers": ["Liberu\\Cms\\ContentEntitiesApi\\ContentEntitiesApiServiceProvider"]}}
+}

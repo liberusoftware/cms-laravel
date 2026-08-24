@@ -1,0 +1,1 @@
+{"name":"module-cms-recommendations-livewire","package":"liberusoftware/module-cms-recommendations-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\RecommendationsLivewire\\RecommendationsLivewireServiceProvider"]}

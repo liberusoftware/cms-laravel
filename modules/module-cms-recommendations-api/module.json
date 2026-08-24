@@ -1,0 +1,1 @@
+{"name":"module-cms-recommendations-api","package":"liberusoftware/module-cms-recommendations-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\RecommendationsApi\\RecommendationsApiServiceProvider"]}

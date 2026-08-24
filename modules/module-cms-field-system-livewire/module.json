@@ -1,0 +1,1 @@
+{"name":"module-cms-field-system-livewire","package":"liberusoftware/module-cms-field-system-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\FieldSystemLivewire\\FieldSystemLivewireServiceProvider"]}

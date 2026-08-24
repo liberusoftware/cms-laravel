@@ -28,7 +28,7 @@ final readonly class PageApiController
 
     public function show(string $slug): PageResource
     {
-        $page = $this->pages->findBySlug($slug);
+        $page = str_contains($slug, '/') ? $this->pages->findByPath($slug) : $this->pages->findBySlug($slug);
 
         if (! $page instanceof Page || ! $page->isLive()) {
             throw new NotFoundHttpException;

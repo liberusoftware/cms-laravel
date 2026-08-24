@@ -1,0 +1,19 @@
+{
+    "name": "liberusoftware/module-cms-collections-livewire",
+    "description": "Livewire 4 presentation adapter for Structured Collections.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "livewire/livewire": "^4.0",
+        "liberusoftware/module-cms-collections": "^0.1"
+    },
+    "autoload": {"psr-4": {"Liberu\\Cms\\CollectionsLivewire\\": "src/"}},
+    "extra": {
+        "liberu": {"name": "module-cms-collections-livewire", "core": "liberusoftware/module-cms-collections"},
+        "laravel": {"providers": ["Liberu\\Cms\\CollectionsLivewire\\CollectionsLivewireServiceProvider"]}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

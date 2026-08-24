@@ -1,0 +1,1 @@
+{"name":"module-cms-content-entities-api","package":"liberusoftware/module-cms-content-entities-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\ContentEntitiesApi\\ContentEntitiesApiServiceProvider"]}

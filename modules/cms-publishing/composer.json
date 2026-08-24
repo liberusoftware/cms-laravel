@@ -1,0 +1,6 @@
+{
+    "name":"liberusoftware/module-cms-publishing","description":"CMS Publishing domain module.","type":"liberu-module","version":"0.1.0","license":"MIT",
+    "require":{"php":"^8.5","liberusoftware/module-cms-core":"^0.1"},
+    "autoload":{"psr-4":{"Liberu\\Cms\\Publishing\\":"src/"}},
+    "extra":{"liberu":{"name":"module-cms-publishing","core":"liberusoftware/module-cms-core"},"laravel":{"providers":["Liberu\\Cms\\Publishing\\PublishingServiceProvider"]}},"minimum-stability":"dev","prefer-stable":true
+}

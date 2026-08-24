@@ -7,6 +7,9 @@ namespace Liberu\Cms\Core;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Support\ServiceProvider;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Contracts\Module\ModuleManagerInterface;
@@ -82,6 +85,12 @@ final class CmsCoreServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('core', 'CMS Core', AccessScope::Module, ['view', 'create', 'update', 'delete']),
+            );
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

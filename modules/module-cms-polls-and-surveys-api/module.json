@@ -1,0 +1,1 @@
+{"name":"module-cms-polls-and-surveys-api","package":"liberusoftware/module-cms-polls-and-surveys-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\PollsAndSurveysApi\\PollsAndSurveysApiServiceProvider"]}

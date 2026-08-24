@@ -64,6 +64,12 @@ php artisan migrate
 The generated package under `modules/cms-portfolio` conforms to the
 module contract and passes CI before you add a single feature.
 
-## Events
+## Domain foundation
 
-- **Emits / Listens:** none. Core defines the bus; modules use it.
+Core also owns tenant-scoped sites, channels, content identities, aliases,
+ownership metadata, settings, and their public creation/change events. Optional
+presentation adapters are provided by:
+
+- liberusoftware/module-cms-core-api
+- liberusoftware/module-cms-core-filament
+- liberusoftware/module-cms-core-livewire

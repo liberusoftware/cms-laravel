@@ -1,0 +1,1 @@
+{"name":"module-cms-publishing-livewire","package":"liberusoftware/module-cms-publishing-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\PublishingLivewire\\PublishingLivewireServiceProvider"]}

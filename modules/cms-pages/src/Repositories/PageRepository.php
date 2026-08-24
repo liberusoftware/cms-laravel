@@ -9,6 +9,8 @@ use Liberu\Cms\Contracts\Content\WorkflowState;
 use Liberu\Cms\Core\Database\Concerns\FiltersContentQueries;
 use Liberu\Cms\Pages\Contracts\PageRepositoryInterface;
 use Liberu\Cms\Pages\Models\Page;
+use Liberu\Cms\Pages\Models\PageAlias;
+use Liberu\Cms\Pages\Models\PageRedirect;
 
 final class PageRepository implements PageRepositoryInterface
 {
@@ -22,6 +24,25 @@ final class PageRepository implements PageRepositoryInterface
     public function findBySlug(string $slug): ?Page
     {
         return $this->filterContentQuery('pages.find_by_slug', Page::query()->where('slug', $slug))->first();
+    }
+
+    public function findByPath(string $path): ?Page
+    {
+        $path = trim($path, '/');
+        $page = $this->filterContentQuery('pages.find_by_path', Page::query()->where('slug', basename($path)))->get()
+            ->first(fn (Page $candidate): bool => trim($candidate->path(), '/') === $path);
+
+        if ($page instanceof Page) {
+            return $page;
+        }
+
+        return $this->filterContentQuery('pages.find_by_alias', Page::query()
+            ->whereKey(PageAlias::query()->where('path', '/'.$path)->value('page_id')))->first();
+    }
+
+    public function redirectForPath(string $path): ?PageRedirect
+    {
+        return PageRedirect::query()->where('from_path', '/'.trim($path, '/'))->where('active', true)->first();
     }
 
     public function published(): array
