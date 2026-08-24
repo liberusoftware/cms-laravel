@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e41c69fe5654fd13541f43d98654a41b",
+    "content-hash": "220d0b7c3fa3443c1e9bf4de2c9037c6",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8366,6 +8366,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Site Factory.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-recipes",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-site-recipes",
+                "reference": "1adf329c2380e88fb3c804da9ad15841dcc03067"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-recipes",
+                    "capability": "site-recipes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteRecipes\\SiteRecipesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteRecipes\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Versioned CMS site recipes and starter bundles.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-recipes-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-recipes-api",
+                "reference": "62cf110f4f519c56643954db6681769856913c82"
+            },
+            "require": {
+                "liberusoftware/module-cms-site-recipes": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-recipes-api",
+                    "core": "liberusoftware/module-cms-site-recipes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteRecipesApi\\SiteRecipesApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteRecipesApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Site Recipes.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-recipes-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-recipes-filament",
+                "reference": "051494a0b4617395dbdbccd09f0a4a74d036b4c5"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-site-recipes": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-recipes-filament",
+                    "core": "liberusoftware/module-cms-site-recipes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteRecipesFilament\\SiteRecipesFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteRecipesFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Site Recipes.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-recipes-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-recipes-livewire",
+                "reference": "ea975e4934239d0cd2c4d1cb1dc650454b4d0e9a"
+            },
+            "require": {
+                "liberusoftware/module-cms-site-recipes": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-recipes-livewire",
+                    "core": "liberusoftware/module-cms-site-recipes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteRecipesLivewire\\SiteRecipesLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteRecipesLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Site Recipes.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
