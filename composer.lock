@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3132bf698c8be3cdc68c5b048cc3dfda",
+    "content-hash": "a886eaedcd280a138c1dc1ea40b43add",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7526,6 +7526,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Related Content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-revisions",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-revisions",
+                "reference": "bcb400714f61b1f63b1ce3bd88ab7796b2068cb1"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-revisions",
+                    "capability": "revisions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Revisions\\RevisionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Revisions\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS immutable revisions and editorial versioning.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-revisions-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-revisions-api",
+                "reference": "5eebf21268cf3cb0a1c0802e931bfc08a4e764b2"
+            },
+            "require": {
+                "liberusoftware/module-cms-revisions": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-revisions-api",
+                    "core": "liberusoftware/module-cms-revisions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RevisionsApi\\RevisionsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RevisionsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Revisions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-revisions-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-revisions-filament",
+                "reference": "0e13e9ebb187689fe97fc140e884bb28a837a1ba"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-revisions": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-revisions-filament",
+                    "core": "liberusoftware/module-cms-revisions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RevisionsFilament\\RevisionsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RevisionsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Revisions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-revisions-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-revisions-livewire",
+                "reference": "38df574a1b71369b74356c42475404b5b31a4d08"
+            },
+            "require": {
+                "liberusoftware/module-cms-revisions": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-revisions-livewire",
+                    "core": "liberusoftware/module-cms-revisions"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RevisionsLivewire\\RevisionsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RevisionsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Revisions.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

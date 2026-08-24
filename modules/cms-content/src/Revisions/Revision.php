@@ -34,6 +34,12 @@ final class Revision extends Model implements RevisionInterface
         'revision_number',
         'snapshot',
         'user_id',
+        'branch',
+        'autosave',
+        'parent_revision_id',
+        'published',
+        'metadata',
+        'content_hash',
         'created_at',
     ];
 
@@ -47,6 +53,10 @@ final class Revision extends Model implements RevisionInterface
             'revision_number' => 'integer',
             'snapshot' => 'array',
             'created_at' => 'datetime',
+            'autosave' => 'boolean',
+            'published' => 'boolean',
+            'parent_revision_id' => 'integer',
+            'metadata' => 'array',
         ];
     }
 

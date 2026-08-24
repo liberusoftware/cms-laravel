@@ -1,0 +1,1 @@
+<div><ol>@forelse ($revisions as $revision)<li>Revision {{ $revision->revision_number }} · {{ $revision->branch ?? 'main' }} · {{ $revision->created_at }}</li>@empty<li>No revisions.</li>@endforelse</ol></div>
