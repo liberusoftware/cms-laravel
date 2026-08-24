@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a618563a4bc5efeb36259dc1a7b5bef",
+    "content-hash": "a9333840ebfd3a375a134d2939555792",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8674,6 +8674,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Sitemaps.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-static-publishing",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-static-publishing",
+                "reference": "6cf9119a6e3783f1559fe0edfbfe5b1e4ef34e7a"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-static-publishing",
+                    "capability": "static-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StaticPublishing\\StaticPublishingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StaticPublishing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS static builds, manifests, previews, and rollback.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-static-publishing-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-static-publishing-api",
+                "reference": "519170511f9f198a1ec97fbadee113fb8c551a49"
+            },
+            "require": {
+                "liberusoftware/module-cms-static-publishing": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-static-publishing-api",
+                    "core": "liberusoftware/module-cms-static-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StaticPublishingApi\\StaticPublishingApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StaticPublishingApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Static Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-static-publishing-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-static-publishing-filament",
+                "reference": "14bc840d93d58c0ace05ebfca5df365a63e0a258"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-static-publishing": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-static-publishing-filament",
+                    "core": "liberusoftware/module-cms-static-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StaticPublishingFilament\\StaticPublishingFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StaticPublishingFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Static Publishing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-static-publishing-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-static-publishing-livewire",
+                "reference": "2cd81b0e18b020f062fed24d3ed3241e4f358f33"
+            },
+            "require": {
+                "liberusoftware/module-cms-static-publishing": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-static-publishing-livewire",
+                    "core": "liberusoftware/module-cms-static-publishing"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StaticPublishingLivewire\\StaticPublishingLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StaticPublishingLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Static Publishing.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
