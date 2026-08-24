@@ -2,7 +2,8 @@
 
 The application owns 22 independently releasable Composer packages. Each
 package uses the `liberusoftware/` vendor namespace, has a public GitHub
-repository, and currently has a tested `v0.1.0` source tag. The application
+repository, a protected `main` branch with a blocking `package-quality`
+workflow, and a tested `v0.1.0` source tag and GitHub Release. The application
 uses local path repositories during development; production installation must
 use the corresponding public Composer/Packagist source after submission.
 
