@@ -140,8 +140,12 @@ php artisan test
 Generate the CI coverage report with:
 
 ```bash
-php artisan test --coverage-clover=coverage.xml
+XDEBUG_MODE=coverage php -d memory_limit=-1 artisan test --coverage-clover=coverage.xml --min=100
 ```
+
+Coverage is a blocking gate for the configured application and module source
+scope. The threshold must not be lowered to accommodate an incomplete test
+suite.
 
 Coverage is reported for the CMS application and its modules on the `main` branch through Codecov.
 

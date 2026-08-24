@@ -109,7 +109,12 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Run tests
-        run: php artisan test ${{ matrix.db == 'sqlite' && '--coverage-clover=coverage.xml' || '' }}
+        run: |
+          if [ "${{ matrix.db }}" = "sqlite" ]; then
+            XDEBUG_MODE=coverage php -d memory_limit=-1 artisan test --coverage-clover=coverage.xml --min=100
+          else
+            php artisan test
+          fi
 
       - name: Upload coverage to Codecov
         if: matrix.db == 'sqlite'
