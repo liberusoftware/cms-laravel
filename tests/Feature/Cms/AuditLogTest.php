@@ -5,6 +5,9 @@ declare(strict_types=1);
 use App\Models\Team;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Liberu\Cms\Audit\Filament\AuditLogResource;
@@ -94,4 +97,27 @@ it('gates the viewer behind the audit.view permission', function (): void {
     expect(AuditLogResource::canViewAny())->toBeTrue()
         ->and(AuditLogResource::canCreate())->toBeFalse()
         ->and(AuditLogResource::canDelete(new AuditLog))->toBeFalse();
+});
+
+it('builds a read-only audit table with its supported filters', function (): void {
+    $table = AuditLogResource::table(
+        Table::make(Mockery::mock(HasTable::class)),
+    );
+
+    expect($table->getColumns())->toHaveCount(5)
+        ->and($table->getFilters())->toHaveCount(2)
+        ->and(AuditLogResource::canCreate())->toBeFalse()
+        ->and(AuditLogResource::canEdit(new AuditLog))->toBeFalse()
+        ->and(AuditLogResource::canDeleteAny())->toBeFalse();
+
+    $query = AuditLog::query();
+    $dateFilter = array_values($table->getFilters())[1];
+    $dateFilter->apply($query, ['from' => '2026-01-01', 'until' => '2026-12-31']);
+
+    expect($query)->toBeInstanceOf(Builder::class)
+        ->and($query->toSql())->toContain('strftime')
+        ->and($query->getBindings())->toBe(['2026-01-01', '2026-12-31']);
+
+    $subjectColumn = $table->getColumns()['subject_type'];
+    expect($subjectColumn->record(AuditLog::make())->formatState(null))->toBe('—');
 });
