@@ -1,0 +1,1 @@
+{"name":"module-cms-redirects-livewire","package":"liberusoftware/module-cms-redirects-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\RedirectsLivewire\\RedirectsLivewireServiceProvider"]}

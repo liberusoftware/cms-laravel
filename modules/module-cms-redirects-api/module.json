@@ -1,0 +1,1 @@
+{"name":"module-cms-redirects-api","package":"liberusoftware/module-cms-redirects-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\RedirectsApi\\RedirectsApiServiceProvider"]}
