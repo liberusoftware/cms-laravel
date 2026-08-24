@@ -1,0 +1,1 @@
+{"name":"module-cms-theme-marketplace","title":"Theme Marketplace","description":"Theme catalog and lifecycle management.","version":"0.1.0","providers":["Liberu\\Cms\\ThemeMarketplace\\ThemeMarketplaceServiceProvider"]}

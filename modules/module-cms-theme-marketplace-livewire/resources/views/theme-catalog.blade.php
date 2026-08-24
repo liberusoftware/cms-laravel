@@ -1,0 +1,1 @@
+<div><input wire:model.live="search" placeholder="Search themes"><ul>@forelse ($themes as $theme)<li>{{ $theme->name }} v{{ $theme->version }} · {{ $theme->security_status }}</li>@empty<li>No themes found.</li>@endforelse</ul></div>

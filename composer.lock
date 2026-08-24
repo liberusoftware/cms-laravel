@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "244db36b94421342c298785b42e29dc0",
+    "content-hash": "e409f44c6a6c8be92baf178f494a6c53",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9598,6 +9598,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Theme Integration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-marketplace",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-theme-marketplace",
+                "reference": "93145feb2d1fb32c7b7779f395dd4518883c0ea3"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-marketplace",
+                    "capability": "theme-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeMarketplace\\ThemeMarketplaceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeMarketplace\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS theme manifests, compatibility, licensing, installation, reviews, and ratings.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-marketplace-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-marketplace-api",
+                "reference": "9c781dc2ca8e663c3fd3cdbe7422d332eb1b3002"
+            },
+            "require": {
+                "liberusoftware/module-cms-theme-marketplace": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-marketplace-api",
+                    "core": "liberusoftware/module-cms-theme-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeMarketplaceApi\\ThemeMarketplaceApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeMarketplaceApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Theme Marketplace.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-marketplace-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-marketplace-filament",
+                "reference": "25f6a3f42064b192ada87151f72ce28437b72828"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-theme-marketplace": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-marketplace-filament",
+                    "core": "liberusoftware/module-cms-theme-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeMarketplaceFilament\\ThemeMarketplaceFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeMarketplaceFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Theme Marketplace.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-marketplace-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-marketplace-livewire",
+                "reference": "e20be666dcc7cbdc631c8c7043598b950afcd10c"
+            },
+            "require": {
+                "liberusoftware/module-cms-theme-marketplace": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-marketplace-livewire",
+                    "core": "liberusoftware/module-cms-theme-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeMarketplaceLivewire\\ThemeMarketplaceLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeMarketplaceLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Theme Marketplace.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
