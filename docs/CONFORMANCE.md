@@ -44,8 +44,8 @@ records that deliberate boundary.
     Liberu installer manifests, but currently resolve from local path
     repositories. They have not yet been published as independent public
     repositories or submitted to Packagist.
-*   The full owned-source test suite passes (645 tests, 1,658 assertions), but
-    the measured coverage is 88.5% of statements and 83.1% of methods. The
+*   The full owned-source test suite passes (680 tests, 1,760 assertions), but
+    the measured coverage is 95.2% of statements and 85.9% of methods. The
     required 100% gate is therefore intentionally blocking.
 *   The final major release, independent package repositories, Packagist
     submissions, and production deployment verification remain outstanding.
