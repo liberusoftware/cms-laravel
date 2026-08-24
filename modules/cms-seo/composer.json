@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-seo",
     "description": "SEO module for Liberu CMS: a public sitemap.xml and robots.txt aggregated from module-contributed URLs, plus meta / OpenGraph / JSON-LD head tags for server-rendered pages.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -24,6 +24,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-seo"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"

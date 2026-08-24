@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-content-types",
     "description": "Custom content types for Liberu CMS: JSON field schemas and validated content entries with workflow and versioning.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -26,6 +26,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-content-types"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\ContentTypes\\ContentTypesServiceProvider"

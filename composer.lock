@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2096ab691b9fd35843866c6661cc9201",
+    "content-hash": "81863e62b614fd37168adf699c817366",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4972,7 +4972,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-admin",
-                "reference": "ad64bce5161822251325294166f1be3167451d4e"
+                "reference": "14e5ca71598c717dd532f1232996a78642bea788"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -4982,8 +4982,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-admin"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Admin\\AdminServiceProvider"
@@ -5015,7 +5018,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-api",
-                "reference": "0878f75b72c4382a1b24a4dfb7788644f91d4987"
+                "reference": "13295ac68c1cf27a0a383398959a6da0e75bbba5"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5030,8 +5033,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-api"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Api\\CmsApiServiceProvider"
@@ -5063,7 +5069,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-audit",
-                "reference": "5dd967c087fbb99a5c34f7905d07ac9390b2eb3a"
+                "reference": "e3ebcfcf501bba3d097067d8cce3c400f181aecb"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5076,8 +5082,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-audit"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"
@@ -5109,7 +5118,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-blocks",
-                "reference": "6c68de192e047562f87f23ab2dd18f32fbb81832"
+                "reference": "28417c78a6edc79c619bc55ebfa52894f2c18415"
             },
             "require": {
                 "illuminate/support": "^13.0",
@@ -5117,8 +5126,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-blocks"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Blocks\\BlocksServiceProvider"
@@ -5150,7 +5162,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content",
-                "reference": "f6436e7d9e902b8a04b781d6068cbe368e5a8479"
+                "reference": "3401be6715544a110ae0ba7996ef1ab22618d530"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5160,8 +5172,11 @@
                 "php": "^8.5",
                 "symfony/html-sanitizer": "^7.0|^8.0"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-content"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Content\\ContentServiceProvider"
@@ -5193,7 +5208,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content-types",
-                "reference": "c1bd178cef46285962005d635d89748122c9546f"
+                "reference": "f7519fe4474569202e3d8e17860feb62bbe20342"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5205,8 +5220,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-content-types"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\ContentTypes\\ContentTypesServiceProvider"
@@ -5239,12 +5257,17 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-contracts",
-                "reference": "cda2f50df1f7c29803eddf3a21b29bed283faa9f"
+                "reference": "6351727ee384b8bd5c65ce5c6218adca2e06d503"
             },
             "require": {
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "cms-contracts"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\Contracts\\": "src/"
@@ -5270,7 +5293,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-core",
-                "reference": "70dc5fec46c2bd9471a130bcc3f0ad7ca633b6be"
+                "reference": "f9bc3d653abd8569c9a650128daebc3e7aeeefa2"
             },
             "require": {
                 "illuminate/console": "^13.0",
@@ -5281,8 +5304,11 @@
                 "liberu-cms/cms-contracts": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-core"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Core\\CmsCoreServiceProvider"
@@ -5314,7 +5340,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-forms",
-                "reference": "d9e9588ece913a6ca22c6dd391ada4d60408fbc3"
+                "reference": "1820cfca84e9054a142aa47c1737ec14e94701b1"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5328,8 +5354,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-forms"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Forms\\CmsFormsServiceProvider"
@@ -5362,7 +5391,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-hello",
-                "reference": "10af79d5c5826d7c7a3033a2f1f9260cf0c9f284"
+                "reference": "e8769a277e3a1aab3e6d37d35b9eac4f8d3101d8"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5370,8 +5399,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-hello"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Hello\\HelloServiceProvider"
@@ -5403,7 +5435,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-media",
-                "reference": "cf956c8a7727733ce643d836bf557795c0eecbb2"
+                "reference": "440343c348eab1f2fc50dc35a8154d79f56b1d2d"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5416,8 +5448,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-media"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Media\\MediaServiceProvider"
@@ -5449,7 +5484,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-menus",
-                "reference": "d290cddcf1dbc2e8d71df82e7406d32834c0c4d4"
+                "reference": "08b68abb0b24b5c600eba79f35b157906b65878b"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5460,8 +5495,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-menus"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Menus\\MenusServiceProvider"
@@ -5494,7 +5532,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-notifications",
-                "reference": "8503e72f633dc726b02c27f5f54a2e9290942ef3"
+                "reference": "1688091f308be2f14e86f9f2ccb9d4db14d46409"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5508,8 +5546,11 @@
                 "php": "^8.5",
                 "psr/log": "^3.0"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-notifications"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"
@@ -5541,7 +5582,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-observability",
-                "reference": "8bf9efd85d50578183c3a140ff69c96f960f3fcd"
+                "reference": "df7d58d0a64419c57cf86f313abff5d60055d18f"
             },
             "require": {
                 "illuminate/cache": "^13.0",
@@ -5555,8 +5596,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-observability"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Observability\\CmsObservabilityServiceProvider"
@@ -5588,7 +5632,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-pages",
-                "reference": "44d7c0624e15102f8917ee9ccad3f8aa7d5a515a"
+                "reference": "b50d6f140a43c7fc0e1099fb861c16025f90f467"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5600,8 +5644,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-pages"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Pages\\PagesServiceProvider"
@@ -5634,7 +5681,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-posts",
-                "reference": "dfc623ec969b64343dbc56227cc9f7130378cca8"
+                "reference": "0fd5e02fd9ac8aa98d6fa8f9fafe7f1b0d1cce12"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5646,8 +5693,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-posts"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Posts\\PostsServiceProvider"
@@ -5680,7 +5730,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-search",
-                "reference": "2e99a53b30b1c8d0a033da72286be09bfad773e5"
+                "reference": "1924353058bf2be869437a7efc69a3b8729fbf47"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5692,8 +5742,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-search"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Search\\CmsSearchServiceProvider"
@@ -5725,7 +5778,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-seo",
-                "reference": "e6b87789d9912f6d031d377ae43ca039bb921578"
+                "reference": "3535e93fc1a5a362dff90879de2c22b952131ad1"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5736,8 +5789,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-seo"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Seo\\CmsSeoServiceProvider"
@@ -5769,7 +5825,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-themes",
-                "reference": "990e3cc755a260a13a8e92c35ee07451a3fbde1c"
+                "reference": "3a1c2fc0355b077b79261c5d50c607efcf98cab8"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5780,8 +5836,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-themes"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Themes\\ThemesServiceProvider"
@@ -5813,7 +5872,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-users",
-                "reference": "591f050a8589ed353ee9822f6c5c9b008740aec4"
+                "reference": "e33ef7fb27910f4b696dd100e0bb3039446d6f84"
             },
             "require": {
                 "illuminate/auth": "^13.0",
@@ -5825,8 +5884,11 @@
                 "php": "^8.5",
                 "spatie/laravel-permission": "^7.0"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-users"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Users\\UsersServiceProvider"
@@ -5858,7 +5920,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-widgets",
-                "reference": "fe5bf4ef61c9f2c9b90c5aa2c8d509ab226e6df6"
+                "reference": "379235e973fade87fd0672369b6aff708415bd4c"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5867,8 +5929,11 @@
                 "liberu-cms/cms-core": "*",
                 "php": "^8.5"
             },
-            "type": "library",
+            "type": "liberu-module",
             "extra": {
+                "liberu": {
+                    "name": "cms-widgets"
+                },
                 "laravel": {
                     "providers": [
                         "Liberu\\Cms\\Widgets\\WidgetsServiceProvider"
@@ -5893,6 +5958,50 @@
                 "symlink": true,
                 "relative": true
             }
+        },
+        {
+            "name": "liberusoftware/composer-installer",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:liberusoftware/composer-installer.git",
+                "reference": "470e3b95f6232424c69d67e4f7dad6f3619c37c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liberusoftware/composer-installer/zipball/470e3b95f6232424c69d67e4f7dad6f3619c37c4",
+                "reference": "470e3b95f6232424c69d67e4f7dad6f3619c37c4",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.6",
+                "php": "^8.5"
+            },
+            "require-dev": {
+                "composer/composer": "^2.6",
+                "laravel/pint": "^1.14",
+                "pestphp/pest": "^5.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Liberu\\ComposerInstaller\\Plugin",
+                "plugin-modifies-install-path": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\ComposerInstaller\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\ComposerInstaller\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Deterministic Composer 2 installer for tracked Liberu modules and themes.",
+            "time": "2026-08-05T07:59:00+00:00"
         },
         {
             "name": "livewire/livewire",

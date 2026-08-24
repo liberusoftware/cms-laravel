@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-audit",
     "description": "Audit logging for Liberu CMS: turns security-relevant events into append-only audit records with a read-only admin viewer.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -26,6 +26,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-audit"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"

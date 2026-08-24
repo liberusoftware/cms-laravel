@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-menus",
     "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -25,6 +25,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-menus"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Menus\\MenusServiceProvider"

@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-notifications",
     "description": "Notifications module for Liberu CMS: turns CMS events into queued notifications delivered through channels (mail, log).",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -27,6 +27,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-notifications"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Notifications\\CmsNotificationsServiceProvider"

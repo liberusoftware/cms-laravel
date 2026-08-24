@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-themes",
     "description": "Theme engine for Liberu CMS: registration, inheritance, override resolution, and switching of Blade themes.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -24,6 +24,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-themes"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Themes\\ThemesServiceProvider"

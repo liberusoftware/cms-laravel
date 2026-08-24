@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-widgets",
     "description": "Widget system for Liberu CMS: a registry of area-scoped widgets (sidebar, dashboard, footer) with ordered rendering.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -22,6 +22,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-widgets"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Widgets\\WidgetsServiceProvider"

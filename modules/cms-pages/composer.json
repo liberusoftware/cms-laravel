@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-pages",
     "description": "Pages module for Liberu CMS: hierarchical pages with editorial workflow, versioning, slugs, and featured media.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -26,6 +26,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-pages"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Pages\\PagesServiceProvider"

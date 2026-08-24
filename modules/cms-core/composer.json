@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-core",
     "description": "The Liberu CMS kernel: module registry, lifecycle manager, event bus, base module classes, and the module generator.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -24,6 +24,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-core"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Core\\CmsCoreServiceProvider"

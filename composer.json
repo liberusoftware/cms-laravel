@@ -23,6 +23,7 @@
         "laravel/reverb": "^1.10",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^3.0",
+        "liberusoftware/composer-installer": "^1.1",
         "liberu-cms/cms-admin": "*",
         "liberu-cms/cms-api": "*",
         "liberu-cms/cms-audit": "*",
@@ -116,6 +117,10 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/liberusoftware/composer-installer.git"
+        },
+        {
             "type": "path",
             "url": "modules/*",
             "options": {
@@ -136,6 +141,7 @@
             "block-insecure": true
         },
         "allow-plugins": {
+            "liberusoftware/composer-installer": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
             "infection/extension-installer": true

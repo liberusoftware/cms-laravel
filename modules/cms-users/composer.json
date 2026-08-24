@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-users",
     "description": "Identity & Access for Liberu CMS: the authorization boundary and permission registry every other module depends on.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -25,6 +25,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-users"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Users\\UsersServiceProvider"

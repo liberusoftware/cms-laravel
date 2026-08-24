@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-forms",
     "description": "Forms module for Liberu CMS: public form definitions and spam-protected submissions that emit a FormSubmitted event.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -28,6 +28,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-forms"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Forms\\CmsFormsServiceProvider"

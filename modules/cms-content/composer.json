@@ -1,7 +1,7 @@
 {
     "name": "liberu-cms/cms-content",
     "description": "Content foundation for Liberu CMS: editorial workflow and versioning shared by every content module.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
@@ -23,6 +23,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "cms-content"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Content\\ContentServiceProvider"
