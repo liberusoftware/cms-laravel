@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3df05ee5b297d6e4c5accc814a42d8e",
+    "content-hash": "416962234114dc45b65cc285de7499a0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4972,14 +4972,14 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-admin",
-                "reference": "66c440fc21d88a0ab9e7aa4f25c98bded8e9257f"
+                "reference": "7f7859976c56629cbf2fcb0d5b05bd5422050c27"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5018,7 +5018,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-api",
-                "reference": "8467143515b34df1f1af9264104144929b4e4d62"
+                "reference": "38c544817464b932594c65eb0c67e258b060494e"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5029,8 +5029,8 @@
                 "illuminate/routing": "^13.0",
                 "illuminate/support": "^13.0",
                 "laravel/sanctum": "^4.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5069,7 +5069,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-audit",
-                "reference": "1dba5081bc632435b5ea2152ee2fcec0b3cacb73"
+                "reference": "927f4ee9c306556c600242800a6359c79c38951d"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5078,8 +5078,8 @@
                 "illuminate/database": "^13.0",
                 "illuminate/http": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5118,12 +5118,12 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-blocks",
-                "reference": "779468e1ef30ad8508ecf30cc2cc84304122c314"
+                "reference": "3c9f46562400902fbb14157f7d6f3258d9e83e42"
             },
             "require": {
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5162,13 +5162,13 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content",
-                "reference": "091be1054391d4b30881abc6ab5e8c30cc405634"
+                "reference": "55684a333b16b17aa79cad5dfd7acc69adb73299"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
+                "liberusoftware/cms-contracts": "^0.1",
                 "php": "^8.5",
                 "symfony/html-sanitizer": "^7.0|^8.0"
             },
@@ -5208,16 +5208,16 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-content-types",
-                "reference": "145ee910f80c443d605c7de6b7beac8151b87e97"
+                "reference": "4a792cd90d3347fe9308325fe875781dfb83e63d"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "*",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-content": "^0.1",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5293,7 +5293,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-core",
-                "reference": "ff72c6771e4a1b6bacd63b31af45b8536e4ee3d4"
+                "reference": "b6ae812bbf8a2784f80b4df8263c69629bc5525f"
             },
             "require": {
                 "illuminate/console": "^13.0",
@@ -5301,7 +5301,7 @@
                 "illuminate/database": "^13.0",
                 "illuminate/events": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
+                "liberusoftware/cms-contracts": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5340,7 +5340,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-forms",
-                "reference": "e3e0f179eceae42420b35483565c0b281ae9b016"
+                "reference": "de629a627cb8feed2d0a7284487e46be5aedd6e4"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5349,9 +5349,9 @@
                 "illuminate/http": "^13.0",
                 "illuminate/routing": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "*",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-content": "^0.1",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5391,12 +5391,12 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-hello",
-                "reference": "26826345d0b6717f615b5e1cfd91586a5a4a7d1b"
+                "reference": "f0a4d746936c17fb31e9c3be1b008ca53a34ec22"
             },
             "require": {
                 "filament/filament": "^5.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5435,7 +5435,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-media",
-                "reference": "0c2771e37a60ae71501a3f365250e9deb116c878"
+                "reference": "3feaf27cf73a639c5dd41f7bf6b16046f8ed0a87"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5444,8 +5444,8 @@
                 "illuminate/filesystem": "^13.0",
                 "illuminate/http": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5484,15 +5484,15 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-menus",
-                "reference": "b200aea8617d2d30711499d7b9722cfdad03405c"
+                "reference": "df796fcb257e18075d3057f663c30a301a3a2ac0"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5532,7 +5532,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-notifications",
-                "reference": "c1953483065094e043b48497c505acef74a962b0"
+                "reference": "a32d6e5af3bbecd068765cabd91c4014790b50ae"
             },
             "require": {
                 "filament/filament": "^5.0",
@@ -5541,8 +5541,8 @@
                 "illuminate/database": "^13.0",
                 "illuminate/queue": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5",
                 "psr/log": "^3.0"
             },
@@ -5582,7 +5582,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-observability",
-                "reference": "b0130111ddc700d7877488e8e41b4ad5a352cecc"
+                "reference": "9cc3d1e0a363342ff9488503d6aa4e65e4eb034c"
             },
             "require": {
                 "illuminate/cache": "^13.0",
@@ -5592,8 +5592,8 @@
                 "illuminate/log": "^13.0",
                 "illuminate/queue": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5632,16 +5632,16 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-pages",
-                "reference": "55b875d39896f7a4d1c8975c6db62c53f7fd03c8"
+                "reference": "edb229174a2bc024a145b633b7fc2b818d3651bc"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "*",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-content": "^0.1",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5681,16 +5681,16 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-posts",
-                "reference": "6ac877f4fa01543fd997f7b4e66e8a3fe7faab67"
+                "reference": "209d21250c40701b0c955ff7ae09a31d0efd3214"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-content": "*",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-content": "^0.1",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5730,7 +5730,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-search",
-                "reference": "2600b482e2254448a9462a3ae27d39e672b74388"
+                "reference": "f0fe07048fe8934a17f0c2ed5cb19ee6371eefc4"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -5738,8 +5738,8 @@
                 "illuminate/http": "^13.0",
                 "illuminate/support": "^13.0",
                 "laravel/scout": "^11.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5778,15 +5778,15 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-seo",
-                "reference": "edebd8aefc2bdb02489e24f72e97b831b5393f76"
+                "reference": "ecd45806748acff72e1cffaaccdaa739d07f51dd"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
                 "illuminate/http": "^13.0",
                 "illuminate/routing": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5825,15 +5825,15 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-themes",
-                "reference": "616c37f8b1f49e8bf8170c192a19116c679cfc94"
+                "reference": "8ecdcb2fd9d7b1368da12d5aa7d34e110ae4dd7a"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/database": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5872,15 +5872,15 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-users",
-                "reference": "c9a965726e158827a490e663fe28343ec0cf3c5e"
+                "reference": "d5b51f05943055c101397ffb5f09e827307b1c49"
             },
             "require": {
                 "illuminate/auth": "^13.0",
                 "illuminate/console": "^13.0",
                 "illuminate/contracts": "^13.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5",
                 "spatie/laravel-permission": "^7.0"
             },
@@ -5920,13 +5920,13 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-widgets",
-                "reference": "e4cffa2ac59122e79ec966ae230d319f90d7536e"
+                "reference": "bb11c238ea7f7cbd42e9872f1aa90d5a5d47b073"
             },
             "require": {
                 "filament/filament": "^5.0",
                 "illuminate/support": "^13.0",
-                "liberusoftware/cms-contracts": "*",
-                "liberusoftware/cms-core": "*",
+                "liberusoftware/cms-contracts": "^0.1",
+                "liberusoftware/cms-core": "^0.1",
                 "php": "^8.5"
             },
             "type": "liberu-module",
@@ -5964,7 +5964,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:liberusoftware/composer-installer.git",
+                "url": "https://github.com/liberusoftware/composer-installer.git",
                 "reference": "470e3b95f6232424c69d67e4f7dad6f3619c37c4"
             },
             "dist": {

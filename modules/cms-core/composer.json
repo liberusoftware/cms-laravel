@@ -6,7 +6,7 @@
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberusoftware/cms-contracts": "*",
+        "liberusoftware/cms-contracts": "^0.1",
         "illuminate/console": "^13.0",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",

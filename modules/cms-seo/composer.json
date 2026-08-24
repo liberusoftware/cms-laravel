@@ -6,8 +6,8 @@
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberusoftware/cms-contracts": "*",
-        "liberusoftware/cms-core": "*",
+        "liberusoftware/cms-contracts": "^0.1",
+        "liberusoftware/cms-core": "^0.1",
         "illuminate/contracts": "^13.0",
         "illuminate/http": "^13.0",
         "illuminate/routing": "^13.0",

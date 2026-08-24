@@ -92,7 +92,7 @@ final class MakeModuleCommand extends Command
 
         /** @var array<string, string> $require */
         $require = is_array($composer['require'] ?? null) ? $composer['require'] : [];
-        $require["liberusoftware/cms-{$key}"] = '*';
+        $require["liberusoftware/cms-{$key}"] = '^0.1';
         ksort($require);
         $composer['require'] = $require;
 
@@ -114,8 +114,8 @@ final class MakeModuleCommand extends Command
             'version' => '0.1.0',
             'require' => [
                 'php' => '^8.5',
-                'liberusoftware/cms-contracts' => '*',
-                'liberusoftware/cms-core' => '*',
+                'liberusoftware/cms-contracts' => '^0.1',
+                'liberusoftware/cms-core' => '^0.1',
             ],
             'autoload' => ['psr-4' => [$namespace => 'src/']],
             'autoload-dev' => ['psr-4' => ["{$namespace}Tests\\" => 'tests/']],
