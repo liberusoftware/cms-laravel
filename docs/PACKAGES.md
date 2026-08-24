@@ -38,3 +38,7 @@ the indexed version/source/dist/dependencies, and run a clean `composer
 require` against Packagist. The current environment can verify the tagged
 source through GitHub VCS repositories, but cannot complete that publication
 gate without Packagist submission authority.
+
+With approved environment secrets, submit the inventory using
+[`scripts/publish-packages.sh`](../scripts/publish-packages.sh), then verify
+each package through Packagist before promoting the application release.
