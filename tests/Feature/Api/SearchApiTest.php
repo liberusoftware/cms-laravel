@@ -80,7 +80,7 @@ it('ranks a title match above a body-only match', function (): void {
 it('paginates search results with per_page', function (): void {
     Sanctum::actingAs($this->teamA, ['content:read'], 'sanctum');
 
-    Page::factory()->published()->count(9)->create(['team_id' => $this->teamA->id, 'title' => fn () => 'Laravel '.fake()->unique()->word()]);
+    Page::factory()->published()->count(9)->create(['team_id' => $this->teamA->id, 'title' => fn (): string => 'Laravel '.fake()->unique()->word()]);
 
     $this->getJson('/api/v1/search?q=Laravel&per_page=4')
         ->assertOk()

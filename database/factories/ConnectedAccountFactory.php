@@ -12,6 +12,7 @@ use JoelButcher\Socialstream\Providers;
  */
 class ConnectedAccountFactory extends Factory
 {
+    #[\Override]
     protected $model = ConnectedAccount::class;
 
     public function definition(): array

@@ -18,10 +18,13 @@ final class SearchableThing extends Model
 {
     use Searchable;
 
+    #[\Override]
     protected $table = 'searchable_things';
 
+    #[\Override]
     public $timestamps = false;
 
+    #[\Override]
     protected $guarded = [];
 
     /**

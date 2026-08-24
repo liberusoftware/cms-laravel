@@ -41,6 +41,7 @@ class User extends Authenticatable implements FilamentUser, HasPasskeys, HasTena
      *
      * @var array<int, string>
      */
+    #[\Override]
     protected $fillable = [
         'name',
         'email',
@@ -53,6 +54,7 @@ class User extends Authenticatable implements FilamentUser, HasPasskeys, HasTena
      *
      * @var array<int, string>
      */
+    #[\Override]
     protected $hidden = [
         'password',
         'remember_token',
@@ -65,6 +67,7 @@ class User extends Authenticatable implements FilamentUser, HasPasskeys, HasTena
      *
      * @var array<int, string>
      */
+    #[\Override]
     protected $appends = [
         'profile_photo_url',
     ];

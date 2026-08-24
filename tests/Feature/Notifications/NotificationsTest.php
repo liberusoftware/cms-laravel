@@ -54,11 +54,9 @@ it('queues a mail-channel message with the configured recipient', function (): v
     $this->postJson('/forms/contact', ['email' => 'v@example.com', 'message' => 'hi'])
         ->assertCreated();
 
-    Queue::assertPushed(SendNotification::class, function (SendNotification $job): bool {
-        return $job->message->channel === 'mail'
-            && in_array('ops@example.com', $job->message->to, true)
-            && $job->message->subject === 'New submission';
-    });
+    Queue::assertPushed(SendNotification::class, fn (SendNotification $job): bool => $job->message->channel === 'mail'
+        && in_array('ops@example.com', $job->message->to, true)
+        && $job->message->subject === 'New submission');
 });
 
 it('does nothing for an event with no subscriptions', function (): void {

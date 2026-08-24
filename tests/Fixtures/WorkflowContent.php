@@ -19,10 +19,12 @@ class WorkflowContent extends Model
     use HasRevisions;
     use HasWorkflow;
 
+    #[\Override]
     protected $table = 'workflow_contents';
 
     /**
      * @var list<string>
      */
+    #[\Override]
     protected $fillable = ['title', 'status', 'published_at'];
 }

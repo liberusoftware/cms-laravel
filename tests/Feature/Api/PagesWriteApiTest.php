@@ -63,7 +63,7 @@ it('creates a page as published via the workflow', function (): void {
     ]);
 
     $response->assertCreated()
-        ->assertJsonPath('data.published_at', fn ($value) => $value !== null);
+        ->assertJsonPath('data.published_at', fn ($value): bool => $value !== null);
 
     $this->assertDatabaseHas('cms_pages', ['slug' => 'live-page', 'status' => WorkflowState::Published->value]);
 });

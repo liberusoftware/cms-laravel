@@ -2,6 +2,27 @@
 
 declare(strict_types=1);
 
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
+use Liberu\Cms\Contracts\Block\BlockTypeInterface;
+use Liberu\Cms\Contracts\Block\BlockTypeRegistryInterface;
+use Liberu\Cms\Contracts\Events\CmsEvent;
+use Liberu\Cms\Contracts\Events\EventBusInterface;
+use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
+use Liberu\Cms\Contracts\Health\HealthCheckInterface;
+use Liberu\Cms\Contracts\Health\HealthCheckRegistryInterface;
+use Liberu\Cms\Contracts\Hooks\Filter;
+use Liberu\Cms\Contracts\Hooks\HookBusInterface;
+use Liberu\Cms\Contracts\Metrics\MetricsRecorderInterface;
+use Liberu\Cms\Contracts\Module\ModuleInterface;
+use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
+use Liberu\Cms\Contracts\Search\ScoutSearchableSourceInterface;
+use Liberu\Cms\Contracts\Search\SearchIndexInterface;
+use Liberu\Cms\Contracts\Search\SearchRegistryInterface;
+use Liberu\Cms\Contracts\Seo\SitemapRegistryInterface;
+use Liberu\Cms\Contracts\Theme\ThemeManagerInterface;
+use Liberu\Cms\Contracts\Widget\WidgetInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -33,7 +54,7 @@ function contractTypes(): array
  */
 function contractDesignation(string $type): ?string
 {
-    $doc = (new ReflectionClass($type))->getDocComment();
+    $doc = new ReflectionClass($type)->getDocComment();
 
     if (! is_string($doc)) {
         return null;
@@ -93,7 +114,7 @@ it('never leaks an @internal contract through an @api signature', function (): v
             continue;
         }
 
-        foreach ((new ReflectionClass($type))->getMethods() as $method) {
+        foreach (new ReflectionClass($type)->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $type) {
                 continue;
             }
@@ -119,25 +140,25 @@ it('exposes the core public extension contracts under their expected namespaces'
     expect(interface_exists($type) || class_exists($type) || enum_exists($type))->toBeTrue()
         ->and(contractDesignation($type))->toBe('api');
 })->with([
-    'Liberu\Cms\Contracts\Hooks\HookBusInterface',
-    'Liberu\Cms\Contracts\Hooks\Filter',
-    'Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface',
-    'Liberu\Cms\Contracts\Events\EventBusInterface',
-    'Liberu\Cms\Contracts\Events\CmsEvent',
-    'Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface',
-    'Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface',
-    'Liberu\Cms\Contracts\Search\SearchRegistryInterface',
-    'Liberu\Cms\Contracts\Search\SearchIndexInterface',
-    'Liberu\Cms\Contracts\Search\ScoutSearchableSourceInterface',
-    'Liberu\Cms\Contracts\Seo\SitemapRegistryInterface',
-    'Liberu\Cms\Contracts\Health\HealthCheckInterface',
-    'Liberu\Cms\Contracts\Health\HealthCheckRegistryInterface',
-    'Liberu\Cms\Contracts\Metrics\MetricsRecorderInterface',
-    'Liberu\Cms\Contracts\Preview\PreviewRegistryInterface',
-    'Liberu\Cms\Contracts\Block\BlockTypeRegistryInterface',
-    'Liberu\Cms\Contracts\Block\BlockTypeInterface',
-    'Liberu\Cms\Contracts\Widget\WidgetInterface',
-    'Liberu\Cms\Contracts\Theme\ThemeManagerInterface',
-    'Liberu\Cms\Contracts\Access\PermissionRegistrarInterface',
-    'Liberu\Cms\Contracts\Module\ModuleInterface',
+    HookBusInterface::class,
+    Filter::class,
+    FieldTypeRegistryInterface::class,
+    EventBusInterface::class,
+    CmsEvent::class,
+    AdminResourceRegistryInterface::class,
+    ApiResourceRegistryInterface::class,
+    SearchRegistryInterface::class,
+    SearchIndexInterface::class,
+    ScoutSearchableSourceInterface::class,
+    SitemapRegistryInterface::class,
+    HealthCheckInterface::class,
+    HealthCheckRegistryInterface::class,
+    MetricsRecorderInterface::class,
+    PreviewRegistryInterface::class,
+    BlockTypeRegistryInterface::class,
+    BlockTypeInterface::class,
+    WidgetInterface::class,
+    ThemeManagerInterface::class,
+    PermissionRegistrarInterface::class,
+    ModuleInterface::class,
 ]);
