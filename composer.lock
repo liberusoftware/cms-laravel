@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55e1069531f9dd20cb02ce2bcd68a184",
+    "content-hash": "e41c69fe5654fd13541f43d98654a41b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8211,6 +8211,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS SEO.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-factory",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-site-factory",
+                "reference": "d35e8effe372743ddeba9286e69693b6429a12bc"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-factory",
+                    "capability": "site-factory"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteFactory\\SiteFactoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteFactory\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS site templates, provisioning, and lifecycle operations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-factory-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-factory-api",
+                "reference": "347d177343cd1b68bf3a667e02aa516e43dab29c"
+            },
+            "require": {
+                "liberusoftware/module-cms-site-factory": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-factory-api",
+                    "core": "liberusoftware/module-cms-site-factory"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteFactoryApi\\SiteFactoryApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteFactoryApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Site Factory.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-factory-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-factory-filament",
+                "reference": "13e7b393ccaa884adf4a5d9af99b2eb451d7dad9"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-site-factory": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-factory-filament",
+                    "core": "liberusoftware/module-cms-site-factory"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteFactoryFilament\\SiteFactoryFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteFactoryFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Site Factory.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-site-factory-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-site-factory-livewire",
+                "reference": "6f14f5010bd4ff600e911b0e4e325b43c20c4354"
+            },
+            "require": {
+                "liberusoftware/module-cms-site-factory": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-site-factory-livewire",
+                    "core": "liberusoftware/module-cms-site-factory"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\SiteFactoryLivewire\\SiteFactoryLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\SiteFactoryLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Site Factory.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

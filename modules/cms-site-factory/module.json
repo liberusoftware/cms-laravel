@@ -1,0 +1,1 @@
+{"name":"module-cms-site-factory","package":"liberusoftware/module-cms-site-factory","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\SiteFactory\\SiteFactoryServiceProvider"]}
