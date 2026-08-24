@@ -46,11 +46,9 @@ records that deliberate boundary.
     repositories, each with a `v0.1.0` tag, protected `main`, and a blocking
     `package-quality` workflow. Packagist submission and public-index
     verification remain outstanding.
-*   The full owned-source test suite passed (701 tests, 1,811 assertions) before
-    the additional boundary suite; the new focused suite adds 5 tests and 31
-    assertions. The measured baseline coverage is 96.7% of statements and
-    87.7% of methods. The required 100% gate is therefore intentionally
-    blocking and must be rerun across the combined suite before release.
+*   The full owned-source test suite passes (711 tests, 1,861 assertions), but
+    the measured coverage is 97.4% of statements and 90.7% of methods. The
+    required 100% gate is therefore intentionally blocking.
 *   The final major application release, Packagist submissions, and production
     deployment verification remain outstanding. All 22 independent public
     package repositories and their `v0.1.0` releases were verified on GitHub;
