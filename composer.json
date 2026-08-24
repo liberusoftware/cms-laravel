@@ -34,6 +34,7 @@
         "liberusoftware/cms-forms": "^0.1",
         "liberusoftware/cms-core": "^0.1",
         "liberusoftware/cms-hello": "^0.1",
+        "liberusoftware/module-cms-hello-livewire": "^0.1",
         "liberusoftware/cms-media": "^0.1",
         "liberusoftware/cms-menus": "^0.1",
         "liberusoftware/cms-notifications": "^0.1",

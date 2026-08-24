@@ -1,0 +1,35 @@
+{
+    "name": "liberusoftware/module-cms-hello-livewire",
+    "description": "Livewire 4 presentation adapter for the Liberu CMS Hello module.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {
+        "php": "^8.5",
+        "livewire/livewire": "^4.0",
+        "liberusoftware/cms-hello": "^0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liberu\\Cms\\HelloLivewire\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Liberu\\Cms\\HelloLivewire\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "liberu": {
+            "name": "module-cms-hello-livewire",
+            "core": "liberusoftware/cms-hello"
+        },
+        "laravel": {
+            "providers": [
+                "Liberu\\Cms\\HelloLivewire\\HelloLivewireServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

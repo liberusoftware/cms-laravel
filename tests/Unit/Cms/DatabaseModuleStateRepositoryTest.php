@@ -30,7 +30,7 @@ test('it normalizes common database boolean representations', function (mixed $v
     DB::table('cms_modules')->insert(['key' => (string) fake()->unique()->word(), 'enabled' => $value]);
     $key = (string) DB::table('cms_modules')->latest('updated_at')->value('key');
 
-    expect((new DatabaseModuleStateRepository(DB::getFacadeRoot()))->isEnabled($key))->toBe($expected);
+    expect(new DatabaseModuleStateRepository(DB::getFacadeRoot())->isEnabled($key))->toBe($expected);
 })->with([
     [0, false], ['0', false], ['f', false], ['false', false], ['off', false], ['no', false], ['', false],
     [1, true], ['1', true], ['t', true], ['true', true], ['on', true], ['yes', true],

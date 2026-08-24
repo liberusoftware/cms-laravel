@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "416962234114dc45b65cc285de7499a0",
+    "content-hash": "43e9c7793ea7803d1f353ef55a73f657",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6002,6 +6002,50 @@
             ],
             "description": "Deterministic Composer 2 installer for tracked Liberu modules and themes.",
             "time": "2026-08-05T07:59:00+00:00"
+        },
+        {
+            "name": "liberusoftware/module-cms-hello-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-hello-livewire",
+                "reference": "119a0c4cf3a86b7646b12468d3b5950bbe8146f6"
+            },
+            "require": {
+                "liberusoftware/cms-hello": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-hello-livewire",
+                    "core": "liberusoftware/cms-hello"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\HelloLivewire\\HelloLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\HelloLivewire\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Liberu\\Cms\\HelloLivewire\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 presentation adapter for the Liberu CMS Hello module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "livewire/livewire",
