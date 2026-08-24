@@ -1,5 +1,5 @@
 {
-    "name": "liberu-cms/cms-contracts",
+    "name": "liberusoftware/cms-contracts",
     "description": "Interfaces, events, and DTOs shared across all Liberu CMS modules. Depended on by everything; depends on nothing.",
     "type": "liberu-module",
     "license": "MIT",

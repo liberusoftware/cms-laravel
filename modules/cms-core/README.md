@@ -51,7 +51,7 @@ Config-driven kill switch (ideal for embedded hosts) in `config/cms.php`:
 
 ```bash
 php artisan cms:make-module Portfolio
-composer update liberu-cms/cms-portfolio
+composer update liberusoftware/cms-portfolio
 php artisan migrate
 ```
 

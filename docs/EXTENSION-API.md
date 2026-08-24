@@ -1,7 +1,7 @@
 # Liberu CMS — Public Extension API
 
 This is the surface a third-party extension may depend on. Everything listed here
-lives in the `liberu-cms/cms-contracts` package and is tagged `@api` in its
+lives in the `liberusoftware/cms-contracts` package and is tagged `@api` in its
 docblock. Anything in that package tagged `@internal` — or any concrete class in
 another module — is **not** part of this contract and may change without notice.
 

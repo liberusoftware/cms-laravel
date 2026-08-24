@@ -40,9 +40,10 @@ records that deliberate boundary.
 
 *(This section should list any architectural patterns, coding standards, or other conventions that deviate from the Liberu documentation.)*
 
-*   Composer modules currently use the historical `liberu-cms/cms-*` package
-    names and local path repositories. They have not yet been published as
-    independent `liberusoftware/` repositories or submitted to Packagist.
+*   Composer modules use the `liberusoftware/cms-*` vendor namespace and the
+    Liberu installer manifests, but currently resolve from local path
+    repositories. They have not yet been published as independent public
+    repositories or submitted to Packagist.
 *   The full owned-source test suite passes (645 tests, 1,658 assertions), but
     the measured coverage is 88.5% of statements and 83.1% of methods. The
     required 100% gate is therefore intentionally blocking.

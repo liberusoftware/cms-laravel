@@ -68,7 +68,7 @@ final class MakeModuleCommand extends Command
 
         $this->components->info("Module [cms-{$key}] created at modules/cms-{$key}.");
         $this->components->bulletList([
-            'Run: composer update liberu-cms/cms-'.$key,
+            'Run: composer update liberusoftware/cms-'.$key,
             'Then: php artisan migrate',
         ]);
 
@@ -92,7 +92,7 @@ final class MakeModuleCommand extends Command
 
         /** @var array<string, string> $require */
         $require = is_array($composer['require'] ?? null) ? $composer['require'] : [];
-        $require["liberu-cms/cms-{$key}"] = '*';
+        $require["liberusoftware/cms-{$key}"] = '*';
         ksort($require);
         $composer['require'] = $require;
 
@@ -107,19 +107,22 @@ final class MakeModuleCommand extends Command
         $namespace = "Liberu\\Cms\\{$studly}\\";
 
         $composer = [
-            'name' => "liberu-cms/cms-{$key}",
+            'name' => "liberusoftware/cms-{$key}",
             'description' => "The {$studly} module for Liberu CMS.",
-            'type' => 'library',
+            'type' => 'liberu-module',
             'license' => 'MIT',
             'version' => '0.1.0',
             'require' => [
                 'php' => '^8.5',
-                'liberu-cms/cms-contracts' => '*',
-                'liberu-cms/cms-core' => '*',
+                'liberusoftware/cms-contracts' => '*',
+                'liberusoftware/cms-core' => '*',
             ],
             'autoload' => ['psr-4' => [$namespace => 'src/']],
             'autoload-dev' => ['psr-4' => ["{$namespace}Tests\\" => 'tests/']],
-            'extra' => ['laravel' => ['providers' => ["{$namespace}{$studly}ServiceProvider"]]],
+            'extra' => [
+                'laravel' => ['providers' => ["{$namespace}{$studly}ServiceProvider"]],
+                'liberu' => ['name' => "cms-{$key}"],
+            ],
             'minimum-stability' => 'dev',
             'prefer-stable' => true,
         ];
@@ -262,7 +265,7 @@ final class MakeModuleCommand extends Command
         ## Install
 
         ```bash
-        composer update liberu-cms/cms-{{key}}
+        composer update liberusoftware/cms-{{key}}
         php artisan migrate
         ```
 

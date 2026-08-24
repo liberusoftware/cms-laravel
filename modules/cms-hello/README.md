@@ -20,7 +20,7 @@ guarantee is verified against it.
 ## Install
 
 ```bash
-composer update liberu-cms/cms-hello
+composer update liberusoftware/cms-hello
 php artisan migrate
 ```
 

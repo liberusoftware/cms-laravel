@@ -1,12 +1,12 @@
 {
-    "name": "liberu-cms/cms-core",
+    "name": "liberusoftware/cms-core",
     "description": "The Liberu CMS kernel: module registry, lifecycle manager, event bus, base module classes, and the module generator.",
     "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
+        "liberusoftware/cms-contracts": "*",
         "illuminate/console": "^13.0",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",
