@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3188dee6dc427a2d203718c5bb43df9e",
+    "content-hash": "a8d6b587e1d3cc9740f5453134591e9b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7216,6 +7216,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Redirects.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-regions-and-widgets",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-regions-and-widgets",
+                "reference": "7478280a2fcd3cff2f3d6cbe0195051bd8c1190a"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-regions-and-widgets",
+                    "capability": "regions-and-widgets"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RegionsAndWidgets\\RegionsAndWidgetsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RegionsAndWidgets\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS regions and widgets domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-regions-and-widgets-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-regions-and-widgets-api",
+                "reference": "f7714339f3b9042b85a44ace79989d615ea56692"
+            },
+            "require": {
+                "liberusoftware/module-cms-regions-and-widgets": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-regions-and-widgets-api",
+                    "core": "liberusoftware/module-cms-regions-and-widgets"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RegionsAndWidgetsApi\\RegionsAndWidgetsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RegionsAndWidgetsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Regions and Widgets.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-regions-and-widgets-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-regions-and-widgets-filament",
+                "reference": "d96337ed085a8afdc85fd17001e7edc1670371e8"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-regions-and-widgets": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-regions-and-widgets-filament",
+                    "core": "liberusoftware/module-cms-regions-and-widgets"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RegionsAndWidgetsFilament\\RegionsAndWidgetsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RegionsAndWidgetsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Regions and Widgets.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-regions-and-widgets-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-regions-and-widgets-livewire",
+                "reference": "91e78adad0068d3fd2ea14ed64e56ef6c97e5a5e"
+            },
+            "require": {
+                "liberusoftware/module-cms-regions-and-widgets": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-regions-and-widgets-livewire",
+                    "core": "liberusoftware/module-cms-regions-and-widgets"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\RegionsAndWidgetsLivewire\\RegionsAndWidgetsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\RegionsAndWidgetsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Regions and Widgets.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

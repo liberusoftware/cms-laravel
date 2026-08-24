@@ -1,0 +1,1 @@
+{"name":"module-cms-regions-and-widgets","package":"liberusoftware/module-cms-regions-and-widgets","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\RegionsAndWidgets\\RegionsAndWidgetsServiceProvider"]}
