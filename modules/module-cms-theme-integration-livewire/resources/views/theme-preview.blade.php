@@ -1,0 +1,1 @@
+<div><p>Theme: {{ $theme }}</p><ul>@forelse ($components as $component)<li>{{ $component->region }} / {{ $component->component_key }}</li>@empty<li>No registered components.</li>@endforelse</ul></div>

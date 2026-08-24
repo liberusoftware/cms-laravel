@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37bce672381dd8a519d0eff3a5237a67",
+    "content-hash": "244db36b94421342c298785b42e29dc0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9444,6 +9444,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Taxonomy.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-theme-integration",
+                "reference": "244f2bb495a6cbef443a84b504154bc327924e09"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-integration",
+                    "capability": "theme-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeIntegration\\ThemeIntegrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeIntegration\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS site/channel theme bindings, regions, view contracts, and components.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-integration-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-integration-api",
+                "reference": "f973246a5ed6ca75647ac24e3d4e412d46a1ca98"
+            },
+            "require": {
+                "liberusoftware/module-cms-theme-integration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-integration-api",
+                    "core": "liberusoftware/module-cms-theme-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeIntegrationApi\\ThemeIntegrationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeIntegrationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Theme Integration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-integration-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-integration-filament",
+                "reference": "af6022b9de53a706964a5f3763210b6aae9f4bc1"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-theme-integration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-integration-filament",
+                    "core": "liberusoftware/module-cms-theme-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeIntegrationFilament\\ThemeIntegrationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeIntegrationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Theme Integration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-theme-integration-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-theme-integration-livewire",
+                "reference": "7e6b0dcb336782b4c5b786c7f8c2069629482ea6"
+            },
+            "require": {
+                "liberusoftware/module-cms-theme-integration": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-theme-integration-livewire",
+                    "core": "liberusoftware/module-cms-theme-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ThemeIntegrationLivewire\\ThemeIntegrationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ThemeIntegrationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Theme Integration.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
