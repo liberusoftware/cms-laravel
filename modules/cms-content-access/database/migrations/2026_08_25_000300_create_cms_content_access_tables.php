@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('available_until')->nullable();
             $table->boolean('preview_allowed')->default(false);
             $table->timestamps();
-            $table->unique(['team_id', 'subject_type', 'subject_key']);
+            $table->unique(['team_id', 'subject_type', 'subject_key'], 'cms_access_subject_unique');
         });
         Schema::create('cms_content_private_links', function (Blueprint $table): void {
             $table->id();

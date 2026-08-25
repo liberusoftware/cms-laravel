@@ -26,7 +26,7 @@ return new class extends Migration
             $table->text('legal_hold_reason')->nullable();
             $table->json('evidence')->nullable();
             $table->timestamps();
-            $table->unique(['team_id', 'subject_type', 'subject_key']);
+            $table->unique(['team_id', 'subject_type', 'subject_key'], 'cms_governance_subject_unique');
             $table->index(['team_id', 'review_due_at']);
         });
     }
