@@ -1,0 +1,10 @@
+openapi: 3.1.0
+info: {title: CMS Site Factory API, version: 1.0.0}
+paths:
+  /api/v1/cms/site-factory/sites: {post: {operationId: provisionSite, responses: {'201': {description: Provisioned site}}}}
+  /api/v1/cms/site-factory/templates: {post: {operationId: createSiteTemplate, responses: {'201': {description: Created template}}}}
+  /api/v1/cms/site-factory/sites/{site}/suspend: {post: {operationId: suspendSite, responses: {'200': {description: Suspended site}}}}
+  /api/v1/cms/site-factory/sites/{site}/archive: {post: {operationId: archiveSite, responses: {'200': {description: Archived site}}}}
+  /api/v1/cms/site-factory/sites/{site}/clone: {post: {operationId: cloneSite, responses: {'201': {description: Cloned site}}}}
+  /api/v1/cms/site-factory/domains/{domain}/verify: {post: {operationId: verifySiteDomain, responses: {'200': {description: Verified domain}}}}
+  /api/v1/cms/site-factory/sites/{site}/teardown: {delete: {operationId: teardownSite, responses: {'204': {description: Site removed}}}}

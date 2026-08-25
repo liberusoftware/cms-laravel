@@ -1,0 +1,9 @@
+openapi: 3.1.0
+info: {title: CMS Related Content API, version: 1.0.0}
+paths:
+  /api/v1/cms/related-content/{type}/{id}:
+    get: {operationId: listRelatedContent, responses: {'200': {description: Ranked related content}}}
+  /api/v1/cms/related-content/{type}/{id}/relations:
+    post: {operationId: relateContent, responses: {'201': {description: Relationship created}, '422': {description: Invalid relationship}}}
+  /api/v1/cms/related-content/{type}/{id}/exclude:
+    post: {operationId: excludeRelatedContent, responses: {'200': {description: Exclusion recorded}}}

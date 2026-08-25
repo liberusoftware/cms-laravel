@@ -19,6 +19,9 @@ final class RedirectsApiServiceProvider extends ServiceProvider
 
         $registry = $this->app->make(ApiResourceRegistryInterface::class);
         $registry->registerEndpoint('redirects-resolve-api', new ApiEndpoint('cms/redirects/resolve', RedirectController::class, 'resolve', 'cms.redirects.resolve'));
-        $registry->registerEndpoint('redirects-create-api', new ApiEndpoint('cms/redirects', RedirectController::class, 'store', 'cms.redirects.store', 'POST'));
+        $registry->registerEndpoint('redirects-create-api', new ApiEndpoint('cms/redirects', RedirectController::class, 'store', 'cms.redirects.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('redirects-api', new ApiEndpoint('cms/redirects/import', RedirectController::class, 'import', 'cms.redirects.import', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('redirects-api', new ApiEndpoint('cms/redirects/slug-change', RedirectController::class, 'slugChange', 'cms.redirects.slug-change', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('redirects-api', new ApiEndpoint('cms/redirects/suggestions', RedirectController::class, 'suggestions', 'cms.redirects.suggestions'));
     }
 }

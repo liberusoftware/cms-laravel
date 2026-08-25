@@ -33,4 +33,9 @@ final readonly class StructuredCollectionQuery
     {
         return $this->legacy->item($collection, $slug);
     }
+
+    public function recordForMutation(string $collection, string $slug): ?CollectionItem
+    {
+        return CollectionItem::query()->whereHas('collection', fn ($query) => $query->where('slug', $collection))->where('slug', $slug)->with('collection')->first();
+    }
 }

@@ -11,6 +11,9 @@ final class RelatedContentService
 {
     public function relate(string $sourceType, int $sourceId, string $targetType, int $targetId, string $mode = 'manual', float $score = 1, array $taxonomy = [], ?int $teamId = null): RelatedContent
     {
+        if (trim($sourceType) === '' || trim($targetType) === '' || $sourceId < 1 || $targetId < 1) {
+            throw ValidationException::withMessages(['relationship' => 'Valid source and target identities are required.']);
+        }
         if ($sourceType === $targetType && $sourceId === $targetId) {
             throw ValidationException::withMessages(['target_id' => 'Content cannot relate to itself.']);
         }

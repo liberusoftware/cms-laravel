@@ -1,0 +1,8 @@
+openapi: 3.1.0
+info: {title: CMS Document Management API, version: 1.0.0}
+paths:
+  /api/v1/cms/documents:
+    get: {summary: List documents, responses: {'200': {description: Documents}}}
+    post: {summary: Create a document, responses: {'201': {description: Created}}}
+  /api/v1/cms/documents/{document}/status:
+    post: {summary: Transition document lifecycle, responses: {'200': {description: Updated}}}

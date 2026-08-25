@@ -1,0 +1,10 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Access API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-access/check:
+    post:
+      operationId: checkCmsContentAccess
+      responses:
+        '200': {description: Access decision}

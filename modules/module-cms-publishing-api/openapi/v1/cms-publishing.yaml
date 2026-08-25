@@ -1,0 +1,17 @@
+openapi: 3.1.0
+info: {title: CMS Publishing API, version: 1.0.0}
+paths:
+  /api/v1/cms/publishing:
+    post: {operationId: createPublicationRelease, responses: {'201': {description: Created release}}}
+  /api/v1/cms/publishing/{key}:
+    get: {operationId: getPublicationRelease, responses: {'200': {description: Release}}}
+  /api/v1/cms/publishing/{key}/schedule:
+    post: {operationId: schedulePublicationRelease, responses: {'200': {description: Scheduled release}}}
+  /api/v1/cms/publishing/{key}/publish:
+    post: {operationId: publishPublicationRelease, responses: {'200': {description: Published release}}}
+  /api/v1/cms/publishing/{key}/unpublish:
+    post: {operationId: unpublishPublicationRelease, responses: {'200': {description: Unpublished release}}}
+  /api/v1/cms/publishing/{key}/archive:
+    post: {operationId: archivePublicationRelease, responses: {'200': {description: Archived release}}}
+  /api/v1/cms/publishing/process-due:
+    post: {operationId: processDuePublicationReleases, responses: {'200': {description: Processed releases}}}

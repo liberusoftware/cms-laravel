@@ -1,0 +1,11 @@
+openapi: 3.1.0
+info: {title: CMS Recommendations API, version: 1.0.0}
+paths:
+  /api/v1/cms/recommendations:
+    post: {operationId: createRecommendationList, responses: {'201': {description: Created list}}}
+  /api/v1/cms/recommendations/{key}:
+    get: {operationId: getRecommendations, responses: {'200': {description: Ranked recommendations}}}
+  /api/v1/cms/recommendations/{key}/items:
+    post: {operationId: addRecommendationItem, responses: {'201': {description: Created item}}}
+  /api/v1/cms/recommendations/{key}/exclude:
+    post: {operationId: excludeRecommendationItem, responses: {'200': {description: Updated exclusions}}}

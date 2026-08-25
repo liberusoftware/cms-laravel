@@ -1,3 +1,3 @@
-# CMS Related Content
+# Related Content
 
-Stores manual and rule-driven related content with exclusions, taxonomy matching, recency, similarity, explainability, and fallback.
+The domain module owns explainable, scored, taxonomy-filterable content relationships and explicit exclusions, scoped to the active tenant.

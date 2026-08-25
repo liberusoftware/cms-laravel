@@ -14,8 +14,14 @@ final class FeedService
 {
     public function create(string $key, string $title, string $format = 'rss', ?string $sourceUrl = null, array $mapping = []): Feed
     {
+        if (trim($key) === '' || trim($title) === '') {
+            throw ValidationException::withMessages(['title' => 'Feed key and title are required.']);
+        }
         if (! in_array($format, ['rss', 'atom', 'json'], true)) {
             throw ValidationException::withMessages(['format' => 'Unsupported feed format.']);
+        }
+        if ($sourceUrl !== null && filter_var($sourceUrl, FILTER_VALIDATE_URL) === false) {
+            throw ValidationException::withMessages(['source_url' => 'Source URL must be valid.']);
         }
 
         return Feed::query()->create(['key' => Str::slug($key), 'title' => $title, 'format' => $format, 'source_url' => $sourceUrl, 'mapping' => $mapping, 'active' => true]);

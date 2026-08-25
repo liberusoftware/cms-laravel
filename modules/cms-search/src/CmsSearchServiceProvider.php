@@ -17,6 +17,7 @@ use Liberu\Cms\Search\Health\SearchHealthCheck;
 use Liberu\Cms\Search\Http\Controllers\SearchController;
 use Liberu\Cms\Search\Index\DatabaseSearchIndex;
 use Liberu\Cms\Search\Index\ScoutSearchIndex;
+use Liberu\Cms\Search\Services\ContentSearchService;
 
 /**
  * Owns the search surface: it binds the search registry so content modules can
@@ -44,6 +45,7 @@ final class CmsSearchServiceProvider extends ModuleServiceProvider
                 ? $app->make(ScoutSearchIndex::class)
                 : $app->make(DatabaseSearchIndex::class);
         });
+        $this->app->singleton(ContentSearchService::class);
 
         if ($this->app->bound(ApiResourceRegistryInterface::class)) {
             $this->app->make(ApiResourceRegistryInterface::class)->registerEndpoint(
@@ -55,6 +57,7 @@ final class CmsSearchServiceProvider extends ModuleServiceProvider
 
     protected function bootModule(): void
     {
+        $this->loadModuleMigrations(__DIR__.'/../database/migrations');
         $this->registerHealthCheck();
 
         if ($this->app->runningInConsole()) {

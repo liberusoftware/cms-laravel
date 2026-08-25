@@ -78,6 +78,10 @@ final class TaxonomyService
 
     public function assign(Term $term, string $subjectType, int|string $subjectId): TermAssignment
     {
+        if (trim($subjectType) === '' || trim((string) $subjectId) === '') {
+            throw ValidationException::withMessages(['subject' => 'Subject type and identifier are required.']);
+        }
+
         if ($term->taxonomy->exclusive) {
             TermAssignment::query()->whereHas('term', fn ($q) => $q->where('taxonomy_id', $term->taxonomy_id))->where('subject_type', $subjectType)->where('subject_id', $subjectId)->delete();
         }

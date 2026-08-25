@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info: {title: CMS Redirects API, version: 1.0.0}
+paths:
+  /api/v1/cms/redirects:
+    post: {operationId: createRedirect, responses: {'201': {description: Created redirect}}}
+  /api/v1/cms/redirects/resolve:
+    get: {operationId: resolveRedirect, responses: {'200': {description: Redirect resolution}}}
+  /api/v1/cms/redirects/import:
+    post: {operationId: importRedirects, responses: {'201': {description: Import result}}}
+  /api/v1/cms/redirects/slug-change:
+    post: {operationId: recordSlugChange, responses: {'201': {description: Redirect recorded}}}
+  /api/v1/cms/redirects/suggestions:
+    get: {operationId: suggestRedirects, responses: {'200': {description: Redirect suggestions}}}

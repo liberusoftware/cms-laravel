@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info: {title: CMS Taxonomy API, version: 1.0.0}
+paths:
+  /api/v1/cms/taxonomies:
+    get: {operationId: listTaxonomies, responses: {'200': {description: Paginated taxonomies}}}
+    post: {operationId: createTaxonomy, responses: {'201': {description: Created taxonomy}, '422': {description: Validation failure}}}
+  /api/v1/cms/taxonomies/{taxonomy}:
+    get: {operationId: getTaxonomy, responses: {'200': {description: Taxonomy}}}
+    patch: {operationId: updateTaxonomy, responses: {'200': {description: Updated taxonomy}}}
+    delete: {operationId: deleteTaxonomy, responses: {'204': {description: Deleted taxonomy}}}
+  /api/v1/cms/taxonomies/{taxonomy}/terms:
+    get: {operationId: listTaxonomyTerms, responses: {'200': {description: Taxonomy terms}}}
+    post: {operationId: createTaxonomyTerm, responses: {'201': {description: Created term}, '422': {description: Invalid hierarchy}}}
+  /api/v1/cms/taxonomy-terms/{term}/move:
+    post: {operationId: moveTaxonomyTerm, responses: {'200': {description: Moved term}, '422': {description: Invalid tree}}}

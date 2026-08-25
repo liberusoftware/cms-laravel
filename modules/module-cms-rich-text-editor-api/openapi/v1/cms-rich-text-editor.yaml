@@ -1,0 +1,9 @@
+openapi: 3.1.0
+info: {title: CMS Rich Text Editor API, version: 1.0.0}
+paths:
+  /api/v1/cms/rich-text-editor/sanitize:
+    post: {operationId: sanitizeRichText, responses: {'200': {description: Sanitized HTML}}}
+  /api/v1/cms/rich-text-editor/prepare:
+    post: {operationId: prepareRichText, responses: {'200': {description: Prepared content and accessibility hints}, '422': {description: Invalid format}}}
+  /api/v1/cms/rich-text-editor/embed:
+    post: {operationId: createRichTextEmbed, responses: {'200': {description: Safe embed markup}, '422': {description: Invalid URL}}}

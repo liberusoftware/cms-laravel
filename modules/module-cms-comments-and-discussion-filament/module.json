@@ -1,0 +1,1 @@
+{"name":"module-cms-comments-and-discussion-filament","title":"Comments and Discussion Filament","description":"Filament adapter for comments and discussion.","version":"0.1.0","providers":["Liberu\\Cms\\CommentsAndDiscussionFilament\\CommentsAndDiscussionFilamentServiceProvider"]}

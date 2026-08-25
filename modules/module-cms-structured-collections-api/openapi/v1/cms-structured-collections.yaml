@@ -43,6 +43,18 @@ paths:
       parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
       requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RecordWrite'}}}}
       responses: {'201': {$ref: '#/components/responses/Record'}}
+  /api/v1/cms/structured-collections/{slug}/records/{record}:
+    patch:
+      operationId: cms.structured.collections.record.update
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}, {name: record, in: path, required: true, schema: {type: string}}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RecordWrite'}}}}
+      responses: {'200': {$ref: '#/components/responses/Record'}}
+    delete:
+      operationId: cms.structured.collections.record.delete
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}, {name: record, in: path, required: true, schema: {type: string}}]
+      responses: {'204': {description: Deleted}}
 components:
   securitySchemes: {sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}}
   schemas:

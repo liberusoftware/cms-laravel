@@ -1,3 +1,3 @@
-# CMS Regions and Widgets
+# Regions and Widgets
 
-Owns theme regions, reusable widgets, placements, visibility rules, schedules, ordering, and cache-aware rendering.
+The domain module owns tenant-scoped regions, configurable widgets, scheduled placements, visibility context, and cache-aware rendering.

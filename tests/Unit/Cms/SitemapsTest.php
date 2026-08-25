@@ -17,3 +17,12 @@ it('validates sitemap URLs, priorities, and engines', function (): void {
     $service = app(SitemapService::class);
     expect(fn () => $service->add('/relative'))->toThrow(ValidationException::class)->and(fn () => $service->add('https://example.com', null, 'web', null, 2))->toThrow(ValidationException::class)->and(fn () => $service->notify('duckduckgo'))->toThrow(ValidationException::class);
 });
+
+it('removes excluded entries from subsequent cached reads', function (): void {
+    $service = app(SitemapService::class);
+    $service->add('https://example.com/cached', 7);
+    expect($service->entries(7))->toHaveCount(1);
+    $service->exclude('https://example.com/cached', 7);
+
+    expect($service->entries(7))->toHaveCount(0);
+});

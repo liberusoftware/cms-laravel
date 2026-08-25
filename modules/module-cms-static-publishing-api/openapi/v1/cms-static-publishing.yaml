@@ -1,0 +1,16 @@
+openapi: 3.1.0
+info: {title: CMS Static Publishing API, version: 1.0.0}
+paths:
+  /api/v1/cms/static-publishing/builds:
+    get: {operationId: listStaticBuilds, responses: {'200': {description: Paginated builds}}}
+    post: {operationId: createStaticBuild, responses: {'201': {description: Build created}, '422': {description: Invalid route manifest}}}
+  /api/v1/cms/static-publishing/builds/{build}:
+    get: {operationId: getStaticBuild, responses: {'200': {description: Build}}}
+  /api/v1/cms/static-publishing/builds/{build}/invalidate:
+    post: {operationId: invalidateStaticPath, responses: {'201': {description: Invalidation recorded}}}
+  /api/v1/cms/static-publishing/builds/{build}/rollback:
+    post: {operationId: rollbackStaticBuild, responses: {'200': {description: Rolled back build}}}
+  /api/v1/cms/static-publishing/builds/{build}/diagnostics:
+    get: {operationId: getStaticBuildDiagnostics, responses: {'200': {description: Diagnostics}}}
+  /api/v1/cms/static-publishing/builds/{build}/deploy:
+    post: {operationId: deployStaticBuild, responses: {'202': {description: Deployment accepted}}}

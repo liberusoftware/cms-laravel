@@ -14,6 +14,9 @@ final class RedirectService
     {
         $from = $this->normalize($from);
         $to = $this->normalize($to);
+        if ($from === '/' && $to === '/') {
+            throw ValidationException::withMessages(['from_path' => 'Redirect paths are required.']);
+        }
         if ($from === $to) {
             throw ValidationException::withMessages(['from_path' => 'A redirect cannot point to itself.']);
         }
@@ -27,6 +30,10 @@ final class RedirectService
     /** @return array{redirect: Redirect|null, path: string, loop: bool} */
     public function resolve(string $path, int $maxHops = 10): array
     {
+        if ($maxHops < 1) {
+            throw ValidationException::withMessages(['max_hops' => 'At least one redirect hop is required.']);
+        }
+
         $current = $this->normalize($path);
         $visited = [];
         for ($hop = 0; $hop < $maxHops; $hop++) {

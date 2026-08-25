@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info: {title: CMS Security Operations API, version: 1.0.0}
+paths:
+  /api/v1/cms/security-operations:
+    get: {operationId: listSecurityOperations, responses: {'200': {description: Security operation records}}}
+  /api/v1/cms/security-operations/inventory:
+    post: {operationId: recordPackageInventory, responses: {'201': {description: Inventory recorded}}}
+  /api/v1/cms/security-operations/provenance:
+    post: {operationId: recordExtensionProvenance, responses: {'201': {description: Provenance recorded}}}
+  /api/v1/cms/security-operations/integrity:
+    post: {operationId: recordContentIntegrity, responses: {'201': {description: Integrity evidence recorded}}}
+  /api/v1/cms/security-operations/advisories:
+    post: {operationId: recordSecurityAdvisory, responses: {'201': {description: Advisory recorded}}}
+  /api/v1/cms/security-operations/incidents:
+    post: {operationId: generateIncidentBundle, responses: {'200': {description: Incident bundle}}}

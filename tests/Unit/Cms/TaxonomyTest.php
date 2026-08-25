@@ -32,3 +32,12 @@ it('prevents invalid trees and supports exclusive assignments and merges', funct
     $service->merge($two, $one);
     expect($one->fresh()->assignments)->toHaveCount(1)->and(Taxonomy::find($taxonomy->id)->terms)->toHaveCount(1);
 });
+
+it('requires a subject identity when assigning a term', function (): void {
+    $service = app(TaxonomyService::class);
+    $taxonomy = $service->create('audience', 'Audience');
+    $term = $service->addTerm($taxonomy, 'Public');
+
+    expect(fn () => $service->assign($term, '', 1))->toThrow(ValidationException::class)
+        ->and(fn () => $service->assign($term, 'post', ''))->toThrow(ValidationException::class);
+});

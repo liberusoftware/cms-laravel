@@ -1,3 +1,3 @@
-# CMS Regions and Widgets API
+# Regions and Widgets API
 
-Exposes context-aware region rendering and widget placement creation.
+Exposes tenant-aware region and widget creation, placement scheduling, and context-aware rendering through the API registry.

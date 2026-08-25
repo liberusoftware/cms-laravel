@@ -14,16 +14,24 @@ final class SiteFactoryService
 {
     public function template(string $key, string $name, array $configuration = [], array $initialContent = []): SiteTemplate
     {
+        if (trim($key) === '' || trim($name) === '') {
+            throw ValidationException::withMessages(['name' => 'Template key and name are required.']);
+        }
+
         return SiteTemplate::query()->updateOrCreate(['key' => Str::slug($key)], ['name' => $name, 'configuration' => $configuration, 'initial_content' => $initialContent, 'active' => true]);
     }
 
     public function provision(string $key, string $name, ?string $templateKey = null, ?string $domain = null, ?int $teamId = null): Site
     {
+        $key = Str::slug($key);
+        if ($key === '' || trim($name) === '') {
+            throw ValidationException::withMessages(['name' => 'Site key and name are required.']);
+        }
         if (Site::query()->where('key', $key)->exists()) {
             throw ValidationException::withMessages(['key' => 'A site with this key already exists.']);
         }
         $template = $templateKey ? SiteTemplate::query()->where('key', $templateKey)->where('active', true)->firstOrFail() : null;
-        $site = Site::query()->create(['key' => Str::slug($key), 'name' => $name, 'domain' => $domain, 'status' => 'active', 'settings' => $template?->configuration ?? [], 'team_id' => $teamId]);
+        $site = Site::query()->create(['key' => $key, 'name' => $name, 'domain' => $domain, 'status' => 'active', 'settings' => $template?->configuration ?? [], 'team_id' => $teamId]);
         if ($domain) {
             $this->addDomain($site, $domain);
         }

@@ -1,0 +1,1 @@
+{"name":"module-cms-configuration-management-livewire","title":"Configuration Management Livewire","description":"Livewire adapter for configuration releases.","version":"0.1.0","providers":["Liberu\\Cms\\ConfigurationManagementLivewire\\ConfigurationManagementLivewireServiceProvider"]}

@@ -19,6 +19,7 @@ it('ranks explainable relationships and respects exclusions and taxonomy', funct
 
 it('rejects self relationships and unknown modes', function (): void {
     $service = app(RelatedContentService::class);
-    expect(fn () => $service->relate('post', 1, 'post', 1))->toThrow(ValidationException::class);
+    expect(fn () => $service->relate('post', 1, 'post', 1))->toThrow(ValidationException::class)
+        ->and(fn () => $service->relate('', 0, 'post', 2))->toThrow(ValidationException::class);
     expect(fn () => $service->relate('post', 1, 'post', 2, 'unknown'))->toThrow(ValidationException::class);
 });

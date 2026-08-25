@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info: {title: CMS Revisions API, version: 1.0.0}
+paths:
+  /api/v1/cms/revisions/{type}/{id}:
+    get: {operationId: listRevisions, responses: {'200': {description: Revisions}}}
+    post: {operationId: createRevision, responses: {'201': {description: Created revision}}}
+  /api/v1/cms/revisions/{type}/{id}/autosave:
+    post: {operationId: autosaveRevision, responses: {'201': {description: Autosave revision}}}
+  /api/v1/cms/revisions/{type}/{id}/prune:
+    post: {operationId: pruneRevisions, responses: {'200': {description: Prune result}}}
+  /api/v1/cms/revisions/{revision}/restore:
+    post: {operationId: restoreRevision, responses: {'201': {description: Restored revision}}}
+  /api/v1/cms/revisions/{from}/compare/{to}:
+    get: {operationId: compareRevisions, responses: {'200': {description: Revision diff}}}
+  /api/v1/cms/revisions/{revision}/branch:
+    post: {operationId: branchRevision, responses: {'201': {description: Branched revision}}}
+  /api/v1/cms/revisions/{revision}/publish:
+    post: {operationId: publishRevision, responses: {'200': {description: Published revision}}}

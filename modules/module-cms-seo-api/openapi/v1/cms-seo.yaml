@@ -1,0 +1,9 @@
+openapi: 3.1.0
+info: {title: CMS SEO API, version: 1.0.0}
+paths:
+  /api/v1/cms/seo/{type}/{id}:
+    get: {operationId: checkSeoMetadata, responses: {'200': {description: SEO score and issues}}}
+    put:
+      operationId: saveSeoMetadata
+      requestBody: {required: true, content: {application/json: {schema: {type: object, properties: {title: {type: string}, description: {type: string}, canonical_url: {type: string, format: uri}, robots: {type: string}, structured_data: {type: object}, social_cards: {type: object}, hreflang: {type: object}, noindex: {type: boolean}, noarchive: {type: boolean}}}}}}
+      responses: {'201': {description: Saved SEO metadata}, '422': {description: Validation failure}}

@@ -26,6 +26,10 @@ final class SecurityOperationsService
 
     public function integrity(string $subject, string $content, ?int $actorId = null): SecurityOperation
     {
+        if (trim($subject) === '') {
+            throw ValidationException::withMessages(['subject' => 'Integrity subject is required.']);
+        }
+
         return $this->record('content-integrity', $subject, 'verified', ['algorithm' => 'sha256'], hash('sha256', $content), $actorId);
     }
 
@@ -55,6 +59,6 @@ final class SecurityOperationsService
 
     private function record(string $kind, ?string $subject, string $status, array $evidence, ?string $hash, ?int $actorId): SecurityOperation
     {
-        return SecurityOperation::query()->create(['kind' => $kind, 'subject' => $subject, 'status' => $status, 'evidence' => $evidence, 'hash' => $hash, 'actorId' => $actorId] + ['content_hash' => $hash, 'actor_id' => $actorId]);
+        return SecurityOperation::query()->create(['kind' => $kind, 'subject' => $subject, 'status' => $status, 'evidence' => $evidence, 'content_hash' => $hash, 'actor_id' => $actorId]);
     }
 }

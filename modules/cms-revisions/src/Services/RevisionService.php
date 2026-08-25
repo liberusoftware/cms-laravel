@@ -13,6 +13,10 @@ final class RevisionService
 {
     public function create(string $type, int $id, array $snapshot, ?int $userId = null, string $branch = 'main', bool $autosave = false, array $metadata = []): Revision
     {
+        if (trim($type) === '' || $id < 1 || trim($branch) === '') {
+            throw ValidationException::withMessages(['revisionable' => 'A valid revision subject and branch are required.']);
+        }
+
         $parent = Revision::query()->where('revisionable_type', $type)->where('revisionable_id', $id)->where('branch', $branch)->latest('revision_number')->first();
         $number = (int) ($parent?->revision_number ?? 0) + 1;
 
@@ -53,11 +57,12 @@ final class RevisionService
 
     public function branch(Revision $revision, string $branch, ?int $userId = null): Revision
     {
-        if ($branch === '' || ! Str::of($branch)->isAscii()) {
+        $normalized = Str::slug($branch);
+        if ($normalized === '' || ! Str::of($branch)->isAscii()) {
             throw ValidationException::withMessages(['branch' => 'A branch name is required.']);
         }
 
-        return $this->create($revision->revisionable_type, $revision->revisionable_id, $revision->snapshot(), $userId, Str::slug($branch), false, ['kind' => 'branch', 'source_revision_id' => $revision->getKey()]);
+        return $this->create($revision->revisionable_type, $revision->revisionable_id, $revision->snapshot(), $userId, $normalized, false, ['kind' => 'branch', 'source_revision_id' => $revision->getKey()]);
     }
 
     public function publish(Revision $revision): Revision

@@ -1,0 +1,1 @@
+{"name":"module-cms-comments-and-discussion-api","title":"Comments and Discussion API","description":"HTTP API adapter for comments and discussion.","version":"0.1.0","providers":["Liberu\\Cms\\CommentsAndDiscussionApi\\CommentsAndDiscussionApiServiceProvider"]}

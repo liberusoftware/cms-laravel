@@ -34,3 +34,9 @@ it('supports explicit unpublish and archive transitions', function (): void {
     $service->archive($release->fresh());
     expect($release->fresh()->state)->toBe('archived');
 });
+
+it('creates releases through the domain boundary and rejects missing keys', function (): void {
+    $service = app(PublishingService::class);
+    expect($service->create(['key' => 'new-release'])->state)->toBe('scheduled')
+        ->and(fn () => $service->create([]))->toThrow(ValidationException::class);
+});

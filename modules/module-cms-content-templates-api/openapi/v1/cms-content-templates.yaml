@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Templates API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-templates/templates:
+    get:
+      operationId: listContentTemplates
+      responses:
+        '200': {description: Templates}
+    post:
+      operationId: createContentTemplate
+      responses:
+        '201': {description: Template created}

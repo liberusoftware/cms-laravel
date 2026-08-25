@@ -12,6 +12,15 @@ use Liberu\Cms\Publishing\Models\PublicationReleaseEvent;
 
 final class PublishingService
 {
+    public function create(array $attributes): PublicationRelease
+    {
+        if (blank($attributes['key'] ?? null)) {
+            throw ValidationException::withMessages(['key' => 'A release key is required.']);
+        }
+
+        return PublicationRelease::query()->create([...$attributes, 'state' => $attributes['state'] ?? 'scheduled']);
+    }
+
     public function schedule(PublicationRelease $release): PublicationRelease
     {
         if ($release->embargo_until !== null && $release->publish_at !== null && $release->embargo_until->greaterThan($release->publish_at)) {

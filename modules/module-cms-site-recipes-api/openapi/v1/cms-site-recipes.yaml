@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Site Recipes API, version: 1.0.0}
+paths:
+  /api/v1/cms/site-recipes:
+    get: {operationId: listSiteRecipes, responses: {'200': {description: Paginated recipes}}}
+    post: {operationId: createSiteRecipe, responses: {'201': {description: Created recipe}}}
+  /api/v1/cms/site-recipes/{recipe}:
+    get: {operationId: getSiteRecipe, responses: {'200': {description: Recipe and latest export}}}
+  /api/v1/cms/site-recipes/{recipe}/versions:
+    post: {operationId: createSiteRecipeVersion, responses: {'201': {description: Created version}, '422': {description: Invalid bundle}}}
+  /api/v1/cms/site-recipes/{recipe}/publish:
+    post: {operationId: publishSiteRecipe, responses: {'200': {description: Published recipe}}}
+  /api/v1/cms/site-recipes/{recipe}/archive:
+    post: {operationId: archiveSiteRecipe, responses: {'200': {description: Archived recipe}}}

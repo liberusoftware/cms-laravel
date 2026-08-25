@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: CMS Comments and Discussion API
+  version: 1.0.0
+paths:
+  /api/v1/cms/comments-and-discussion/{type}/{id}:
+    get:
+      operationId: cms.comments.and.discussion.list
+      security:
+        - sanctum: []
+      parameters:
+        - {name: type, in: path, required: true, schema: {type: string}}
+        - {name: id, in: path, required: true, schema: {type: string}}
+        - {name: page_size, in: query, schema: {type: integer, minimum: 1, maximum: 100, default: 25}}
+      responses:
+        '200': {$ref: '#/components/responses/ResourceCollection'}
+  /api/v1/cms/comments-and-discussion:
+    post:
+      operationId: cms.comments.and.discussion.create
+      security:
+        - sanctum: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/CommentCreateRequest'}
+      responses:
+        '201': {$ref: '#/components/responses/Resource'}
+  /api/v1/cms/comments-and-discussion/{comment}:
+    get:
+      operationId: cms.comments.and.discussion.get
+      security:
+        - sanctum: []
+      parameters:
+        - {name: comment, in: path, required: true, schema: {type: string}}
+      responses:
+        '200': {$ref: '#/components/responses/Resource'}
+    patch:
+      operationId: cms.comments.and.discussion.update
+      security:
+        - sanctum: []
+      parameters:
+        - {name: comment, in: path, required: true, schema: {type: string}}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/CommentUpdateRequest'}
+      responses:
+        '200': {$ref: '#/components/responses/Resource'}
+components:
+  securitySchemes:
+    sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}
+  schemas:
+    Comment:
+      type: object
+      required: [id, type, attributes]
+      properties:
+        id: {type: string}
+        type: {type: string, const: cms-comments-and-discussion}
+        attributes:
+          type: object
+          required: [commentable_type, commentable_id, body, status]
+          properties:
+            commentable_type: {type: string, maxLength: 120}
+            commentable_id: {type: string, maxLength: 120}
+            body: {type: string, maxLength: 10000}
+            status: {type: string, enum: [pending, approved, rejected, spam, removed]}
+            created_at: {type: string, format: date-time}
+            edited_at: {type: string, format: date-time, nullable: true}
+    CommentCreateRequest:
+      type: object
+      required: [commentable_type, commentable_id, body]
+      properties:
+        commentable_type: {type: string, maxLength: 120}
+        commentable_id: {type: string, maxLength: 120}
+        parent_id: {type: string, nullable: true}
+        body: {type: string, minLength: 1, maxLength: 10000}
+        guest_name: {type: string, maxLength: 160, nullable: true}
+        guest_email: {type: string, format: email, nullable: true}
+    CommentUpdateRequest:
+      type: object
+      required: [body]
+      properties:
+        body: {type: string, minLength: 1, maxLength: 10000}
+  responses:
+    Resource:
+      description: A comment resource.
+      content:
+        application/json:
+          schema: {type: object, required: [data], properties: {data: {$ref: '#/components/schemas/Comment'}}}
+    ResourceCollection:
+      description: A paginated comment collection.
+      content:
+        application/json:
+          schema: {type: object, required: [data], properties: {data: {type: array, items: {$ref: '#/components/schemas/Comment'}}}}
