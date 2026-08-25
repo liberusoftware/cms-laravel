@@ -19,8 +19,8 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable();
             $table->timestamp('review_at')->nullable();
             $table->string('recurrence')->nullable();
-            $table->json('targets')->default('[]');
-            $table->json('cache_tags')->default('[]');
+            $table->json('targets');
+            $table->json('cache_tags');
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
         });
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('release_id')->constrained('cms_publication_releases')->cascadeOnDelete();
             $table->string('event');
-            $table->json('payload')->default('{}');
+            $table->json('payload');
             $table->timestamp('occurred_at');
             $table->timestamps();
             $table->index(['release_id', 'event']);

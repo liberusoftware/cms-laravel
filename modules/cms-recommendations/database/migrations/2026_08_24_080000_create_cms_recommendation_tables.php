@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('key');
             $table->string('kind')->default('latest');
             $table->string('ranker')->default('default');
-            $table->json('audience_rules')->default('{}');
-            $table->json('exclusions')->default('[]');
+            $table->json('audience_rules');
+            $table->json('exclusions');
             $table->boolean('active')->default(true)->index();
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('item_key');
             $table->string('title');
             $table->text('summary')->nullable();
-            $table->json('context')->default('{}');
+            $table->json('context');
             $table->decimal('popularity_score', 12, 4)->default(0);
             $table->decimal('editorial_score', 12, 4)->default(0);
             $table->timestamp('published_at')->nullable();
