@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abaf29ba14943af4b0595e2269e42b0a",
+    "content-hash": "8f91dcd343705eab8d62833a11037d38",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7551,6 +7551,147 @@
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\DigitalAssetManagementLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-display-modes",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-display-modes",
+                "reference": "9f59c21ffb6487af3a77a81fbbe2edd5e30918f4"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-display-modes",
+                    "capability": "display-modes"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DisplayModes\\DisplayModesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DisplayModes\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS named display modes, formatters, responsive variants, and projections.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-display-modes-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-display-modes-api",
+                "reference": "d04bf407884d145de94537e478a98fe77de4545d"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-display-modes": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DisplayModesApi\\DisplayModesApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DisplayModesApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-display-modes-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-display-modes-filament",
+                "reference": "8108001d1a179492be2334df1174a5550215639a"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-display-modes": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DisplayModesFilament\\DisplayModesFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DisplayModesFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-display-modes-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-display-modes-livewire",
+                "reference": "5d037fdeed5d09bd73a5243e1314317a5ca701c9"
+            },
+            "require": {
+                "liberusoftware/module-cms-display-modes": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DisplayModesLivewire\\DisplayModesLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DisplayModesLivewire\\": "src/"
                 }
             },
             "license": [
