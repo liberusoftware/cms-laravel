@@ -38,7 +38,7 @@ final class MarketplaceController
     {
         $data = $request->validate(['key' => ['required', 'string', 'max:255'], 'name' => ['required', 'string', 'max:255'], 'version' => ['required', 'string', 'max:64'], 'author' => ['required', 'string', 'max:255'], 'description' => ['nullable', 'string'], 'manifest' => ['sometimes', 'array'], 'compatibility' => ['sometimes', 'array'], 'preview_url' => ['nullable', 'url'], 'license' => ['nullable', 'string', 'max:100'], 'parent_key' => ['nullable', 'string', 'max:255']]);
 
-        return new MarketplaceThemeResource($service->publish([...$data, ...($data['manifest'] ?? [])]));
+        return new MarketplaceThemeResource($service->publish([...$data, ...($data['manifest'] ?? [])], $request->user()?->current_team_id));
     }
 
     public function install(Request $request, string $key, ThemeMarketplaceQuery $themes, ThemeMarketplaceService $service): ThemeInstallationResource
@@ -49,7 +49,7 @@ final class MarketplaceController
         }
         $data = $request->validate(['site_key' => ['required', 'string', 'max:255'], 'cms_version' => ['required', 'string', 'max:64'], 'features' => ['sometimes', 'array']]);
 
-        return new ThemeInstallationResource($service->install($theme, $data['site_key'], $data['cms_version'], $data['features'] ?? []));
+        return new ThemeInstallationResource($service->install($theme, $data['site_key'], $data['cms_version'], $data['features'] ?? [], $request->user()?->current_team_id));
     }
 
     public function rate(Request $request, string $key, ThemeMarketplaceQuery $themes, ThemeMarketplaceService $service): MarketplaceThemeResource
@@ -59,7 +59,7 @@ final class MarketplaceController
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['reviewer_type' => ['required', 'string', 'max:100'], 'reviewer_id' => ['required', 'string', 'max:255'], 'rating' => ['required', 'integer', 'between:1,5'], 'review' => ['nullable', 'string', 'max:5000']]);
-        $service->rate($theme, $data['reviewer_type'], $data['reviewer_id'], $data['rating'], $data['review'] ?? null);
+        $service->rate($theme, $data['reviewer_type'], $data['reviewer_id'], $data['rating'], $data['review'] ?? null, $request->user()?->current_team_id);
 
         return new MarketplaceThemeResource($theme->refresh());
     }

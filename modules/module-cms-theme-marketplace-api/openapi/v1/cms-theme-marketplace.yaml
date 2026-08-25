@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Theme Marketplace API, version: 1.0.0}
+paths:
+  /api/v1/cms/themes:
+    get: {operationId: listMarketplaceThemes, responses: {'200': {description: Paginated published themes}}}
+    post: {operationId: publishMarketplaceTheme, responses: {'201': {description: Published theme}, '422': {description: Invalid manifest}}}
+  /api/v1/cms/themes/{key}:
+    get: {operationId: getMarketplaceTheme, responses: {'200': {description: Approved theme}, '404': {description: Not found}}}
+  /api/v1/cms/themes/{key}/install:
+    post: {operationId: installMarketplaceTheme, responses: {'201': {description: Installed theme}, '422': {description: Incompatible theme}}}
+  /api/v1/cms/themes/{key}/rate:
+    post: {operationId: rateMarketplaceTheme, responses: {'200': {description: Updated rating}, '422': {description: Invalid rating}}}
+  /api/v1/cms/themes/{key}/security:
+    post: {operationId: reviewMarketplaceThemeSecurity, responses: {'200': {description: Security review recorded}}}
