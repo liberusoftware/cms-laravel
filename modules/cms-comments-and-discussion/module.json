@@ -1,0 +1,1 @@
+{"name":"module-cms-comments-and-discussion","title":"Comments and Discussion","description":"Threaded comments, moderation, subscriptions, mentions, reports, and retention.","version":"0.1.0","providers":["Liberu\\Cms\\CommentsAndDiscussion\\CommentsAndDiscussionServiceProvider"]}

@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-comments-and-discussion-livewire",
+    "description": "Livewire adapter for CMS Comments and Discussion.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "livewire/livewire": "^4.0", "liberusoftware/module-cms-comments-and-discussion": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\CommentsAndDiscussionLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-comments-and-discussion-livewire", "core": "liberusoftware/module-cms-comments-and-discussion"}, "laravel": {"providers": ["Liberu\\Cms\\CommentsAndDiscussionLivewire\\CommentsAndDiscussionLivewireServiceProvider"]}}
+}

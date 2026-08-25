@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "359e90e11d22ee665c48216e28ac6bd0",
+    "content-hash": "3a066ff6aae673cdc07f6f8cd8069672",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5225,7 +5225,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-collections",
+                "url": "modules/cms-collections",
                 "reference": "2112d02b331fd307adeb7d82d661f8b24893280b"
             },
             "require": {
@@ -5302,11 +5302,167 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-comments-and-discussion",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-comments-and-discussion",
+                "reference": "84b468bbd91f21a8b39b17493d7da25c218e78d2"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-comments-and-discussion",
+                    "capability": "comments-and-discussion"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CommentsAndDiscussion\\CommentsAndDiscussionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CommentsAndDiscussion\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS threaded comments, moderation, subscriptions, reports, and retention.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-comments-and-discussion-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-comments-and-discussion-api",
+                "reference": "3acd012c1083ebc0c8ccc865c506f34e6060b7e3"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-comments-and-discussion": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-comments-and-discussion-api",
+                    "core": "liberusoftware/module-cms-comments-and-discussion"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CommentsAndDiscussionApi\\CommentsAndDiscussionApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CommentsAndDiscussionApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Comments and Discussion.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-comments-and-discussion-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-comments-and-discussion-filament",
+                "reference": "fcbb4353ae9f6f34db997579227a7323f4b9bd52"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-comments-and-discussion": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-comments-and-discussion-filament",
+                    "core": "liberusoftware/module-cms-comments-and-discussion"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CommentsAndDiscussionFilament\\CommentsAndDiscussionFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CommentsAndDiscussionFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Comments and Discussion.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-comments-and-discussion-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-comments-and-discussion-livewire",
+                "reference": "f957174b84b463832327a493a23c1a1eb7307da6"
+            },
+            "require": {
+                "liberusoftware/module-cms-comments-and-discussion": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-comments-and-discussion-livewire",
+                    "core": "liberusoftware/module-cms-comments-and-discussion"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CommentsAndDiscussionLivewire\\CommentsAndDiscussionLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CommentsAndDiscussionLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Comments and Discussion.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-content",
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-content",
+                "url": "modules/cms-content",
                 "reference": "ef6fdb124ca271fc4382beadce18e031ccdd5dc4"
             },
             "require": {
@@ -5529,7 +5685,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-contracts",
+                "url": "modules/cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
@@ -5570,7 +5726,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-core",
+                "url": "modules/cms-core",
                 "reference": "acdb8a58777e29b6f8dda27d47550e87216367dd"
             },
             "require": {

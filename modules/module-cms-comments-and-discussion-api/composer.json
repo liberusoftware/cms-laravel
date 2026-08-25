@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-comments-and-discussion-api",
+    "description": "API adapter for CMS Comments and Discussion.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "laravel/framework": "^13.0", "liberusoftware/module-cms-comments-and-discussion": "^0.1", "liberusoftware/module-cms-api": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\CommentsAndDiscussionApi\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-comments-and-discussion-api", "core": "liberusoftware/module-cms-comments-and-discussion"}, "laravel": {"providers": ["Liberu\\Cms\\CommentsAndDiscussionApi\\CommentsAndDiscussionApiServiceProvider"]}}
+}
