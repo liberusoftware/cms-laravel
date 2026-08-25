@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: CMS Polls and Surveys API
+  version: 1.0.0
+  description: Tenant-aware poll authoring, response collection, results, exports, and privacy controls.
+paths:
+  /api/v1/cms/polls-and-surveys:
+    get:
+      operationId: cms.polls.and.surveys.list
+      responses:
+        '200': {description: Authorized poll collection}
+    post:
+      operationId: cms.polls.and.surveys.create
+      security: [{sanctum: []}]
+      responses:
+        '201': {description: Poll created}
+  /api/v1/cms/polls-and-surveys/{key}:
+    parameters:
+      - {name: key, in: path, required: true, schema: {type: string}}
+    get:
+      operationId: cms.polls.and.surveys.get
+      responses:
+        '200': {description: Active poll with public question schema}
+    patch:
+      operationId: cms.polls.and.surveys.update
+      security: [{sanctum: []}]
+      responses:
+        '200': {description: Poll updated}
+    delete:
+      operationId: cms.polls.and.surveys.delete
+      security: [{sanctum: []}]
+      responses:
+        '204': {description: Poll deleted}
+  /api/v1/cms/polls-and-surveys/{key}/responses:
+    post:
+      operationId: cms.polls.and.surveys.responses.create
+      parameters:
+        - {name: key, in: path, required: true, schema: {type: string}}
+      responses:
+        '201': {description: Response accepted}
+  /api/v1/cms/polls-and-surveys/{key}/results:
+    get:
+      operationId: cms.polls.and.surveys.results
+      security: [{sanctum: []}]
+      responses:
+        '200': {description: Aggregated results}
+  /api/v1/cms/polls-and-surveys/{key}/export:
+    get:
+      operationId: cms.polls.and.surveys.export
+      security: [{sanctum: []}]
+      responses:
+        '200': {description: Privacy-filtered response export}
+  /api/v1/cms/polls-and-surveys/{key}/responses/{response}:
+    delete:
+      operationId: cms.polls.and.surveys.responses.erase
+      security: [{sanctum: []}]
+      responses:
+        '204': {description: Response erased}
+components:
+  securitySchemes:
+    sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}

@@ -17,8 +17,16 @@ final class PollForm extends Component
 
     public bool $submitted = false;
 
+    public function mount(?string $pollKey = null): void
+    {
+        if ($pollKey !== null) {
+            $this->pollKey = $pollKey;
+        }
+    }
+
     public function submit(PollService $service): void
     {
+        $this->validate(['pollKey' => ['required', 'string', 'max:120'], 'answers' => ['array']]);
         $poll = Poll::query()->where('key', $this->pollKey)->where('active', true)->firstOrFail();
         $service->submit($poll, $this->answers, auth()->id(), request()->ip());
         $this->submitted = true;
