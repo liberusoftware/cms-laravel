@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info: {title: CMS Configuration Management API, version: 1.0.0}
+paths:
+  /api/v1/cms/configuration-management:
+    get:
+      operationId: cms.configuration.management.list
+      security: [{sanctum: []}]
+      responses: {'200': {description: Versioned configuration releases}}
+    post:
+      operationId: cms.configuration.management.create
+      security: [{sanctum: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/ConfigurationCreateRequest'}}}}
+      responses: {'201': {description: Configuration release created}}
+  /api/v1/cms/configuration-management/{release}/promote:
+    post:
+      operationId: cms.configuration.management.promote
+      security: [{sanctum: []}]
+      parameters: [{name: release, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Release promoted}}
+  /api/v1/cms/configuration-management/{release}/rollback:
+    post:
+      operationId: cms.configuration.management.rollback
+      security: [{sanctum: []}]
+      parameters: [{name: release, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Release rolled back}}
+components:
+  securitySchemes: {sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}}
+  schemas:
+    ConfigurationCreateRequest:
+      type: object
+      required: [version, environment, payload]
+      properties:
+        version: {type: string, maxLength: 80}
+        environment: {type: string, maxLength: 80}
+        payload: {type: object, additionalProperties: true}
+        dependencies: {type: array, items: {type: string}}

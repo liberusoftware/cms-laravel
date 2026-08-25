@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a066ff6aae673cdc07f6f8cd8069672",
+    "content-hash": "59b2343c36eeb2c9ec548d7323e248e6",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5452,6 +5452,162 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Comments and Discussion.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-configuration-management",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-configuration-management",
+                "reference": "f7ec0035684c71c13bf621409128dd3e818e91d9"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-configuration-management",
+                    "capability": "configuration-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ConfigurationManagement\\ConfigurationManagementServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ConfigurationManagement\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Versioned CMS configuration export, comparison, promotion, and rollback.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-configuration-management-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-configuration-management-api",
+                "reference": "ccc1f1feee89aed20ec0bfc328aa98c09856a199"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-configuration-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-configuration-management-api",
+                    "core": "liberusoftware/module-cms-configuration-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ConfigurationManagementApi\\ConfigurationManagementApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ConfigurationManagementApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Configuration Management.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-configuration-management-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-configuration-management-filament",
+                "reference": "0b7528639e701bbdc8b5f7f28faa61876cc150a8"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-configuration-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-configuration-management-filament",
+                    "core": "liberusoftware/module-cms-configuration-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ConfigurationManagementFilament\\ConfigurationManagementFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ConfigurationManagementFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Configuration Management.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-configuration-management-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-configuration-management-livewire",
+                "reference": "af18cd190f6b619dd5ee2743dcc7c0463b387ac1"
+            },
+            "require": {
+                "liberusoftware/module-cms-configuration-management": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-configuration-management-livewire",
+                    "core": "liberusoftware/module-cms-configuration-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ConfigurationManagementLivewire\\ConfigurationManagementLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ConfigurationManagementLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Configuration Management.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
