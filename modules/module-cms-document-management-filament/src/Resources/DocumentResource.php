@@ -11,6 +11,7 @@ use Liberu\Cms\DocumentManagement\Models\Document;
 
 final class DocumentResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Document::class;
 
     public static function table(Table $table): Table

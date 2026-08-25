@@ -11,6 +11,7 @@ use Liberu\Cms\ContentIntelligence\Models\ContentInsight;
 
 final class ContentInsightResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ContentInsight::class;
 
     public static function table(Table $table): Table

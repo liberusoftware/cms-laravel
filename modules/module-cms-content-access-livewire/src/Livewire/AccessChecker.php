@@ -19,6 +19,6 @@ final class AccessChecker extends Component
     {
         $allowed = $this->subjectKey !== '' && app(ContentAccessService::class)->canAccess($this->subjectType, $this->subjectKey, auth()->user()?->current_team_id, [], $this->preview);
 
-        return view('module-cms-content-access::access-checker', compact('allowed'));
+        return view('module-cms-content-access::access-checker', ['allowed' => $allowed]);
     }
 }

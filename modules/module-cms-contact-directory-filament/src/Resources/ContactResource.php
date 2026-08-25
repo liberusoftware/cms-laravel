@@ -11,8 +11,10 @@ use Liberu\Cms\ContactDirectory\Models\Contact;
 
 final class ContactResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Contact::class;
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Contacts';
 
     public static function table(Table $table): Table

@@ -11,6 +11,7 @@ use Liberu\Cms\ContentIntegrity\Models\IntegrityFinding;
 
 final class IntegrityFindingResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = IntegrityFinding::class;
 
     public static function table(Table $table): Table

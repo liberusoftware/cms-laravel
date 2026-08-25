@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class FederationReference extends Model
 {
+    #[\Override]
     protected $table = 'cms_federation_references';
 
+    #[\Override]
     protected $fillable = ['source_id', 'external_type', 'external_key', 'payload', 'etag', 'cached_until', 'last_fetched_at'];
 
     protected function casts(): array

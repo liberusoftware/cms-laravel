@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class DisplayMode extends Model
 {
+    #[\Override]
     protected $table = 'cms_display_modes';
 
+    #[\Override]
     protected $fillable = ['team_id', 'name', 'slug', 'content_type', 'mode_type', 'formatters', 'configuration', 'responsive_variants', 'projection', 'active'];
 
     protected function casts(): array

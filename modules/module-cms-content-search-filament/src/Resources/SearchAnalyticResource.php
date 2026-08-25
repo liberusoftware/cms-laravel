@@ -11,6 +11,7 @@ use Liberu\Cms\Search\Models\SearchAnalytic;
 
 final class SearchAnalyticResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SearchAnalytic::class;
 
     public static function table(Table $table): Table

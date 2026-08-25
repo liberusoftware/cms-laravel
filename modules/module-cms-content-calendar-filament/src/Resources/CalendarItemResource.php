@@ -11,6 +11,7 @@ use Liberu\Cms\ContentCalendar\Models\CalendarItem;
 
 final class CalendarItemResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = CalendarItem::class;
 
     public static function table(Table $table): Table

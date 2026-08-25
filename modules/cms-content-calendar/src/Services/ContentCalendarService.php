@@ -33,7 +33,7 @@ final readonly class ContentCalendarService
         }
         $startsAt = Carbon::parse($data['starts_at'] ?? '');
         $deadlineAt = isset($data['deadline_at']) ? Carbon::parse($data['deadline_at']) : null;
-        if ($deadlineAt !== null && $deadlineAt->lessThan($startsAt)) {
+        if ($deadlineAt instanceof \Illuminate\Support\Carbon && $deadlineAt->lessThan($startsAt)) {
             throw ValidationException::withMessages(['deadline_at' => 'A deadline cannot precede the scheduled start.']);
         }
         if ($this->hasConflict($teamId, $data['channel'] ?? null, $data['site'] ?? null, $startsAt, $deadlineAt)) {
@@ -47,7 +47,7 @@ final readonly class ContentCalendarService
     {
         $start = Carbon::parse($startsAt);
         $deadline = $deadlineAt === null ? null : Carbon::parse($deadlineAt);
-        if ($deadline !== null && $deadline->lessThan($start)) {
+        if ($deadline instanceof \Illuminate\Support\Carbon && $deadline->lessThan($start)) {
             throw ValidationException::withMessages(['deadline_at' => 'A deadline cannot precede the scheduled start.']);
         }
         if ($this->hasConflict($item->team_id, $item->channel, $item->site, $start, $deadline, $item->id)) {

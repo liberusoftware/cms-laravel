@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class Document extends Model
 {
+    #[\Override]
     protected $table = 'cms_documents';
 
+    #[\Override]
     protected $fillable = ['team_id', 'title', 'slug', 'path', 'mime_type', 'size', 'status', 'extracted_text', 'retention_until'];
 
     protected function casts(): array

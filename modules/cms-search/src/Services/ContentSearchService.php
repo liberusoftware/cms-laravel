@@ -24,7 +24,7 @@ final readonly class ContentSearchService
             throw ValidationException::withMessages(['q' => 'The search query is too short.']);
         }
         $start = hrtime(true);
-        $results = array_values(array_filter(iterator_to_array($this->index->search($query)), fn ($result): bool => $result instanceof SearchResult));
+        $results = array_values(array_filter(iterator_to_array($this->index->search($query)), fn (\Liberu\Cms\Contracts\Search\SearchResult $result): bool => $result instanceof SearchResult));
         usort($results, static fn (SearchResult $a, SearchResult $b): int => $b->score <=> $a->score);
         SearchAnalytic::query()->create(['team_id' => $teamId, 'query' => $query, 'result_count' => count($results), 'duration_ms' => (int) ((hrtime(true) - $start) / 1_000_000), 'source' => $source]);
 

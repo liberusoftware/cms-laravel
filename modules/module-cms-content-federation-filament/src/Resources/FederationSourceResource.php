@@ -11,6 +11,7 @@ use Liberu\Cms\ContentFederation\Models\FederationSource;
 
 final class FederationSourceResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = FederationSource::class;
 
     public static function table(Table $table): Table

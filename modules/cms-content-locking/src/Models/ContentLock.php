@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class ContentLock extends Model
 {
+    #[\Override]
     protected $table = 'cms_content_locks';
 
+    #[\Override]
     protected $fillable = ['team_id', 'subject_type', 'subject_key', 'holder_id', 'token', 'version', 'snapshot', 'expires_at'];
 
     protected function casts(): array

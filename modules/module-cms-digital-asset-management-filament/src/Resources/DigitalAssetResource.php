@@ -11,6 +11,7 @@ use Liberu\Cms\DigitalAssetManagement\Models\DigitalAsset;
 
 final class DigitalAssetResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = DigitalAsset::class;
 
     public static function table(Table $table): Table

@@ -11,6 +11,7 @@ use Liberu\Cms\DisplayModes\Models\DisplayMode;
 
 final class DisplayModeResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = DisplayMode::class;
 
     public static function table(Table $table): Table

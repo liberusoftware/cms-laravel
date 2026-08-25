@@ -33,7 +33,7 @@ return new class extends Migration
             $table->timestamp('cached_until')->nullable();
             $table->timestamp('last_fetched_at')->nullable();
             $table->timestamps();
-            $table->unique(['source_id', 'external_type', 'external_key']);
+            $table->unique(['source_id', 'external_type', 'external_key'], 'cms_federation_refs_identity_unique');
             $table->index('cached_until');
         });
     }

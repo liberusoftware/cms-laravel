@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class FederationSource extends Model
 {
+    #[\Override]
     protected $table = 'cms_federation_sources';
 
+    #[\Override]
     protected $fillable = ['team_id', 'name', 'adapter', 'endpoint', 'status', 'last_checked_at', 'last_succeeded_at', 'last_error'];
 
     protected function casts(): array

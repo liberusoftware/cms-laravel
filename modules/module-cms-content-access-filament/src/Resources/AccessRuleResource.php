@@ -11,6 +11,7 @@ use Liberu\Cms\ContentAccess\Models\AccessRule;
 
 final class AccessRuleResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = AccessRule::class;
 
     public static function table(Table $table): Table

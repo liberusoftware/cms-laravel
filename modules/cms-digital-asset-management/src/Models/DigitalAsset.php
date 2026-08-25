@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class DigitalAsset extends Model
 {
+    #[\Override]
     protected $table = 'cms_digital_assets';
 
+    #[\Override]
     protected $fillable = ['team_id', 'name', 'asset_type', 'storage_key', 'license', 'attribution', 'release_reference', 'expires_at', 'renditions', 'status', 'brand_asset', 'approved', 'approved_at', 'distribution'];
 
     protected function casts(): array

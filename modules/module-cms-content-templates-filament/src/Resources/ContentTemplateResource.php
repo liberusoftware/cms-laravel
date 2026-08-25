@@ -11,6 +11,7 @@ use Liberu\Cms\ContentTemplates\Models\ContentTemplate;
 
 final class ContentTemplateResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ContentTemplate::class;
 
     public static function table(Table $table): Table

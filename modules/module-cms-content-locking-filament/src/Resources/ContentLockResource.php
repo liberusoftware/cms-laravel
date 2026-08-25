@@ -11,6 +11,7 @@ use Liberu\Cms\ContentLocking\Models\ContentLock;
 
 final class ContentLockResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ContentLock::class;
 
     public static function table(Table $table): Table

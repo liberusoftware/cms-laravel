@@ -11,6 +11,7 @@ use Liberu\Cms\ContentGovernance\Models\GovernanceRecord;
 
 final class GovernanceRecordResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = GovernanceRecord::class;
 
     public static function table(Table $table): Table
