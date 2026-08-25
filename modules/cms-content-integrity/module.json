@@ -1,0 +1,1 @@
+{"name":"cms-content-integrity","description":"Content scans, findings, reports, and repair queue.","provider":"Liberu\\Cms\\ContentIntegrity\\ContentIntegrityServiceProvider","version":"0.1.0"}
