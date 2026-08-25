@@ -20,11 +20,19 @@ final class RegionWidgetService
 
     public function createRegion(string $key, string $label, ?string $theme = null, ?int $teamId = null): Region
     {
+        if (trim($key) === '' || trim($label) === '') {
+            throw ValidationException::withMessages(['label' => 'Region key and label are required.']);
+        }
+
         return Region::query()->create(['key' => Str::slug($key), 'label' => $label, 'theme' => $theme, 'team_id' => $teamId]);
     }
 
     public function createWidget(string $key, string $type, array $configuration = [], ?string $title = null, ?int $teamId = null): Widget
     {
+        if (trim($key) === '' || trim($type) === '') {
+            throw ValidationException::withMessages(['type' => 'Widget key and type are required.']);
+        }
+
         return Widget::query()->create(['key' => Str::slug($key), 'type' => $type, 'title' => $title, 'configuration' => $configuration, 'team_id' => $teamId]);
     }
 

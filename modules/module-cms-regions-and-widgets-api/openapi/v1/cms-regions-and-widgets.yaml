@@ -1,0 +1,11 @@
+openapi: 3.1.0
+info: {title: CMS Regions and Widgets API, version: 1.0.0}
+paths:
+  /api/v1/cms/regions-and-widgets/{key}:
+    get: {operationId: renderRegionWidgets, responses: {'200': {description: Visible widgets}}}
+  /api/v1/cms/regions-and-widgets/regions:
+    post: {operationId: createRegion, responses: {'201': {description: Created region}}}
+  /api/v1/cms/regions-and-widgets/widgets:
+    post: {operationId: createWidget, responses: {'201': {description: Created widget}}}
+  /api/v1/cms/regions-and-widgets/{key}/placements:
+    post: {operationId: placeWidget, responses: {'201': {description: Created placement}, '422': {description: Invalid schedule}}}

@@ -28,3 +28,9 @@ it('rejects invalid placement schedules', function (): void {
 
     expect(fn () => $service->place($region, $widget, 0, [], '2026-01-02', '2026-01-01'))->toThrow(ValidationException::class);
 });
+
+it('requires region and widget identities at the domain boundary', function (): void {
+    $service = app(RegionWidgetService::class);
+    expect(fn () => $service->createRegion('', ''))->toThrow(ValidationException::class)
+        ->and(fn () => $service->createWidget('', ''))->toThrow(ValidationException::class);
+});
