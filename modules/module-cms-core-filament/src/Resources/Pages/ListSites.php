@@ -11,6 +11,7 @@ use Liberu\Cms\CoreFilament\Resources\SiteResource;
 
 final class ListSites extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SiteResource::class;
 
     protected function getHeaderActions(): array

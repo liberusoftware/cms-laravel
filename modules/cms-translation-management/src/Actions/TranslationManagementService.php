@@ -19,9 +19,9 @@ use Liberu\Cms\TranslationManagement\Models\TranslationSourceChange;
 use Liberu\Cms\TranslationManagement\Models\TranslationVendor;
 use Liberu\Cms\TranslationManagement\Support\TranslationVendorRegistry;
 
-final class TranslationManagementService
+final readonly class TranslationManagementService
 {
-    public function __construct(private readonly TranslationVendorRegistry $vendors) {}
+    public function __construct(private TranslationVendorRegistry $vendors) {}
 
     public function createJob(array $attributes): TranslationJob
     {

@@ -13,8 +13,10 @@ final class Collection extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_collections';
 
+    #[\Override]
     protected $fillable = ['name', 'slug', 'type', 'description', 'schema', 'team_id'];
 
     protected function casts(): array

@@ -12,8 +12,10 @@ final class Region extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_regions';
 
+    #[\Override]
     protected $fillable = ['key', 'label', 'theme', 'team_id'];
 
     public function widgets(): BelongsToMany

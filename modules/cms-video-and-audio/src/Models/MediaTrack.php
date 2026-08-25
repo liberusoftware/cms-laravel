@@ -12,8 +12,10 @@ final class MediaTrack extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_media_tracks';
 
+    #[\Override]
     protected $fillable = ['asset_id', 'track_type', 'language', 'label', 'uri', 'content', 'start_seconds', 'end_seconds', 'metadata', 'status', 'team_id'];
 
     protected function casts(): array

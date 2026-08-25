@@ -9,5 +9,6 @@ use Liberu\Cms\RelatedContentFilament\Resources\RelatedContentResource;
 
 final class ListRelatedContent extends ListRecords
 {
+    #[\Override]
     protected static string $resource = RelatedContentResource::class;
 }

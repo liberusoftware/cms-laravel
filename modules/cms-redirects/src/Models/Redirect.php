@@ -11,8 +11,10 @@ final class Redirect extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_redirects';
 
+    #[\Override]
     protected $fillable = ['from_path', 'to_path', 'status_code', 'hit_count', 'expires_at', 'active', 'source', 'team_id'];
 
     protected function casts(): array

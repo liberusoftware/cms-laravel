@@ -10,9 +10,9 @@ use Liberu\Cms\TranslationAssistant\Models\GlossaryEntry;
 use Liberu\Cms\TranslationAssistant\Models\StyleRule;
 use Liberu\Cms\TranslationAssistant\Models\TranslationDraft;
 
-final class TranslationAssistantQuery
+final readonly class TranslationAssistantQuery
 {
-    public function __construct(private readonly TenantContextInterface $tenant) {}
+    public function __construct(private TenantContextInterface $tenant) {}
 
     private function tenantId(?int $teamId): int|string|null
     {

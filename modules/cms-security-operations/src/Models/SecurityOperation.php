@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class SecurityOperation extends Model
 {
+    #[\Override]
     protected $table = 'cms_security_operations';
 
+    #[\Override]
     protected $fillable = ['kind', 'subject', 'status', 'evidence', 'content_hash', 'actor_id'];
 
     protected function casts(): array

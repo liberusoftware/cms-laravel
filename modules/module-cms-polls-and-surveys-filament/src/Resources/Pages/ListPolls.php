@@ -10,6 +10,7 @@ use Liberu\Cms\PollsAndSurveysFilament\Resources\PollResource;
 
 final class ListPolls extends ListRecords
 {
+    #[\Override]
     protected static string $resource = PollResource::class;
 
     protected function getHeaderActions(): array

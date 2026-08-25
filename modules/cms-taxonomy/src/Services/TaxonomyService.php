@@ -95,7 +95,7 @@ final class TaxonomyService
         if ($from->taxonomy_id !== $into->taxonomy_id || $from->id === $into->id) {
             throw ValidationException::withMessages(['term' => 'Terms must be distinct members of the same vocabulary.']);
         }
-        TermAssignment::query()->where('term_id', $from->id)->get()->each(fn (TermAssignment $a) => $this->assign($into, $a->subject_type, $a->subject_id));
+        TermAssignment::query()->where('term_id', $from->id)->get()->each(fn (TermAssignment $a): TermAssignment => $this->assign($into, $a->subject_type, $a->subject_id));
         $from->children()->update(['parent_id' => $into->id]);
         $from->delete();
 

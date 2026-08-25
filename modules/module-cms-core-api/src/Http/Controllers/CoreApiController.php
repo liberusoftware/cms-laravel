@@ -35,7 +35,7 @@ final readonly class CoreApiController
             'settings' => ['sometimes', 'nullable', 'array'],
         ]);
 
-        return (new CoreSiteResource($this->mutations->createSite($data)))->response()->setStatusCode(201);
+        return new CoreSiteResource($this->mutations->createSite($data))->response()->setStatusCode(201);
     }
 
     public function createChannel(Request $request, string $site): JsonResponse
@@ -47,7 +47,7 @@ final readonly class CoreApiController
             'settings' => ['sometimes', 'nullable', 'array'],
         ]);
 
-        return (new CoreChannelResource($this->mutations->createChannel($site, $data)))->response()->setStatusCode(201);
+        return new CoreChannelResource($this->mutations->createChannel($site, $data))->response()->setStatusCode(201);
     }
 
     public function sites(): AnonymousResourceCollection

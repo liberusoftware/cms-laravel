@@ -14,8 +14,10 @@ final class Site extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_sites';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'domain', 'default_locale', 'timezone', 'status', 'settings', 'team_id'];
 
     protected function casts(): array

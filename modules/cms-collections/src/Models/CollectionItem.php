@@ -14,8 +14,10 @@ final class CollectionItem extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_collection_items';
 
+    #[\Override]
     protected $fillable = ['title', 'slug', 'content', 'excerpt', 'data', 'metadata', 'status', 'published_at', 'collection_id', 'user_id', 'team_id'];
 
     protected function casts(): array

@@ -15,8 +15,10 @@ use Liberu\Cms\Recommendations\Models\RecommendationList;
 
 final class RecommendationListResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = RecommendationList::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-recommendations';
 
     public static function form(Schema $schema): Schema

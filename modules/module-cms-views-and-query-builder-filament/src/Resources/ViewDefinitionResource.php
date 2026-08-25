@@ -19,10 +19,13 @@ use UnitEnum;
 
 final class ViewDefinitionResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ViewDefinition::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTableCells;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

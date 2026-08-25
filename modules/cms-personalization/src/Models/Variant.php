@@ -12,8 +12,10 @@ final class Variant extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_personalization_variants';
 
+    #[\Override]
     protected $fillable = ['audience_id', 'key', 'payload', 'priority', 'holdout_percent', 'fallback', 'active', 'team_id'];
 
     protected function casts(): array

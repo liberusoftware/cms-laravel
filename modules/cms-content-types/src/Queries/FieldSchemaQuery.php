@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentTypes\Queries;
 
+use Liberu\Cms\ContentTypes\Fields\FieldDefinition;
 use Liberu\Cms\ContentTypes\Models\ContentType;
 
 /**
@@ -27,7 +28,7 @@ final class FieldSchemaQuery
             'key' => $type->key,
             'version' => (int) ($type->schema_version ?? 1),
             'fields' => array_map(
-                static fn ($field): array => $field->toArray(),
+                static fn (FieldDefinition $field): array => $field->toArray(),
                 $type->fieldDefinitions(),
             ),
         ];

@@ -12,8 +12,10 @@ final class Subscription extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_subscriptions';
 
+    #[\Override]
     protected $fillable = ['subscriber_type', 'subscriber_id', 'subject_type', 'subject_id', 'frequency', 'channels', 'locale', 'active', 'unsubscribed_at', 'team_id'];
 
     protected function casts(): array

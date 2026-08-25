@@ -9,5 +9,6 @@ use Liberu\Cms\SiteRecipesFilament\Resources\SiteRecipeResource;
 
 final class ListSiteRecipes extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SiteRecipeResource::class;
 }

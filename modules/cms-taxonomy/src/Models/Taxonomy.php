@@ -12,8 +12,10 @@ final class Taxonomy extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_taxonomies';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'description', 'hierarchical', 'exclusive', 'team_id'];
 
     protected function casts(): array

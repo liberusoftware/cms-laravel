@@ -21,12 +21,16 @@ final class StructuredCollectionRecordResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = CollectionItem::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-structured-collection-records';
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     protected static function cmsPermissionKey(): string

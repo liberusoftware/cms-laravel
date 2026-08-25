@@ -11,8 +11,10 @@ final class SeoMetadata extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_seo_metadata';
 
+    #[\Override]
     protected $fillable = ['seoable_type', 'seoable_id', 'title', 'description', 'canonical_url', 'robots', 'structured_data', 'social_cards', 'hreflang', 'noindex', 'noarchive', 'team_id'];
 
     protected function casts(): array

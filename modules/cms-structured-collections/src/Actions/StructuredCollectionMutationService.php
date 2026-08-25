@@ -9,9 +9,9 @@ use Liberu\Cms\Collections\Models\Collection;
 use Liberu\Cms\Collections\Models\CollectionItem;
 
 /** Canonical mutation boundary; invariants remain in the domain service. */
-final class StructuredCollectionMutationService
+final readonly class StructuredCollectionMutationService
 {
-    public function __construct(private readonly CollectionMutationService $legacy) {}
+    public function __construct(private CollectionMutationService $legacy) {}
 
     public function create(array $attributes): Collection
     {

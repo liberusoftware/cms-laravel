@@ -30,6 +30,4 @@ final class CoreApiServiceProvider extends ServiceProvider
             $registry->registerEndpoint('core', new ApiEndpoint('sites/{site}/identities', CoreApiController::class, 'identities', 'core.identities'));
         }
     }
-
-    public function boot(): void {}
 }

@@ -8,9 +8,9 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Content\Support\HtmlSanitizer;
 
-final class RichTextService
+final readonly class RichTextService
 {
-    public function __construct(private readonly HtmlSanitizer $sanitizer) {}
+    public function __construct(private HtmlSanitizer $sanitizer) {}
 
     public function sanitize(?string $html): string
     {

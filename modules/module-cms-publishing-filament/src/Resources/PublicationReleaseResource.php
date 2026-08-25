@@ -15,8 +15,10 @@ use Liberu\Cms\Publishing\Models\PublicationRelease;
 
 final class PublicationReleaseResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = PublicationRelease::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-publishing';
 
     public static function form(Schema $schema): Schema

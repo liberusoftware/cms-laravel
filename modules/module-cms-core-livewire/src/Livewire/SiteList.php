@@ -34,6 +34,6 @@ final class SiteList extends Component
         $search = trim($this->search);
         $sites = $this->queries->sites($this->perPage, $search);
 
-        return view('cms-core-livewire::livewire.site-list', compact('sites'));
+        return view('cms-core-livewire::livewire.site-list', ['sites' => $sites]);
     }
 }

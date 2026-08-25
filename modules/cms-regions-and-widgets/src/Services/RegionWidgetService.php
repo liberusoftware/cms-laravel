@@ -43,14 +43,12 @@ final class RegionWidgetService
     public function render(string $regionKey, array $context = [], ?int $teamId = null): array
     {
         $region = $this->region($regionKey, $teamId);
-        $now = now();
+        now();
 
-        return Cache::tags(['cms-regions-and-widgets', 'cms-region-'.$region->getKey()])->remember('cms-region-render:'.$region->getKey().':'.sha1((string) json_encode($context)), 300, function () use ($region, $context, $now): array {
-            return WidgetPlacement::query()->with('widget')->where('region_id', $region->getKey())->where('active', true)->orderBy('position')->get()->filter(fn (WidgetPlacement $placement): bool => $this->visible($placement, $context, $now))->map(fn (WidgetPlacement $placement): array => ['key' => $placement->widget->key, 'type' => $placement->widget->type, 'title' => $placement->widget->title, 'configuration' => $placement->widget->configuration, 'position' => $placement->position])->values()->all();
-        });
+        return Cache::tags(['cms-regions-and-widgets', 'cms-region-'.$region->getKey()])->remember('cms-region-render:'.$region->getKey().':'.sha1((string) json_encode($context)), 300, fn (): array => WidgetPlacement::query()->with('widget')->where('region_id', $region->getKey())->where('active', true)->orderBy('position')->get()->filter(fn (WidgetPlacement $placement): bool => $this->visible($placement, $context))->map(fn (WidgetPlacement $placement): array => ['key' => $placement->widget->key, 'type' => $placement->widget->type, 'title' => $placement->widget->title, 'configuration' => $placement->widget->configuration, 'position' => $placement->position])->values()->all());
     }
 
-    private function visible(WidgetPlacement $placement, array $context, mixed $now): bool
+    private function visible(WidgetPlacement $placement, array $context): bool
     {
         if (! $placement->widget->active || ($placement->starts_at !== null && $placement->starts_at->isFuture()) || ($placement->ends_at !== null && $placement->ends_at->isPast())) {
             return false;

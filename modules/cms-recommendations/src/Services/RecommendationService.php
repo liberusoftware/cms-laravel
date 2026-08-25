@@ -39,12 +39,8 @@ final class RecommendationService
 
     private function eligible(array $rules, array $context): bool
     {
-        foreach ($rules as $key => $expected) {
-            if (is_array($expected) ? ! in_array(Arr::get($context, $key), $expected, true) : Arr::get($context, $key) !== $expected) {
-                return false;
-            }
-        }
-
-        return true;
+        return array_all($rules, fn ($expected, $key): bool => is_array($expected)
+            ? in_array(Arr::get($context, $key), $expected, true)
+            : Arr::get($context, $key) === $expected);
     }
 }

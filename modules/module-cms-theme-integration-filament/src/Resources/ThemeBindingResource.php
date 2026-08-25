@@ -14,8 +14,10 @@ use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 
 final class ThemeBindingResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ThemeBinding::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-theme-bindings';
 
     public static function form(Schema $schema): Schema

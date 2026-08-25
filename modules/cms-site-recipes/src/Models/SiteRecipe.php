@@ -12,8 +12,10 @@ final class SiteRecipe extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_site_recipes';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'description', 'status', 'team_id'];
 
     public function versions(): HasMany

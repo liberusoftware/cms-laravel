@@ -15,8 +15,10 @@ use Liberu\Cms\ThemeMarketplace\Models\MarketplaceTheme;
 
 final class MarketplaceThemeResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = MarketplaceTheme::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-theme-marketplace';
 
     public static function form(Schema $schema): Schema

@@ -12,6 +12,7 @@ use Filament\Tables\Table;
 
 final class EditorResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'cms-rich-text-editor';
 
     public static function form(Schema $schema): Schema

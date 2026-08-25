@@ -13,8 +13,10 @@ use Liberu\Cms\SecurityOperations\Models\SecurityOperation;
 
 final class SecurityOperationResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SecurityOperation::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-security-operations';
 
     public static function form(Schema $schema): Schema

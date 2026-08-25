@@ -9,5 +9,6 @@ use Liberu\Cms\StaticPublishingFilament\Resources\StaticBuildResource;
 
 final class ListStaticBuilds extends ListRecords
 {
+    #[\Override]
     protected static string $resource = StaticBuildResource::class;
 }

@@ -22,10 +22,13 @@ final class SiteResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Site::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     protected static function cmsPermissionKey(): string

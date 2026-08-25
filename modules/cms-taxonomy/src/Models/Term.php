@@ -13,8 +13,10 @@ final class Term extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_taxonomy_terms';
 
+    #[\Override]
     protected $fillable = ['taxonomy_id', 'parent_id', 'slug', 'name', 'description', 'synonyms', 'translations', 'position', 'team_id'];
 
     protected function casts(): array

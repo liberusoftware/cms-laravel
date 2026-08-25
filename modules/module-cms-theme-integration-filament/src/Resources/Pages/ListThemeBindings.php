@@ -9,5 +9,6 @@ use Liberu\Cms\ThemeIntegrationFilament\Resources\ThemeBindingResource;
 
 final class ListThemeBindings extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ThemeBindingResource::class;
 }

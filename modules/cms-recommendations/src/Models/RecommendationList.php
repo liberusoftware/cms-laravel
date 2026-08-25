@@ -12,8 +12,13 @@ final class RecommendationList extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_recommendation_lists';
 
+    #[\Override]
+    protected $attributes = ['audience_rules' => '{}', 'exclusions' => '[]'];
+
+    #[\Override]
     protected $fillable = ['name', 'key', 'kind', 'ranker', 'audience_rules', 'exclusions', 'active', 'team_id'];
 
     protected function casts(): array

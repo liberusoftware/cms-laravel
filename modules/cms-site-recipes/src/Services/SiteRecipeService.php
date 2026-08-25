@@ -22,7 +22,7 @@ final class SiteRecipeService
         $payload = array_intersect_key($bundle, array_flip(['modules', 'configuration', 'content_types', 'workflows', 'menus', 'blocks', 'themes', 'starter_content']));
         $version = ((int) $recipe->versions()->max('version')) + 1;
 
-        return $recipe->versions()->create($payload + ['version' => $version, 'checksum' => hash('sha256', (string) json_encode($payload, JSON_THROW_ON_ERROR)), 'author_id' => $authorId]);
+        return $recipe->versions()->create($payload + ['version' => $version, 'checksum' => hash('sha256', json_encode($payload, JSON_THROW_ON_ERROR)), 'author_id' => $authorId]);
     }
 
     public function publish(SiteRecipe $recipe): SiteRecipe

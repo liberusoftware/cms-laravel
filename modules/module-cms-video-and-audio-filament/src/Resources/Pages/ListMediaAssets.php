@@ -9,5 +9,6 @@ use Liberu\Cms\VideoAndAudioFilament\Resources\MediaAssetResource;
 
 final class ListMediaAssets extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MediaAssetResource::class;
 }

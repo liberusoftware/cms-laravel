@@ -9,5 +9,6 @@ use Liberu\Cms\OfflineAndPwaFilament\Resources\PwaConfigurationResource;
 
 final class ListPwaConfigurations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = PwaConfigurationResource::class;
 }

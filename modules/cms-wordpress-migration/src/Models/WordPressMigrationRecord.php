@@ -12,8 +12,10 @@ final class WordPressMigrationRecord extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_wordpress_migration_records';
 
+    #[\Override]
     protected $fillable = ['migration_id', 'record_type', 'source_id', 'source_parent_id', 'status', 'payload', 'source_identifiers', 'failure_reason', 'processed_at', 'team_id'];
 
     protected function casts(): array

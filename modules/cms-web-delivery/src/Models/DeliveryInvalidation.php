@@ -11,8 +11,10 @@ final class DeliveryInvalidation extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_delivery_invalidations';
 
+    #[\Override]
     protected $fillable = ['idempotency_key', 'cache_tags', 'status', 'provider', 'failure_reason', 'completed_at', 'team_id'];
 
     protected function casts(): array

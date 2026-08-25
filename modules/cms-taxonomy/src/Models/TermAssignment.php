@@ -12,10 +12,13 @@ final class TermAssignment extends Model
 {
     use HasTenant;
 
+    #[\Override]
     public $timestamps = false;
 
+    #[\Override]
     protected $table = 'cms_taxonomy_assignments';
 
+    #[\Override]
     protected $fillable = ['term_id', 'subject_type', 'subject_id', 'team_id'];
 
     public function term(): BelongsTo

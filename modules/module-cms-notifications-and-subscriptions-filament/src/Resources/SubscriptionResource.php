@@ -15,8 +15,10 @@ use Liberu\Cms\NotificationsAndSubscriptions\Models\Subscription;
 
 final class SubscriptionResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Subscription::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-subscriptions';
 
     public static function form(Schema $schema): Schema

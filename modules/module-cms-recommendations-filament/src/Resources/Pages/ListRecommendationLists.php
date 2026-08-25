@@ -10,6 +10,7 @@ use Liberu\Cms\RecommendationsFilament\Resources\RecommendationListResource;
 
 final class ListRecommendationLists extends ListRecords
 {
+    #[\Override]
     protected static string $resource = RecommendationListResource::class;
 
     protected function getHeaderActions(): array

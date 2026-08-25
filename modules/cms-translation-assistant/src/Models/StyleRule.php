@@ -11,7 +11,9 @@ final class StyleRule extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_translation_style_rules';
 
+    #[\Override]
     protected $fillable = ['locale', 'name', 'pattern', 'message', 'severity', 'team_id'];
 }

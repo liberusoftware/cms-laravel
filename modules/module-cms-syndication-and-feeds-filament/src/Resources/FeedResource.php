@@ -15,8 +15,10 @@ use Liberu\Cms\SyndicationAndFeeds\Models\Feed;
 
 final class FeedResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Feed::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-syndication-and-feeds';
 
     public static function form(Schema $schema): Schema

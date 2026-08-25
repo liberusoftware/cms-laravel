@@ -14,8 +14,10 @@ use Liberu\Cms\SiteRecipes\Models\SiteRecipe;
 
 final class SiteRecipeResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SiteRecipe::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-site-recipes';
 
     public static function form(Schema $schema): Schema

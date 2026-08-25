@@ -19,6 +19,4 @@ final class CoreFilamentServiceProvider extends ServiceProvider
             $registry->registerResource('core', ChannelResource::class);
         }
     }
-
-    public function boot(): void {}
 }

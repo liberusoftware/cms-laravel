@@ -16,13 +16,13 @@ final class RevisionService
         $parent = Revision::query()->where('revisionable_type', $type)->where('revisionable_id', $id)->where('branch', $branch)->latest('revision_number')->first();
         $number = (int) ($parent?->revision_number ?? 0) + 1;
 
-        return Revision::query()->create(['revisionable_type' => $type, 'revisionable_id' => $id, 'revision_number' => $number, 'snapshot' => $snapshot, 'user_id' => $userId, 'branch' => $branch, 'autosave' => $autosave, 'parent_revision_id' => $parent?->getKey(), 'published' => false, 'metadata' => $metadata, 'content_hash' => hash('sha256', (string) json_encode($snapshot, JSON_THROW_ON_ERROR)), 'created_at' => now()]);
+        return Revision::query()->create(['revisionable_type' => $type, 'revisionable_id' => $id, 'revision_number' => $number, 'snapshot' => $snapshot, 'user_id' => $userId, 'branch' => $branch, 'autosave' => $autosave, 'parent_revision_id' => $parent?->getKey(), 'published' => false, 'metadata' => $metadata, 'content_hash' => hash('sha256', json_encode($snapshot, JSON_THROW_ON_ERROR)), 'created_at' => now()]);
     }
 
     public function autosave(string $type, int $id, array $snapshot, ?int $userId = null, string $branch = 'main'): Revision
     {
         $existing = Revision::query()->where('revisionable_type', $type)->where('revisionable_id', $id)->where('branch', $branch)->where('autosave', true)->latest('created_at')->first();
-        if ($existing instanceof Revision && $existing->content_hash === hash('sha256', (string) json_encode($snapshot, JSON_THROW_ON_ERROR))) {
+        if ($existing instanceof Revision && $existing->content_hash === hash('sha256', json_encode($snapshot, JSON_THROW_ON_ERROR))) {
             return $existing;
         }
         if ($existing instanceof Revision) {

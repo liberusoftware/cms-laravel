@@ -14,8 +14,10 @@ use Liberu\Cms\Sitemaps\Models\SitemapEntry;
 
 final class SitemapEntryResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SitemapEntry::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-sitemaps';
 
     public static function form(Schema $schema): Schema

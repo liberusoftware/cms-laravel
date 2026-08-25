@@ -11,6 +11,7 @@ use Liberu\Cms\CoreFilament\Resources\ChannelResource;
 
 final class ListChannels extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ChannelResource::class;
 
     protected function getHeaderActions(): array

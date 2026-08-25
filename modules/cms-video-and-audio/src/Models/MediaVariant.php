@@ -12,8 +12,10 @@ final class MediaVariant extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_media_variants';
 
+    #[\Override]
     protected $fillable = ['asset_id', 'idempotency_key', 'adapter', 'profile', 'uri', 'status', 'bytes', 'metadata', 'failure_reason', 'team_id'];
 
     protected function casts(): array

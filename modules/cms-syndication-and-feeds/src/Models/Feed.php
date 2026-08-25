@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class Feed extends Model
 {
+    #[\Override]
     protected $table = 'cms_feeds';
 
+    #[\Override]
     protected $fillable = ['key', 'title', 'format', 'source_url', 'mapping', 'scheduled_at', 'active'];
 
     protected function casts(): array

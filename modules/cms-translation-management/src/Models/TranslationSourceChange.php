@@ -12,8 +12,10 @@ final class TranslationSourceChange extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_translation_source_changes';
 
+    #[\Override]
     protected $fillable = ['job_id', 'subject_type', 'subject_id', 'field', 'source_text', 'source_hash', 'source_version', 'translated_text', 'translated_hash', 'status', 'provider', 'model', 'cost', 'provenance', 'review_notes', 'translated_at', 'reviewed_at', 'team_id'];
 
     protected function casts(): array

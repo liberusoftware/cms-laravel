@@ -15,8 +15,10 @@ use Liberu\Cms\OfflineAndPwa\Models\PwaConfiguration;
 
 final class PwaConfigurationResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = PwaConfiguration::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-offline-and-pwa';
 
     public static function form(Schema $schema): Schema

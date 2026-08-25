@@ -9,5 +9,6 @@ use Liberu\Cms\WebDeliveryFilament\Resources\DeliveryRouteResource;
 
 final class ListDeliveryRoutes extends ListRecords
 {
+    #[\Override]
     protected static string $resource = DeliveryRouteResource::class;
 }

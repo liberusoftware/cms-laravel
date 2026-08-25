@@ -14,8 +14,10 @@ use Liberu\Cms\RegionsAndWidgets\Models\Region;
 
 final class RegionResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Region::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-regions-and-widgets';
 
     public static function form(Schema $schema): Schema

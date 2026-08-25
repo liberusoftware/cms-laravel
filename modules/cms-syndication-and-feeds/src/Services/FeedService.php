@@ -51,7 +51,7 @@ final class FeedService
         $items = $feed->items()->latest('published_at')->get();
         if ($feed->format === 'json') {
             return json_encode(['version' => 'https://jsonfeed.org/version/1.1', 'title' => $feed->title, 'items' => $items->map(fn (FeedItem $item): array => ['id' => $item->external_id, 'url' => $item->url, 'title' => $item->title, 'content_text' => $item->content])->all()], JSON_THROW_ON_ERROR);
-        } $root = $feed->format === 'atom' ? 'feed' : 'rss';
+        }
         $body = $items->map(fn (FeedItem $item): string => '<item><guid>'.e($item->external_id).'</guid><title>'.e($item->title).'</title><link>'.e($item->url).'</link><description>'.e($item->summary).'</description></item>')->implode('');
 
         return $feed->format === 'atom' ? '<feed xmlns="http://www.w3.org/2005/Atom"><title>'.e($feed->title).'</title>'.$body.'</feed>' : '<rss version="2.0"><channel><title>'.e($feed->title).'</title>'.$body.'</channel></rss>';

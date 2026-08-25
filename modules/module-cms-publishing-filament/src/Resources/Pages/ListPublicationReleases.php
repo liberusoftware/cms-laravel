@@ -10,6 +10,7 @@ use Liberu\Cms\PublishingFilament\Resources\PublicationReleaseResource;
 
 final class ListPublicationReleases extends ListRecords
 {
+    #[\Override]
     protected static string $resource = PublicationReleaseResource::class;
 
     protected function getHeaderActions(): array

@@ -15,8 +15,10 @@ use Liberu\Cms\TranslationAssistant\Models\TranslationDraft;
 
 final class TranslationDraftResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = TranslationDraft::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-translation-drafts';
 
     public static function form(Schema $schema): Schema

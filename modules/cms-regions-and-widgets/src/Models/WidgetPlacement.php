@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class WidgetPlacement extends Model
 {
+    #[\Override]
     protected $table = 'cms_widget_placements';
 
+    #[\Override]
     protected $fillable = ['region_id', 'widget_id', 'position', 'visibility', 'starts_at', 'ends_at', 'active'];
 
     protected function casts(): array

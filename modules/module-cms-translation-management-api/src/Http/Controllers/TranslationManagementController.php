@@ -16,9 +16,9 @@ use Liberu\Cms\TranslationManagementApi\Http\Resources\TranslationSourceChangeRe
 use Liberu\Cms\TranslationManagementApi\Http\Resources\TranslationVendorResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class TranslationManagementController
+final readonly class TranslationManagementController
 {
-    public function __construct(private readonly TranslationJobQuery $jobs, private readonly TranslationManagementService $service) {}
+    public function __construct(private TranslationJobQuery $jobs, private TranslationManagementService $service) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {

@@ -12,8 +12,10 @@ final class ContentAlias extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_content_aliases';
 
+    #[\Override]
     protected $fillable = ['site_id', 'channel_id', 'alias', 'target_type', 'target_id', 'redirect_status'];
 
     public function site(): BelongsTo

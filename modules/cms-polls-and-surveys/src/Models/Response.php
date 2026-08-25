@@ -12,8 +12,10 @@ final class Response extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_poll_responses';
 
+    #[\Override]
     protected $fillable = ['poll_id', 'user_id', 'respondent_hash', 'answers', 'submitted_at', 'team_id'];
 
     protected function casts(): array

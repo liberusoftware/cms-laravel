@@ -9,5 +9,6 @@ use Liberu\Cms\RevisionsFilament\Resources\RevisionResource;
 
 final class ListRevisions extends ListRecords
 {
+    #[\Override]
     protected static string $resource = RevisionResource::class;
 }

@@ -12,8 +12,10 @@ final class Audience extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_personalization_audiences';
 
+    #[\Override]
     protected $fillable = ['name', 'key', 'rules', 'requires_consent', 'active', 'team_id'];
 
     protected function casts(): array

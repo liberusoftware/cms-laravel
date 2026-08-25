@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class SiteRecipeVersion extends Model
 {
+    #[\Override]
     protected $table = 'cms_site_recipe_versions';
 
+    #[\Override]
     protected $fillable = ['recipe_id', 'version', 'modules', 'configuration', 'content_types', 'workflows', 'menus', 'blocks', 'themes', 'starter_content', 'checksum', 'author_id'];
 
     protected function casts(): array

@@ -9,5 +9,6 @@ use Liberu\Cms\SitemapsFilament\Resources\SitemapEntryResource;
 
 final class ListSitemapEntries extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SitemapEntryResource::class;
 }

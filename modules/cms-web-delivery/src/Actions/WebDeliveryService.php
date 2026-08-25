@@ -14,9 +14,9 @@ use Liberu\Cms\WebDelivery\Models\DeliveryRoute;
 use Liberu\Cms\WebDelivery\Support\DeliveryResult;
 use Liberu\Cms\WebDelivery\Support\EdgeInvalidationRegistry;
 
-final class WebDeliveryService
+final readonly class WebDeliveryService
 {
-    public function __construct(private readonly EdgeInvalidationRegistry $edge) {}
+    public function __construct(private EdgeInvalidationRegistry $edge) {}
 
     public function registerRoute(array $attributes): DeliveryRoute
     {
@@ -83,7 +83,7 @@ final class WebDeliveryService
 
     public function invalidate(array $cacheTags, string $idempotencyKey, ?string $provider = null, int|string|null $teamId = null): DeliveryInvalidation
     {
-        $tags = array_values(array_unique(array_filter(array_map('strval', $cacheTags))));
+        $tags = array_values(array_unique(array_filter(array_map(strval(...), $cacheTags))));
         if ($tags === [] || trim($idempotencyKey) === '') {
             throw ValidationException::withMessages(['cache_tags' => 'At least one cache tag and an idempotency key are required.']);
         }
@@ -114,11 +114,7 @@ final class WebDeliveryService
         if (! is_string($path) || trim($path) === '' || str_contains($path, '..')) {
             throw ValidationException::withMessages(['path' => 'A safe non-empty delivery path is required.']);
         }
-        $normalized = '/'.trim(parse_url($path, PHP_URL_PATH) ?: $path, '/');
-        if ($normalized === '/' || strlen($normalized) > 2048) {
-            return $normalized;
-        }
 
-        return $normalized;
+        return '/'.trim(parse_url($path, PHP_URL_PATH) ?: $path, '/');
     }
 }

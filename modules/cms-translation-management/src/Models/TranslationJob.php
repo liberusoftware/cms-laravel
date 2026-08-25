@@ -13,8 +13,10 @@ final class TranslationJob extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_translation_jobs';
 
+    #[\Override]
     protected $fillable = ['public_id', 'external_key', 'name', 'source_locale', 'target_locale', 'status', 'vendor_key', 'total_units', 'completed_units', 'estimated_cost', 'actual_cost', 'currency', 'metadata', 'queued_at', 'completed_at', 'team_id'];
 
     protected function casts(): array

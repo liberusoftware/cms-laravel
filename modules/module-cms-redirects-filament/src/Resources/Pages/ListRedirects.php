@@ -9,5 +9,6 @@ use Liberu\Cms\RedirectsFilament\Resources\RedirectResource;
 
 final class ListRedirects extends ListRecords
 {
+    #[\Override]
     protected static string $resource = RedirectResource::class;
 }

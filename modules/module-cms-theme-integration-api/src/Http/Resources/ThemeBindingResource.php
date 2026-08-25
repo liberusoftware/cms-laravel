@@ -11,7 +11,7 @@ final class ThemeBindingResource
     /** @return array<string, mixed> */
     public static function make(?ThemeBinding $binding): ?array
     {
-        return $binding === null ? null : [
+        return ! $binding instanceof ThemeBinding ? null : [
             'site_key' => $binding->site_key,
             'channel_key' => $binding->channel_key,
             'theme_key' => $binding->theme_key,

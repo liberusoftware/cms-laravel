@@ -12,8 +12,10 @@ final class Delivery extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_subscription_deliveries';
 
+    #[\Override]
     protected $fillable = ['subscription_id', 'event', 'channel', 'payload', 'status', 'attempts', 'sent_at', 'failed_at', 'team_id'];
 
     protected function casts(): array

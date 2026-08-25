@@ -9,5 +9,6 @@ use Liberu\Cms\SyndicationAndFeedsFilament\Resources\FeedResource;
 
 final class ListFeeds extends ListRecords
 {
+    #[\Override]
     protected static string $resource = FeedResource::class;
 }

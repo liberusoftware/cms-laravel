@@ -14,8 +14,10 @@ use Liberu\Cms\WordPressMigration\Models\WordPressMigration;
 
 final class WordPressMigrationResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = WordPressMigration::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-wordpress-migrations';
 
     public static function form(Schema $schema): Schema

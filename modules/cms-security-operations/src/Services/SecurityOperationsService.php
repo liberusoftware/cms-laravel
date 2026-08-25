@@ -21,7 +21,7 @@ final class SecurityOperationsService
             throw ValidationException::withMessages(['source' => 'Extension provenance requires a valid source URL.']);
         }
 
-        return $this->record('extension-provenance', $extension, 'verified', compact('version', 'source'), null, $actorId);
+        return $this->record('extension-provenance', $extension, 'verified', ['version' => $version, 'source' => $source], null, $actorId);
     }
 
     public function integrity(string $subject, string $content, ?int $actorId = null): SecurityOperation
@@ -48,13 +48,13 @@ final class SecurityOperationsService
     }
 
     /** @return array<int, string> */
-    public function incidentBundle(string $incident, ?int $actorId = null): array
+    public function incidentBundle(string $incident): array
     {
         return ['incident' => $incident, 'generated_at' => now()->toIso8601String(), 'operations' => SecurityOperation::query()->latest()->limit(100)->get()->map(fn (SecurityOperation $operation): array => ['kind' => $operation->kind, 'status' => $operation->status, 'subject' => $operation->subject])->all()];
     }
 
     private function record(string $kind, ?string $subject, string $status, array $evidence, ?string $hash, ?int $actorId): SecurityOperation
     {
-        return SecurityOperation::query()->create(compact('kind', 'subject', 'status', 'evidence', 'hash', 'actorId') + ['content_hash' => $hash, 'actor_id' => $actorId]);
+        return SecurityOperation::query()->create(['kind' => $kind, 'subject' => $subject, 'status' => $status, 'evidence' => $evidence, 'hash' => $hash, 'actorId' => $actorId] + ['content_hash' => $hash, 'actor_id' => $actorId]);
     }
 }

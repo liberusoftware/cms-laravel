@@ -11,8 +11,10 @@ final class ThemeBinding extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_theme_bindings';
 
+    #[\Override]
     protected $fillable = ['site_key', 'channel_key', 'theme_key', 'fallback_theme_key', 'preview_token', 'active', 'team_id'];
 
     protected function casts(): array

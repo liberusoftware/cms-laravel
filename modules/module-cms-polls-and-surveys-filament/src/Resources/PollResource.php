@@ -17,10 +17,13 @@ use UnitEnum;
 
 final class PollResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Poll::class;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-polls-and-surveys';
 
     public static function form(Schema $schema): Schema

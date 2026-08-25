@@ -18,10 +18,13 @@ use UnitEnum;
 
 final class AudienceResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Audience::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-personalization-audiences';
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

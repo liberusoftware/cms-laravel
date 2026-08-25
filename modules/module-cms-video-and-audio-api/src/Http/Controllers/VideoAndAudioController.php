@@ -13,9 +13,9 @@ use Liberu\Cms\VideoAndAudioApi\Http\Resources\MediaAssetResource;
 use Liberu\Cms\VideoAndAudioApi\Http\Resources\MediaTrackResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class VideoAndAudioController
+final readonly class VideoAndAudioController
 {
-    public function __construct(private readonly MediaAssetQuery $assets, private readonly MediaManagementService $service) {}
+    public function __construct(private MediaAssetQuery $assets, private MediaManagementService $service) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {

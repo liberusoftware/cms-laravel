@@ -13,9 +13,9 @@ use Liberu\Cms\WebDelivery\Queries\DeliveryRouteQuery;
 use Liberu\Cms\WebDeliveryApi\Http\Resources\DeliveryRouteResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class WebDeliveryController
+final readonly class WebDeliveryController
 {
-    public function __construct(private readonly DeliveryRouteQuery $routes, private readonly WebDeliveryService $delivery) {}
+    public function __construct(private DeliveryRouteQuery $routes, private WebDeliveryService $delivery) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {

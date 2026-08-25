@@ -11,8 +11,10 @@ final class PageRedirect extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_page_redirects';
 
+    #[\Override]
     protected $fillable = ['from_path', 'to_path', 'status_code', 'active', 'team_id'];
 
     protected function casts(): array

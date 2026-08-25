@@ -19,10 +19,13 @@ use UnitEnum;
 
 final class TranslationJobResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = TranslationJob::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLanguage;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

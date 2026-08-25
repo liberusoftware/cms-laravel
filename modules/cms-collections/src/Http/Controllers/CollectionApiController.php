@@ -11,9 +11,9 @@ use Liberu\Cms\Collections\Http\Resources\CollectionResource;
 use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class CollectionApiController
+final readonly class CollectionApiController
 {
-    public function __construct(private readonly CollectionQuery $collections) {}
+    public function __construct(private CollectionQuery $collections) {}
 
     public function index(): AnonymousResourceCollection
     {

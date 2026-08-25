@@ -20,10 +20,13 @@ use UnitEnum;
 
 final class DeliveryRouteResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = DeliveryRoute::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

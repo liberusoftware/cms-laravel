@@ -9,5 +9,6 @@ use Liberu\Cms\SecurityOperationsFilament\Resources\SecurityOperationResource;
 
 final class ListSecurityOperations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SecurityOperationResource::class;
 }

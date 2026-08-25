@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Question extends Model
 {
+    #[\Override]
     protected $table = 'cms_poll_questions';
 
+    #[\Override]
     protected $fillable = ['poll_id', 'key', 'type', 'prompt', 'options', 'branching', 'position', 'required'];
 
     protected function casts(): array

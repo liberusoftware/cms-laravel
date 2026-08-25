@@ -9,5 +9,6 @@ use Liberu\Cms\ViewsAndQueryBuilderFilament\Resources\ViewDefinitionResource;
 
 final class ListViewDefinitions extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ViewDefinitionResource::class;
 }

@@ -15,8 +15,10 @@ use Liberu\Cms\Redirects\Models\Redirect;
 
 final class RedirectResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Redirect::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-redirects';
 
     public static function form(Schema $schema): Schema

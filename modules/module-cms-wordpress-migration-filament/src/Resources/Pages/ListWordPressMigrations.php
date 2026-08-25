@@ -9,5 +9,6 @@ use Liberu\Cms\WordPressMigrationFilament\Resources\WordPressMigrationResource;
 
 final class ListWordPressMigrations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = WordPressMigrationResource::class;
 }

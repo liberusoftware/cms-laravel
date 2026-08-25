@@ -12,9 +12,9 @@ use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ListingRecordResource;
 use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ViewDefinitionResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class ViewsAndQueryBuilderController
+final readonly class ViewsAndQueryBuilderController
 {
-    public function __construct(private readonly ViewDefinitionQuery $views, private readonly ListingQueryService $listings) {}
+    public function __construct(private ViewDefinitionQuery $views, private ListingQueryService $listings) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {

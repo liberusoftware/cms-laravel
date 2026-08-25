@@ -17,10 +17,13 @@ use UnitEnum;
 
 final class MediaAssetResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = MediaAsset::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFilm;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

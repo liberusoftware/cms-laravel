@@ -9,9 +9,9 @@ use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 use Liberu\Cms\ThemeIntegration\Models\ThemeComponent;
 
-final class ThemeIntegrationQuery
+final readonly class ThemeIntegrationQuery
 {
-    public function __construct(private readonly TenantContextInterface $tenant) {}
+    public function __construct(private TenantContextInterface $tenant) {}
 
     private function tenantId(?int $teamId): int|string|null
     {

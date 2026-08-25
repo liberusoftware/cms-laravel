@@ -9,5 +9,6 @@ use Liberu\Cms\TaxonomyFilament\Resources\TaxonomyResource;
 
 final class ListTaxonomies extends ListRecords
 {
+    #[\Override]
     protected static string $resource = TaxonomyResource::class;
 }

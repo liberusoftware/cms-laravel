@@ -13,8 +13,10 @@ use Liberu\Cms\Content\Revisions\Revision;
 
 final class RevisionResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Revision::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-revisions';
 
     public static function form(Schema $schema): Schema

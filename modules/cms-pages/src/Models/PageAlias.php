@@ -12,8 +12,10 @@ final class PageAlias extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_page_aliases';
 
+    #[\Override]
     protected $fillable = ['page_id', 'path', 'team_id'];
 
     /** @return BelongsTo<Page, $this> */

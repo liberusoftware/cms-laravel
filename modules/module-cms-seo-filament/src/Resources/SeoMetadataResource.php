@@ -15,8 +15,10 @@ use Liberu\Cms\Seo\Models\SeoMetadata;
 
 final class SeoMetadataResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SeoMetadata::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-seo';
 
     public static function form(Schema $schema): Schema

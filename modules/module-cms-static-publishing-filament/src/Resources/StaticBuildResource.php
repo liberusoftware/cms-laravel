@@ -14,8 +14,10 @@ use Liberu\Cms\StaticPublishing\Models\StaticBuild;
 
 final class StaticBuildResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = StaticBuild::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-static-publishing';
 
     public static function form(Schema $schema): Schema

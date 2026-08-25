@@ -23,10 +23,13 @@ final class ChannelResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Channel::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRss;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     protected static function cmsPermissionKey(): string

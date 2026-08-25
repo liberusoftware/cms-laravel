@@ -11,8 +11,10 @@ final class StaticBuild extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_static_builds';
 
+    #[\Override]
     protected $fillable = ['site_key', 'state', 'kind', 'deployment', 'manifest', 'diagnostics', 'parent_build_id', 'checksum', 'started_at', 'finished_at', 'team_id'];
 
     protected function casts(): array

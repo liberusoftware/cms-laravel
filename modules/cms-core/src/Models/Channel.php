@@ -15,8 +15,10 @@ final class Channel extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_channels';
 
+    #[\Override]
     protected $fillable = ['site_id', 'key', 'name', 'type', 'settings', 'team_id'];
 
     protected function casts(): array

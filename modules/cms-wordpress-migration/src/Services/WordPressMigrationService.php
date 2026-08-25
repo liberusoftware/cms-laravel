@@ -12,7 +12,7 @@ use Liberu\Cms\WordPressMigration\Models\WordPressMigrationRecord;
 
 final class WordPressMigrationService
 {
-    private const TYPES = ['post', 'page', 'custom_type', 'taxonomy', 'term', 'metadata', 'user', 'author', 'comment', 'media', 'menu', 'redirect'];
+    private const array TYPES = ['post', 'page', 'custom_type', 'taxonomy', 'term', 'metadata', 'user', 'author', 'comment', 'media', 'menu', 'redirect'];
 
     public function start(?string $sourceUrl = null, array $options = [], ?int $teamId = null): WordPressMigration
     {

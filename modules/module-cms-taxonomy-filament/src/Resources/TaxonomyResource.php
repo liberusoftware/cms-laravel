@@ -16,8 +16,10 @@ use Liberu\Cms\Taxonomy\Models\Taxonomy;
 
 final class TaxonomyResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Taxonomy::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-taxonomies';
 
     public static function form(Schema $schema): Schema

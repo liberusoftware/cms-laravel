@@ -46,6 +46,6 @@ final class ViewBrowser extends Component
         $definition = $views->findPublished($this->view);
         $records = $definition ? $listings->execute($definition, $this->perPage, []) : null;
 
-        return view('module-cms-views-and-query-builder-livewire::livewire.view-browser', compact('definition', 'records'));
+        return view('module-cms-views-and-query-builder-livewire::livewire.view-browser', ['definition' => $definition, 'records' => $records]);
     }
 }

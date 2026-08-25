@@ -11,6 +11,7 @@ use Liberu\Cms\Collections\Filament\CollectionResource;
 
 final class ListCollections extends ListRecords
 {
+    #[\Override]
     protected static string $resource = CollectionResource::class;
 
     protected function getHeaderActions(): array

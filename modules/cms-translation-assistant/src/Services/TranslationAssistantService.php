@@ -13,8 +13,8 @@ final class TranslationAssistantService
 {
     public function draft(string $subjectType, int|string $subjectId, string $sourceLocale, string $targetLocale, string $sourceText, string $translatedText, float $confidence, string $provider, string $model, array $provenance = [], ?int $teamId = null): TranslationDraft
     {
-        foreach (compact('subjectType', 'sourceLocale', 'targetLocale', 'sourceText', 'translatedText', 'provider', 'model') as $field => $value) {
-            if (trim((string) $value) === '') {
+        foreach (['subjectType' => $subjectType, 'sourceLocale' => $sourceLocale, 'targetLocale' => $targetLocale, 'sourceText' => $sourceText, 'translatedText' => $translatedText, 'provider' => $provider, 'model' => $model] as $field => $value) {
+            if (trim($value) === '') {
                 throw ValidationException::withMessages([$field => 'This field is required.']);
             }
         }
@@ -94,6 +94,6 @@ final class TranslationAssistantService
             throw ValidationException::withMessages(['pattern' => 'Style rule must be a valid regular expression.']);
         }
 
-        return StyleRule::query()->create(compact('locale', 'name', 'pattern', 'message', 'severity', 'teamId') + ['team_id' => $teamId]);
+        return StyleRule::query()->create(['locale' => $locale, 'name' => $name, 'pattern' => $pattern, 'message' => $message, 'severity' => $severity, 'teamId' => $teamId] + ['team_id' => $teamId]);
     }
 }

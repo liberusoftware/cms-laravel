@@ -14,9 +14,9 @@ use Liberu\Cms\VideoAndAudio\Models\MediaVariant;
 use Liberu\Cms\VideoAndAudio\Support\PlaybackMetadata;
 use Liberu\Cms\VideoAndAudio\Support\TranscodingAdapterRegistry;
 
-final class MediaManagementService
+final readonly class MediaManagementService
 {
-    public function __construct(private readonly TranscodingAdapterRegistry $adapters) {}
+    public function __construct(private TranscodingAdapterRegistry $adapters) {}
 
     public function createAsset(array $attributes): MediaAsset
     {

@@ -54,6 +54,6 @@ final class EntityBrowser extends Component
     {
         $entities = $this->entitiesQuery->forType($this->type, $this->perPage, $this->search);
 
-        return view('cms-content-entities-livewire::livewire.entity-browser', compact('entities'));
+        return view('cms-content-entities-livewire::livewire.entity-browser', ['entities' => $entities]);
     }
 }

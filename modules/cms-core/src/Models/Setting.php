@@ -11,8 +11,10 @@ use Liberu\Cms\Contracts\Events\EventBusInterface;
 
 final class Setting extends Model
 {
+    #[\Override]
     protected $table = 'cms_settings';
 
+    #[\Override]
     protected $fillable = ['site_id', 'key', 'value', 'environment'];
 
     protected function casts(): array

@@ -12,8 +12,10 @@ final class Poll extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_polls';
 
+    #[\Override]
     protected $fillable = ['title', 'key', 'description', 'starts_at', 'ends_at', 'allow_anonymous', 'allow_multiple', 'active', 'results_public', 'team_id'];
 
     protected function casts(): array

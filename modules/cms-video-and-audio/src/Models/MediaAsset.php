@@ -13,8 +13,10 @@ final class MediaAsset extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_media_assets';
 
+    #[\Override]
     protected $fillable = ['public_id', 'title', 'kind', 'source_type', 'source_uri', 'mime_type', 'bytes', 'duration_seconds', 'stream_uri', 'poster_uri', 'status', 'metadata', 'checksum', 'team_id'];
 
     protected function casts(): array

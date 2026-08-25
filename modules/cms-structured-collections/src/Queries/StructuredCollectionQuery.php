@@ -10,9 +10,9 @@ use Liberu\Cms\Collections\Models\CollectionItem;
 use Liberu\Cms\Collections\Queries\CollectionQuery;
 
 /** Stable canonical read boundary for structured collections. */
-final class StructuredCollectionQuery
+final readonly class StructuredCollectionQuery
 {
-    public function __construct(private readonly CollectionQuery $legacy) {}
+    public function __construct(private CollectionQuery $legacy) {}
 
     public function paginate(int $perPage = 15, string $search = ''): LengthAwarePaginator
     {

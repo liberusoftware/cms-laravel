@@ -9,9 +9,9 @@ use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\WordPressMigration\Models\WordPressMigration;
 use Liberu\Cms\WordPressMigration\Models\WordPressMigrationRecord;
 
-final class WordPressMigrationQuery
+final readonly class WordPressMigrationQuery
 {
-    public function __construct(private readonly TenantContextInterface $tenant) {}
+    public function __construct(private TenantContextInterface $tenant) {}
 
     private function tenantId(?int $teamId): int|string|null
     {

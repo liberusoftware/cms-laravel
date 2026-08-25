@@ -13,8 +13,10 @@ final class ViewDefinition extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_view_definitions';
 
+    #[\Override]
     protected $fillable = ['name', 'slug', 'source', 'description', 'definition', 'visibility', 'status', 'published_at', 'user_id', 'team_id'];
 
     protected function casts(): array

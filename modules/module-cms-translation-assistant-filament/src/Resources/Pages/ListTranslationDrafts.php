@@ -9,5 +9,6 @@ use Liberu\Cms\TranslationAssistantFilament\Resources\TranslationDraftResource;
 
 final class ListTranslationDrafts extends ListRecords
 {
+    #[\Override]
     protected static string $resource = TranslationDraftResource::class;
 }

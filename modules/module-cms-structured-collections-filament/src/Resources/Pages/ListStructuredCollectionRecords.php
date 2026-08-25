@@ -9,5 +9,6 @@ use Liberu\Cms\StructuredCollectionsFilament\Resources\StructuredCollectionRecor
 
 final class ListStructuredCollectionRecords extends ListRecords
 {
+    #[\Override]
     protected static string $resource = StructuredCollectionRecordResource::class;
 }

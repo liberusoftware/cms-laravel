@@ -9,5 +9,6 @@ use Liberu\Cms\SiteFactoryFilament\Resources\SiteTemplateResource;
 
 final class ListSiteTemplates extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SiteTemplateResource::class;
 }

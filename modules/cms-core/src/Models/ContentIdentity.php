@@ -15,8 +15,10 @@ final class ContentIdentity extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_content_identities';
 
+    #[\Override]
     protected $fillable = ['site_id', 'channel_id', 'content_type', 'content_id', 'canonical_path', 'status', 'owner_type', 'owner_id', 'metadata', 'team_id'];
 
     protected function casts(): array

@@ -9,5 +9,6 @@ use Liberu\Cms\RegionsAndWidgetsFilament\Resources\RegionResource;
 
 final class ListRegions extends ListRecords
 {
+    #[\Override]
     protected static string $resource = RegionResource::class;
 }

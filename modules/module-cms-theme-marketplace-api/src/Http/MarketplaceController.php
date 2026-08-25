@@ -6,6 +6,7 @@ namespace Liberu\Cms\ThemeMarketplaceApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\ThemeMarketplace\Models\MarketplaceTheme;
 use Liberu\Cms\ThemeMarketplace\Queries\ThemeMarketplaceQuery;
 use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
 use Liberu\Cms\ThemeMarketplaceApi\Http\Resources\MarketplaceThemeResource;
@@ -18,7 +19,7 @@ final class MarketplaceController
     {
         $data = $request->validate(['search' => ['sometimes', 'nullable', 'string'], 'status' => ['sometimes', 'string']]);
         $catalog = $themes->catalog((int) $request->integer('per_page', 15), (string) ($data['search'] ?? ''));
-        $catalog->getCollection()->transform(fn ($theme): array => ['key' => $theme->key, 'name' => $theme->name, 'version' => $theme->version, 'author' => $theme->author, 'preview_url' => $theme->preview_url, 'license' => $theme->license, 'security_status' => $theme->security_status, 'rating' => $service->ratingSummary($theme)]);
+        $catalog->getCollection()->transform(fn (MarketplaceTheme $theme): array => ['key' => $theme->key, 'name' => $theme->name, 'version' => $theme->version, 'author' => $theme->author, 'preview_url' => $theme->preview_url, 'license' => $theme->license, 'security_status' => $theme->security_status, 'rating' => $service->ratingSummary($theme)]);
 
         return response()->json(['data' => $catalog->items(), 'meta' => ['current_page' => $catalog->currentPage(), 'last_page' => $catalog->lastPage(), 'per_page' => $catalog->perPage(), 'total' => $catalog->total()]]);
     }

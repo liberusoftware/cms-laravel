@@ -11,8 +11,10 @@ final class TranslationVendor extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_translation_vendors';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'driver', 'settings', 'status', 'team_id'];
 
     protected function casts(): array

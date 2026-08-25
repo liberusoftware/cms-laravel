@@ -19,8 +19,8 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable();
             $table->timestamp('review_at')->nullable();
             $table->string('recurrence')->nullable();
-            $table->json('targets');
-            $table->json('cache_tags');
+            $table->json('targets')->nullable();
+            $table->json('cache_tags')->nullable();
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
         });

@@ -11,6 +11,7 @@ use Liberu\Cms\TranslationManagementFilament\Resources\TranslationJobResource;
 
 final class ListTranslationJobs extends ListRecords
 {
+    #[\Override]
     protected static string $resource = TranslationJobResource::class;
 
     protected function getHeaderActions(): array

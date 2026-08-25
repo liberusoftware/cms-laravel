@@ -11,6 +11,7 @@ use Liberu\Cms\ThemeMarketplaceFilament\Resources\MarketplaceThemeResource;
 
 final class ListMarketplaceThemes extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MarketplaceThemeResource::class;
 
     protected function getHeaderActions(): array

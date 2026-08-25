@@ -11,8 +11,10 @@ final class TranslationGlossary extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_translation_glossaries';
 
+    #[\Override]
     protected $fillable = ['source_locale', 'target_locale', 'source_term', 'preferred_term', 'forbidden_terms', 'team_id'];
 
     protected function casts(): array

@@ -14,8 +14,10 @@ use Liberu\Cms\SiteFactory\Models\SiteTemplate;
 
 final class SiteTemplateResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = SiteTemplate::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-site-factory';
 
     public static function form(Schema $schema): Schema

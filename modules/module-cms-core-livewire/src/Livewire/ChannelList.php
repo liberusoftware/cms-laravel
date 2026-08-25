@@ -46,6 +46,6 @@ final class ChannelList extends Component
     {
         $channels = $this->queries->channels($this->site, $this->perPage, trim($this->search));
 
-        return view('cms-core-livewire::livewire.channel-list', compact('channels'));
+        return view('cms-core-livewire::livewire.channel-list', ['channels' => $channels]);
     }
 }

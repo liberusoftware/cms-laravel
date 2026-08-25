@@ -11,9 +11,9 @@ use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 use Liberu\Cms\ThemeIntegration\Models\ThemeComponent;
 use Liberu\Cms\ThemeIntegration\Queries\ThemeIntegrationQuery;
 
-final class ThemeIntegrationService
+final readonly class ThemeIntegrationService
 {
-    public function __construct(private readonly ThemeIntegrationQuery $query) {}
+    public function __construct(private ThemeIntegrationQuery $query) {}
 
     public function bind(string $siteKey, ?string $channelKey, string $themeKey, string $fallbackThemeKey = 'default', ?int $teamId = null): ThemeBinding
     {

@@ -10,9 +10,9 @@ use Liberu\Cms\NotificationsAndSubscriptions\Models\Subscription;
 
 final class SubscriptionService
 {
-    private const FREQUENCIES = ['instant', 'daily', 'weekly'];
+    private const array FREQUENCIES = ['instant', 'daily', 'weekly'];
 
-    private const CHANNELS = ['mail', 'web', 'push', 'log'];
+    private const array CHANNELS = ['mail', 'web', 'push', 'log'];
 
     public function follow(string $subscriberType, int|string $subscriberId, string $subjectType, int|string $subjectId, string $frequency = 'instant', array $channels = ['mail'], ?string $locale = null, ?int $teamId = null): Subscription
     {

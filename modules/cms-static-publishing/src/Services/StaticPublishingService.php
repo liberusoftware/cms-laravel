@@ -10,9 +10,9 @@ use Liberu\Cms\StaticPublishing\Models\StaticBuild;
 use Liberu\Cms\StaticPublishing\Models\StaticInvalidation;
 use Liberu\Cms\StaticPublishing\Support\DeploymentAdapterRegistry;
 
-final class StaticPublishingService
+final readonly class StaticPublishingService
 {
-    public function __construct(private readonly DeploymentAdapterRegistry $deployments) {}
+    public function __construct(private DeploymentAdapterRegistry $deployments) {}
 
     /** @param array<int, array{path:string,url?:string,last_modified?:string}> $routes */
     public function build(array $routes, ?string $siteKey = null, string $kind = 'full', string $deployment = 'local', ?StaticBuild $parent = null): StaticBuild
@@ -21,7 +21,7 @@ final class StaticPublishingService
             throw ValidationException::withMessages(['kind' => 'Unsupported build kind.']);
         } $manifest = collect($routes)->filter(fn (array $route): bool => isset($route['path']) && str_starts_with($route['path'], '/'))->values()->all();
         $build = StaticBuild::query()->create(['site_key' => $siteKey, 'state' => 'building', 'kind' => $kind, 'deployment' => $deployment, 'manifest' => $manifest, 'parent_build_id' => $parent?->getKey(), 'started_at' => now()]);
-        $build->forceFill(['state' => 'published', 'checksum' => hash('sha256', (string) json_encode($manifest, JSON_THROW_ON_ERROR)), 'diagnostics' => ['route_count' => count($manifest), 'invalid_routes' => count($routes) - count($manifest)], 'finished_at' => now()])->save();
+        $build->forceFill(['state' => 'published', 'checksum' => hash('sha256', json_encode($manifest, JSON_THROW_ON_ERROR)), 'diagnostics' => ['route_count' => count($manifest), 'invalid_routes' => count($routes) - count($manifest)], 'finished_at' => now()])->save();
 
         return $build->fresh();
     }

@@ -64,13 +64,7 @@ final readonly class SchemaValidator
     /** @param list<mixed> $values */
     private function matchesValues(string $type, array $values): bool
     {
-        foreach ($values as $value) {
-            if (! $this->matchesType($type, $value)) {
-                return false;
-            }
-        }
-
-        return true;
+        return array_all($values, fn ($value): bool => $this->matchesType($type, $value));
     }
 
     /** @param array<string, mixed>|null $condition */

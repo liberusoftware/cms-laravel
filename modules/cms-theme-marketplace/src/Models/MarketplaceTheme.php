@@ -12,8 +12,10 @@ final class MarketplaceTheme extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_marketplace_themes';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'version', 'author', 'description', 'manifest', 'compatibility', 'preview_url', 'license', 'parent_key', 'status', 'security_status', 'team_id'];
 
     protected function casts(): array

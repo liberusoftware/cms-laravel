@@ -11,8 +11,10 @@ final class Widget extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_widgets';
 
+    #[\Override]
     protected $fillable = ['key', 'type', 'title', 'configuration', 'active', 'team_id'];
 
     protected function casts(): array

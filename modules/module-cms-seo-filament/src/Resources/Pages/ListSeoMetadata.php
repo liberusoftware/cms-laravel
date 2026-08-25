@@ -9,5 +9,6 @@ use Liberu\Cms\SeoFilament\Resources\SeoMetadataResource;
 
 final class ListSeoMetadata extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SeoMetadataResource::class;
 }

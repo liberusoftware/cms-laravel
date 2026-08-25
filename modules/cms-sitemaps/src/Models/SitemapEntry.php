@@ -11,8 +11,10 @@ final class SitemapEntry extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_sitemap_entries';
 
+    #[\Override]
     protected $fillable = ['site_id', 'type', 'locale', 'url', 'last_modified', 'priority', 'change_frequency', 'images', 'video', 'news', 'excluded', 'team_id'];
 
     protected function casts(): array

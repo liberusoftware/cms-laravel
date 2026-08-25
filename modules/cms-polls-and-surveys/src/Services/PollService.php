@@ -31,10 +31,10 @@ final class PollService
         }
 
         foreach ($poll->questions as $question) {
-            if ($question->required && ! array_key_exists($question->key, $answers)) {
+            if ($question->required && ! array_key_exists((string) $question->key, $answers)) {
                 throw ValidationException::withMessages(['answers.'.$question->key => 'This answer is required.']);
             }
-            if (array_key_exists($question->key, $answers) && $question->options !== null && ! in_array($answers[$question->key], $question->options, true)) {
+            if (array_key_exists((string) $question->key, $answers) && $question->options !== null && ! in_array($answers[$question->key], $question->options, true)) {
                 throw ValidationException::withMessages(['answers.'.$question->key => 'This answer is not valid.']);
             }
         }

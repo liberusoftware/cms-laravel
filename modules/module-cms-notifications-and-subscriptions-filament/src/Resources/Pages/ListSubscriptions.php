@@ -9,5 +9,6 @@ use Liberu\Cms\NotificationsAndSubscriptionsFilament\Resources\SubscriptionResou
 
 final class ListSubscriptions extends ListRecords
 {
+    #[\Override]
     protected static string $resource = SubscriptionResource::class;
 }
