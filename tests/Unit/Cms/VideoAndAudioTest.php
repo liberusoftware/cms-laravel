@@ -27,6 +27,19 @@ final class FakeTranscodingAdapter implements TranscodingAdapterInterface
     }
 }
 
+final class FailingTranscodingAdapter implements TranscodingAdapterInterface
+{
+    public function key(): string
+    {
+        return 'failing';
+    }
+
+    public function transcode(string $sourceUri, string $profile, array $context = []): TranscodeResult
+    {
+        throw new \RuntimeException('transcoder unavailable');
+    }
+}
+
 it('manages remote media, tracks, transcoding, idempotency, and playback metadata', function (): void {
     app(TranscodingAdapterRegistry::class)->register(new FakeTranscodingAdapter);
     $service = app(MediaManagementService::class);
@@ -45,4 +58,13 @@ it('rejects invalid media sources and chapter ranges', function (): void {
     expect(fn () => $service->createAsset(['title' => 'Bad', 'kind' => 'video', 'source_type' => 'remote', 'source_uri' => 'not-a-url']))->toThrow(ValidationException::class);
     $asset = MediaAsset::create(['title' => 'Audio', 'kind' => 'audio', 'source_type' => 'upload', 'source_uri' => 'audio.mp3']);
     expect(fn () => $service->addTrack($asset, ['track_type' => 'chapter', 'start_seconds' => 10, 'end_seconds' => 5]))->toThrow(ValidationException::class);
+});
+
+it('records a failed transcoding variant for recovery', function (): void {
+    app(TranscodingAdapterRegistry::class)->register(new FailingTranscodingAdapter);
+    $asset = app(MediaManagementService::class)->createAsset(['title' => 'Retry me', 'kind' => 'video', 'source_type' => 'upload', 'source_uri' => 'video.mp4']);
+
+    expect(fn () => app(MediaManagementService::class)->transcode($asset, 'failing', 'web', 'failure-1'))
+        ->toThrow(\RuntimeException::class);
+    expect($asset->variants()->first()?->status)->toBe('failed');
 });

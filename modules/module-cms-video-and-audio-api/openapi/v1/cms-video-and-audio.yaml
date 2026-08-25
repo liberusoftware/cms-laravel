@@ -1,0 +1,44 @@
+openapi: 3.1.0
+info:
+  title: CMS Video and Audio API
+  version: 1.0.0
+  description: Tenant-scoped audiovisual assets, tracks, transcoding, and playback metadata.
+paths:
+  /api/v1/cms/video-and-audio/assets:
+    get:
+      operationId: listVideoAndAudioAssets
+      parameters:
+        - {in: query, name: search, schema: {type: string, maxLength: 255}}
+        - {in: query, name: kind, schema: {type: string, enum: [video, audio]}}
+        - {in: query, name: per_page, schema: {type: integer, minimum: 1, maximum: 100, default: 15}}
+      responses: {'200': {description: Paginated media assets}}
+    post:
+      operationId: createVideoAndAudioAsset
+      requestBody:
+        required: true
+        content: {application/json: {schema: {$ref: '#/components/schemas/MediaAssetInput'}}}
+      responses: {'201': {description: Created media asset}, '422': {description: Validation failure}}
+  /api/v1/cms/video-and-audio/assets/{publicId}:
+    parameters: [{in: path, name: publicId, required: true, schema: {type: string, format: uuid}}]
+    get: {operationId: getVideoAndAudioAsset, responses: {'200': {description: Media asset}, '404': {description: Not found}}}
+    patch: {operationId: updateVideoAndAudioAsset, responses: {'200': {description: Updated media asset}, '422': {description: Validation failure}}}
+  /api/v1/cms/video-and-audio/assets/{publicId}/tracks:
+    post: {operationId: addVideoAndAudioTrack, responses: {'201': {description: Track created}, '422': {description: Validation failure}}}
+  /api/v1/cms/video-and-audio/assets/{publicId}/transcode:
+    post: {operationId: transcodeVideoAndAudioAsset, responses: {'202': {description: Transcoding accepted}, '422': {description: Invalid request}}}
+  /api/v1/cms/video-and-audio/assets/{publicId}/playback:
+    get: {operationId: getVideoAndAudioPlayback, responses: {'200': {description: Playback metadata}, '422': {description: Asset is not ready}}}
+components:
+  schemas:
+    MediaAssetInput:
+      type: object
+      required: [title, kind, source_type, source_uri]
+      properties:
+        title: {type: string, maxLength: 255}
+        kind: {type: string, enum: [video, audio]}
+        source_type: {type: string, enum: [upload, remote]}
+        source_uri: {type: string}
+        mime_type: {type: string}
+        bytes: {type: integer, minimum: 0}
+        duration_seconds: {type: integer, minimum: 0}
+        metadata: {type: object, additionalProperties: true}
