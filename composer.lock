@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e409f44c6a6c8be92baf178f494a6c53",
+    "content-hash": "359e90e11d22ee665c48216e28ac6bd0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5225,7 +5225,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-collections",
+                "url": "modules/module-cms-collections",
                 "reference": "2112d02b331fd307adeb7d82d661f8b24893280b"
             },
             "require": {
@@ -5306,7 +5306,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-content",
+                "url": "modules/module-cms-content",
                 "reference": "ef6fdb124ca271fc4382beadce18e031ccdd5dc4"
             },
             "require": {
@@ -5529,7 +5529,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-contracts",
+                "url": "modules/module-cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
@@ -5570,7 +5570,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-core",
+                "url": "modules/module-cms-core",
                 "reference": "acdb8a58777e29b6f8dda27d47550e87216367dd"
             },
             "require": {
@@ -9142,6 +9142,163 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-structured-collections",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-structured-collections",
+                "reference": "95d7a1a47739764b522c14083e5c1f2ec3b726f6"
+            },
+            "require": {
+                "liberusoftware/module-cms-collections": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-structured-collections",
+                    "core": "liberusoftware/module-cms-collections"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StructuredCollections\\StructuredCollectionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StructuredCollections\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Canonical compatibility package for CMS structured collections.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-structured-collections-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-structured-collections-api",
+                "reference": "ebf65cc89d8f9191362eba9379d2f2a05dce49fc"
+            },
+            "require": {
+                "liberusoftware/module-cms-collections": "^0.1",
+                "liberusoftware/module-cms-structured-collections": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-structured-collections-api",
+                    "core": "liberusoftware/module-cms-structured-collections"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StructuredCollectionsApi\\StructuredCollectionsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StructuredCollectionsApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Canonical API package identity for CMS structured collections.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-structured-collections-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-structured-collections-filament",
+                "reference": "9cb23fecbdd1039cb39e1f1aa82eb87fb2f0efd7"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-collections": "^0.1",
+                "liberusoftware/module-cms-structured-collections": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-structured-collections-filament",
+                    "core": "liberusoftware/module-cms-structured-collections"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StructuredCollectionsFilament\\StructuredCollectionsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StructuredCollectionsFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Canonical Filament package identity for CMS structured collections.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-structured-collections-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-structured-collections-livewire",
+                "reference": "b76ce1ce6c046383ec0e9aaac4d013bb8b1fb03b"
+            },
+            "require": {
+                "liberusoftware/module-cms-collections-livewire": "^0.1",
+                "liberusoftware/module-cms-structured-collections": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-structured-collections-livewire",
+                    "core": "liberusoftware/module-cms-structured-collections"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\StructuredCollectionsLivewire\\StructuredCollectionsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\StructuredCollectionsLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Canonical Livewire package identity for CMS structured collections.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-syndication-and-feeds",
             "version": "0.1.0",
             "dist": {
@@ -9810,6 +9967,316 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-translation-assistant",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-translation-assistant",
+                "reference": "e64b9c3e9b13076f9824e900081c52deefba9d9c"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-assistant",
+                    "capability": "translation-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationAssistant\\TranslationAssistantServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationAssistant\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS translation drafts, glossary/style checks, confidence, review, and provenance.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-assistant-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-assistant-api",
+                "reference": "1fc2b3393055b8487aaf861ae51aab907a0a5fe4"
+            },
+            "require": {
+                "liberusoftware/module-cms-translation-assistant": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-assistant-api",
+                    "core": "liberusoftware/module-cms-translation-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationAssistantApi\\TranslationAssistantApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationAssistantApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Translation Assistant.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-assistant-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-assistant-filament",
+                "reference": "62f912b1204b276fe836b8c6e22efe3e13b0718f"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-translation-assistant": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-assistant-filament",
+                    "core": "liberusoftware/module-cms-translation-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationAssistantFilament\\TranslationAssistantFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationAssistantFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Translation Assistant.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-assistant-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-assistant-livewire",
+                "reference": "f0a1bb39757c402d623b8626fd37184e64cfa8b7"
+            },
+            "require": {
+                "liberusoftware/module-cms-translation-assistant": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-assistant-livewire",
+                    "core": "liberusoftware/module-cms-translation-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationAssistantLivewire\\TranslationAssistantLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationAssistantLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Translation Assistant.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-management",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-translation-management",
+                "reference": "142c6d3e04ae338fa3f39bae4f15a6698895c77b"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-management",
+                    "capability": "translation-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationManagement\\TranslationManagementServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationManagement\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS translation jobs, assignments, vendors, review, memory, and reconciliation.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-management-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-management-api",
+                "reference": "3629f1a40e40826595b3b1db04333520b89cfe11"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-translation-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-management-api",
+                    "core": "liberusoftware/module-cms-translation-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationManagementApi\\TranslationManagementApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationManagementApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Translation Management.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-management-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-management-filament",
+                "reference": "c97bf0ad665ffc32c9f934d91aea78921200aeb8"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-translation-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-management-filament",
+                    "core": "liberusoftware/module-cms-translation-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationManagementFilament\\TranslationManagementFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationManagementFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Translation Management.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-translation-management-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-translation-management-livewire",
+                "reference": "9e43469a94676945dc511aa8e737fe82a3febe66"
+            },
+            "require": {
+                "liberusoftware/module-cms-translation-management": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-translation-management-livewire",
+                    "core": "liberusoftware/module-cms-translation-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\TranslationManagementLivewire\\TranslationManagementLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\TranslationManagementLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Translation Management.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-users",
             "version": "0.1.0",
             "dist": {
@@ -9863,6 +10330,474 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-video-and-audio",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-video-and-audio",
+                "reference": "2448f15794e584b36aa8aeeaf6b999a120c31106"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-video-and-audio",
+                    "capability": "video-and-audio"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\VideoAndAudio\\VideoAndAudioServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\VideoAndAudio\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS video and audio assets, tracks, transcoding, streaming, and playback metadata.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-video-and-audio-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-video-and-audio-api",
+                "reference": "5014cd8307642a761a04dfdb9264432a9b99f32b"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-video-and-audio": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-video-and-audio-api",
+                    "core": "liberusoftware/module-cms-video-and-audio"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\VideoAndAudioApi\\VideoAndAudioApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\VideoAndAudioApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Video and Audio.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-video-and-audio-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-video-and-audio-filament",
+                "reference": "7277805e5dbafeb0564f47888d68d72ce250823a"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-video-and-audio": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-video-and-audio-filament",
+                    "core": "liberusoftware/module-cms-video-and-audio"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\VideoAndAudioFilament\\VideoAndAudioFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\VideoAndAudioFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Video and Audio.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-video-and-audio-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-video-and-audio-livewire",
+                "reference": "504d51cbfe996a0b5397ddd6226f1cb3aac9ba1f"
+            },
+            "require": {
+                "liberusoftware/module-cms-video-and-audio": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-video-and-audio-livewire",
+                    "core": "liberusoftware/module-cms-video-and-audio"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\VideoAndAudioLivewire\\VideoAndAudioLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\VideoAndAudioLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Video and Audio.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-views-and-query-builder",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-views-and-query-builder",
+                "reference": "3914bd573269ee00cb1322c839e8259023fb53bc"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-views-and-query-builder",
+                    "capability": "views-and-query-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ViewsAndQueryBuilder\\ViewsAndQueryBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ViewsAndQueryBuilder\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Saved, permission-safe CMS views and query definitions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-views-and-query-builder-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-views-and-query-builder-api",
+                "reference": "853a3941d4e7b9eb2852b30808f2b826da925f07"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-views-and-query-builder": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-views-and-query-builder-api",
+                    "core": "liberusoftware/module-cms-views-and-query-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ViewsAndQueryBuilderApi\\ViewsAndQueryBuilderApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ViewsAndQueryBuilderApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Views and Query Builder.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-views-and-query-builder-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-views-and-query-builder-filament",
+                "reference": "5c343106eef6d0f30735b9da5ca9f7793ee332e4"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-views-and-query-builder": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-views-and-query-builder-filament",
+                    "core": "liberusoftware/module-cms-views-and-query-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ViewsAndQueryBuilderFilament\\ViewsAndQueryBuilderFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ViewsAndQueryBuilderFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Views and Query Builder.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-views-and-query-builder-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-views-and-query-builder-livewire",
+                "reference": "a8049c92503cf97469a6bc0693dc56969c6d14c2"
+            },
+            "require": {
+                "liberusoftware/module-cms-views-and-query-builder": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-views-and-query-builder-livewire",
+                    "core": "liberusoftware/module-cms-views-and-query-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ViewsAndQueryBuilderLivewire\\ViewsAndQueryBuilderLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ViewsAndQueryBuilderLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Views and Query Builder.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-web-delivery",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-web-delivery",
+                "reference": "476a1eff0c8ca37d13782550ffc6116a10d8cf59"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-web-delivery",
+                    "capability": "web-delivery"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WebDelivery\\WebDeliveryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WebDelivery\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS canonical web delivery, preview, redirects, metadata, and edge invalidation.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-web-delivery-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-web-delivery-api",
+                "reference": "60ba937f1715af38602e7234c4a80e2b5c16bf7e"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-web-delivery": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-web-delivery-api",
+                    "core": "liberusoftware/module-cms-web-delivery"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WebDeliveryApi\\WebDeliveryApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WebDeliveryApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Web Delivery.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-web-delivery-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-web-delivery-filament",
+                "reference": "f2351ca512ba0e2282dafe0bd58eed3c625fd1a2"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-web-delivery": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-web-delivery-filament",
+                    "core": "liberusoftware/module-cms-web-delivery"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WebDeliveryFilament\\WebDeliveryFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WebDeliveryFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Web Delivery.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-web-delivery-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-web-delivery-livewire",
+                "reference": "7820708480039bf622b40dc7499d6b07a2f211a1"
+            },
+            "require": {
+                "liberusoftware/module-cms-web-delivery": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-web-delivery-livewire",
+                    "core": "liberusoftware/module-cms-web-delivery"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WebDeliveryLivewire\\WebDeliveryLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WebDeliveryLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Web Delivery.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-widgets",
             "version": "0.1.0",
             "dist": {
@@ -9907,6 +10842,161 @@
                 "issues": "https://github.com/liberusoftware/module-cms-widgets/issues",
                 "source": "https://github.com/liberusoftware/module-cms-widgets"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-wordpress-migration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-wordpress-migration",
+                "reference": "d1cf1d6706cdf90553b43c1c40c7a78ce71cd477"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-wordpress-migration",
+                    "capability": "wordpress-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WordPressMigration\\WordPressMigrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WordPressMigration\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Provider-neutral WordPress migration runs, records, and source identifiers.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-wordpress-migration-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-wordpress-migration-api",
+                "reference": "692ea075a428efe017fd473d520b64286c538c6a"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-wordpress-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-wordpress-migration-api",
+                    "core": "liberusoftware/module-cms-wordpress-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WordPressMigrationApi\\WordPressMigrationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WordPressMigrationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS WordPress Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-wordpress-migration-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-wordpress-migration-filament",
+                "reference": "faee28e57819dc80a4b6c1e05a18e735b4965a3e"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-wordpress-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-wordpress-migration-filament",
+                    "core": "liberusoftware/module-cms-wordpress-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WordPressMigrationFilament\\WordPressMigrationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WordPressMigrationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS WordPress Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-wordpress-migration-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-wordpress-migration-livewire",
+                "reference": "6a9c74e7fff61f4243984877e46f591bff5bc07d"
+            },
+            "require": {
+                "liberusoftware/module-cms-wordpress-migration": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-wordpress-migration-livewire",
+                    "core": "liberusoftware/module-cms-wordpress-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\WordPressMigrationLivewire\\WordPressMigrationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\WordPressMigrationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS WordPress Migration.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

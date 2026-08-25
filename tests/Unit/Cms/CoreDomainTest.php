@@ -12,6 +12,7 @@ use Liberu\Cms\Contracts\Events\Core\SettingChanged;
 use Liberu\Cms\Contracts\Events\Core\SiteCreated;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Core\Models\Site;
+use Liberu\Cms\Core\Queries\CoreQueryService;
 
 uses(RefreshDatabase::class);
 
@@ -89,4 +90,37 @@ it('enforces the site and channel identity constraints', function (): void {
 
     expect(fn () => $site->channels()->create(['key' => 'web', 'name' => 'Duplicate']))
         ->toThrow(QueryException::class);
+});
+
+it('paginates aliases and identities through the core query boundary', function (): void {
+    $site = Site::create(['key' => 'public', 'name' => 'Public']);
+    $channel = $site->channels()->create(['key' => 'web', 'name' => 'Web']);
+    $site->aliases()->create([
+        'channel_id' => $channel->id,
+        'alias' => '/old-home',
+        'target_type' => 'page',
+        'target_id' => '1',
+    ]);
+    $site->identities()->create([
+        'channel_id' => $channel->id,
+        'content_type' => 'page',
+        'content_id' => '1',
+        'canonical_path' => '/home',
+    ]);
+
+    $otherSite = Site::create(['key' => 'private', 'name' => 'Private']);
+    $otherChannel = $otherSite->channels()->create(['key' => 'web', 'name' => 'Web']);
+    $otherSite->aliases()->create([
+        'channel_id' => $otherChannel->id,
+        'alias' => '/private',
+        'target_type' => 'page',
+        'target_id' => '2',
+    ]);
+
+    $queries = app(CoreQueryService::class);
+
+    expect($queries->aliases('public', 1)->total())->toBe(1)
+        ->and($queries->aliases('public', 1)->items()[0]->alias)->toBe('/old-home')
+        ->and($queries->identities('public', 1)->total())->toBe(1)
+        ->and($queries->identities('public', 1)->items()[0]->canonical_path)->toBe('/home');
 });

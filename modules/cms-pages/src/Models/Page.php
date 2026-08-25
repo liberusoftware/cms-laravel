@@ -78,6 +78,24 @@ final class Page extends Model implements PublishableInterface
                 throw new \InvalidArgumentException('A page cannot be its own parent.');
             }
         });
+
+        self::saved(function (Page $page): void {
+            if ($page->wasChanged('is_home') && $page->is_home) {
+                self::query()
+                    ->when($page->team_id === null, fn ($query) => $query->whereNull('team_id'), fn ($query) => $query->where('team_id', $page->team_id))
+                    ->where($page->getKeyName(), '!=', $page->getKey())
+                    ->where('is_home', true)
+                    ->update(['is_home' => false]);
+            }
+
+            if ($page->wasChanged('is_error') && $page->is_error) {
+                self::query()
+                    ->when($page->team_id === null, fn ($query) => $query->whereNull('team_id'), fn ($query) => $query->where('team_id', $page->team_id))
+                    ->where($page->getKeyName(), '!=', $page->getKey())
+                    ->where('is_error', true)
+                    ->update(['is_error' => false]);
+            }
+        });
     }
 
     protected function casts(): array

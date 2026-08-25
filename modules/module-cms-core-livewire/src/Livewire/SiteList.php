@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\CoreLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
-use Liberu\Cms\Core\Models\Site;
+use Liberu\Cms\Core\Queries\CoreQueryService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,6 +17,13 @@ final class SiteList extends Component
 
     public string $search = '';
 
+    private CoreQueryService $queries;
+
+    public function boot(CoreQueryService $queries): void
+    {
+        $this->queries = $queries;
+    }
+
     public function updatedSearch(): void
     {
         $this->resetPage();
@@ -25,10 +32,7 @@ final class SiteList extends Component
     public function render(): View
     {
         $search = trim($this->search);
-        $sites = Site::query()
-            ->when($search !== '', fn ($query) => $query->where(fn ($query) => $query->where('name', 'like', "%{$search}%")->orWhere('key', 'like', "%{$search}%")))
-            ->latest('id')
-            ->paginate(max(1, min(50, $this->perPage)));
+        $sites = $this->queries->sites($this->perPage, $search);
 
         return view('cms-core-livewire::livewire.site-list', compact('sites'));
     }

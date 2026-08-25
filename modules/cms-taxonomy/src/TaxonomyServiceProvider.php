@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Taxonomy\Services\TaxonomyService;
+use Liberu\Cms\Taxonomy\Queries\TaxonomyQuery;
 
 final class TaxonomyServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +22,7 @@ final class TaxonomyServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(TaxonomyService::class);
+        $this->app->singleton(TaxonomyQuery::class);
     }
 
     protected function bootModule(): void

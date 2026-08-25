@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ThemeMarketplace\Services;
 
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 use Liberu\Cms\ThemeMarketplace\Models\MarketplaceTheme;
 use Liberu\Cms\ThemeMarketplace\Models\ThemeInstallation;
 use Liberu\Cms\ThemeMarketplace\Models\ThemeRating;
@@ -20,6 +21,12 @@ final class ThemeMarketplaceService
         }
         if (! preg_match('/^\\d+\\.\\d+\\.\\d+([-.][0-9A-Za-z.-]+)?$/', $manifest['version'])) {
             throw ValidationException::withMessages(['version' => 'Theme versions must use semantic versioning.']);
+        }
+        if (isset($manifest['preview_url']) && filter_var($manifest['preview_url'], FILTER_VALIDATE_URL) === false) {
+            throw ValidationException::withMessages(['preview_url' => 'Preview URLs must be valid URLs.']);
+        }
+        if (($manifest['parent_key'] ?? null) === $manifest['key']) {
+            throw ValidationException::withMessages(['parent_key' => 'A theme cannot inherit from itself.']);
         }
 
         return MarketplaceTheme::query()->updateOrCreate(['key' => $manifest['key'], 'version' => $manifest['version'], 'team_id' => $teamId], ['name' => $manifest['name'], 'author' => $manifest['author'], 'description' => $manifest['description'] ?? null, 'manifest' => $manifest, 'compatibility' => $manifest['compatibility'] ?? [], 'preview_url' => $manifest['preview_url'] ?? null, 'license' => $manifest['license'] ?? 'proprietary', 'parent_key' => $manifest['parent_key'] ?? null, 'status' => 'published', 'security_status' => 'pending', 'team_id' => $teamId]);
@@ -62,7 +69,10 @@ final class ThemeMarketplaceService
         if ($theme->key !== $installation->theme->key || ! $this->compatible($theme, $cmsVersion, $features)) {
             throw ValidationException::withMessages(['theme' => 'Update is incompatible with the installed theme.']);
         }
-        $installation->update(['theme_id' => $theme->id, 'updated_at_version' => $theme->version, 'installed_version' => $theme->version]);
+        if (version_compare($theme->version, $installation->installed_version, '<=')) {
+            throw ValidationException::withMessages(['theme' => 'Theme updates must increase the installed version.']);
+        }
+        DB::transaction(fn () => $installation->update(['theme_id' => $theme->id, 'updated_at_version' => $theme->version, 'installed_version' => $theme->version]));
 
         return $installation->refresh();
     }

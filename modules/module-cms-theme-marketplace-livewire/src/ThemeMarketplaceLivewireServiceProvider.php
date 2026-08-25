@@ -12,6 +12,7 @@ final class ThemeMarketplaceLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-theme-marketplace.theme-catalog', ThemeCatalog::class);
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cms-theme-marketplace-livewire');
+        Livewire::addNamespace('module-cms-theme-marketplace', classNamespace: 'Liberu\\Cms\\ThemeMarketplaceLivewire\\Livewire');
     }
 }

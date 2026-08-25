@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\SiteRecipes\Services\SiteRecipeService;
+use Liberu\Cms\SiteRecipes\Queries\SiteRecipeQuery;
 
 final class SiteRecipesServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +22,7 @@ final class SiteRecipesServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(SiteRecipeService::class);
+        $this->app->singleton(SiteRecipeQuery::class);
     }
 
     protected function bootModule(): void

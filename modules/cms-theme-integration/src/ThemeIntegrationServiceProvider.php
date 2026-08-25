@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\ThemeIntegration\Services\ThemeIntegrationService;
+use Liberu\Cms\ThemeIntegration\Queries\ThemeIntegrationQuery;
 
 final class ThemeIntegrationServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +22,7 @@ final class ThemeIntegrationServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(ThemeIntegrationService::class);
+        $this->app->singleton(ThemeIntegrationQuery::class);
     }
 
     protected function bootModule(): void

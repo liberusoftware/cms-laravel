@@ -6,6 +6,7 @@ namespace Liberu\Cms\CoreFilament\Resources\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\CoreFilament\Resources\SiteResource;
 
 final class ListSites extends ListRecords
@@ -14,6 +15,9 @@ final class ListSites extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [CreateAction::make()];
+        return [
+            CreateAction::make()
+                ->using(fn (array $data) => app(CoreMutationService::class)->createSite($data)),
+        ];
     }
 }

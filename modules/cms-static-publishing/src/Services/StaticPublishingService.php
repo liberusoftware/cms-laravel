@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\StaticPublishing\Models\StaticBuild;
 use Liberu\Cms\StaticPublishing\Models\StaticInvalidation;
+use Liberu\Cms\StaticPublishing\Support\DeploymentAdapterRegistry;
 
 final class StaticPublishingService
 {
+    public function __construct(private readonly DeploymentAdapterRegistry $deployments) {}
     /** @param array<int, array{path:string,url?:string,last_modified?:string}> $routes */
     public function build(array $routes, ?string $siteKey = null, string $kind = 'full', string $deployment = 'local', ?StaticBuild $parent = null): StaticBuild
     {
@@ -46,5 +48,14 @@ final class StaticPublishingService
     public function diagnostics(StaticBuild $build): array
     {
         return ['state' => $build->state, 'route_count' => count($build->manifest ?? []), 'diagnostics' => $build->diagnostics ?? []];
+    }
+
+    /** @return array<string, mixed> */
+    public function deploy(StaticBuild $build, string $adapter): array
+    {
+        if ($build->state !== 'published') throw ValidationException::withMessages(['build' => 'Only published builds can be deployed.']);
+        $result = $this->deployments->resolve($adapter)->deploy($build);
+        $build->forceFill(['deployment' => $adapter, 'diagnostics' => [...($build->diagnostics ?? []), 'deployment' => $result]])->save();
+        return $result;
     }
 }

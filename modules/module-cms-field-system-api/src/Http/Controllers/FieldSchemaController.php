@@ -5,22 +5,25 @@ declare(strict_types=1);
 namespace Liberu\Cms\FieldSystemApi\Http\Controllers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\ContentTypes\Queries\FieldSchemaQuery;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class FieldSchemaController
+final readonly class FieldSchemaController
 {
+    public function __construct(private FieldSchemaQuery $schemas) {}
+
     public function show(string $type): JsonResource
     {
-        $contentType = ContentType::query()->where('key', $type)->first();
-        if (! $contentType) {
+        if (! preg_match('/^[a-z0-9][a-z0-9_-]{0,254}$/', $type)) {
             throw new NotFoundHttpException;
         }
 
-        return new JsonResource([
-            'key' => $contentType->key,
-            'version' => $contentType->schema_version,
-            'fields' => array_map(static fn ($field): array => $field->toArray(), $contentType->fieldDefinitions()),
-        ]);
+        $schema = $this->schemas->find($type);
+
+        if ($schema === null) {
+            throw new NotFoundHttpException;
+        }
+
+        return new JsonResource($schema);
     }
 }

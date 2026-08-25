@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Liberu\Cms\ContentEntitiesLivewire\Livewire\EntityBrowser;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
+use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Livewire\Livewire;
 
 uses(RefreshDatabase::class);
@@ -75,5 +76,26 @@ it('browses published entities through the Livewire presentation adapter', funct
 
     Livewire::test(EntityBrowser::class, ['type' => $type->key])
         ->assertSee($visible->title)
-        ->assertDontSee('Draft entity');
+        ->assertDontSee('Draft entity')
+        ->set('search', str_repeat('x', 400))
+        ->assertSet('search', str_repeat('x', 255));
+});
+
+it('resolves one published entity by type and slug', function (): void {
+    $type = entityType();
+    $visible = ContentEntry::create([
+        'content_type_id' => $type->id,
+        'title' => 'A guide',
+        'slug' => 'a-guide',
+        'status' => 'published',
+        'published_at' => now()->subMinute(),
+    ]);
+    ContentEntry::create([
+        'content_type_id' => $type->id,
+        'title' => 'Draft guide',
+        'slug' => 'draft-guide',
+    ]);
+
+    expect(app(PublishedEntityQuery::class)->find('article', 'a-guide')?->is($visible))->toBeTrue()
+        ->and(app(PublishedEntityQuery::class)->find('article', 'draft-guide'))->toBeNull();
 });

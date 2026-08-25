@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Liberu\Cms\CoreFilament\Resources;
 
 use BackedEnum;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -12,6 +14,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Models\Site;
 use UnitEnum;
 
@@ -48,7 +51,12 @@ final class SiteResource extends Resource
             TextColumn::make('key')->searchable(),
             TextColumn::make('domain')->searchable(),
             TextColumn::make('channels_count')->counts('channels'),
-        ])->defaultSort('name');
+        ])->defaultSort('name')->recordActions([
+            EditAction::make()->using(fn (Site $record, array $data): Site => app(CoreMutationService::class)->updateSite($record, $data)),
+            DeleteAction::make()->using(function (Site $record): void {
+                app(CoreMutationService::class)->deleteSite($record);
+            }),
+        ]);
     }
 
     public static function getPages(): array

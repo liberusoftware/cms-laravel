@@ -7,6 +7,8 @@ namespace Liberu\Cms\Collections;
 use Liberu\Cms\Collections\Filament\CollectionItemResource;
 use Liberu\Cms\Collections\Filament\CollectionResource;
 use Liberu\Cms\Collections\Http\Controllers\CollectionApiController;
+use Liberu\Cms\Collections\Actions\CollectionMutationService;
+use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
@@ -25,6 +27,8 @@ final class CollectionsServiceProvider extends ModuleServiceProvider
 
     protected function registerModule(): void
     {
+        $this->app->singleton(CollectionQuery::class);
+        $this->app->singleton(CollectionMutationService::class);
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $this->app->make(AdminResourceRegistryInterface::class)->registerResource('collections', CollectionResource::class);
             $this->app->make(AdminResourceRegistryInterface::class)->registerResource('collection-items', CollectionItemResource::class);

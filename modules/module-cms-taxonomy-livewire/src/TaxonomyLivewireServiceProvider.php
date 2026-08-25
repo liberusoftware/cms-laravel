@@ -12,6 +12,8 @@ final class TaxonomyLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-taxonomy.taxonomy-browser', TaxonomyBrowser::class);
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cms-taxonomy-livewire');
+        Livewire::addNamespace('module-cms-taxonomy', __DIR__.'/../resources/views');
+        Livewire::component('module-cms-taxonomy::taxonomy-browser', TaxonomyBrowser::class);
     }
 }

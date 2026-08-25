@@ -6,8 +6,15 @@ namespace Liberu\Cms\ThemeMarketplaceFilament\Resources\Pages;
 
 use Filament\Resources\Pages\ListRecords;
 use Liberu\Cms\ThemeMarketplaceFilament\Resources\MarketplaceThemeResource;
+use Filament\Actions\CreateAction;
+use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
 
 final class ListMarketplaceThemes extends ListRecords
 {
     protected static string $resource = MarketplaceThemeResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [CreateAction::make()->using(fn (array $data) => app(ThemeMarketplaceService::class)->publish($data))];
+    }
 }

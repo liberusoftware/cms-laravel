@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
+use Liberu\Cms\ThemeMarketplace\Queries\ThemeMarketplaceQuery;
 
 final class ThemeMarketplaceServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +22,7 @@ final class ThemeMarketplaceServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(ThemeMarketplaceService::class);
+        $this->app->singleton(ThemeMarketplaceQuery::class);
     }
 
     protected function bootModule(): void

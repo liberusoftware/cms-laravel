@@ -44,6 +44,26 @@ final class ContentType extends Model
         return ['fields' => 'array', 'schema_version' => 'integer', 'schema_history' => 'array'];
     }
 
+    protected static function booted(): void
+    {
+        self::saving(function (ContentType $type): void {
+            if (! $type->exists || ! $type->isDirty('fields')) {
+                return;
+            }
+
+            $history = is_array($type->schema_history) ? $type->schema_history : [];
+            $history[] = [
+                'version' => ((int) ($type->schema_version ?? 1)) + 1,
+                'fields' => $type->getOriginal('fields') ?? [],
+                'reason' => null,
+                'migrated_at' => now()->toAtomString(),
+            ];
+
+            $type->schema_version = count($history) + 1;
+            $type->schema_history = $history;
+        });
+    }
+
     /**
      * The schema as value objects.
      *
@@ -64,20 +84,15 @@ final class ContentType extends Model
      */
     public function migrateSchema(array $fields, ?string $reason = null): self
     {
-        $history = $this->schema_history ?? [];
-        $history[] = [
-            'version' => ((int) ($this->schema_version ?? 1)) + 1,
-            'fields' => $this->fields ?? [],
-            'reason' => $reason,
-            'migrated_at' => now()->toAtomString(),
-        ];
-
-        $this->fill([
-            'fields' => $fields,
-            'schema_version' => count($history) + 1,
-            'schema_history' => $history,
-        ]);
+        $this->fields = $fields;
         $this->save();
+
+        if ($reason !== null && is_array($this->schema_history)) {
+            $history = $this->schema_history;
+            $history[array_key_last($history)]['reason'] = $reason;
+            $this->schema_history = $history;
+            $this->saveQuietly();
+        }
 
         return $this;
     }

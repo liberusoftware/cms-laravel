@@ -10,6 +10,8 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\StaticPublishing\Services\StaticPublishingService;
+use Liberu\Cms\StaticPublishing\Queries\StaticPublishingQuery;
+use Liberu\Cms\StaticPublishing\Support\DeploymentAdapterRegistry;
 
 final class StaticPublishingServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +23,8 @@ final class StaticPublishingServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(StaticPublishingService::class);
+        $this->app->singleton(StaticPublishingQuery::class);
+        $this->app->singleton(DeploymentAdapterRegistry::class);
     }
 
     protected function bootModule(): void

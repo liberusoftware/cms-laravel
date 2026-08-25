@@ -12,6 +12,7 @@ final class StaticPublishingLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-static-publishing.build-monitor', BuildMonitor::class);
+        Livewire::addNamespace('module-cms-static-publishing', classNamespace: 'Liberu\\Cms\\StaticPublishingLivewire\\Livewire');
+        Livewire::component('module-cms-static-publishing::build-monitor', BuildMonitor::class);
     }
 }

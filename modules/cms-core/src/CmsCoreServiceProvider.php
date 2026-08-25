@@ -22,6 +22,7 @@ use Liberu\Cms\Core\Console\MakeFieldTypeCommand;
 use Liberu\Cms\Core\Console\MakeHookCommand;
 use Liberu\Cms\Core\Console\MakeModuleCommand;
 use Liberu\Cms\Core\Events\EventBus;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Hooks\HookBus;
 use Liberu\Cms\Core\Module\DatabaseModuleStateRepository;
 use Liberu\Cms\Core\Module\ModuleManager;
@@ -43,6 +44,8 @@ final class CmsCoreServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/cms.php', 'cms');
+
+        $this->app->singleton(CoreMutationService::class);
 
         $this->app->singleton(ModuleRegistryInterface::class, ModuleRegistry::class);
 

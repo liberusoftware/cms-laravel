@@ -12,6 +12,7 @@ final class SiteRecipesLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-site-recipes.recipe-preview', RecipePreview::class);
+        Livewire::addNamespace('module-cms-site-recipes', classNamespace: 'Liberu\\Cms\\SiteRecipesLivewire\\Livewire');
+        Livewire::component('module-cms-site-recipes::recipe-preview', RecipePreview::class);
     }
 }

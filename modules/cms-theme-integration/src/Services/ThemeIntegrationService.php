@@ -5,30 +5,69 @@ declare(strict_types=1);
 namespace Liberu\Cms\ThemeIntegration\Services;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 use Liberu\Cms\ThemeIntegration\Models\ThemeComponent;
+use Liberu\Cms\ThemeIntegration\Queries\ThemeIntegrationQuery;
 
 final class ThemeIntegrationService
 {
+    public function __construct(private readonly ThemeIntegrationQuery $query) {}
+
     public function bind(string $siteKey, ?string $channelKey, string $themeKey, string $fallbackThemeKey = 'default', ?int $teamId = null): ThemeBinding
     {
+        foreach (['siteKey' => $siteKey, 'themeKey' => $themeKey, 'fallbackThemeKey' => $fallbackThemeKey] as $field => $value) {
+            if (trim($value) === '') {
+                throw ValidationException::withMessages([$field => 'Theme keys are required.']);
+            }
+        }
+        if ($channelKey !== null && trim($channelKey) === '') {
+            throw ValidationException::withMessages(['channelKey' => 'Channel keys cannot be empty.']);
+        }
+        if ($themeKey === $fallbackThemeKey) {
+            throw ValidationException::withMessages(['fallbackThemeKey' => 'A theme cannot fall back to itself.']);
+        }
+
         return ThemeBinding::query()->updateOrCreate(['site_key' => $siteKey, 'channel_key' => $channelKey, 'team_id' => $teamId], ['theme_key' => $themeKey, 'fallback_theme_key' => $fallbackThemeKey, 'active' => true, 'team_id' => $teamId]);
+    }
+
+    public function updateBinding(ThemeBinding $binding, array $attributes): ThemeBinding
+    {
+        $updated = $this->bind(
+            (string) ($attributes['site_key'] ?? $binding->site_key),
+            array_key_exists('channel_key', $attributes) ? $attributes['channel_key'] : $binding->channel_key,
+            (string) ($attributes['theme_key'] ?? $binding->theme_key),
+            (string) ($attributes['fallback_theme_key'] ?? $binding->fallback_theme_key),
+            $binding->team_id,
+        );
+
+        if (array_key_exists('active', $attributes)) {
+            $updated->update(['active' => (bool) $attributes['active']]);
+        }
+
+        return $updated->refresh();
+    }
+
+    public function removeBinding(ThemeBinding $binding): void
+    {
+        DB::transaction(fn (): ?bool => $binding->delete());
     }
 
     public function select(?string $siteKey, ?string $channelKey = null, ?int $teamId = null): ?ThemeBinding
     {
-        return ThemeBinding::query()->where('active', true)->where('team_id', $teamId)->where(fn ($q) => $q->where('site_key', $siteKey)->where('channel_key', $channelKey)->orWhere(fn ($q) => $q->where('site_key', $siteKey)->whereNull('channel_key')))->first();
+        return $siteKey === null ? null : $this->query->binding($siteKey, $channelKey, $teamId);
     }
 
     public function effectiveTheme(?string $siteKey, ?string $channelKey = null, ?int $teamId = null): string
     {
-        return $this->select($siteKey, $channelKey, $teamId)?->theme_key ?? $this->select($siteKey, null, $teamId)?->fallback_theme_key ?? 'default';
+        $binding = $this->select($siteKey, $channelKey, $teamId);
+        return $binding?->theme_key ?? $binding?->fallback_theme_key ?? 'default';
     }
 
     public function registerComponent(string $themeKey, string $region, string $componentKey, array $viewContract = [], array $configuration = [], ?int $teamId = null): ThemeComponent
     {
-        if ($region === '' || $componentKey === '') {
+        if (trim($themeKey) === '' || trim($region) === '' || trim($componentKey) === '') {
             throw ValidationException::withMessages(['component_key' => 'Region and component key are required.']);
         }
 
@@ -38,7 +77,7 @@ final class ThemeIntegrationService
     /** @return array<int, ThemeComponent> */
     public function components(string $themeKey, ?string $region = null, ?int $teamId = null): array
     {
-        return ThemeComponent::query()->where('theme_key', $themeKey)->where('team_id', $teamId)->when($region, fn ($q) => $q->where('region', $region))->orderBy('region')->orderBy('component_key')->get()->all();
+        return $this->query->components($themeKey, $region, $teamId);
     }
 
     public function previewToken(ThemeBinding $binding): string

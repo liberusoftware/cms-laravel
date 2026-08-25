@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Models\PageRedirect;
+use Liberu\Cms\Pages\Queries\PageTreeQuery;
 use Liberu\Cms\Pages\Repositories\PageRepository;
 
 uses(RefreshDatabase::class);
@@ -41,4 +42,15 @@ it('allows only one home and error page in a tenant', function (): void {
         ->and($second->fresh()->isHome())->toBeTrue()
         ->and($first->fresh()->isErrorPage())->toBeFalse()
         ->and($second->fresh()->isErrorPage())->toBeTrue();
+});
+
+it('builds an arbitrarily deep page tree through the query boundary', function (): void {
+    $root = Page::factory()->create(['title' => 'Docs', 'parent_id' => null]);
+    $child = Page::factory()->create(['title' => 'Guide', 'parent_id' => $root->id]);
+    Page::factory()->create(['title' => 'Install', 'parent_id' => $child->id]);
+
+    $tree = app(PageTreeQuery::class)->roots();
+
+    expect($tree)->toHaveCount(1)
+        ->and($tree->first()->children->first()->children)->toHaveCount(1);
 });

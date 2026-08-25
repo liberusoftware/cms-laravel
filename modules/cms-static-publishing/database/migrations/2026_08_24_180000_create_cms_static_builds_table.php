@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('checksum', 64)->nullable();
             $table->timestamp('started_at')->nullable();
             $table->timestamp('finished_at')->nullable();
+            $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
             $table->index(['site_key', 'state']);
         });

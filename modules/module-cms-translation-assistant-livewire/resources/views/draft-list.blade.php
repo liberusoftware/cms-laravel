@@ -1,0 +1,1 @@
+<div><input wire:model.live="targetLocale" placeholder="Target locale"><ul>@forelse ($drafts as $draft)<li>{{ $draft->target_locale }} · {{ $draft->confidence }} · {{ $draft->status }}</li>@empty<li>No translation drafts.</li>@endforelse</ul></div>

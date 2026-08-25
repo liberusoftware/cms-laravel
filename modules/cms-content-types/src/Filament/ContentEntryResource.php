@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentTypes\Filament;
 
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -21,6 +22,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\ContentTypes\Fields\FieldDefinition;
+use Liberu\Cms\ContentTypes\Actions\ContentEntryMutationService;
 use Liberu\Cms\ContentTypes\Filament\Pages\ListContentEntries;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
@@ -119,6 +121,14 @@ final class ContentEntryResource extends Resource
             ->defaultSort('updated_at', 'desc')
             ->recordActions([
                 EditAction::make(),
+                Action::make('clone')
+                    ->label('Clone')
+                    ->icon(Heroicon::OutlinedSquare2Stack)
+                    ->requiresConfirmation()
+                    ->action(function (ContentEntry $record): void {
+                        app(ContentEntryMutationService::class)->clone($record);
+                    })
+                    ->successNotificationTitle('Content entry cloned'),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

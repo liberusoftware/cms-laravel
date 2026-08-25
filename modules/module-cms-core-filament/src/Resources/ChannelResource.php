@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Liberu\Cms\CoreFilament\Resources;
 
 use BackedEnum;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
@@ -13,6 +15,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Liberu\Cms\Core\Filament\Concerns\AuthorizesWithPermissions;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Models\Channel;
 use UnitEnum;
 
@@ -48,7 +51,12 @@ final class ChannelResource extends Resource
             TextColumn::make('key')->searchable(),
             TextColumn::make('site.name')->label('Site')->sortable(),
             TextColumn::make('type')->badge(),
-        ])->defaultSort('name');
+        ])->defaultSort('name')->recordActions([
+            EditAction::make()->using(fn (Channel $record, array $data): Channel => app(CoreMutationService::class)->updateChannel($record, $data)),
+            DeleteAction::make()->using(function (Channel $record): void {
+                app(CoreMutationService::class)->deleteChannel($record);
+            }),
+        ]);
     }
 
     public static function getPages(): array

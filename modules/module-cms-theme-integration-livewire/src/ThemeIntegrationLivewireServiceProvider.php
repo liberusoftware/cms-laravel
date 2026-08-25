@@ -12,6 +12,7 @@ final class ThemeIntegrationLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-theme-integration.theme-preview', ThemePreview::class);
+        Livewire::addNamespace('module-cms-theme-integration', classNamespace: 'Liberu\\Cms\\ThemeIntegrationLivewire\\Livewire');
+        Livewire::component('module-cms-theme-integration::theme-preview', ThemePreview::class);
     }
 }

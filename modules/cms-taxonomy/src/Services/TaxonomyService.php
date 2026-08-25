@@ -14,11 +14,41 @@ final class TaxonomyService
 {
     public function create(string $key, string $name, bool $hierarchical = true, bool $exclusive = false, ?int $teamId = null, ?string $description = null): Taxonomy
     {
+        $key = trim($key);
+        $name = trim($name);
+        if ($key === '' || $name === '') {
+            throw ValidationException::withMessages(['name' => 'A taxonomy key and name are required.']);
+        }
+
         return Taxonomy::query()->create(['key' => $key, 'name' => $name, 'hierarchical' => $hierarchical, 'exclusive' => $exclusive, 'team_id' => $teamId, 'description' => $description]);
+    }
+
+    public function update(Taxonomy $taxonomy, array $attributes): Taxonomy
+    {
+        foreach (['key', 'name'] as $field) {
+            if (array_key_exists($field, $attributes) && trim((string) $attributes[$field]) === '') {
+                throw ValidationException::withMessages([$field => 'This field cannot be empty.']);
+            }
+        }
+        if (array_key_exists('hierarchical', $attributes) && ! $attributes['hierarchical'] && $taxonomy->terms()->whereNotNull('parent_id')->exists()) {
+            throw ValidationException::withMessages(['hierarchical' => 'A taxonomy with child terms cannot become flat.']);
+        }
+        $taxonomy->update(array_intersect_key($attributes, array_flip(['key', 'name', 'description', 'hierarchical', 'exclusive'])));
+
+        return $taxonomy->refresh();
+    }
+
+    public function delete(Taxonomy $taxonomy): void
+    {
+        $taxonomy->delete();
     }
 
     public function addTerm(Taxonomy $taxonomy, string $name, ?string $slug = null, ?int $parentId = null, array $synonyms = [], array $translations = [], ?int $position = null): Term
     {
+        $name = trim($name);
+        if ($name === '') {
+            throw ValidationException::withMessages(['name' => 'A term name is required.']);
+        }
         if (! $taxonomy->hierarchical && $parentId !== null) {
             throw ValidationException::withMessages(['parent_id' => 'This vocabulary is not hierarchical.']);
         }
@@ -26,6 +56,9 @@ final class TaxonomyService
             throw ValidationException::withMessages(['parent_id' => 'The parent term must belong to this vocabulary.']);
         }
         $slug ??= Str::slug($name);
+        if ($slug === '') {
+            throw ValidationException::withMessages(['slug' => 'A usable term slug is required.']);
+        }
 
         return $taxonomy->terms()->create(['name' => $name, 'slug' => $slug, 'parent_id' => $parentId, 'synonyms' => array_values($synonyms), 'translations' => $translations, 'position' => $position ?? 0, 'team_id' => $taxonomy->team_id]);
     }

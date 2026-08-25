@@ -80,6 +80,23 @@ it('deletes an entry through the row action', function (): void {
     $this->assertModelMissing($entry);
 });
 
+it('clones an entry through the row action', function (): void {
+    $type = ContentType::factory()->create(['key' => 'article']);
+    $entry = ContentEntry::factory()->create([
+        'content_type_id' => $type->id,
+        'title' => 'Original',
+        'status' => 'published',
+        'published_at' => now()->subMinute(),
+    ]);
+
+    Livewire::test(ListContentEntries::class)->callTableAction('clone', $entry);
+
+    $clone = ContentEntry::query()->where('title', 'Original (Copy)')->first();
+
+    expect($clone)->not->toBeNull()
+        ->and($clone->workflowState()->value)->toBe('draft');
+});
+
 it('scopes entries to the current tenant', function (): void {
     Filament::setTenant($this->team);
     $mine = ContentEntry::factory()->create();

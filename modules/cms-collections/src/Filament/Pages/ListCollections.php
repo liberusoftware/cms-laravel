@@ -7,6 +7,7 @@ namespace Liberu\Cms\Collections\Filament\Pages;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Liberu\Cms\Collections\Filament\CollectionResource;
+use Liberu\Cms\Collections\Actions\CollectionMutationService;
 
 final class ListCollections extends ListRecords
 {
@@ -14,6 +15,6 @@ final class ListCollections extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [CreateAction::make()];
+        return [CreateAction::make()->using(fn (array $data) => app(CollectionMutationService::class)->create($data))];
     }
 }

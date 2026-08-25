@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentTypes;
 
 use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
+use Liberu\Cms\ContentTypes\Actions\ContentEntryMutationService;
 use Liberu\Cms\ContentTypes\Fields\DefaultFieldTypes;
 use Liberu\Cms\ContentTypes\Fields\FieldTypeRegistry;
 use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
@@ -14,6 +15,8 @@ use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryWriteController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Preview\ContentEntryPreviewSource;
 use Liberu\Cms\ContentTypes\Repositories\ContentEntryRepository;
+use Liberu\Cms\ContentTypes\Queries\FieldSchemaQuery;
+use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Liberu\Cms\ContentTypes\Schema\SchemaValidator;
 use Liberu\Cms\ContentTypes\Search\ContentEntrySearchSource;
 use Liberu\Cms\Contracts\Access\AccessScope;
@@ -39,12 +42,15 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
 
     protected function registerModule(): void
     {
+        $this->app->singleton(ContentEntryMutationService::class);
         $this->app->singleton(ContentEntryRepositoryInterface::class, ContentEntryRepository::class);
 
         $this->app->singleton(FieldTypeRegistryInterface::class, FieldTypeRegistry::class);
         DefaultFieldTypes::registerInto($this->app->make(FieldTypeRegistryInterface::class));
 
         $this->app->singleton(SchemaValidator::class);
+        $this->app->singleton(FieldSchemaQuery::class);
+        $this->app->singleton(PublishedEntityQuery::class);
 
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $registry = $this->app->make(AdminResourceRegistryInterface::class);

@@ -12,6 +12,7 @@ final class SitemapsLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Livewire::component('module-cms-sitemaps.sitemap-preview', SitemapPreview::class);
+        Livewire::addNamespace('module-cms-sitemaps', classNamespace: 'Liberu\\Cms\\SitemapsLivewire\\Livewire');
+        Livewire::component('module-cms-sitemaps::sitemap-preview', SitemapPreview::class);
     }
 }

@@ -24,7 +24,9 @@ final class SitemapService
 
     public function exclude(string $url, ?int $siteId = null): int
     {
-        return SitemapEntry::query()->where('url', $url)->where('site_id', $siteId)->update(['excluded' => true]);
+        $updated = SitemapEntry::query()->where('url', $url)->where('site_id', $siteId)->update(['excluded' => true]);
+        if ($updated > 0) Cache::tags(['cms-sitemaps'])->flush();
+        return $updated;
     }
 
     /** @return array<int, SitemapEntry> */
@@ -34,9 +36,9 @@ final class SitemapService
     }
 
     /** @return array<int, array<int, SitemapEntry>> */
-    public function chunks(?int $siteId = null, int $size = 50000): array
+    public function chunks(?int $siteId = null, int $size = 50000, ?string $type = null, ?string $locale = null): array
     {
-        return array_chunk($this->entries($siteId), max(1, min(50000, $size)));
+        return array_chunk($this->entries($siteId, $type, $locale), max(1, min(50000, $size)));
     }
 
     public function notify(string $engine, ?int $siteId = null): array
