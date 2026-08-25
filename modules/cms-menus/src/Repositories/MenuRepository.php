@@ -14,8 +14,8 @@ final class MenuRepository implements MenuRepositoryInterface
         return Menu::query()->find($id);
     }
 
-    public function forLocation(string $location): ?Menu
+    public function forLocation(string $location, string $variant = 'default'): ?Menu
     {
-        return Menu::query()->where('location', $location)->first();
+        return Menu::query()->where('location', $location)->where('variant', $variant)->first();
     }
 }

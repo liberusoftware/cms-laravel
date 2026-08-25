@@ -1,0 +1,1 @@
+{"name":"module-cms-navigation-filament","package":"liberusoftware/module-cms-navigation-filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\NavigationFilament\\NavigationFilamentServiceProvider"]}

@@ -1,0 +1,1 @@
+{"name":"module-cms-navigation-livewire","package":"liberusoftware/module-cms-navigation-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\NavigationLivewire\\NavigationLivewireServiceProvider"]}

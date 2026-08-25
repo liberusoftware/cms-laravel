@@ -16,5 +16,5 @@ interface MenuRepositoryInterface
     /**
      * The menu assigned to a navigation location (header, footer, sidebar, …).
      */
-    public function forLocation(string $location): ?Menu;
+    public function forLocation(string $location, string $variant = 'default'): ?Menu;
 }

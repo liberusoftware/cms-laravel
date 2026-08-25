@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b751abd4d18b6dcc4246d970328c9645",
+    "content-hash": "50250e427a355c0de1f09fb0a5907a53",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8215,6 +8215,125 @@
                 "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
                 "source": "https://github.com/liberusoftware/module-cms-menus"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-navigation-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-navigation-api",
+                "reference": "d238ddb4c4b5c12918469ad690780c8e5513c54d"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-menus": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-navigation-api",
+                    "core": "liberusoftware/module-cms-menus"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NavigationApi\\NavigationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NavigationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Navigation API presentation module for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-navigation-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-navigation-filament",
+                "reference": "e5bc8b082340928459b8734da5d8090e5feaed20"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-menus": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-navigation-filament",
+                    "core": "liberusoftware/module-cms-menus"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NavigationFilament\\NavigationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NavigationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament 5 presentation module for CMS Navigation.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-navigation-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-navigation-livewire",
+                "reference": "03b8b467b67ed9ba299947fd5c5cb74f153adbf0"
+            },
+            "require": {
+                "liberusoftware/module-cms-menus": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-navigation-livewire",
+                    "core": "liberusoftware/module-cms-menus"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\NavigationLivewire\\NavigationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\NavigationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire 4 presentation module for CMS Navigation.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

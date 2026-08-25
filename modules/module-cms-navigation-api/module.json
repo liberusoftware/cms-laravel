@@ -1,0 +1,1 @@
+{"name":"module-cms-navigation-api","package":"liberusoftware/module-cms-navigation-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\NavigationApi\\NavigationApiServiceProvider"]}

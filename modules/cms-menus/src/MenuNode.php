@@ -16,5 +16,7 @@ final readonly class MenuNode
         public string $label,
         public string $url,
         public array $children = [],
+        public string $linkType = 'custom',
+        public bool $active = false,
     ) {}
 }

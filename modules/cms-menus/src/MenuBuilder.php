@@ -22,7 +22,7 @@ final readonly class MenuBuilder
     /**
      * @return array<int, MenuNode>
      */
-    public function tree(Menu $menu): array
+    public function tree(Menu $menu, ?string $currentPath = null): array
     {
         $byParent = [];
 
@@ -30,30 +30,51 @@ final readonly class MenuBuilder
             $byParent[$item->parent_id ?? 0][] = $item;
         }
 
-        return $this->buildLevel($byParent, 0);
+        return $this->buildLevel($byParent, 0, $currentPath);
     }
 
     /**
      * @param  array<int, array<int, MenuItem>>  $byParent
      * @return array<int, MenuNode>
      */
-    private function buildLevel(array $byParent, int $parentId): array
+    private function buildLevel(array $byParent, int $parentId, ?string $currentPath): array
     {
         $nodes = [];
 
         foreach ($byParent[$parentId] ?? [] as $item) {
-            if (! $this->isVisible($item)) {
+            if (! $this->isVisible($item, $currentPath) || ! $item->active) {
                 continue;
             }
 
-            $nodes[] = new MenuNode($item->label, $item->url, $this->buildLevel($byParent, $item->id));
+            $children = $this->buildLevel($byParent, $item->id, $currentPath);
+            $active = $currentPath !== null && trim($item->url, '/') === trim($currentPath, '/')
+                || collect($children)->contains(fn (MenuNode $child): bool => $child->active);
+
+            $nodes[] = new MenuNode(
+                $item->label,
+                $item->url,
+                $children,
+                (string) ($item->link_type ?? 'custom'),
+                $active,
+            );
         }
 
         return $nodes;
     }
 
-    private function isVisible(MenuItem $item): bool
+    private function isVisible(MenuItem $item, ?string $currentPath): bool
     {
-        return $item->permission === null || $this->access->can($item->permission);
+        $visibility = is_array($item->visibility) ? $item->visibility : [];
+        $permission = $visibility['permission'] ?? $item->permission;
+        if ($permission !== null && ! $this->access->can(is_string($permission) ? $permission : '')) {
+            return false;
+        }
+
+        $prefix = $visibility['path_prefix'] ?? null;
+        if ($currentPath !== null && is_string($prefix) && ! str_starts_with('/'.trim($currentPath, '/'), '/'.trim($prefix, '/'))) {
+            return false;
+        }
+
+        return true;
     }
 }

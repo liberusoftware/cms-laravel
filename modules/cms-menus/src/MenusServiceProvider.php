@@ -20,6 +20,7 @@ use Liberu\Cms\Menus\Filament\MenuResource;
 use Liberu\Cms\Menus\Http\Controllers\MenuApiController;
 use Liberu\Cms\Menus\Models\Menu;
 use Liberu\Cms\Menus\Repositories\MenuRepository;
+use Liberu\Cms\Menus\Services\MenuService;
 
 final class MenusServiceProvider extends ModuleServiceProvider
 {
@@ -31,6 +32,7 @@ final class MenusServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(MenuRepositoryInterface::class, MenuRepository::class);
+        $this->app->singleton(MenuService::class);
 
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $registry = $this->app->make(AdminResourceRegistryInterface::class);

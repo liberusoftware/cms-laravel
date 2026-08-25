@@ -17,6 +17,8 @@ use Liberu\Cms\Menus\Database\Factories\MenuFactory;
  * @property int $id
  * @property string $name
  * @property string $location
+ * @property string $variant
+ * @property array<string, mixed>|null $settings
  * @property int|null $team_id
  */
 final class Menu extends Model
@@ -33,7 +35,12 @@ final class Menu extends Model
      * @var list<string>
      */
     #[\Override]
-    protected $fillable = ['name', 'location', 'team_id'];
+    protected $fillable = ['name', 'location', 'variant', 'settings', 'team_id'];
+
+    protected function casts(): array
+    {
+        return ['settings' => 'array'];
+    }
 
     /**
      * @return HasMany<MenuItem, $this>
