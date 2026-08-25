@@ -23,7 +23,10 @@ return new class extends Migration
             $table->boolean('excluded')->default(false);
             $table->unsignedBigInteger('team_id')->nullable();
             $table->timestamps();
-            $table->unique(['team_id', 'source_type', 'source_id', 'target_type', 'target_id']);
+            $table->unique(
+                ['team_id', 'source_type', 'source_id', 'target_type', 'target_id'],
+                'cms_related_content_identity_unique'
+            );
             $table->index(['source_type', 'source_id', 'excluded', 'score']);
         });
     }
