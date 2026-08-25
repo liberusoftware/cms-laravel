@@ -14,7 +14,7 @@ return new class extends Migration
             $table->unsignedBigInteger('site_id')->nullable();
             $table->string('type')->default('web');
             $table->string('locale', 16)->nullable();
-            $table->string('url', 512);
+            $table->string('url', 480);
             $table->timestamp('last_modified')->nullable();
             $table->decimal('priority', 3, 2)->default(0.5);
             $table->string('change_frequency')->nullable();
