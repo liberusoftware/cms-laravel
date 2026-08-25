@@ -14,7 +14,7 @@ final class StaticPublishingController
 {
     public function store(Request $request, StaticPublishingService $service): JsonResponse
     {
-        $data = $request->validate(['routes' => ['required', 'array'], 'site_key' => ['sometimes', 'nullable', 'string'], 'kind' => ['sometimes', 'string', 'in:full,incremental,preview'], 'deployment' => ['sometimes', 'string']]);
+        $data = $request->validate(['routes' => ['required', 'array'], 'routes.*' => ['required', 'array'], 'routes.*.path' => ['required', 'string', 'max:2048'], 'routes.*.url' => ['sometimes', 'url'], 'routes.*.last_modified' => ['sometimes', 'date'], 'site_key' => ['sometimes', 'nullable', 'string'], 'kind' => ['sometimes', 'string', 'in:full,incremental,preview'], 'deployment' => ['sometimes', 'string']]);
 
         return response()->json(['data' => StaticBuildResource::make($service->build($data['routes'], $data['site_key'] ?? null, $data['kind'] ?? 'full', $data['deployment'] ?? 'local'))], 201);
     }

@@ -22,6 +22,12 @@ it('validates build kinds and invalidation paths', function (): void {
     expect(fn () => $service->invalidate($build, 'relative'))->toThrow(ValidationException::class);
 });
 
+it('records malformed routes as diagnostics instead of publishing them', function (): void {
+    $build = app(StaticPublishingService::class)->build([['path' => '/valid'], ['path' => 'relative'], ['url' => 'missing-path']], 'docs');
+
+    expect($build->manifest)->toHaveCount(1)->and($build->diagnostics['invalid_routes'])->toBe(2);
+});
+
 it('deploys published builds through a provider-neutral adapter registry', function (): void {
     app(DeploymentAdapterRegistry::class)->register(new class implements DeploymentAdapterInterface
     {
