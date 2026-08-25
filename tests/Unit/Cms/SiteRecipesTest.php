@@ -17,3 +17,14 @@ it('requires valid bundle sections and a version before publishing', function ()
     $recipe = $service->create('empty', 'Empty');
     expect(fn () => $service->publish($recipe))->toThrow(ValidationException::class)->and(fn () => $service->version($recipe, ['menus' => 'invalid']))->toThrow(ValidationException::class);
 });
+
+it('exports the latest version and rejects blank recipe identity', function (): void {
+    $service = app(SiteRecipeService::class);
+    expect(fn () => $service->create('', ''))->toThrow(ValidationException::class);
+    $recipe = $service->create('release', 'Release');
+    $service->version($recipe, ['configuration' => ['revision' => 1]]);
+    $service->version($recipe, ['configuration' => ['revision' => 2]]);
+
+    expect($service->export($recipe)['version'])->toBe(2)
+        ->and($service->export($recipe)['bundle']['configuration']['revision'])->toBe(2);
+});

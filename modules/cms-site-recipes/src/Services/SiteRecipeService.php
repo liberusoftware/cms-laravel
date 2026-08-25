@@ -13,6 +13,10 @@ final class SiteRecipeService
 {
     public function create(string $key, string $name, ?string $description = null, ?int $teamId = null): SiteRecipe
     {
+        if (trim($key) === '' || trim($name) === '') {
+            throw ValidationException::withMessages(['name' => 'Recipe key and name are required.']);
+        }
+
         return SiteRecipe::query()->create(['key' => Str::slug($key), 'name' => $name, 'description' => $description, 'status' => 'draft', 'team_id' => $teamId]);
     }
 
@@ -41,7 +45,7 @@ final class SiteRecipeService
 
     public function export(SiteRecipe $recipe): array
     {
-        $version = $recipe->versions()->firstOrFail();
+        $version = $recipe->versions()->latest('version')->firstOrFail();
 
         return ['key' => $recipe->key, 'name' => $recipe->name, 'version' => $version->version, 'checksum' => $version->checksum, 'bundle' => $version->only(['modules', 'configuration', 'content_types', 'workflows', 'menus', 'blocks', 'themes', 'starter_content'])];
     }
