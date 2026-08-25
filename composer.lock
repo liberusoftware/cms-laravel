@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f91dcd343705eab8d62833a11037d38",
+    "content-hash": "b751abd4d18b6dcc4246d970328c9645",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7211,7 +7211,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-contracts",
+                "url": "modules/cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
@@ -7692,6 +7692,145 @@
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\DisplayModesLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-document-management",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-document-management",
+                "reference": "247e557ac77240ac6404c6cba64cb2135e4fb2cc"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-document-management",
+                    "capability": "document-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DocumentManagement\\DocumentManagementServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DocumentManagement\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-document-management-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-document-management-api",
+                "reference": "c4d214bc07a077c84954e0f5cb4dd69411422bcd"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-document-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DocumentManagementApi\\DocumentManagementApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DocumentManagementApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-document-management-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-document-management-filament",
+                "reference": "881ac665020542eb470631da6f6b027ba4d6098d"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-document-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DocumentManagementFilament\\DocumentManagementFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DocumentManagementFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-document-management-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-document-management-livewire",
+                "reference": "b6537e3ff7d4908a8e238299aa1ae1820af5343f"
+            },
+            "require": {
+                "liberusoftware/module-cms-document-management": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DocumentManagementLivewire\\DocumentManagementLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DocumentManagementLivewire\\": "src/"
                 }
             },
             "license": [
