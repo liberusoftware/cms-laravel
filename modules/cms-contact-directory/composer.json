@@ -1,0 +1,25 @@
+{
+    "name": "liberusoftware/module-cms-contact-directory",
+    "description": "CMS contact directory domain module.",
+"type": "library",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "laravel/framework": "^13.0",
+        "liberusoftware/module-cms-core": "^0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liberu\\Cms\\ContactDirectory\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Liberu\\Cms\\ContactDirectory\\ContactDirectoryServiceProvider"]
+        },
+        "liberu": {
+            "module": "cms-contact-directory"
+        }
+    }
+}

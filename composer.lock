@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59b2343c36eeb2c9ec548d7323e248e6",
+    "content-hash": "5a61bd4511465a4eb35f890862bc6765",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5614,6 +5614,146 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-contact-directory",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-contact-directory",
+                "reference": "a503df59314c9833a6f3354413862a3fffbe1b01"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContactDirectory\\ContactDirectoryServiceProvider"
+                    ]
+                },
+                "liberu": {
+                    "module": "cms-contact-directory"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContactDirectory\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS contact directory domain module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-contact-directory-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-contact-directory-api",
+                "reference": "d55023319cd85a76a99fe164e92e66b64451dca7"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-contact-directory": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContactDirectoryApi\\ContactDirectoryApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContactDirectoryApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-contact-directory-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-contact-directory-filament",
+                "reference": "b28c829f9da746f5be150ebe793bad42482e606b"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-contact-directory": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContactDirectoryFilament\\ContactDirectoryFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContactDirectoryFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-contact-directory-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-contact-directory-livewire",
+                "reference": "90c02d68a0de8756e786aa17ae7f69e3bdd4de06"
+            },
+            "require": {
+                "liberusoftware/module-cms-contact-directory": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContactDirectoryLivewire\\ContactDirectoryLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContactDirectoryLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-content",
             "version": "0.1.0",
             "dist": {
@@ -5841,7 +5981,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-contracts",
+                "url": "modules/module-cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {

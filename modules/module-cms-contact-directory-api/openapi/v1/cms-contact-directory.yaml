@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Contact Directory API
+  version: 1.0.0
+paths:
+  /api/v1/cms/contact-directory/contacts:
+    get:
+      operationId: listContactDirectoryContacts
+      responses:
+        '200': {description: Paginated contacts}
+    post:
+      operationId: createContactDirectoryContact
+      responses:
+        '201': {description: Contact created}
