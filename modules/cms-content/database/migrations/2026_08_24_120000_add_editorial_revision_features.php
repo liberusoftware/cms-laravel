@@ -17,7 +17,10 @@ return new class extends Migration
             $table->boolean('published')->default(false)->after('parent_revision_id');
             $table->json('metadata')->nullable()->after('published');
             $table->string('content_hash', 64)->nullable()->after('metadata');
-            $table->index(['revisionable_type', 'revisionable_id', 'branch', 'autosave']);
+            $table->index(
+                ['revisionable_type', 'revisionable_id', 'branch', 'autosave'],
+                'cms_revisions_branch_autosave_idx'
+            );
         });
         Schema::table('cms_revisions', function (Blueprint $table): void {
             $table->dropUnique('cms_revisions_unique');
