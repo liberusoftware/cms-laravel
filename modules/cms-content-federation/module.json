@@ -1,0 +1,1 @@
+{"name":"cms-content-federation","description":"Federated remote content sources and cache fallback.","provider":"Liberu\\Cms\\ContentFederation\\ContentFederationServiceProvider","version":"0.1.0"}

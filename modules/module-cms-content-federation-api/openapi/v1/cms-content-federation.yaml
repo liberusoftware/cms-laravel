@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Federation API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-federation/sources:
+    get:
+      operationId: listFederationSources
+      responses:
+        '200': {description: Federation sources}
+    post:
+      operationId: createFederationSource
+      responses:
+        '201': {description: Source created}
