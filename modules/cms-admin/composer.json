@@ -1,13 +1,18 @@
 {
-    "name": "liberu-cms/cms-admin",
+    "name": "liberusoftware/module-cms-admin",
     "description": "Admin module for Liberu CMS: a Filament panel plugin that surfaces the module system and content services to editors and administrators.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-admin",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-admin/issues",
+        "source": "https://github.com/liberusoftware/module-cms-admin"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1",
         "filament/filament": "^5.0",
         "illuminate/contracts": "^13.0",
         "illuminate/support": "^13.0"
@@ -23,6 +28,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "module-cms-admin"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Admin\\AdminServiceProvider"

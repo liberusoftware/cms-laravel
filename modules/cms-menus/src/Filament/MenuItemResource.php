@@ -31,16 +31,22 @@ final class MenuItemResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = MenuItem::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLink;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-menu-items';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Menu Items';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'label';
 
     protected static function cmsPermissionKey(): string
@@ -48,6 +54,7 @@ final class MenuItemResource extends Resource
         return 'menus';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -83,6 +90,7 @@ final class MenuItemResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -117,6 +125,7 @@ final class MenuItemResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

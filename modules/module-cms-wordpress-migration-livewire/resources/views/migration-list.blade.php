@@ -1,0 +1,1 @@
+<div><label>Migration status <input type="text" wire:model.live="status" /></label><ul>@forelse ($migrations as $migration)<li>{{ $migration->public_id }} — {{ $migration->status }} ({{ $migration->processed_records }}/{{ $migration->total_records }})</li>@empty<li>No migrations.</li>@endforelse</ul></div>

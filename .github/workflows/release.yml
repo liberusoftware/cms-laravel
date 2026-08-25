@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing protected version tag to verify and release
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  verify-and-publish:
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 45
+
+    steps:
+      - name: Resolve release ref
+        id: release
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+          REF_NAME: ${{ github.ref_name }}
+        run: echo "tag=${INPUT_TAG:-$REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout exact release commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ steps.release.outputs.tag }}
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f
+        with:
+          php-version: '8.5'
+          extensions: mbstring, pdo, pdo_sqlite, bcmath, opcache, zip, gd, intl, dom, curl
+          coverage: xdebug
+
+      - name: Install locked dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Verify installed module sources are reproducible
+        # The application intentionally keeps package sources under modules/;
+        # there is no separate themes/ tree in this repository.
+        run: git diff --exit-code -- modules
+
+      - name: Prepare application
+        run: |
+          cp .env.example .env
+          php artisan key:generate --ansi
+
+      - name: Run release verification and 100% coverage gate
+        env:
+          XDEBUG_MODE: coverage
+        run: |
+          composer validate --no-check-publish
+          composer audit --locked --no-interaction
+          vendor/bin/pint --test
+          vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+          vendor/bin/rector process modules --dry-run --no-progress-bar
+          php artisan test --coverage-clover=coverage.xml --min=100
+          npm ci --no-audit --no-fund
+          npm run build
+          docker compose config --quiet
+          bash k8s/validate.sh
+
+      - name: Publish verified GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$(git rev-list -n 1 "$TAG")"
+          git fetch origin main --quiet
+          git merge-base --is-ancestor "$TAG" origin/main
+          gh release create "$TAG" --verify-tag --generate-notes --title "$TAG"

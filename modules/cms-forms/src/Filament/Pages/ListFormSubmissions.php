@@ -9,5 +9,6 @@ use Liberu\Cms\Forms\Filament\FormSubmissionResource;
 
 final class ListFormSubmissions extends ListRecords
 {
+    #[\Override]
     protected static string $resource = FormSubmissionResource::class;
 }

@@ -1,5 +1,11 @@
 # CMS Search
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-search
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-search
+
 Full-text search over **published** content, exposed on the Delivery API. The
 search module aggregates results from every content module that registers a
 `SearchableSourceInterface`, so it never imports a module (same pattern as the

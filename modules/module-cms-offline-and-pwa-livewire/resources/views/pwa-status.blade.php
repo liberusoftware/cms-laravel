@@ -1,0 +1,1 @@
+<div>@if ($configuration)<p>{{ $configuration->name }} · v{{ $configuration->service_worker_version }}</p><span>{{ $configuration->offline_url }}</span>@else <p>No PWA configuration selected.</p>@endif</div>

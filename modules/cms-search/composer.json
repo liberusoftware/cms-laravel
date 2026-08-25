@@ -1,13 +1,18 @@
 {
-    "name": "liberu-cms/cms-search",
+    "name": "liberusoftware/module-cms-search",
     "description": "Search module for Liberu CMS: full-text search over published content across every content type, exposed on the Delivery API.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-search",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-search/issues",
+        "source": "https://github.com/liberusoftware/module-cms-search"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",
         "illuminate/http": "^13.0",
@@ -25,6 +30,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "module-cms-search"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Search\\CmsSearchServiceProvider"

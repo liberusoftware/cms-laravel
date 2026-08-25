@@ -9,5 +9,6 @@ use Liberu\Cms\Audit\Filament\AuditLogResource;
 
 final class ListAuditLogs extends ListRecords
 {
+    #[\Override]
     protected static string $resource = AuditLogResource::class;
 }

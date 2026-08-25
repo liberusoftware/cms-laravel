@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentTypes\Filament;
 
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -20,6 +21,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\ContentTypes\Actions\ContentEntryMutationService;
 use Liberu\Cms\ContentTypes\Fields\FieldDefinition;
 use Liberu\Cms\ContentTypes\Filament\Pages\ListContentEntries;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
@@ -40,16 +42,22 @@ final class ContentEntryResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = ContentEntry::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedInboxStack;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-content-entries';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Content Entries';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static function cmsPermissionKey(): string
@@ -57,6 +65,7 @@ final class ContentEntryResource extends Resource
         return 'content-entries';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -89,6 +98,7 @@ final class ContentEntryResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -111,6 +121,14 @@ final class ContentEntryResource extends Resource
             ->defaultSort('updated_at', 'desc')
             ->recordActions([
                 EditAction::make(),
+                Action::make('clone')
+                    ->label('Clone')
+                    ->icon(Heroicon::OutlinedSquare2Stack)
+                    ->requiresConfirmation()
+                    ->action(function (ContentEntry $record): void {
+                        app(ContentEntryMutationService::class)->clone($record);
+                    })
+                    ->successNotificationTitle('Content entry cloned'),
                 DeleteAction::make(),
             ])
             ->toolbarActions([
@@ -162,6 +180,7 @@ final class ContentEntryResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

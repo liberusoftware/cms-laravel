@@ -1,0 +1,13 @@
+{
+    "name": "module-cms-api",
+    "package": "liberusoftware/module-cms-api",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Api\\CmsApiServiceProvider"
+    ]
+}

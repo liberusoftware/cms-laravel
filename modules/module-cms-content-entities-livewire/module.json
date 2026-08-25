@@ -1,0 +1,1 @@
+{"name":"module-cms-content-entities-livewire","package":"liberusoftware/module-cms-content-entities-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\ContentEntitiesLivewire\\ContentEntitiesLivewireServiceProvider"]}

@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-content-entities-livewire",
+    "description": "Livewire 4 adapter for CMS Content Entities.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "livewire/livewire": "^4.0", "liberusoftware/module-cms-content-types": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\ContentEntitiesLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-content-entities-livewire", "core": "liberusoftware/module-cms-content-types"}, "laravel": {"providers": ["Liberu\\Cms\\ContentEntitiesLivewire\\ContentEntitiesLivewireServiceProvider"]}}
+}

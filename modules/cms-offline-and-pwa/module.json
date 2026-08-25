@@ -1,0 +1,1 @@
+{"name":"module-cms-offline-and-pwa","title":"Offline and PWA","description":"Offline delivery and progressive web app configuration.","version":"0.1.0","providers":["Liberu\\Cms\\OfflineAndPwa\\OfflineAndPwaServiceProvider"]}

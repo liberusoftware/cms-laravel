@@ -48,7 +48,7 @@ final class AppendMethodHook
 it('returns the filter unchanged when nothing is registered', function (): void {
     $filter = new TestStringFilter('untouched');
 
-    $result = (new HookBus(app()))->apply($filter);
+    $result = new HookBus(app())->apply($filter);
 
     expect($result)->toBe($filter)
         ->and($result->value)->toBe('untouched');
@@ -66,17 +66,17 @@ it('runs a registered callback that mutates the payload in place', function (): 
 it('applies callbacks in ascending priority order, ties by registration order', function (): void {
     $bus = new HookBus(app());
 
-    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f) => $f->value .= 'third', 10);
-    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f) => $f->value .= 'first', -5);
-    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f) => $f->value .= 'second');
-    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f) => $f->value .= 'fourth', 10);
+    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f): string => $f->value .= 'third', 10);
+    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f): string => $f->value .= 'first', -5);
+    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f): string => $f->value .= 'second');
+    $bus->listen(TestStringFilter::class, fn (TestStringFilter $f): string => $f->value .= 'fourth', 10);
 
     expect($bus->apply(new TestStringFilter)->value)->toBe('firstsecondthirdfourth');
 });
 
 it('only runs callbacks registered for the applied filter class', function (): void {
     $bus = new HookBus(app());
-    $bus->listen(TestOtherFilter::class, fn (TestOtherFilter $f) => $f->value .= 'x');
+    $bus->listen(TestOtherFilter::class, fn (TestOtherFilter $f): string => $f->value .= 'x');
 
     expect($bus->apply(new TestStringFilter('kept'))->value)->toBe('kept');
 });
@@ -99,6 +99,6 @@ it('throws when a registered callback cannot be resolved to something callable',
     $bus = new HookBus(app());
     $bus->listen(TestStringFilter::class, [AppendMethodHook::class, 'missingMethod']);
 
-    expect(fn () => $bus->apply(new TestStringFilter))
+    expect(fn (): Filter => $bus->apply(new TestStringFilter))
         ->toThrow(InvalidArgumentException::class);
 });

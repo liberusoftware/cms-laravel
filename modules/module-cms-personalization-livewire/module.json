@@ -1,0 +1,1 @@
+{"name":"module-cms-personalization-livewire","package":"liberusoftware/module-cms-personalization-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\PersonalizationLivewire\\PersonalizationLivewireServiceProvider"]}

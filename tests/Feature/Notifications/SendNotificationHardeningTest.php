@@ -43,7 +43,7 @@ function countingChannel(string $key = 'test'): NotificationChannelInterface
     {
         public int $sends = 0;
 
-        public function __construct(private string $key) {}
+        public function __construct(private readonly string $key) {}
 
         public function key(): string
         {

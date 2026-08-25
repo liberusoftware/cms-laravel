@@ -12,7 +12,7 @@ use Liberu\Cms\Search\Health\SearchHealthCheck;
  */
 function searchIndexReporting(bool $ready): SearchIndexInterface
 {
-    return new class($ready) implements SearchIndexInterface
+    return new readonly class($ready) implements SearchIndexInterface
     {
         public function __construct(private bool $ready) {}
 

@@ -32,16 +32,22 @@ final class MediaResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Media::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-media';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Media';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'file_name';
 
     protected static function cmsPermissionKey(): string
@@ -49,11 +55,13 @@ final class MediaResource extends Resource
         return 'media';
     }
 
+    #[\Override]
     public static function canCreate(): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -65,6 +73,7 @@ final class MediaResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -105,6 +114,7 @@ final class MediaResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

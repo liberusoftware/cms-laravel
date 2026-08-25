@@ -33,7 +33,6 @@ final readonly class ContentEntrySearchSource implements SearchableSourceInterfa
                 id: $entry->id,
                 title: $entry->title,
                 slug: $entry->slug,
-                excerpt: null,
                 score: SearchScoring::score($entry->title, $query),
             );
         }

@@ -15,6 +15,7 @@ use Liberu\Cms\Contracts\Module\ModuleRegistryInterface;
  */
 class ModulesOverviewWidget extends StatsOverviewWidget
 {
+    #[\Override]
     protected function getStats(): array
     {
         $registry = app(ModuleRegistryInterface::class);

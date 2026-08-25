@@ -14,9 +14,9 @@ function fakeModule(string $key, array $dependencies = [], bool $foundational = 
     return new class($key, $dependencies, $foundational) extends AbstractModule
     {
         public function __construct(
-            private string $moduleKey,
-            private array $moduleDependencies,
-            private bool $moduleFoundational,
+            private readonly string $moduleKey,
+            private readonly array $moduleDependencies,
+            private readonly bool $moduleFoundational,
         ) {}
 
         public function key(): string

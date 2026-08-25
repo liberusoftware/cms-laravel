@@ -21,6 +21,8 @@ final readonly class MetricsSubscriber
 
     public function handleContentPublished(ContentPublished $event): void
     {
+        unset($event);
+
         $this->recorder->increment('content.published');
     }
 
@@ -34,11 +36,15 @@ final readonly class MetricsSubscriber
 
     public function handleFormSubmitted(FormSubmitted $event): void
     {
+        unset($event);
+
         $this->recorder->increment('form.submitted');
     }
 
     public function handleMediaUploaded(MediaUploaded $event): void
     {
+        unset($event);
+
         $this->recorder->increment('media.uploaded');
     }
 }

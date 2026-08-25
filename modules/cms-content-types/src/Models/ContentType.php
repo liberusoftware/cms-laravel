@@ -33,7 +33,7 @@ final class ContentType extends Model
      * @var list<string>
      */
     #[\Override]
-    protected $fillable = ['key', 'name', 'singular_label', 'plural_label', 'fields'];
+    protected $fillable = ['key', 'name', 'singular_label', 'plural_label', 'fields', 'schema_version', 'schema_history'];
 
     /**
      * @return array<string, string>
@@ -41,7 +41,27 @@ final class ContentType extends Model
     #[\Override]
     protected function casts(): array
     {
-        return ['fields' => 'array'];
+        return ['fields' => 'array', 'schema_version' => 'integer', 'schema_history' => 'array'];
+    }
+
+    protected static function booted(): void
+    {
+        self::saving(function (ContentType $type): void {
+            if (! $type->exists || ! $type->isDirty('fields')) {
+                return;
+            }
+
+            $history = is_array($type->schema_history) ? $type->schema_history : [];
+            $history[] = [
+                'version' => ((int) ($type->schema_version ?? 1)) + 1,
+                'fields' => $type->getOriginal('fields') ?? [],
+                'reason' => null,
+                'migrated_at' => now()->toAtomString(),
+            ];
+
+            $type->schema_version = count($history) + 1;
+            $type->schema_history = $history;
+        });
     }
 
     /**
@@ -55,6 +75,26 @@ final class ContentType extends Model
             FieldDefinition::fromArray(...),
             $this->fields ?? [],
         );
+    }
+
+    /**
+     * Replace the field schema while retaining an immutable migration trail.
+     *
+     * @param  array<int, array<string, mixed>>  $fields
+     */
+    public function migrateSchema(array $fields, ?string $reason = null): self
+    {
+        $this->fields = $fields;
+        $this->save();
+
+        if ($reason !== null && is_array($this->schema_history)) {
+            $history = $this->schema_history;
+            $history[array_key_last($history)]['reason'] = $reason;
+            $this->schema_history = $history;
+            $this->saveQuietly();
+        }
+
+        return $this;
     }
 
     /**

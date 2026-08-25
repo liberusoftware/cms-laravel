@@ -1,0 +1,7 @@
+{
+    "name": "module-cms-collections",
+    "package": "liberusoftware/module-cms-collections",
+    "version": "0.1.0",
+    "layers": ["core", "api", "filament"],
+    "service_providers": ["Liberu\\Cms\\Collections\\CollectionsServiceProvider"]
+}

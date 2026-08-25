@@ -22,4 +22,9 @@ final class InvalidContentData extends RuntimeException
     {
         return new self("The field [{$field}] must be of type [{$type}].", $field);
     }
+
+    public static function ruleFailed(string $field, string $rule): self
+    {
+        return new self("The field [{$field}] failed the [{$rule}] validation rule.", $field);
+    }
 }

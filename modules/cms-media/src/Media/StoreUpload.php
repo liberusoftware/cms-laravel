@@ -80,7 +80,10 @@ final readonly class StoreUpload
 
     private function mimeType(UploadedFile $file): string
     {
-        return $file->getMimeType() ?? $file->getClientMimeType();
+        // Never trust the client-supplied MIME claim when PHP cannot identify
+        // the file from its contents. An unknown type must fail the allow-list
+        // check rather than becoming an upload bypass.
+        return $file->getMimeType() ?? '';
     }
 
     /**

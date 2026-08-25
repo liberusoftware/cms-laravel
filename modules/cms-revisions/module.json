@@ -1,0 +1,1 @@
+{"name":"module-cms-revisions","package":"liberusoftware/module-cms-revisions","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\Revisions\\RevisionsServiceProvider"]}

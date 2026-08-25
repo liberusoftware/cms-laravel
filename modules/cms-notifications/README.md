@@ -1,5 +1,11 @@
 # CMS Notifications
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-notifications
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-notifications
+
 Turns CMS events into notifications. It listens on the event bus and, for each
 configured subscription, records an audit log row and queues delivery on a
 channel — so the module that emitted the event never knows a notification was

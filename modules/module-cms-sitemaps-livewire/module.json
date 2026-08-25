@@ -1,0 +1,1 @@
+{"name":"module-cms-sitemaps-livewire","package":"liberusoftware/module-cms-sitemaps-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\SitemapsLivewire\\SitemapsLivewireServiceProvider"]}

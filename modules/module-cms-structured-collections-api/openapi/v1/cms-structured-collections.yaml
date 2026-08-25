@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: CMS Structured Collections API
+  version: 1.0.0
+paths:
+  /api/v1/cms/structured-collections:
+    get:
+      operationId: cms.structured.collections.list
+      security: [{sanctum: []}]
+      parameters: [{name: search, in: query, schema: {type: string}}, {name: per_page, in: query, schema: {type: integer, minimum: 1, maximum: 100}}]
+      responses: {'200': {$ref: '#/components/responses/Collection'}}
+    post:
+      operationId: cms.structured.collections.create
+      security: [{sanctum: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/CollectionWrite'}}}}
+      responses: {'201': {$ref: '#/components/responses/CollectionItem'}}
+  /api/v1/cms/structured-collections/{slug}:
+    get:
+      operationId: cms.structured.collections.get
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {$ref: '#/components/responses/CollectionItem'}, '404': {$ref: '#/components/responses/Problem'}}
+    patch:
+      operationId: cms.structured.collections.update
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/CollectionWrite'}}}}
+      responses: {'200': {$ref: '#/components/responses/CollectionItem'}}
+    delete:
+      operationId: cms.structured.collections.delete
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
+      responses: {'204': {description: Deleted}}
+  /api/v1/cms/structured-collections/{slug}/records:
+    get:
+      operationId: cms.structured.collections.records
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}, {name: search, in: query, schema: {type: string}}]
+      responses: {'200': {$ref: '#/components/responses/RecordCollection'}}
+    post:
+      operationId: cms.structured.collections.records.create
+      security: [{sanctum: []}]
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RecordWrite'}}}}
+      responses: {'201': {$ref: '#/components/responses/Record'}}
+components:
+  securitySchemes: {sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}}
+  schemas:
+    CollectionWrite: {type: object, required: [name, type], properties: {name: {type: string}, slug: {type: string}, type: {type: string}, description: {type: string, nullable: true}, schema: {type: object, additionalProperties: true}}}
+    RecordWrite: {type: object, required: [title], properties: {title: {type: string}, slug: {type: string}, content: {type: string}, data: {type: object, additionalProperties: true}, metadata: {type: object, additionalProperties: true}, status: {type: string}}}
+  responses:
+    Collection: {description: Collection page, content: {application/json: {schema: {type: object, required: [data], properties: {data: {type: array, items: {$ref: '#/components/schemas/CollectionResource'}}}}}}}
+    CollectionItem: {description: Collection resource, content: {application/json: {schema: {type: object, properties: {data: {$ref: '#/components/schemas/CollectionResource'}}}}}}
+    RecordCollection: {description: Record page, content: {application/json: {schema: {type: object, properties: {data: {type: array, items: {$ref: '#/components/schemas/RecordResource'}}}}}}}
+    Record: {description: Record resource, content: {application/json: {schema: {type: object, properties: {data: {$ref: '#/components/schemas/RecordResource'}}}}}}
+    Problem: {description: RFC 9457 problem, content: {application/problem+json: {schema: {type: object}}}}
+    CollectionResource: {type: object, required: [id, type, name, slug], properties: {id: {type: string}, type: {const: cms-structured-collections}, name: {type: string}, slug: {type: string}, schema: {type: object, additionalProperties: true}}}
+    RecordResource: {type: object, required: [id, type, title], properties: {id: {type: string}, type: {const: cms-structured-collection-record}, title: {type: string}, data: {type: object, additionalProperties: true}}}

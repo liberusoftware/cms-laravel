@@ -1,0 +1,1 @@
+<div><ul>@forelse ($items as $item)<li>{{ $item['target_type'] }} #{{ $item['target_id'] }} ({{ $item['explanation']['mode'] ?? $item['mode'] }})</li>@empty<li>No related content.</li>@endforelse</ul></div>

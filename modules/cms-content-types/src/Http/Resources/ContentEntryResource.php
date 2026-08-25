@@ -24,6 +24,7 @@ final class ContentEntryResource extends JsonResource
     /**
      * @return array<string, mixed>
      */
+    #[\Override]
     public function toArray(Request $request): array
     {
         $type = $this->type;
@@ -33,7 +34,10 @@ final class ContentEntryResource extends JsonResource
             'type' => $type instanceof ContentType ? $type->key : null,
             'title' => $this->title,
             'slug' => $this->slug,
+            'canonical_id' => $this->canonical_id,
+            'author_id' => $this->author_id === null ? null : (string) $this->author_id,
             'fields' => $this->data ?? [],
+            'related_entries' => ContentEntryResource::collection($this->whenLoaded('relatedEntries')),
             'published_at' => $this->publishedAt()?->format(\DateTimeInterface::ATOM),
         ]);
     }

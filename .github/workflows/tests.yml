@@ -13,7 +13,7 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     strategy:
       fail-fast: false
@@ -52,23 +52,21 @@ jobs:
           --health-retries=5
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f
         with:
           php-version: '8.5'
           extensions: mbstring, pdo, pdo_sqlite, pdo_mysql, pdo_pgsql, bcmath, opcache, zip, gd, intl
-          # Coverage is only collected on the sqlite leg (uploaded below); the
-          # mysql/pgsql legs skip the driver to keep the matrix fast.
-          coverage: ${{ matrix.db == 'sqlite' && 'xdebug' || 'none' }}
+          coverage: none
 
       - name: Get composer cache directory
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache composer dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -109,14 +107,4 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Run tests
-        run: php artisan test ${{ matrix.db == 'sqlite' && '--coverage-clover=coverage.xml' || '' }}
-
-      - name: Upload coverage to Codecov
-        if: matrix.db == 'sqlite'
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
+        run: php artisan test

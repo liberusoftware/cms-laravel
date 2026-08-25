@@ -26,16 +26,22 @@ final class NotificationLogResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = NotificationLog::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBellAlert;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-notifications';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Notifications';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
     protected static function cmsPermissionKey(): string
@@ -43,11 +49,13 @@ final class NotificationLogResource extends Resource
         return 'notification-logs';
     }
 
+    #[\Override]
     public static function canCreate(): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -77,6 +85,7 @@ final class NotificationLogResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

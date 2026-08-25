@@ -31,7 +31,7 @@ final readonly class OpenApiGenerator
         $appUrl = config('app.url');
 
         return [
-            'openapi' => '3.0.3',
+            'openapi' => '3.1.0',
             'info' => [
                 'title' => 'Liberu CMS Delivery API',
                 'version' => 'v1',

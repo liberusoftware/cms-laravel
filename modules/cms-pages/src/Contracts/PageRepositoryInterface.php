@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\Pages\Contracts;
 
 use Liberu\Cms\Pages\Models\Page;
+use Liberu\Cms\Pages\Models\PageRedirect;
 
 /**
  * The Pages module's own read boundary. Kept module-internal until another
@@ -15,6 +16,10 @@ interface PageRepositoryInterface
     public function find(int $id): ?Page;
 
     public function findBySlug(string $slug): ?Page;
+
+    public function findByPath(string $path): ?Page;
+
+    public function redirectForPath(string $path): ?PageRedirect;
 
     /**
      * Live pages: Published and past their publish date.

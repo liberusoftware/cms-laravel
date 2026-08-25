@@ -19,7 +19,7 @@ trait EmbedsFeaturedMedia
      */
     protected function featuredMediaPayload(?MediaItemInterface $media): ?array
     {
-        if ($media === null) {
+        if (! $media instanceof MediaItemInterface) {
             return null;
         }
 

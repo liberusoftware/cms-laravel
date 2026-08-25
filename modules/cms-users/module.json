@@ -1,0 +1,11 @@
+{
+    "name": "module-cms-users",
+    "package": "liberusoftware/module-cms-users",
+    "version": "0.1.0",
+    "layers": [
+        "core"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Users\\UsersServiceProvider"
+    ]
+}

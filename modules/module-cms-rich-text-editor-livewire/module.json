@@ -1,0 +1,1 @@
+{"name":"module-cms-rich-text-editor-livewire","package":"liberusoftware/module-cms-rich-text-editor-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\RichTextEditorLivewire\\RichTextEditorLivewireServiceProvider"]}

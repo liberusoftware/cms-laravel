@@ -1,0 +1,1 @@
+{"name":"module-cms-seo-api","package":"liberusoftware/module-cms-seo-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\SeoApi\\SeoApiServiceProvider"]}

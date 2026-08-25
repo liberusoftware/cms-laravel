@@ -1,0 +1,1 @@
+{"name":"module-cms-related-content-api","package":"liberusoftware/module-cms-related-content-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\RelatedContentApi\\RelatedContentApiServiceProvider"]}

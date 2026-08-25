@@ -1,0 +1,1 @@
+{"name":"module-cms-structured-collections","title":"Structured Collections","description":"Canonical package identity for tenant-aware structured collections.","version":"0.1.0","providers":["Liberu\\Cms\\StructuredCollections\\StructuredCollectionsServiceProvider"]}

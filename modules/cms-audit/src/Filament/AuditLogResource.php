@@ -30,16 +30,22 @@ final class AuditLogResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = AuditLog::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShieldCheck;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-audit-logs';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Audit log';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
     protected static function cmsPermissionKey(): string
@@ -47,26 +53,31 @@ final class AuditLogResource extends Resource
         return 'audit';
     }
 
+    #[\Override]
     public static function canCreate(): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function canEdit(Model $record): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function canDelete(Model $record): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function canDeleteAny(): bool
     {
         return false;
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -127,6 +138,7 @@ final class AuditLogResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

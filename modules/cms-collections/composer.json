@@ -1,0 +1,19 @@
+{
+    "name": "liberusoftware/module-cms-collections",
+    "description": "Collections and collection items for Liberu CMS.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "liberusoftware/module-cms-core": "^0.1",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-content": "^0.1"
+    },
+    "autoload": {"psr-4": {"Liberu\\Cms\\Collections\\": "src/"}},
+    "extra": {
+        "laravel": {"providers": ["Liberu\\Cms\\Collections\\CollectionsServiceProvider"]},
+        "liberu": {"name": "module-cms-collections"},
+        "liberu-module": {"name": "module-cms-collections"}
+    }
+}

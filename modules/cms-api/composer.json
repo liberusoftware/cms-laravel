@@ -1,13 +1,18 @@
 {
-    "name": "liberu-cms/cms-api",
+    "name": "liberusoftware/module-cms-api",
     "description": "Delivery API for Liberu CMS: a versioned, read-only, Sanctum-authenticated JSON API that serves published content to decoupled frontends.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-api",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-api/issues",
+        "source": "https://github.com/liberusoftware/module-cms-api"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1",
         "illuminate/console": "^13.0",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",
@@ -28,6 +33,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "module-cms-api"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Api\\CmsApiServiceProvider"

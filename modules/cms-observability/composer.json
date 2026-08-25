@@ -1,13 +1,18 @@
 {
-    "name": "liberu-cms/cms-observability",
+    "name": "liberusoftware/module-cms-observability",
     "description": "Observability for Liberu CMS: a public readiness probe backed by a module-contributed health-check registry, and a backend-agnostic metrics recorder with a zero-infra log-channel default.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-observability",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-observability/issues",
+        "source": "https://github.com/liberusoftware/module-cms-observability"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*",
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1",
         "illuminate/cache": "^13.0",
         "illuminate/contracts": "^13.0",
         "illuminate/database": "^13.0",
@@ -27,6 +32,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "module-cms-observability"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Observability\\CmsObservabilityServiceProvider"

@@ -50,7 +50,7 @@ final readonly class AuditLogger
 
     private function actorId(?Authenticatable $actor): ?string
     {
-        if ($actor === null) {
+        if (! $actor instanceof Authenticatable) {
             return null;
         }
 

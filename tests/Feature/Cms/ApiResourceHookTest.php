@@ -21,7 +21,7 @@ it('lets an extension reshape a Delivery API payload via ApiResourceFilter', fun
 
     $page = Page::factory()->create(['template' => 'default']);
 
-    $payload = (new PageResource($page))->toArray(request());
+    $payload = new PageResource($page)->toArray(request());
 
     expect($payload)->toHaveKey('injected', 'yes')
         ->and($payload)->not->toHaveKey('template');
@@ -36,13 +36,13 @@ it('scopes the API resource hook to the targeted model type', function (): void 
 
     $page = Page::factory()->create();
 
-    expect((new PageResource($page))->toArray(request()))->not->toHaveKey('injected');
+    expect(new PageResource($page)->toArray(request()))->not->toHaveKey('injected');
 });
 
 it('returns the API payload unchanged when no resource hook is registered', function (): void {
     $page = Page::factory()->create(['template' => 'default']);
 
-    expect((new PageResource($page))->toArray(request()))
+    expect(new PageResource($page)->toArray(request()))
         ->toHaveKey('template', 'default')
         ->not->toHaveKey('injected');
 });

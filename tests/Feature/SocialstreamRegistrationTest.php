@@ -15,7 +15,7 @@ use function Pest\Laravel\get;
 
 uses(RefreshDatabase::class);
 
-test('socialstream config has social media providers', function () {
+test('socialstream config has social media providers', function (): void {
     $providers = config('socialstream.providers');
 
     expect($providers)->toContain(Providers::bitbucket())
@@ -30,7 +30,7 @@ test('socialstream config has social media providers', function () {
         ->not->toContain(Providers::twitterOAuth1());
 });
 
-test('users get redirected correctly', function (string $provider) {
+test('users get redirected correctly', function (string $provider): void {
     if (! Providers::enabled($provider)) {
         $this->markTestSkipped("Registration support with the $provider provider is not enabled.");
     }
@@ -55,7 +55,7 @@ test('users get redirected correctly', function (string $provider) {
     [Providers::twitterOAuth2()],
 ]);
 
-test('users can register using socialite providers', function (string $socialiteProvider) {
+test('users can register using socialite providers', function (string $socialiteProvider): void {
     if (! FortifyFeatures::enabled(FortifyFeatures::registration())) {
         $this->markTestSkipped('Registration support is not enabled.');
     }

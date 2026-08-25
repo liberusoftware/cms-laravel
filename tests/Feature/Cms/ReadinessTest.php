@@ -12,7 +12,7 @@ use Liberu\Cms\Observability\Health\HealthCheckRegistry;
  */
 function fakeCheck(string $name, bool $critical, bool $result): HealthCheckInterface
 {
-    return new class($name, $critical, $result) implements HealthCheckInterface
+    return new readonly class($name, $critical, $result) implements HealthCheckInterface
     {
         public function __construct(
             private string $name,

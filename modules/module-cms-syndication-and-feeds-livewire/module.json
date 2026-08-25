@@ -1,0 +1,1 @@
+{"name":"module-cms-syndication-and-feeds-livewire","package":"liberusoftware/module-cms-syndication-and-feeds-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\SyndicationAndFeedsLivewire\\SyndicationAndFeedsLivewireServiceProvider"]}

@@ -1,0 +1,7 @@
+{
+    "name": "module-cms-core-livewire",
+    "package": "liberusoftware/module-cms-core-livewire",
+    "version": "0.1.0",
+    "layers": ["livewire"],
+    "service_providers": ["Liberu\\Cms\\CoreLivewire\\CoreLivewireServiceProvider"]
+}

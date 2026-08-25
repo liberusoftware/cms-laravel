@@ -1,5 +1,11 @@
 # cms-blocks
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-blocks
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-blocks
+
 The block system and page-builder rendering for Liberu CMS: a registry of block
 types and a recursive, **XSS-safe** renderer.
 

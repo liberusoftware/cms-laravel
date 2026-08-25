@@ -1,5 +1,11 @@
 # Liberu CMS — Admin
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-admin
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-admin
+
 The administrative surface for Liberu CMS. It ships a Filament panel **plugin** that
 exposes the CMS to editors and administrators without putting any feature code in the
 host application.

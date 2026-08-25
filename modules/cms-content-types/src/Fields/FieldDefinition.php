@@ -20,6 +20,12 @@ final readonly class FieldDefinition
         public string $type,
         public bool $required = false,
         public array $options = [],
+        public string $cardinality = 'one',
+        public mixed $default = null,
+        public array $validation = [],
+        public bool $computed = false,
+        public ?array $condition = null,
+        public ?string $group = null,
     ) {}
 
     /**
@@ -36,6 +42,12 @@ final readonly class FieldDefinition
             type: is_string($type) ? $type : 'text',
             required: (bool) ($data['required'] ?? false),
             options: is_array($options) ? array_values(array_filter($options, is_string(...))) : [],
+            cardinality: ($data['cardinality'] ?? 'one') === 'many' ? 'many' : 'one',
+            default: $data['default'] ?? null,
+            validation: is_array($data['validation'] ?? null) ? $data['validation'] : [],
+            computed: (bool) ($data['computed'] ?? false),
+            condition: is_array($data['condition'] ?? null) ? $data['condition'] : null,
+            group: is_string($data['group'] ?? null) && $data['group'] !== '' ? $data['group'] : null,
         );
     }
 
@@ -44,12 +56,33 @@ final readonly class FieldDefinition
      */
     public function toArray(): array
     {
-        return [
+        $result = [
             'name' => $this->name,
             'label' => $this->label,
             'type' => $this->type,
             'required' => $this->required,
             'options' => $this->options,
         ];
+
+        if ($this->cardinality !== 'one') {
+            $result['cardinality'] = $this->cardinality;
+        }
+        if ($this->default !== null) {
+            $result['default'] = $this->default;
+        }
+        if ($this->validation !== []) {
+            $result['validation'] = $this->validation;
+        }
+        if ($this->computed) {
+            $result['computed'] = true;
+        }
+        if ($this->condition !== null) {
+            $result['condition'] = $this->condition;
+        }
+        if ($this->group !== null) {
+            $result['group'] = $this->group;
+        }
+
+        return $result;
     }
 }

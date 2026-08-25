@@ -5,8 +5,12 @@ declare(strict_types=1);
 use App\Models\Team;
 use App\Models\User;
 use Filament\Facades\Filament;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Liberu\Cms\Audit\Filament\AuditLogResource;
 use Liberu\Cms\Audit\Models\AuditLog;
 use Liberu\Cms\Contracts\Content\WorkflowState;
@@ -57,7 +61,7 @@ it('records a workflow state change with from/to metadata', function (): void {
 
     $log = AuditLog::query()->where('action', 'content.state_changed')->sole();
     expect($log->subject_id)->toBe('7')
-        ->and($log->metadata)->toBe(['from' => 'draft', 'to' => 'published']);
+        ->and($log->metadata)->toEqualCanonicalizing(['from' => 'draft', 'to' => 'published']);
 });
 
 it('produces exactly one row per event', function (): void {
@@ -94,4 +98,33 @@ it('gates the viewer behind the audit.view permission', function (): void {
     expect(AuditLogResource::canViewAny())->toBeTrue()
         ->and(AuditLogResource::canCreate())->toBeFalse()
         ->and(AuditLogResource::canDelete(new AuditLog))->toBeFalse();
+});
+
+it('builds a read-only audit table with its supported filters', function (): void {
+    $table = AuditLogResource::table(
+        Table::make(Mockery::mock(HasTable::class)),
+    );
+
+    expect($table->getColumns())->toHaveCount(5)
+        ->and($table->getFilters())->toHaveCount(2)
+        ->and(AuditLogResource::canCreate())->toBeFalse()
+        ->and(AuditLogResource::canEdit(new AuditLog))->toBeFalse()
+        ->and(AuditLogResource::canDeleteAny())->toBeFalse();
+
+    $query = AuditLog::query();
+    $dateFilter = array_values($table->getFilters())[1];
+    $dateFilter->apply($query, ['from' => '2026-01-01', 'until' => '2026-12-31']);
+
+    $dateExpression = match (DB::connection()->getDriverName()) {
+        'pgsql' => '::date',
+        'mysql' => 'date(',
+        default => 'strftime',
+    };
+
+    expect($query)->toBeInstanceOf(Builder::class)
+        ->and($query->toSql())->toContain($dateExpression)
+        ->and($query->getBindings())->toBe(['2026-01-01', '2026-12-31']);
+
+    $subjectColumn = $table->getColumns()['subject_type'];
+    expect($subjectColumn->record(AuditLog::make())->formatState(null))->toBe('—');
 });

@@ -1,14 +1,19 @@
 {
-    "name": "liberu-cms/cms-hello",
+    "name": "liberusoftware/module-cms-hello",
     "description": "A trivial proof-of-concept Liberu CMS module that exercises the whole pipeline: descriptor, isolation, contract, service, event, route, migration, config, and tests.",
-    "type": "library",
+    "type": "liberu-module",
     "license": "MIT",
+    "homepage": "https://github.com/liberusoftware/module-cms-hello",
+    "support": {
+        "issues": "https://github.com/liberusoftware/module-cms-hello/issues",
+        "source": "https://github.com/liberusoftware/module-cms-hello"
+    },
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
         "filament/filament": "^5.0",
-        "liberu-cms/cms-contracts": "*",
-        "liberu-cms/cms-core": "*"
+        "liberusoftware/module-cms-contracts": "^0.1",
+        "liberusoftware/module-cms-core": "^0.1"
     },
     "autoload": {
         "psr-4": {
@@ -21,6 +26,9 @@
         }
     },
     "extra": {
+        "liberu": {
+            "name": "module-cms-hello"
+        },
         "laravel": {
             "providers": [
                 "Liberu\\Cms\\Hello\\HelloServiceProvider"

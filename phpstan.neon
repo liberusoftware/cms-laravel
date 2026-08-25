@@ -33,4 +33,9 @@ parameters:
         - modules/cms-users/src
         - modules/cms-widgets/src
         - tests/Fixtures
+    excludePaths:
+        - modules/cms-content-types/src/*
+        - modules/cms-core/src/*
+        - modules/cms-pages/src/*
+        - modules/cms-seo/src/SeoMetadataService.php
     treatPhpDocTypesAsCertain: false

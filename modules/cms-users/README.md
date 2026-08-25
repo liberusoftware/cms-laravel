@@ -1,5 +1,11 @@
 # cms-users
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-users
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-users
+
 Identity & Access for Liberu CMS — the **single authorization boundary** every
 other module depends on. Foundational and non-removable.
 

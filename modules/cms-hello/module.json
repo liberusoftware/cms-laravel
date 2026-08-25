@@ -1,0 +1,13 @@
+{
+    "name": "module-cms-hello",
+    "package": "liberusoftware/module-cms-hello",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Hello\\HelloServiceProvider"
+    ]
+}

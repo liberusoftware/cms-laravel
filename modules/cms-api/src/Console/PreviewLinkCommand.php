@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Liberu\Cms\Api\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Api\Support\PreviewLink;
+use Liberu\Cms\Contracts\Preview\PreviewableSourceInterface;
 use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
 
 /**
@@ -15,10 +17,12 @@ use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
  */
 final class PreviewLinkCommand extends Command
 {
+    #[\Override]
     protected $signature = 'cms-api:preview-link {type : The content type key (e.g. pages, posts, content-entries)}
         {id : The item id}
         {--ttl= : Minutes until the link expires (defaults to config)}';
 
+    #[\Override]
     protected $description = 'Mint a signed preview link for a single unpublished content item.';
 
     public function handle(PreviewRegistryInterface $registry, PreviewLink $links): int
@@ -26,7 +30,7 @@ final class PreviewLinkCommand extends Command
         $type = (string) $this->argument('type');
         $source = $registry->source($type);
 
-        if ($source === null) {
+        if (! $source instanceof PreviewableSourceInterface) {
             $this->error(sprintf(
                 'No previewable content type [%s]. Known types: %s.',
                 $type,
@@ -39,7 +43,7 @@ final class PreviewLinkCommand extends Command
         $id = (int) $this->argument('id');
         $model = $source->find($id);
 
-        if ($model === null) {
+        if (! $model instanceof Model) {
             $this->error(sprintf('No [%s] item found with id [%d].', $type, $id));
 
             return self::FAILURE;

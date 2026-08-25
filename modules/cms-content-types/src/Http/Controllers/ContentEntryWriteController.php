@@ -32,7 +32,7 @@ final readonly class ContentEntryWriteController
 
         $entry = ContentEntry::create($data + ['status' => WorkflowState::Draft->value]);
 
-        if ($status !== null && $this->shouldTransition($entry->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($entry->workflowState(), $status)) {
             $entry->transitionTo($status);
         }
 
@@ -54,7 +54,7 @@ final readonly class ContentEntryWriteController
             $entry->update($data);
         }
 
-        if ($status !== null && $this->shouldTransition($entry->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($entry->workflowState(), $status)) {
             $entry->transitionTo($status);
         }
 

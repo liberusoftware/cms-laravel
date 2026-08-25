@@ -19,14 +19,19 @@ use UnitEnum;
  */
 class WidgetOverview extends Page
 {
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleGroup;
 
+    #[\Override]
     protected string $view = 'cms-widgets::filament.pages.widget-overview';
 
+    #[\Override]
     protected static ?string $title = 'Widgets';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Widgets';
 
+    #[\Override]
     public static function getNavigationGroup(): string|UnitEnum|null
     {
         return 'CMS';

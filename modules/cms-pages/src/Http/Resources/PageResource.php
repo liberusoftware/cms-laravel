@@ -26,12 +26,21 @@ final class PageResource extends JsonResource
     /**
      * @return array<string, mixed>
      */
+    #[\Override]
     public function toArray(Request $request): array
     {
         return $this->withApiResourceFilter([
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
+            'path' => $this->path(),
+            'is_home' => $this->isHome(),
+            'is_error' => $this->isErrorPage(),
+            'breadcrumbs' => collect($this->breadcrumbs())->map(fn (Page $page): array => [
+                'title' => $page->title,
+                'path' => $page->path(),
+            ])->values()->all(),
+            'aliases' => $this->aliases->pluck('path')->values()->all(),
             'template' => $this->template,
             'excerpt' => $this->excerpt,
             'content' => app(HtmlSanitizer::class)->sanitize($this->content),

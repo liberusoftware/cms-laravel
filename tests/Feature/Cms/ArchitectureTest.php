@@ -19,6 +19,12 @@ function cmsPackageNamespaces(): array
     $packages = [];
 
     foreach (glob(base_path('modules/*'), GLOB_ONLYDIR) as $dir) {
+        // The implementation indexes under modules/{features,core,api,...}
+        // are documentation directories, not Composer packages.
+        if (! is_file("{$dir}/composer.json")) {
+            continue;
+        }
+
         $composer = json_decode(file_get_contents("{$dir}/composer.json"), true);
         $roots = array_keys($composer['autoload']['psr-4'] ?? []);
 
@@ -53,6 +59,46 @@ function cmsRootOf(string $fqcn, array $namespaces): ?string
     return $best;
 }
 
+/**
+ * Resolve the namespaces owned by Composer packages declared by a module.
+ * Presentation adapters may import their matching core package, but never an
+ * undeclared sibling. Package directories retain the historical cms-* path;
+ * Composer names are the authoritative dependency identity.
+ *
+ * @param  array<string, string>  $namespaces
+ * @return array<int, string>
+ */
+function cmsDeclaredDependencyNamespaces(string $package, array $namespaces): array
+{
+    $composerPath = base_path("modules/{$package}/composer.json");
+    $composer = json_decode(file_get_contents($composerPath), true);
+    $dependencies = array_keys(is_array($composer['require'] ?? null) ? $composer['require'] : []);
+    $roots = [];
+
+    foreach (glob(base_path('modules/*'), GLOB_ONLYDIR) as $dir) {
+        $manifestPath = "{$dir}/composer.json";
+
+        if (! is_file($manifestPath)) {
+            continue;
+        }
+
+        $manifest = json_decode(file_get_contents($manifestPath), true);
+
+        if (! in_array($manifest['name'] ?? null, $dependencies, true)) {
+            continue;
+        }
+
+        $directory = basename($dir);
+        foreach ($namespaces as $root => $owner) {
+            if ($owner === $directory) {
+                $roots[] = $root;
+            }
+        }
+    }
+
+    return $roots;
+}
+
 it('keeps module dependencies pointing only inward (no sideways or backward imports)', function (): void {
     $namespaces = cmsPackageNamespaces();
     $contracts = 'Liberu\Cms\Contracts';
@@ -82,6 +128,8 @@ it('keeps module dependencies pointing only inward (no sideways or backward impo
         if (! $isFoundation) {
             $allowed = [...$allowed, ...$foundations];
         }
+
+        $allowed = [...$allowed, ...cmsDeclaredDependencyNamespaces($package, $namespaces)];
 
         foreach (Finder::create()->files()->in($src)->name('*.php') as $file) {
             foreach (cmsImports($file->getRealPath()) as $import) {

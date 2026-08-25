@@ -39,7 +39,7 @@ final readonly class PostWriteController
 
         $this->syncTaxonomy($post, $categories, $tags);
 
-        if ($status !== null && $this->shouldTransition($post->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($post->workflowState(), $status)) {
             $post->transitionTo($status);
         }
 
@@ -65,7 +65,7 @@ final readonly class PostWriteController
 
         $this->syncTaxonomy($post, $categories, $tags);
 
-        if ($status !== null && $this->shouldTransition($post->workflowState(), $status)) {
+        if ($status instanceof WorkflowState && $this->shouldTransition($post->workflowState(), $status)) {
             $post->transitionTo($status);
         }
 

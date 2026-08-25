@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-widgets",
+    "package": "liberusoftware/module-cms-widgets",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "filament"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Widgets\\WidgetsServiceProvider"
+    ]
+}

@@ -1,5 +1,11 @@
 # CMS API — Delivery API
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-api
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-api
+
 A versioned (`/api/v1`), read-only, Sanctum-authenticated JSON API that serves
 **published** CMS content to decoupled frontends. This package owns the route
 group, authentication, the request tenant context, per-token rate limiting, and

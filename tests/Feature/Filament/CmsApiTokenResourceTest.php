@@ -107,3 +107,16 @@ it('revokes a token so it can no longer authenticate the API', function (): void
         ->getJson('/api/v1/pages')
         ->assertUnauthorized();
 });
+
+it('handles token issuance when the panel has no API-capable tenant', function (): void {
+    actingAsApiTokenAdmin();
+    Filament::setTenant(null);
+
+    $method = new ReflectionMethod(ListApiTokens::class, 'getHeaderActions');
+    $method->setAccessible(true);
+    $action = $method->invoke(app(ListApiTokens::class))[0];
+
+    $action->getActionFunction()(['name' => 'orphan', 'write' => false]);
+
+    expect(PersonalAccessToken::query()->where('name', 'orphan')->exists())->toBeFalse();
+});

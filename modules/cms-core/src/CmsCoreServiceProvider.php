@@ -7,6 +7,9 @@ namespace Liberu\Cms\Core;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Support\ServiceProvider;
+use Liberu\Cms\Contracts\Access\AccessScope;
+use Liberu\Cms\Contracts\Access\PermissionGroup;
+use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Contracts\Hooks\HookBusInterface;
 use Liberu\Cms\Contracts\Module\ModuleManagerInterface;
@@ -14,6 +17,7 @@ use Liberu\Cms\Contracts\Module\ModuleRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleStateRepositoryInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Contracts\Tenancy\TenantModelResolverInterface;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Console\MakeBlockCommand;
 use Liberu\Cms\Core\Console\MakeFieldTypeCommand;
 use Liberu\Cms\Core\Console\MakeHookCommand;
@@ -40,6 +44,8 @@ final class CmsCoreServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/cms.php', 'cms');
+
+        $this->app->singleton(CoreMutationService::class);
 
         $this->app->singleton(ModuleRegistryInterface::class, ModuleRegistry::class);
 
@@ -82,6 +88,12 @@ final class CmsCoreServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(
+                new PermissionGroup('core', 'CMS Core', AccessScope::Module, ['view', 'create', 'update', 'delete']),
+            );
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

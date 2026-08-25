@@ -1,0 +1,26 @@
+name: Package quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  package-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f
+        with:
+          php-version: '8.5'
+      - name: Validate Composer metadata
+        run: composer validate --no-check-publish
+      - name: Lint package PHP
+        run: find src -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Check release files
+        run: test -f README.md && test -f CHANGELOG.md && test -f LICENSE.md && test -f module.json
+

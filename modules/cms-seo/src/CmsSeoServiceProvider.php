@@ -25,10 +25,12 @@ final class CmsSeoServiceProvider extends ModuleServiceProvider
         $this->mergeModuleConfig(__DIR__.'/../config/seo.php', 'cms-seo');
 
         $this->app->singleton(SitemapRegistryInterface::class, SitemapRegistry::class);
+        $this->app->singleton(SeoMetadataService::class);
     }
 
     protected function bootModule(): void
     {
+        $this->loadModuleMigrations(__DIR__.'/../database/migrations');
         $this->loadModuleRoutesFrom(__DIR__.'/../routes/web.php');
         $this->loadModuleViews(__DIR__.'/../resources/views', 'cms-seo');
 

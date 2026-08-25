@@ -16,6 +16,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -35,18 +36,25 @@ final class ContentTypeResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = ContentType::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-content-types';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Content Types';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'name';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
     protected static function cmsPermissionKey(): string
@@ -54,6 +62,7 @@ final class ContentTypeResource extends Resource
         return 'content-types';
     }
 
+    #[\Override]
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
@@ -91,6 +100,32 @@ final class ContentTypeResource extends Resource
                                 ->required(),
                             Toggle::make('required')
                                 ->default(false),
+                            Select::make('cardinality')
+                                ->options(['one' => 'Single value', 'many' => 'Multiple values'])
+                                ->default('one'),
+                            TextInput::make('default')
+                                ->helperText('Optional default value.'),
+                            Toggle::make('computed')
+                                ->helperText('Computed fields are read-only and excluded from submitted data.'),
+                            TextInput::make('group')
+                                ->label('Field group')
+                                ->maxLength(255),
+                            Fieldset::make('Conditional visibility')
+                                ->schema([
+                                    TextInput::make('condition.field')->label('Depends on field'),
+                                    TextInput::make('condition.equals')->label('When value equals'),
+                                ])
+                                ->columns(2)
+                                ->columnSpanFull(),
+                            Fieldset::make('Validation limits')
+                                ->schema([
+                                    TextInput::make('validation.min')->numeric(),
+                                    TextInput::make('validation.max')->numeric(),
+                                    TextInput::make('validation.minItems')->numeric()->visible(fn ($get): bool => $get('cardinality') === 'many'),
+                                    TextInput::make('validation.maxItems')->numeric()->visible(fn ($get): bool => $get('cardinality') === 'many'),
+                                ])
+                                ->columns(2)
+                                ->columnSpanFull(),
                             TagsInput::make('options')
                                 ->helperText('Choices for a Select field.')
                                 ->columnSpanFull(),
@@ -104,6 +139,7 @@ final class ContentTypeResource extends Resource
         ]);
     }
 
+    #[\Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -138,6 +174,7 @@ final class ContentTypeResource extends Resource
     /**
      * @return array<string, PageRegistration>
      */
+    #[\Override]
     public static function getPages(): array
     {
         return [

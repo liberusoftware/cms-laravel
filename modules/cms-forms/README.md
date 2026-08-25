@@ -1,5 +1,11 @@
 # CMS Forms
 
+## Repository
+
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-forms
+
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-forms
+
 Public form definitions and spam-protected submissions. Each accepted submission
 is stored and announced on the event bus as `FormSubmitted`, so a notification
 or automation module can react without this module knowing about it.

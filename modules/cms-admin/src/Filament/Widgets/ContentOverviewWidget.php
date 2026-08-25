@@ -15,6 +15,7 @@ use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
  */
 class ContentOverviewWidget extends StatsOverviewWidget
 {
+    #[\Override]
     protected function getStats(): array
     {
         $stats = [];

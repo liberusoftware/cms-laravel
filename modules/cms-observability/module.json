@@ -1,0 +1,12 @@
+{
+    "name": "module-cms-observability",
+    "package": "liberusoftware/module-cms-observability",
+    "version": "0.1.0",
+    "layers": [
+        "core",
+        "api"
+    ],
+    "service_providers": [
+        "Liberu\\Cms\\Observability\\CmsObservabilityServiceProvider"
+    ]
+}
