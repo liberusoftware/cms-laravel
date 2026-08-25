@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a61bd4511465a4eb35f890862bc6765",
+    "content-hash": "84ecc4a30a29090ca9717e305b5ff1f4",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5799,6 +5799,147 @@
                 "issues": "https://github.com/liberusoftware/module-cms-content/issues",
                 "source": "https://github.com/liberusoftware/module-cms-content"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-access",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-access",
+                "reference": "cda6770faafe309a26f8b622796683e376d49556"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-access",
+                    "capability": "content-access"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentAccess\\ContentAccessServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentAccess\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS content visibility, audience rules, schedules, private links, and preview authorization.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-access-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-access-api",
+                "reference": "0c561da114eb7d2ed07b8d83e93705f5b35c55d7"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content-access": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentAccessApi\\ContentAccessApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentAccessApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-access-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-access-filament",
+                "reference": "d9ac527b2dbf548081bfb09776460372bc128b4d"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-content-access": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentAccessFilament\\ContentAccessFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentAccessFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-access-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-access-livewire",
+                "reference": "c5c11205ce2899cbf60f23cfca4611fb5ca0861e"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-access": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentAccessLivewire\\ContentAccessLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentAccessLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true

@@ -1,0 +1,1 @@
+{"name":"cms-content-access","description":"Rules and authorization for CMS content access.","provider":"Liberu\\Cms\\ContentAccess\\ContentAccessServiceProvider","version":"0.1.0"}
