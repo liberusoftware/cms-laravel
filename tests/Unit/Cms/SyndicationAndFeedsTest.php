@@ -19,3 +19,9 @@ it('validates formats, XML, and destinations', function (): void {
     $feed = $service->create('rss', 'RSS');
     expect(fn () => $service->import($feed, '<bad'))->toThrow(ValidationException::class)->and(fn () => $service->syndicate($feed, 'relative'))->toThrow(ValidationException::class);
 });
+
+it('requires feed identity and validates source URLs', function (): void {
+    $service = app(FeedService::class);
+    expect(fn () => $service->create('', 'Untitled'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->create('news', 'News', sourceUrl: 'not-a-url'))->toThrow(ValidationException::class);
+});

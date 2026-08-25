@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Syndication and Feeds API, version: 1.0.0}
+paths:
+  /api/v1/cms/syndication-and-feeds:
+    get: {operationId: listFeeds, responses: {'200': {description: Active feeds}}}
+    post: {operationId: createFeed, responses: {'201': {description: Created feed}, '422': {description: Invalid feed}}}
+  /api/v1/cms/syndication-and-feeds/{feed}:
+    get: {operationId: renderFeed, responses: {'200': {description: Rendered feed}}}
+  /api/v1/cms/syndication-and-feeds/{feed}/items:
+    post: {operationId: addFeedItem, responses: {'201': {description: Feed item}}}
+  /api/v1/cms/syndication-and-feeds/{feed}/import:
+    post: {operationId: importFeed, responses: {'200': {description: Import result}, '422': {description: Invalid XML}}}
+  /api/v1/cms/syndication-and-feeds/{feed}/syndicate:
+    post: {operationId: queueSyndication, responses: {'202': {description: Delivery queued}}}
