@@ -29,7 +29,7 @@ final class VideoAndAudioController
             throw new NotFoundHttpException;
         }
 
-return new MediaAssetResource($asset);
+        return new MediaAssetResource($asset);
     }
 
     public function create(Request $request): MediaAssetResource
@@ -56,7 +56,7 @@ return new MediaAssetResource($asset);
             throw new NotFoundHttpException;
         }
 
-return new MediaAssetResource($this->service->archive($asset));
+        return new MediaAssetResource($this->service->archive($asset));
     }
 
     public function track(Request $request, string $publicId): MediaTrackResource

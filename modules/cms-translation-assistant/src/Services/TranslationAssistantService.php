@@ -94,6 +94,6 @@ final class TranslationAssistantService
             throw ValidationException::withMessages(['pattern' => 'Style rule must be a valid regular expression.']);
         }
 
-return StyleRule::query()->create(compact('locale', 'name', 'pattern', 'message', 'severity', 'teamId') + ['team_id' => $teamId]);
+        return StyleRule::query()->create(compact('locale', 'name', 'pattern', 'message', 'severity', 'teamId') + ['team_id' => $teamId]);
     }
 }
