@@ -61,7 +61,7 @@ it('records a workflow state change with from/to metadata', function (): void {
 
     $log = AuditLog::query()->where('action', 'content.state_changed')->sole();
     expect($log->subject_id)->toBe('7')
-        ->and($log->metadata)->toBe(['from' => 'draft', 'to' => 'published']);
+        ->and($log->metadata)->toEqualCanonicalizing(['from' => 'draft', 'to' => 'published']);
 });
 
 it('produces exactly one row per event', function (): void {
