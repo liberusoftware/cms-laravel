@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e5087b38ee5fec41c8bf8af64800856",
+    "content-hash": "abaf29ba14943af4b0595e2269e42b0a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7415,6 +7415,147 @@
                 "MIT"
             ],
             "description": "Livewire 4 presentation adapter for the Liberu CMS Core module.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-digital-asset-management",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-digital-asset-management",
+                "reference": "5b99824179559893e4d717b8027643ae87dd30bc"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-digital-asset-management",
+                    "capability": "digital-asset-management"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DigitalAssetManagement\\DigitalAssetManagementServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DigitalAssetManagement\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS digital asset rights, licenses, releases, renditions, approvals, and distribution.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-digital-asset-management-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-digital-asset-management-api",
+                "reference": "85e14c1ce3c0795f5f852124b8907b89d8d97304"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-digital-asset-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DigitalAssetManagementApi\\DigitalAssetManagementApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DigitalAssetManagementApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-digital-asset-management-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-digital-asset-management-filament",
+                "reference": "5337ba4f649f033a5de33cbc686523b953caeec0"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-digital-asset-management": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DigitalAssetManagementFilament\\DigitalAssetManagementFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DigitalAssetManagementFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-digital-asset-management-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-digital-asset-management-livewire",
+                "reference": "d72340d00293a69d8406b911fa27f6bc6506286e"
+            },
+            "require": {
+                "liberusoftware/module-cms-digital-asset-management": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DigitalAssetManagementLivewire\\DigitalAssetManagementLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DigitalAssetManagementLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
             "transport-options": {
                 "symlink": true,
                 "relative": true

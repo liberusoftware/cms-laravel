@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Digital Asset Management API
+  version: 1.0.0
+paths:
+  /api/v1/cms/digital-asset-management/assets:
+    get:
+      operationId: listDigitalAssets
+      responses:
+        '200': {description: Digital assets}
+    post:
+      operationId: registerDigitalAsset
+      responses:
+        '201': {description: Asset registered}
