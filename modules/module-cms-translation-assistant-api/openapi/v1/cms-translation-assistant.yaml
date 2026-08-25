@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info: {title: CMS Translation Assistant API, version: 1.0.0}
+paths:
+  /api/v1/cms/translation-assistant:
+    get: {operationId: listTranslationDrafts, responses: {'200': {description: Drafts}}}
+    post: {operationId: createTranslationDraft, responses: {'201': {description: Created draft}, '422': {description: Validation failure}}}
+  /api/v1/cms/translation-assistant/{draft}:
+    get: {operationId: getTranslationDraft, responses: {'200': {description: Draft}}}
+    patch: {operationId: updateTranslationDraft, responses: {'200': {description: Updated draft}}}
+    delete: {operationId: deleteTranslationDraft, responses: {'204': {description: Deleted}}}
+  /api/v1/cms/translation-assistant/{draft}/check:
+    post: {operationId: checkTranslationDraft, responses: {'200': {description: Rule check result}}}
+  /api/v1/cms/translation-assistant/{draft}/review:
+    post: {operationId: reviewTranslationDraft, responses: {'200': {description: Review result}, '422': {description: Violations or invalid decision}}}
+  /api/v1/cms/translation-assistant/glossary:
+    post: {operationId: createTranslationGlossaryEntry, responses: {'201': {description: Created glossary entry}}}
+  /api/v1/cms/translation-assistant/style-rules:
+    post: {operationId: createTranslationStyleRule, responses: {'201': {description: Created style rule}}}

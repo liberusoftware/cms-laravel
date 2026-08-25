@@ -28,3 +28,12 @@ it('queries assistant drafts through the module boundary', function (): void {
 
     expect(app(TranslationAssistantQuery::class)->draft($draft->id))->not->toBeNull();
 });
+
+it('persists style rules with the tenant key and validates severity', function (): void {
+    $service = app(TranslationAssistantService::class);
+    $rule = $service->addStyleRule('fr', 'Formal', '/!!!/', 'Avoid emphasis.', 'error', 42);
+
+    expect($rule->team_id)->toBe(42)->and($rule->severity)->toBe('error');
+    expect(fn () => $service->addStyleRule('fr', 'Bad', '/x/', 'Invalid severity.', 'critical', 42))
+        ->toThrow(ValidationException::class);
+});

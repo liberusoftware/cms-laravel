@@ -94,6 +94,10 @@ final class TranslationAssistantService
             throw ValidationException::withMessages(['pattern' => 'Style rule must be a valid regular expression.']);
         }
 
-        return StyleRule::query()->create(['locale' => $locale, 'name' => $name, 'pattern' => $pattern, 'message' => $message, 'severity' => $severity, 'teamId' => $teamId] + ['team_id' => $teamId]);
+        if (! in_array($severity, ['info', 'warning', 'error'], true)) {
+            throw ValidationException::withMessages(['severity' => 'Severity must be info, warning, or error.']);
+        }
+
+        return StyleRule::query()->create(['locale' => $locale, 'name' => $name, 'pattern' => $pattern, 'message' => $message, 'severity' => $severity, 'team_id' => $teamId]);
     }
 }
