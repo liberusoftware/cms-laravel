@@ -14,7 +14,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('key');
-            $table->json('rules')->default('{}');
+            $table->json('rules');
             $table->boolean('requires_consent')->default(false);
             $table->boolean('active')->default(true)->index();
             $table->unsignedBigInteger('team_id')->nullable()->index();
@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('audience_key');
             $table->string('variant_key')->nullable();
             $table->string('subject_key')->nullable();
-            $table->json('context')->default('{}');
+            $table->json('context');
             $table->string('reason');
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
