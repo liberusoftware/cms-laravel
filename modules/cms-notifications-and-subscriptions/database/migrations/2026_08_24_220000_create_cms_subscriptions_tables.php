@@ -12,9 +12,9 @@ return new class extends Migration
     {
         Schema::create('cms_subscriptions', function (Blueprint $table): void {
             $table->id();
-            $table->string('subscriber_type');
+            $table->string('subscriber_type', 120);
             $table->string('subscriber_id');
-            $table->string('subject_type');
+            $table->string('subject_type', 120);
             $table->string('subject_id');
             $table->string('frequency')->default('instant');
             $table->json('channels');
