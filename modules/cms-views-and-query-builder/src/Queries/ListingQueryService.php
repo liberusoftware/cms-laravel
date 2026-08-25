@@ -60,6 +60,12 @@ final class ListingQueryService
     {
         $fields = $definition['fields'] ?? [];
 
-        return array_values(array_filter(array_map(static fn (array $field): ?string => is_string($field) ? $field : ($field['name'] ?? null), Arr::wrap($fields))));
+        return array_values(array_filter(array_map(static function (mixed $field): ?string {
+            if (is_string($field)) {
+                return $field;
+            }
+
+            return is_array($field) && is_string($field['name'] ?? null) ? $field['name'] : null;
+        }, Arr::wrap($fields))));
     }
 }
