@@ -51,6 +51,6 @@ final class AudienceResource extends Resource
     /** @return array<string, PageRegistration> */
     public static function getPages(): array
     {
-        return ['index' => Pages\ListAudiences::route('/')];
+        return ['index' => Pages\ListAudiences::route('/'), 'edit' => Pages\EditAudience::route('/{record}/edit')];
     }
 }

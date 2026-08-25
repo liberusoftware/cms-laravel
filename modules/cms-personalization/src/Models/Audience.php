@@ -28,4 +28,10 @@ final class Audience extends Model
     {
         return $this->hasMany(Variant::class);
     }
+
+    /** @return HasMany<Decision, $this> */
+    public function decisions(): HasMany
+    {
+        return $this->hasMany(Decision::class, 'audience_key', 'key');
+    }
 }
