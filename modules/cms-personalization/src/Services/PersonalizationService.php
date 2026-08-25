@@ -29,10 +29,10 @@ final class PersonalizationService
     {
         $this->validateVariant($audience, $attributes, $variant);
         if (($attributes['fallback'] ?? $variant?->fallback ?? false) === true) {
-            $audience->variants()->where('fallback', true)->when($variant !== null, fn ($query) => $query->where('id', '!=', $variant->getKey()))->update(['fallback' => false]);
+            $audience->variants()->where('fallback', true)->when($variant instanceof Variant, fn ($query) => $query->where('id', '!=', $variant->getKey()))->update(['fallback' => false]);
         }
 
-        if ($variant === null) {
+        if (! $variant instanceof Variant) {
             return $audience->variants()->create(array_merge($attributes, ['team_id' => $audience->team_id]));
         }
 
@@ -48,7 +48,7 @@ final class PersonalizationService
 
     private function validateAudience(array $attributes, ?Audience $audience = null): void
     {
-        if ($audience === null && (! isset($attributes['name'], $attributes['key']))) {
+        if (! $audience instanceof Audience && (! isset($attributes['name'], $attributes['key']))) {
             throw ValidationException::withMessages(['audience' => 'An audience name and key are required.']);
         }
         foreach (['name', 'key'] as $field) {
@@ -66,7 +66,7 @@ final class PersonalizationService
 
     private function validateVariant(Audience $audience, array $attributes, ?Variant $variant = null): void
     {
-        if ($variant === null && (! isset($attributes['key']) || ! array_key_exists('payload', $attributes))) {
+        if (! $variant instanceof Variant && (! isset($attributes['key']) || ! array_key_exists('payload', $attributes))) {
             throw ValidationException::withMessages(['variant' => 'A variant key and payload are required.']);
         }
         if (isset($attributes['key']) && trim((string) $attributes['key']) === '') {

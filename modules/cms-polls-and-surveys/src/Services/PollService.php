@@ -29,9 +29,9 @@ final class PollService
 
     public function saveQuestion(Poll $poll, array $attributes, ?Question $question = null): Question
     {
-        $this->validateQuestionAttributes($poll, $attributes, $question);
+        $this->validateQuestionAttributes($attributes, $question);
 
-        if ($question === null) {
+        if (! $question instanceof Question) {
             return $poll->questions()->create($attributes);
         }
 
@@ -142,10 +142,10 @@ final class PollService
         if (array_key_exists('key', $attributes) && ! preg_match('/^[a-z0-9][a-z0-9-]*$/', (string) $attributes['key'])) {
             throw ValidationException::withMessages(['key' => 'The poll key must use lowercase letters, numbers, and hyphens.']);
         }
-        if ($poll === null && ! array_key_exists('title', $attributes)) {
+        if (! $poll instanceof Poll && ! array_key_exists('title', $attributes)) {
             throw ValidationException::withMessages(['title' => 'A poll title is required.']);
         }
-        if ($poll === null && ! array_key_exists('key', $attributes)) {
+        if (! $poll instanceof Poll && ! array_key_exists('key', $attributes)) {
             throw ValidationException::withMessages(['key' => 'A poll key is required.']);
         }
         if (isset($attributes['starts_at'], $attributes['ends_at']) && $attributes['starts_at'] !== null && $attributes['ends_at'] !== null && $attributes['ends_at'] < $attributes['starts_at']) {
@@ -153,14 +153,14 @@ final class PollService
         }
     }
 
-    private function validateQuestionAttributes(Poll $poll, array $attributes, ?Question $question = null): void
+    private function validateQuestionAttributes(array $attributes, ?Question $question = null): void
     {
         foreach (['key', 'prompt'] as $field) {
             if (array_key_exists($field, $attributes) && trim((string) $attributes[$field]) === '') {
                 throw ValidationException::withMessages([$field => 'This field is required.']);
             }
         }
-        if ($question === null && (! isset($attributes['key']) || ! isset($attributes['prompt']))) {
+        if (! $question instanceof Question && (! isset($attributes['key']) || ! isset($attributes['prompt']))) {
             throw ValidationException::withMessages(['question' => 'A question key and prompt are required.']);
         }
         if (isset($attributes['type']) && ! in_array($attributes['type'], ['single', 'multiple', 'text', 'number'], true)) {
@@ -201,12 +201,6 @@ final class PollService
             return ($answers[$branching['question']] ?? null) === $branching['equals'];
         }
 
-        foreach ($branching as $source => $expected) {
-            if (($answers[$source] ?? null) !== $expected) {
-                return false;
-            }
-        }
-
-        return true;
+        return array_all($branching, fn ($expected, $source): bool => ! (($answers[$source] ?? null) !== $expected));
     }
 }
