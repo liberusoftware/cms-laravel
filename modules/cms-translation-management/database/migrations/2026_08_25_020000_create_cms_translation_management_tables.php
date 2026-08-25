@@ -48,9 +48,9 @@ return new class extends Migration
         Schema::create('cms_translation_source_changes', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('job_id')->constrained('cms_translation_jobs')->cascadeOnDelete();
-            $table->string('subject_type');
-            $table->string('subject_id');
-            $table->string('field');
+            $table->string('subject_type', 120);
+            $table->string('subject_id', 120);
+            $table->string('field', 120);
             $table->longText('source_text');
             $table->char('source_hash', 64);
             $table->string('source_version')->nullable();
@@ -73,9 +73,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_id')->constrained('cms_translation_jobs')->cascadeOnDelete();
             $table->foreignId('source_change_id')->constrained('cms_translation_source_changes')->cascadeOnDelete();
-            $table->string('assignee_type');
-            $table->string('assignee_id');
-            $table->string('role');
+            $table->string('assignee_type', 120);
+            $table->string('assignee_id', 120);
+            $table->string('role', 120);
             $table->string('status')->default('assigned')->index();
             $table->timestamp('due_at')->nullable();
             $table->timestamp('completed_at')->nullable();
