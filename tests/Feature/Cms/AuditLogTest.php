@@ -10,6 +10,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Liberu\Cms\Audit\Filament\AuditLogResource;
 use Liberu\Cms\Audit\Models\AuditLog;
 use Liberu\Cms\Contracts\Content\WorkflowState;
@@ -114,8 +115,14 @@ it('builds a read-only audit table with its supported filters', function (): voi
     $dateFilter = array_values($table->getFilters())[1];
     $dateFilter->apply($query, ['from' => '2026-01-01', 'until' => '2026-12-31']);
 
+    $dateExpression = match (DB::connection()->getDriverName()) {
+        'pgsql' => '::date',
+        'mysql' => 'date(',
+        default => 'strftime',
+    };
+
     expect($query)->toBeInstanceOf(Builder::class)
-        ->and($query->toSql())->toContain('strftime')
+        ->and($query->toSql())->toContain($dateExpression)
         ->and($query->getBindings())->toBe(['2026-01-01', '2026-12-31']);
 
     $subjectColumn = $table->getColumns()['subject_type'];

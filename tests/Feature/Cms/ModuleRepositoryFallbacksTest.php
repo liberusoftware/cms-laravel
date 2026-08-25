@@ -15,7 +15,7 @@ use Liberu\Cms\Posts\Models\Tag;
 uses(RefreshDatabase::class);
 
 it('returns safe nulls for missing media and menu records', function (): void {
-    expect((new MediaRepository)->delete('__missing__'))->toBeFalse()
+    expect((new MediaRepository)->delete(-1))->toBeFalse()
         ->and((new MenuRepository)->find(-1))->toBeNull()
         ->and((new MenuRepository)->forLocation('__missing__'))->toBeNull();
 });

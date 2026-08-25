@@ -27,10 +27,10 @@ test('it reads, caches, writes, and forgets module state', function (): void {
 });
 
 test('it normalizes common database boolean representations', function (mixed $value, bool $expected): void {
-    DB::table('cms_modules')->insert(['key' => (string) fake()->unique()->word(), 'enabled' => $value]);
-    $key = (string) DB::table('cms_modules')->latest('updated_at')->value('key');
+    $repository = new DatabaseModuleStateRepository(DB::getFacadeRoot());
+    $method = new ReflectionMethod($repository, 'normalizeBool');
 
-    expect(new DatabaseModuleStateRepository(DB::getFacadeRoot())->isEnabled($key))->toBe($expected);
+    expect($method->invoke($repository, $value))->toBe($expected);
 })->with([
     [0, false], ['0', false], ['f', false], ['false', false], ['off', false], ['no', false], ['', false],
     [1, true], ['1', true], ['t', true], ['true', true], ['on', true], ['yes', true],
