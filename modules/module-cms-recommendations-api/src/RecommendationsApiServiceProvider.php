@@ -14,7 +14,11 @@ final class RecommendationsApiServiceProvider extends ServiceProvider
     public function register(): void
     {
         if ($this->app->bound(ApiResourceRegistryInterface::class)) {
-            $this->app->make(ApiResourceRegistryInterface::class)->registerEndpoint('recommendations-api', new ApiEndpoint('cms/recommendations/{key}', RecommendationController::class, 'index', 'cms.recommendations.index'));
+            $r = $this->app->make(ApiResourceRegistryInterface::class);
+            $r->registerEndpoint('recommendations-api', new ApiEndpoint('cms/recommendations', RecommendationController::class, 'createList', 'cms.recommendations.create', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('recommendations-api', new ApiEndpoint('cms/recommendations/{key}', RecommendationController::class, 'index', 'cms.recommendations.index'));
+            $r->registerEndpoint('recommendations-api', new ApiEndpoint('cms/recommendations/{key}/items', RecommendationController::class, 'addItem', 'cms.recommendations.item', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('recommendations-api', new ApiEndpoint('cms/recommendations/{key}/exclude', RecommendationController::class, 'exclude', 'cms.recommendations.exclude', 'POST', ['abilities:content:write']));
         }
     }
 }

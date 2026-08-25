@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Recommendations\Models\RecommendationList;
 use Liberu\Cms\Recommendations\Services\RecommendationService;
 
@@ -26,4 +27,12 @@ it('fails closed for an ineligible audience and bounds limits', function (): voi
 
     expect(app(RecommendationService::class)->recommend('popular', ['country' => 'US']))->toBe([])
         ->and(app(RecommendationService::class)->recommend('popular', ['country' => 'GB'], null, 0))->toHaveCount(1);
+});
+
+it('creates lists, items, and exclusions through the domain boundary', function (): void {
+    $service = app(RecommendationService::class);
+    $list = $service->createList('home', 'Home', 'editorial');
+    $service->addItem($list, ['item_type' => 'page', 'item_key' => 'one', 'title' => 'One']);
+    expect($service->exclude($list, 'one')->exclusions)->toContain('one')
+        ->and(fn () => $service->createList('', '', 'invalid'))->toThrow(ValidationException::class);
 });

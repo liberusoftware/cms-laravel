@@ -1,3 +1,3 @@
 # CMS Recommendations API
 
-Delivers context-aware recommendation lists under `/api/v1/cms/recommendations`.
+Provides tenant-aware recommendation list/item mutations, exclusions, and context-aware ranked reads under `/api/v1/cms/recommendations`. The OpenAPI 3.1 contract is under `openapi/v1/cms-recommendations.yaml`.
