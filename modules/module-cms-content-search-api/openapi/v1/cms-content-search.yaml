@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Search API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-search/search:
+    get:
+      operationId: searchCmsContent
+      responses:
+        '200': {description: Search results}
+  /api/v1/cms/content-search/autocomplete:
+    get:
+      operationId: autocompleteCmsContent
+      responses:
+        '200': {description: Search suggestions}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88e375f2d5f9f939881a398aba664647",
+    "content-hash": "3857b70cb3e7bcb9febf21b11e4eda10",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6910,6 +6910,108 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-content-search-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-search-api",
+                "reference": "a788d9267ddbb59b8fcadc0eeec5b27dc8ee44da"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-search": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentSearchApi\\ContentSearchApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentSearchApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-search-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-search-filament",
+                "reference": "dbb98807cf21c9530afe5dfcc1796dabeda58cb9"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-search": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentSearchFilament\\ContentSearchFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentSearchFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-search-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-search-livewire",
+                "reference": "72d26083734b2f4780d24089646e52895af72ab2"
+            },
+            "require": {
+                "liberusoftware/module-cms-search": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentSearchLivewire\\ContentSearchLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentSearchLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-content-types",
             "version": "0.1.0",
             "dist": {
@@ -6968,7 +7070,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-contracts",
+                "url": "modules/cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
