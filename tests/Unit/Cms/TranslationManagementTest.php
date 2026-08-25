@@ -30,6 +30,19 @@ final class FakeTranslationVendor implements TranslationVendorInterface
     }
 }
 
+final class FailingTranslationVendor implements TranslationVendorInterface
+{
+    public function key(): string
+    {
+        return 'failing';
+    }
+
+    public function translate(string $source, string $sourceLocale, string $targetLocale, array $context = []): TranslationResult
+    {
+        throw new \RuntimeException('translation provider unavailable');
+    }
+}
+
 it('runs a translation job through source capture, vendor translation, review, memory, and reconciliation', function (): void {
     Event::fake();
     app(TranslationVendorRegistry::class)->register(new FakeTranslationVendor);
@@ -62,4 +75,14 @@ it('rejects invalid locale pairs, roles, and review of untranslated content', fu
 
     expect(fn () => $service->assign($change, 'user', 1, 'owner'))->toThrow(ValidationException::class)
         ->and(fn () => $service->review($change, 'approved'))->toThrow(ValidationException::class);
+});
+
+it('records vendor failures on the source change and job', function (): void {
+    app(TranslationVendorRegistry::class)->register(new FailingTranslationVendor);
+    $service = app(TranslationManagementService::class);
+    $job = $service->createJob(['name' => 'Failure', 'source_locale' => 'en', 'target_locale' => 'fr']);
+    $change = $service->addSourceChange($job, ['subject_type' => 'page', 'subject_id' => '2', 'field' => 'title', 'source_text' => 'Hello']);
+
+    expect(fn () => $service->translate($change, 'failing'))->toThrow(\RuntimeException::class);
+    expect($change->refresh()->status)->toBe('failed')->and($job->refresh()->status)->toBe('failed');
 });

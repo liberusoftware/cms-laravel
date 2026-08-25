@@ -77,7 +77,16 @@ final readonly class TranslationManagementService
         if ($change->translated_text !== null && $change->status === 'in_review') {
             return $change;
         }
-        $result = $this->vendors->resolve($vendorKey)->translate($change->source_text, $job->source_locale, $job->target_locale, $context);
+        try {
+            $result = $this->vendors->resolve($vendorKey)->translate($change->source_text, $job->source_locale, $job->target_locale, $context);
+        } catch (\Throwable $exception) {
+            DB::transaction(function () use ($change, $job, $vendorKey): void {
+                $change->update(['status' => 'failed', 'provider' => $vendorKey]);
+                $job->update(['status' => 'failed', 'vendor_key' => $vendorKey]);
+            });
+
+            throw $exception;
+        }
         $translated = DB::transaction(function () use ($change, $job, $result, $vendorKey): TranslationSourceChange {
             $change->update([
                 'translated_text' => $result->text,

@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Translation Management API, version: 1.0.0}
+paths:
+  /api/v1/cms/translation-management/jobs:
+    get: {operationId: listTranslationJobs, responses: {'200': {description: Paginated translation jobs}}}
+    post: {operationId: createTranslationJob, responses: {'201': {description: Created job}, '422': {description: Validation failure}}}
+  /api/v1/cms/translation-management/jobs/{publicId}/source-changes:
+    post: {operationId: captureTranslationSourceChange, responses: {'201': {description: Captured source change}}}
+  /api/v1/cms/translation-management/source-changes/{sourceChange}/translate:
+    post: {operationId: translateSourceChange, responses: {'200': {description: Translation started}, '422': {description: Vendor or validation failure}}}
+  /api/v1/cms/translation-management/source-changes/{sourceChange}/review:
+    post: {operationId: reviewTranslation, responses: {'200': {description: Review recorded}}}
+  /api/v1/cms/translation-management/jobs/{publicId}/reconcile:
+    post: {operationId: reconcileTranslationJob, responses: {'200': {description: Reconciled job}}}
