@@ -12,6 +12,9 @@ final class OfflineAndPwaService
 {
     public function configure(string $siteKey, string $name, string $shortName, ?int $teamId = null, array $attributes = []): PwaConfiguration
     {
+        if (trim($siteKey) === '' || trim($name) === '') {
+            throw ValidationException::withMessages(['site_key' => 'A site key and name are required.']);
+        }
         if (mb_strlen($shortName) > 12) {
             throw ValidationException::withMessages(['short_name' => 'The short name must be 12 characters or fewer.']);
         }
@@ -22,11 +25,28 @@ final class OfflineAndPwaService
         );
     }
 
+    /** @param array<string, mixed> $attributes */
+    public function update(PwaConfiguration $configuration, array $attributes): PwaConfiguration
+    {
+        $siteKey = (string) ($attributes['site_key'] ?? $configuration->site_key);
+        $name = (string) ($attributes['name'] ?? $configuration->name);
+        $shortName = (string) ($attributes['short_name'] ?? $configuration->short_name);
+        $validated = $this->validatedAttributes($attributes);
+
+        if (mb_strlen($shortName) > 12 || trim($siteKey) === '' || trim($name) === '') {
+            throw ValidationException::withMessages(['configuration' => 'The PWA configuration metadata is invalid.']);
+        }
+
+        $configuration->update(array_merge($validated, ['site_key' => $siteKey, 'name' => $name, 'short_name' => $shortName]));
+
+        return $configuration->refresh();
+    }
+
     public function setCachePolicy(PwaConfiguration $configuration, array $policy): PwaConfiguration
     {
         $defaults = ['precache' => [], 'runtime' => [], 'max_entries' => 100, 'max_age_seconds' => 86400, 'offline_fallback' => true];
         $policy = array_replace($defaults, $policy);
-        if (! is_array($policy['precache']) || ! is_array($policy['runtime']) || ! is_int($policy['max_entries']) || $policy['max_entries'] < 1) {
+        if (! is_array($policy['precache']) || ! is_array($policy['runtime']) || ! is_int($policy['max_entries']) || $policy['max_entries'] < 1 || ! is_int($policy['max_age_seconds']) || $policy['max_age_seconds'] < 1) {
             throw ValidationException::withMessages(['cache_policy' => 'Cache policy has invalid entries or limits.']);
         }
         $configuration->update(['cache_policy' => $policy, 'last_updated_at' => now()]);
