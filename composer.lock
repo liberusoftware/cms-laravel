@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2f8d655490e60524ceddd4469223f40",
+    "content-hash": "a24f60dfce00252985a7385fb1925b18",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6335,6 +6335,147 @@
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\ContentFederationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-governance",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-governance",
+                "reference": "a217ed0714435a705a45254e4f519b6908fb1f91"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-governance",
+                    "capability": "content-governance"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentGovernance\\ContentGovernanceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentGovernance\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS owners, policy labels, review cycles, retention, legal holds, and compliance evidence.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-governance-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-governance-api",
+                "reference": "1a4ea22e7d6dce88ea8acac0c4e93e8b48f7a8a1"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content-governance": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentGovernanceApi\\ContentGovernanceApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentGovernanceApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-governance-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-governance-filament",
+                "reference": "a5df7ba22c34a87e0e24d522f4e9d40306b67385"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-content-governance": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentGovernanceFilament\\ContentGovernanceFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentGovernanceFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-governance-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-governance-livewire",
+                "reference": "96a4cbe40e17a52e3f73474fafa430efeaef6f9a"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-governance": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentGovernanceLivewire\\ContentGovernanceLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentGovernanceLivewire\\": "src/"
                 }
             },
             "license": [

@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Governance API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-governance/records:
+    get:
+      operationId: listGovernanceRecords
+      responses:
+        '200': {description: Governance records}
+    post:
+      operationId: createGovernanceRecord
+      responses:
+        '201': {description: Record created}
