@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Content Calendar API
+  version: 1.0.0
+paths:
+  /api/v1/cms/content-calendar/items:
+    get:
+      operationId: listCmsCalendarItems
+      responses:
+        '200': {description: Calendar items}
+    post:
+      operationId: scheduleCmsCalendarItem
+      responses:
+        '201': {description: Item scheduled}

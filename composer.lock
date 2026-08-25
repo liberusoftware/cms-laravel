@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84ecc4a30a29090ca9717e305b5ff1f4",
+    "content-hash": "7153dd887fae344095a31815c432bb66",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5935,6 +5935,147 @@
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\ContentAccessLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-calendar",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-calendar",
+                "reference": "59fdb3ec3c89c51dfcffde63f786f194e46d6314"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-calendar",
+                    "capability": "content-calendar"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentCalendar\\ContentCalendarServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentCalendar\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS editorial calendar, campaigns, deadlines, assignments, and rescheduling.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-calendar-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-calendar-api",
+                "reference": "3b143425f6265ea34ed59b9782ca5d44bf5de26d"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content-calendar": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentCalendarApi\\ContentCalendarApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentCalendarApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-calendar-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-calendar-filament",
+                "reference": "51b3a5c9f16b44de22fe30f594833ad02fed9987"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-content-calendar": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentCalendarFilament\\ContentCalendarFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentCalendarFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-calendar-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-calendar-livewire",
+                "reference": "7901ca42aac6a514d1fb68c9ca659ab65a9d1343"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-calendar": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentCalendarLivewire\\ContentCalendarLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentCalendarLivewire\\": "src/"
                 }
             },
             "license": [
