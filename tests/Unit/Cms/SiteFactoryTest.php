@@ -18,3 +18,10 @@ it('requires confirmation for teardown and rejects duplicate keys', function ():
     $site = $service->provision('docs', 'Docs');
     expect(fn () => $service->provision('docs', 'Again'))->toThrow(ValidationException::class)->and(fn () => $service->teardown($site))->toThrow(ValidationException::class);
 });
+
+it('normalizes site keys before duplicate detection and validates templates', function (): void {
+    $service = app(SiteFactoryService::class);
+    $service->provision('my site', 'My Site');
+    expect(fn () => $service->provision('my-site', 'Again'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->template('', ''))->toThrow(ValidationException::class);
+});
