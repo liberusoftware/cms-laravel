@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50250e427a355c0de1f09fb0a5907a53",
+    "content-hash": "e1d32e4dc0d4ba91b92b06153d34c0d0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8215,6 +8215,156 @@
                 "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
                 "source": "https://github.com/liberusoftware/module-cms-menus"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-multisite",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-multisite",
+                "reference": "d2ccece19bf184399880c51dd0f258ef3bedb2e0"
+            },
+            "require": {
+                "illuminate/database": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "liberusoftware/module-cms-site-factory": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-multisite"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Multisite\\MultisiteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Multisite\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Multisite network governance for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-multisite-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-multisite-api",
+                "reference": "fd78cc9aed5a1947967269fcdc6cd565c04cc059"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-multisite": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-multisite-api",
+                    "core": "liberusoftware/module-cms-multisite"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MultisiteApi\\MultisiteApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MultisiteApi\\": "src/"
+                }
+            },
+            "description": "Multisite API for Liberu CMS",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-multisite-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-multisite-filament",
+                "reference": "e22b1bcb2c2245ffb89d9ae530d95f44dd57e216"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-multisite": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-multisite-filament",
+                    "core": "liberusoftware/module-cms-multisite"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MultisiteFilament\\MultisiteFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MultisiteFilament\\": "src/"
+                }
+            },
+            "description": "Multisite Filament administration for Liberu CMS",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-multisite-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-multisite-livewire",
+                "reference": "7c245746132f57b4293ee29b4aa72501c6a8a7e6"
+            },
+            "require": {
+                "liberusoftware/module-cms-multisite": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-multisite-livewire",
+                    "core": "liberusoftware/module-cms-multisite"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MultisiteLivewire\\MultisiteLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MultisiteLivewire\\": "src/"
+                }
+            },
+            "description": "Multisite Livewire surfaces for Liberu CMS",
             "transport-options": {
                 "symlink": true,
                 "relative": true

@@ -1,0 +1,31 @@
+openapi: 3.1.0
+info:
+  title: Liberu CMS Multisite API
+  version: 0.1.0
+paths:
+  /api/v1/cms/multisite:
+    get:
+      operationId: cmsMultisiteList
+      responses: { '200': { description: Sites } }
+    post:
+      operationId: cmsMultisiteCreate
+      requestBody: { required: true, content: { application/json: { schema: { '$ref': '#/components/schemas/SiteInput' } } } }
+      responses: { '201': { description: Created } }
+  /api/v1/cms/multisite/{id}:
+    parameters: [{ name: id, in: path, required: true, schema: { type: integer } }]
+    get:
+      operationId: cmsMultisiteGet
+      responses: { '200': { description: Site } }
+    patch:
+      operationId: cmsMultisiteUpdate
+      responses: { '200': { description: Updated } }
+components:
+  schemas:
+    SiteInput:
+      type: object
+      required: [key, name]
+      properties:
+        key: { type: string, maxLength: 100 }
+        name: { type: string, maxLength: 255 }
+        domain: { type: string, nullable: true }
+        team_id: { type: integer, nullable: true }

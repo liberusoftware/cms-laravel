@@ -1,0 +1,1 @@
+{"name":"module-cms-multisite","package":"liberusoftware/module-cms-multisite","version":"0.1.0","layers":["core"],"service_providers":["Liberu\\Cms\\Multisite\\MultisiteServiceProvider"]}
