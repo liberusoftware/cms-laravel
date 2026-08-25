@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3857b70cb3e7bcb9febf21b11e4eda10",
+    "content-hash": "1e5087b38ee5fec41c8bf8af64800856",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7012,6 +7012,147 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-content-templates",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-templates",
+                "reference": "7e3111a04200e3d1671376a3bbd16838812859ab"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-templates",
+                    "capability": "content-templates"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentTemplates\\ContentTemplatesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTemplates\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS starter content, presets, versioned schemas, locking, and rollout.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-templates-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-templates-api",
+                "reference": "a919fd77c48a23d554b8a7af49f4b96b995c7256"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content-templates": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentTemplatesApi\\ContentTemplatesApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTemplatesApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-templates-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-templates-filament",
+                "reference": "614478455df831160d0df869afa6948f1b10fced"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-content-templates": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentTemplatesFilament\\ContentTemplatesFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTemplatesFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-templates-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-templates-livewire",
+                "reference": "3b2ecb617e1712c6d484e5a2c01862deb3a5ce9a"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-templates": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentTemplatesLivewire\\ContentTemplatesLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentTemplatesLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-content-types",
             "version": "0.1.0",
             "dist": {
@@ -7070,7 +7211,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/cms-contracts",
+                "url": "modules/module-cms-contracts",
                 "reference": "42fab297b83d304289ab477e7bbd2a5bbc381b79"
             },
             "require": {
