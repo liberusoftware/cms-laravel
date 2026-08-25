@@ -16,3 +16,10 @@ it('rejects unsafe provenance and severities', function (): void {
     $service = app(SecurityOperationsService::class);
     expect(fn () => $service->provenance('demo', '1', 'not-a-url'))->toThrow(ValidationException::class)->and(fn () => $service->advisory('Bad', 'urgent'))->toThrow(ValidationException::class);
 });
+
+it('requires an integrity subject and stores actor evidence under the canonical key', function (): void {
+    $service = app(SecurityOperationsService::class);
+    expect(fn () => $service->integrity('', 'content'))->toThrow(ValidationException::class);
+    $operation = $service->integrity('config', 'content', 9);
+    expect($operation->actor_id)->toBe(9)->and($operation->content_hash)->not->toBeNull();
+});

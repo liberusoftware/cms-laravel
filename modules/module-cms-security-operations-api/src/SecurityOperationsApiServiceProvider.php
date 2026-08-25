@@ -14,7 +14,13 @@ final class SecurityOperationsApiServiceProvider extends ServiceProvider
     public function register(): void
     {
         if ($this->app->bound(ApiResourceRegistryInterface::class)) {
-            $this->app->make(ApiResourceRegistryInterface::class)->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations', SecurityOperationsController::class, 'index', 'cms.security-operations.index'));
+            $r = $this->app->make(ApiResourceRegistryInterface::class);
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations', SecurityOperationsController::class, 'index', 'cms.security-operations.index'));
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations/inventory', SecurityOperationsController::class, 'inventory', 'cms.security-operations.inventory', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations/provenance', SecurityOperationsController::class, 'provenance', 'cms.security-operations.provenance', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations/integrity', SecurityOperationsController::class, 'integrity', 'cms.security-operations.integrity', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations/advisories', SecurityOperationsController::class, 'advisory', 'cms.security-operations.advisory', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('security-operations-api', new ApiEndpoint('cms/security-operations/incidents', SecurityOperationsController::class, 'incident', 'cms.security-operations.incident', 'POST', ['abilities:content:write']));
         }
     }
 }
