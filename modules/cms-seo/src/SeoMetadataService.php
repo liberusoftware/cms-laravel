@@ -12,6 +12,10 @@ final class SeoMetadataService
 {
     public function save(string $type, int $id, array $attributes, ?int $teamId = null): SeoMetadata
     {
+        if (trim($type) === '' || $id < 1) {
+            throw ValidationException::withMessages(['seoable' => 'A valid SEO subject type and identifier are required.']);
+        }
+
         return SeoMetadata::query()->updateOrCreate(['seoable_type' => $type, 'seoable_id' => $id, 'team_id' => $teamId], $this->validated($attributes));
     }
 
