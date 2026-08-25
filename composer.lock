@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05b2f31873655e440b5761bc1e774a4e",
+    "content-hash": "8e3105578eba2aeab8bb012e0101a3b9",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6617,6 +6617,147 @@
             "autoload": {
                 "psr-4": {
                     "Liberu\\Cms\\ContentIntegrityLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-intelligence",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-content-intelligence",
+                "reference": "78e1e4f376109824d8a7e2a5d33d13b876b2a9ec"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-content-intelligence",
+                    "capability": "content-intelligence"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentIntelligence\\ContentIntelligenceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentIntelligence\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS content inventory, quality insights, freshness, gaps, and improvement queues.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-intelligence-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-intelligence-api",
+                "reference": "b89ca03198db7da4b40c8f8993dfe0b48d270820"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-content-intelligence": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentIntelligenceApi\\ContentIntelligenceApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentIntelligenceApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-intelligence-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-intelligence-filament",
+                "reference": "c09107ebb966df986e9ec7e249938f7d2d221efc"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-content-intelligence": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentIntelligenceFilament\\ContentIntelligenceFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentIntelligenceFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-content-intelligence-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-content-intelligence-livewire",
+                "reference": "4d36d06f77dc285061ae213fede1d06eec9d8e04"
+            },
+            "require": {
+                "liberusoftware/module-cms-content-intelligence": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ContentIntelligenceLivewire\\ContentIntelligenceLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ContentIntelligenceLivewire\\": "src/"
                 }
             },
             "license": [
