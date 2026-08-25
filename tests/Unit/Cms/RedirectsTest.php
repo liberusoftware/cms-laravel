@@ -24,5 +24,7 @@ it('imports redirects, records slug changes, and rejects self redirects', functi
     expect($service->import([['from_path' => '/one', 'to_path' => '/two'], ['from_path' => '/three', 'to_path' => '/four']], null))->toBe(2);
     $service->recordSlugChange('/old-slug', '/new-slug');
     expect($service->suggestions('/old-slug')[0]->from_path)->toBe('/old-slug');
-    expect(fn () => $service->create('/same', '/same'))->toThrow(ValidationException::class);
+    expect(fn () => $service->create('/same', '/same'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->resolve('/missing', 0))->toThrow(ValidationException::class)
+        ->and(fn () => $service->create('', ''))->toThrow(ValidationException::class);
 });
