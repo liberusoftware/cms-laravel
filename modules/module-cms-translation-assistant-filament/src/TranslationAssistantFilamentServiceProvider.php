@@ -10,5 +10,10 @@ use Liberu\Cms\TranslationAssistantFilament\Resources\TranslationDraftResource;
 
 final class TranslationAssistantFilamentServiceProvider extends ServiceProvider
 {
-    public function register(): void { if ($this->app->bound(AdminResourceRegistryInterface::class)) { $this->app->make(AdminResourceRegistryInterface::class)->registerResource('translation-assistant', TranslationDraftResource::class); } }
+    public function register(): void
+    {
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $this->app->make(AdminResourceRegistryInterface::class)->registerResource('translation-assistant', TranslationDraftResource::class);
+        }
+    }
 }

@@ -9,8 +9,8 @@ use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
-use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
 use Liberu\Cms\ThemeMarketplace\Queries\ThemeMarketplaceQuery;
+use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
 
 final class ThemeMarketplaceServiceProvider extends ModuleServiceProvider
 {

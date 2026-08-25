@@ -9,8 +9,8 @@ use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
-use Liberu\Cms\ThemeIntegration\Services\ThemeIntegrationService;
 use Liberu\Cms\ThemeIntegration\Queries\ThemeIntegrationQuery;
+use Liberu\Cms\ThemeIntegration\Services\ThemeIntegrationService;
 
 final class ThemeIntegrationServiceProvider extends ModuleServiceProvider
 {

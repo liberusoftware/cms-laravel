@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Liberu\Cms\ThemeIntegration\Queries;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 use Liberu\Cms\ThemeIntegration\Models\ThemeComponent;
-use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 
 final class ThemeIntegrationQuery
 {

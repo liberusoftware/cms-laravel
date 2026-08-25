@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\WebDelivery\Actions\WebDeliveryService;
-use Liberu\Cms\WebDelivery\Models\DeliveryRoute;
+use Liberu\Cms\WebDelivery\Models\DeliveryInvalidation;
 use Liberu\Cms\WebDelivery\Support\EdgeInvalidationRegistry;
 
 uses(RefreshDatabase::class);
@@ -16,7 +16,11 @@ uses(RefreshDatabase::class);
 final class RecordingEdgeInvalidation implements EdgeInvalidationRegistry
 {
     public int $calls = 0;
-    public function invalidate(\Liberu\Cms\WebDelivery\Models\DeliveryInvalidation $invalidation): void { $this->calls++; }
+
+    public function invalidate(DeliveryInvalidation $invalidation): void
+    {
+        $this->calls++;
+    }
 }
 
 it('renders published content, preview tokens, redirects, maintenance, and edge invalidations', function (): void {

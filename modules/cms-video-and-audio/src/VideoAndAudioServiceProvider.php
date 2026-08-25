@@ -15,7 +15,24 @@ use Liberu\Cms\VideoAndAudio\Support\TranscodingAdapterRegistry;
 
 final class VideoAndAudioServiceProvider extends ModuleServiceProvider
 {
-    public function module(): ModuleInterface { return new VideoAndAudioModule; }
-    protected function registerModule(): void { $this->mergeConfigFrom(__DIR__.'/../config/video-and-audio.php', 'video-and-audio'); $this->app->singleton(TranscodingAdapterRegistry::class); $this->app->singleton(MediaManagementService::class); $this->app->singleton(MediaAssetQuery::class); }
-    protected function bootModule(): void { $this->loadModuleMigrations(__DIR__.'/../database/migrations'); if ($this->app->bound(PermissionRegistrarInterface::class)) $this->app->make(PermissionRegistrarInterface::class)->register(new PermissionGroup('video-and-audio', 'Video and Audio', AccessScope::Content, ['view', 'create', 'update', 'delete', 'transcode', 'publish'])); }
+    public function module(): ModuleInterface
+    {
+        return new VideoAndAudioModule;
+    }
+
+    protected function registerModule(): void
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/video-and-audio.php', 'video-and-audio');
+        $this->app->singleton(TranscodingAdapterRegistry::class);
+        $this->app->singleton(MediaManagementService::class);
+        $this->app->singleton(MediaAssetQuery::class);
+    }
+
+    protected function bootModule(): void
+    {
+        $this->loadModuleMigrations(__DIR__.'/../database/migrations');
+        if ($this->app->bound(PermissionRegistrarInterface::class)) {
+            $this->app->make(PermissionRegistrarInterface::class)->register(new PermissionGroup('video-and-audio', 'Video and Audio', AccessScope::Content, ['view', 'create', 'update', 'delete', 'transcode', 'publish']));
+        }
+    }
 }

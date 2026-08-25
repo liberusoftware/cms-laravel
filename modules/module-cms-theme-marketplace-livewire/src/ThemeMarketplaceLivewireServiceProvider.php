@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Liberu\Cms\ThemeMarketplaceLivewire;
 
 use Illuminate\Support\ServiceProvider;
-use Liberu\Cms\ThemeMarketplaceLivewire\Livewire\ThemeCatalog;
 use Livewire\Livewire;
 
 final class ThemeMarketplaceLivewireServiceProvider extends ServiceProvider

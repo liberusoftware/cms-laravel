@@ -14,7 +14,9 @@ final class StructuredCollectionsApiServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if (! $this->app->bound(ApiResourceRegistryInterface::class)) return;
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
         $r = $this->app->make(ApiResourceRegistryInterface::class);
         $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections', StructuredCollectionsController::class, 'index', 'cms.structured.collections.list'));
         $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections', StructuredCollectionsController::class, 'create', 'cms.structured.collections.create', 'POST', ['abilities:content:write']));

@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Liberu\Cms\WebDeliveryFilament\Resources;
 
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -20,7 +21,9 @@ use UnitEnum;
 final class DeliveryRouteResource extends Resource
 {
     protected static ?string $model = DeliveryRoute::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
+
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema
@@ -45,7 +48,7 @@ final class DeliveryRouteResource extends Resource
             TextColumn::make('maintenance')->boolean(),
             TextColumn::make('updated_at')->dateTime()->sortable(),
         ])->recordActions([
-            \Filament\Actions\Action::make('maintenance')->label('Toggle maintenance')->action(fn (DeliveryRoute $record): DeliveryRoute => app(WebDeliveryService::class)->setMaintenance($record, ! $record->maintenance)),
+            Action::make('maintenance')->label('Toggle maintenance')->action(fn (DeliveryRoute $record): DeliveryRoute => app(WebDeliveryService::class)->setMaintenance($record, ! $record->maintenance)),
         ]);
     }
 

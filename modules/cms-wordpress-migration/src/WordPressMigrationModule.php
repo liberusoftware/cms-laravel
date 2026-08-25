@@ -8,7 +8,18 @@ use Liberu\Cms\Core\Module\AbstractModule;
 
 final class WordPressMigrationModule extends AbstractModule
 {
-    public function key(): string { return 'wordpress-migration'; }
-    public function name(): string { return 'WordPress Migration'; }
-    public function version(): string { return '0.1.0'; }
+    public function key(): string
+    {
+        return 'wordpress-migration';
+    }
+
+    public function name(): string
+    {
+        return 'WordPress Migration';
+    }
+
+    public function version(): string
+    {
+        return '0.1.0';
+    }
 }

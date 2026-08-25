@@ -15,7 +15,10 @@ use Liberu\Cms\TranslationManagement\Support\TranslationVendorRegistry;
 
 final class TranslationManagementServiceProvider extends ModuleServiceProvider
 {
-    public function module(): ModuleInterface { return new TranslationManagementModule; }
+    public function module(): ModuleInterface
+    {
+        return new TranslationManagementModule;
+    }
 
     protected function registerModule(): void
     {

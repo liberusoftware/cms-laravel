@@ -3,9 +3,9 @@
 declare(strict_types=1);
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
-use Liberu\Cms\StaticPublishing\Services\StaticPublishingService;
 use Liberu\Cms\StaticPublishing\Contracts\DeploymentAdapterInterface;
 use Liberu\Cms\StaticPublishing\Models\StaticBuild;
+use Liberu\Cms\StaticPublishing\Services\StaticPublishingService;
 use Liberu\Cms\StaticPublishing\Support\DeploymentAdapterRegistry;
 
 uses(RefreshDatabase::class);
@@ -23,9 +23,17 @@ it('validates build kinds and invalidation paths', function (): void {
 });
 
 it('deploys published builds through a provider-neutral adapter registry', function (): void {
-    app(DeploymentAdapterRegistry::class)->register(new class implements DeploymentAdapterInterface {
-        public function key(): string { return 'test-cdn'; }
-        public function deploy(StaticBuild $build): array { return ['url' => 'https://cdn.example.test/'.$build->getKey()]; }
+    app(DeploymentAdapterRegistry::class)->register(new class implements DeploymentAdapterInterface
+    {
+        public function key(): string
+        {
+            return 'test-cdn';
+        }
+
+        public function deploy(StaticBuild $build): array
+        {
+            return ['url' => 'https://cdn.example.test/'.$build->getKey()];
+        }
     });
     $service = app(StaticPublishingService::class);
     $build = $service->build([['path' => '/']], 'docs');

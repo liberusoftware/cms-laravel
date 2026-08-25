@@ -11,8 +11,18 @@ use Liberu\Cms\Core\Tenant\HasTenant;
 final class MediaVariant extends Model
 {
     use HasTenant;
+
     protected $table = 'cms_media_variants';
+
     protected $fillable = ['asset_id', 'idempotency_key', 'adapter', 'profile', 'uri', 'status', 'bytes', 'metadata', 'failure_reason', 'team_id'];
-    protected function casts(): array { return ['metadata' => 'array']; }
-    public function asset(): BelongsTo { return $this->belongsTo(MediaAsset::class, 'asset_id'); }
+
+    protected function casts(): array
+    {
+        return ['metadata' => 'array'];
+    }
+
+    public function asset(): BelongsTo
+    {
+        return $this->belongsTo(MediaAsset::class, 'asset_id');
+    }
 }

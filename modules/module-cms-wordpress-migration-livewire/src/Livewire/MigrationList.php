@@ -11,5 +11,9 @@ use Livewire\Component;
 final class MigrationList extends Component
 {
     public string $status = '';
-    public function render(): View { return view('cms-wordpress-migration-livewire::migration-list', ['migrations' => WordPressMigration::query()->when($this->status !== '', fn ($q) => $q->where('status', $this->status))->latest()->get()]); }
+
+    public function render(): View
+    {
+        return view('cms-wordpress-migration-livewire::migration-list', ['migrations' => WordPressMigration::query()->when($this->status !== '', fn ($q) => $q->where('status', $this->status))->latest()->get()]);
+    }
 }

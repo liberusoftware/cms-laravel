@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ThemeMarketplace\Services;
 
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ThemeMarketplace\Models\MarketplaceTheme;
 use Liberu\Cms\ThemeMarketplace\Models\ThemeInstallation;
 use Liberu\Cms\ThemeMarketplace\Models\ThemeRating;

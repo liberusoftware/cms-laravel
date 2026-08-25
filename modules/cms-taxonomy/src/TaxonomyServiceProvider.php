@@ -9,8 +9,8 @@ use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
-use Liberu\Cms\Taxonomy\Services\TaxonomyService;
 use Liberu\Cms\Taxonomy\Queries\TaxonomyQuery;
+use Liberu\Cms\Taxonomy\Services\TaxonomyService;
 
 final class TaxonomyServiceProvider extends ModuleServiceProvider
 {

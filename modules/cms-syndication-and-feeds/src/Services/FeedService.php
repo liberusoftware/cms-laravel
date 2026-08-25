@@ -18,7 +18,7 @@ final class FeedService
             throw ValidationException::withMessages(['format' => 'Unsupported feed format.']);
         }
 
-return Feed::query()->create(['key' => Str::slug($key), 'title' => $title, 'format' => $format, 'source_url' => $sourceUrl, 'mapping' => $mapping, 'active' => true]);
+        return Feed::query()->create(['key' => Str::slug($key), 'title' => $title, 'format' => $format, 'source_url' => $sourceUrl, 'mapping' => $mapping, 'active' => true]);
     }
 
     public function addItem(Feed $feed, array $item): FeedItem
@@ -43,7 +43,7 @@ return Feed::query()->create(['key' => Str::slug($key), 'title' => $title, 'form
             $count++;
         }
 
-return $count;
+        return $count;
     }
 
     public function render(Feed $feed): string
@@ -63,6 +63,6 @@ return $count;
             throw ValidationException::withMessages(['destination' => 'Destination must be a URL.']);
         }
 
-return SyndicationDelivery::query()->create(['feed_id' => $feed->getKey(), 'destination' => $destination, 'status' => 'queued', 'response' => ['item_count' => $feed->items()->count()]]);
+        return SyndicationDelivery::query()->create(['feed_id' => $feed->getKey(), 'destination' => $destination, 'status' => 'queued', 'response' => ['item_count' => $feed->items()->count()]]);
     }
 }

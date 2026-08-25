@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Collections;
 
+use Liberu\Cms\Collections\Actions\CollectionMutationService;
 use Liberu\Cms\Collections\Filament\CollectionItemResource;
 use Liberu\Cms\Collections\Filament\CollectionResource;
 use Liberu\Cms\Collections\Http\Controllers\CollectionApiController;
-use Liberu\Cms\Collections\Actions\CollectionMutationService;
 use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;

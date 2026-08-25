@@ -16,8 +16,15 @@ uses(RefreshDatabase::class);
 
 final class FakeTranscodingAdapter implements TranscodingAdapterInterface
 {
-    public function key(): string { return 'fake'; }
-    public function transcode(string $sourceUri, string $profile, array $context = []): TranscodeResult { return new TranscodeResult("{$sourceUri}.{$profile}.mp4", 123, ['profile' => $profile]); }
+    public function key(): string
+    {
+        return 'fake';
+    }
+
+    public function transcode(string $sourceUri, string $profile, array $context = []): TranscodeResult
+    {
+        return new TranscodeResult("{$sourceUri}.{$profile}.mp4", 123, ['profile' => $profile]);
+    }
 }
 
 it('manages remote media, tracks, transcoding, idempotency, and playback metadata', function (): void {

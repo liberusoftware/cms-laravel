@@ -13,8 +13,21 @@ final class TranslationAssignment extends Model
     use HasTenant;
 
     protected $table = 'cms_translation_assignments';
+
     protected $fillable = ['job_id', 'source_change_id', 'assignee_type', 'assignee_id', 'role', 'status', 'due_at', 'completed_at', 'team_id'];
-    protected function casts(): array { return ['due_at' => 'datetime', 'completed_at' => 'datetime']; }
-    public function job(): BelongsTo { return $this->belongsTo(TranslationJob::class, 'job_id'); }
-    public function sourceChange(): BelongsTo { return $this->belongsTo(TranslationSourceChange::class, 'source_change_id'); }
+
+    protected function casts(): array
+    {
+        return ['due_at' => 'datetime', 'completed_at' => 'datetime'];
+    }
+
+    public function job(): BelongsTo
+    {
+        return $this->belongsTo(TranslationJob::class, 'job_id');
+    }
+
+    public function sourceChange(): BelongsTo
+    {
+        return $this->belongsTo(TranslationSourceChange::class, 'source_change_id');
+    }
 }

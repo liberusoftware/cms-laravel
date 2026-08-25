@@ -6,12 +6,12 @@ namespace Liberu\Cms\ContentEntitiesApi\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\ContentTypes\Actions\ContentEntryMutationService;
 use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\ContentTypes\Http\Resources\ContentEntryResource;
-use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
+use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final readonly class ContentEntitiesController

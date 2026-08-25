@@ -7,10 +7,10 @@ use Liberu\Cms\Core\Models\Channel;
 use Liberu\Cms\Core\Models\ContentAlias;
 use Liberu\Cms\Core\Models\ContentIdentity;
 use Liberu\Cms\Core\Models\Site;
-use Liberu\Cms\CoreApi\Http\Resources\CoreChannelResource;
-use Liberu\Cms\CoreApi\Http\Resources\CoreSiteResource;
 use Liberu\Cms\CoreApi\Http\Resources\CoreAliasResource;
+use Liberu\Cms\CoreApi\Http\Resources\CoreChannelResource;
 use Liberu\Cms\CoreApi\Http\Resources\CoreIdentityResource;
+use Liberu\Cms\CoreApi\Http\Resources\CoreSiteResource;
 
 it('serializes core sites through an explicit API resource contract', function (): void {
     $site = new Site([

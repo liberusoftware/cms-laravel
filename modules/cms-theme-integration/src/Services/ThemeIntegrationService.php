@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ThemeIntegration\Services;
 
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ThemeIntegration\Models\ThemeBinding;
 use Liberu\Cms\ThemeIntegration\Models\ThemeComponent;
@@ -62,6 +62,7 @@ final class ThemeIntegrationService
     public function effectiveTheme(?string $siteKey, ?string $channelKey = null, ?int $teamId = null): string
     {
         $binding = $this->select($siteKey, $channelKey, $teamId);
+
         return $binding?->theme_key ?? $binding?->fallback_theme_key ?? 'default';
     }
 

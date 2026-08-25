@@ -37,7 +37,7 @@ final class SiteFactoryService
             throw ValidationException::withMessages(['domain' => 'Invalid domain.']);
         }
 
-return SiteDomain::query()->create(['site_id' => $site->getKey(), 'domain' => strtolower($domain), 'verification_token' => hash('sha256', Str::random(64))]);
+        return SiteDomain::query()->create(['site_id' => $site->getKey(), 'domain' => strtolower($domain), 'verification_token' => hash('sha256', Str::random(64))]);
     }
 
     public function verifyDomain(SiteDomain $domain, string $token): SiteDomain

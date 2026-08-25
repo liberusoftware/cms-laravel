@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Collections\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Liberu\Cms\Collections\Http\Resources\CollectionItemResource;
 use Liberu\Cms\Collections\Http\Resources\CollectionResource;
+use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class CollectionApiController
@@ -33,7 +34,7 @@ final class CollectionApiController
     {
         try {
             return CollectionItemResource::collection($this->collections->published($collection));
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException) {
+        } catch (ModelNotFoundException) {
             throw new NotFoundHttpException;
         }
     }

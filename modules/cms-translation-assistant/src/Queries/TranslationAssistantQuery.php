@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Liberu\Cms\TranslationAssistant\Queries;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\TranslationAssistant\Models\GlossaryEntry;
 use Liberu\Cms\TranslationAssistant\Models\StyleRule;
 use Liberu\Cms\TranslationAssistant\Models\TranslationDraft;
-use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 
 final class TranslationAssistantQuery
 {

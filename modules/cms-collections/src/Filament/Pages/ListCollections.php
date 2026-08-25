@@ -6,8 +6,8 @@ namespace Liberu\Cms\Collections\Filament\Pages;
 
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
-use Liberu\Cms\Collections\Filament\CollectionResource;
 use Liberu\Cms\Collections\Actions\CollectionMutationService;
+use Liberu\Cms\Collections\Filament\CollectionResource;
 
 final class ListCollections extends ListRecords
 {

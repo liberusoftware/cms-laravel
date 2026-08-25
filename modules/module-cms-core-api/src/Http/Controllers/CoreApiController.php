@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\CoreApi\Http\Controllers;
 
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Queries\CoreQueryService;
 use Liberu\Cms\CoreApi\Http\Resources\CoreAliasResource;
@@ -68,7 +69,7 @@ final readonly class CoreApiController
     {
         try {
             $channels = $this->queries->channels($site, request()->integer('per_page', 15));
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException) {
+        } catch (ModelNotFoundException) {
             throw new NotFoundHttpException;
         }
 

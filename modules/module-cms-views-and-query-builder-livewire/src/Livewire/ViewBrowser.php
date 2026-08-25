@@ -16,7 +16,9 @@ final class ViewBrowser extends Component
     use WithPagination;
 
     public string $view = '';
+
     public string $search = '';
+
     public int $perPage = 15;
 
     public function mount(string $view): void

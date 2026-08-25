@@ -16,7 +16,10 @@ use Liberu\Cms\WebDelivery\Support\NullEdgeInvalidationRegistry;
 
 final class WebDeliveryServiceProvider extends ModuleServiceProvider
 {
-    public function module(): ModuleInterface { return new WebDeliveryModule; }
+    public function module(): ModuleInterface
+    {
+        return new WebDeliveryModule;
+    }
 
     protected function registerModule(): void
     {

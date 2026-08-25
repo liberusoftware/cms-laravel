@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedInteger('position')->default(0);
             $table->timestamps();
             $table->primary(['source_entry_id', 'target_entry_id', 'relation']);
-            $table->index(['source_entry_id', 'relation', 'position']);
+            $table->index(['source_entry_id', 'relation', 'position'], 'cms_content_entry_rel_source_relation_position_idx');
         });
     }
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ThemeMarketplaceFilament\Resources\Pages;
 
-use Filament\Resources\Pages\ListRecords;
-use Liberu\Cms\ThemeMarketplaceFilament\Resources\MarketplaceThemeResource;
 use Filament\Actions\CreateAction;
+use Filament\Resources\Pages\ListRecords;
 use Liberu\Cms\ThemeMarketplace\Services\ThemeMarketplaceService;
+use Liberu\Cms\ThemeMarketplaceFilament\Resources\MarketplaceThemeResource;
 
 final class ListMarketplaceThemes extends ListRecords
 {

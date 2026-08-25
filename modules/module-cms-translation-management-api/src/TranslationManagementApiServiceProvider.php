@@ -13,7 +13,9 @@ final class TranslationManagementApiServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if (! $this->app->bound(ApiResourceRegistryInterface::class)) return;
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
         $registry = $this->app->make(ApiResourceRegistryInterface::class);
         $registry->registerEndpoint('translation-management-api', new ApiEndpoint('cms/translation-management/jobs', TranslationManagementController::class, 'index', 'cms.translation-management.jobs'));
         $registry->registerEndpoint('translation-management-api', new ApiEndpoint('cms/translation-management/jobs/{publicId}', TranslationManagementController::class, 'show', 'cms.translation-management.job'));

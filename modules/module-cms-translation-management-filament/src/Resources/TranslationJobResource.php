@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Liberu\Cms\TranslationManagementFilament\Resources;
 
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Liberu\Cms\TranslationManagement\Actions\TranslationManagementService;
 use Liberu\Cms\TranslationManagement\Models\TranslationJob;
 use Liberu\Cms\TranslationManagementFilament\Resources\Pages\ListTranslationJobs;
 use UnitEnum;
@@ -18,7 +20,9 @@ use UnitEnum;
 final class TranslationJobResource extends Resource
 {
     protected static ?string $model = TranslationJob::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLanguage;
+
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema
@@ -41,7 +45,7 @@ final class TranslationJobResource extends Resource
             TextColumn::make('completed_units')->formatStateUsing(fn ($state, TranslationJob $record): string => "{$state}/{$record->total_units}"),
             TextColumn::make('actual_cost')->money('USD'),
         ])->defaultSort('created_at', 'desc')->recordActions([
-            \Filament\Actions\Action::make('reconcile')->icon(Heroicon::OutlinedArrowPath)->action(fn (TranslationJob $record): TranslationJob => app(\Liberu\Cms\TranslationManagement\Actions\TranslationManagementService::class)->reconcile($record)),
+            Action::make('reconcile')->icon(Heroicon::OutlinedArrowPath)->action(fn (TranslationJob $record): TranslationJob => app(TranslationManagementService::class)->reconcile($record)),
         ]);
     }
 

@@ -23,8 +23,8 @@ use Liberu\Cms\Pages\Http\Controllers\PageApiController;
 use Liberu\Cms\Pages\Http\Controllers\PageWriteController;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Preview\PagePreviewSource;
-use Liberu\Cms\Pages\Repositories\PageRepository;
 use Liberu\Cms\Pages\Queries\PageTreeQuery;
+use Liberu\Cms\Pages\Repositories\PageRepository;
 use Liberu\Cms\Pages\Search\PageSearchSource;
 use Liberu\Cms\Pages\Seo\PageSitemapProvider;
 

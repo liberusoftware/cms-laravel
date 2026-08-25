@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ListingQueryService;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ViewDefinitionQuery;
-use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ViewDefinitionResource;
 use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ListingRecordResource;
+use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ViewDefinitionResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class ViewsAndQueryBuilderController

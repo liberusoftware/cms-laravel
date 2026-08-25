@@ -13,7 +13,9 @@ final class WebDeliveryApiServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if (! $this->app->bound(ApiResourceRegistryInterface::class)) return;
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
         $registry = $this->app->make(ApiResourceRegistryInterface::class);
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes', WebDeliveryController::class, 'index', 'cms.web-delivery.routes'));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes/{path}', WebDeliveryController::class, 'show', 'cms.web-delivery.route'));

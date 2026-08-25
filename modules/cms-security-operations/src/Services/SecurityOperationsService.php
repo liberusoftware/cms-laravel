@@ -21,7 +21,7 @@ final class SecurityOperationsService
             throw ValidationException::withMessages(['source' => 'Extension provenance requires a valid source URL.']);
         }
 
-return $this->record('extension-provenance', $extension, 'verified', compact('version', 'source'), null, $actorId);
+        return $this->record('extension-provenance', $extension, 'verified', compact('version', 'source'), null, $actorId);
     }
 
     public function integrity(string $subject, string $content, ?int $actorId = null): SecurityOperation
@@ -44,7 +44,7 @@ return $this->record('extension-provenance', $extension, 'verified', compact('ve
             throw ValidationException::withMessages(['severity' => 'Unsupported advisory severity.']);
         }
 
-return $this->record('advisory', $title, $severity, $details, null, $actorId);
+        return $this->record('advisory', $title, $severity, $details, null, $actorId);
     }
 
     /** @return array<int, string> */

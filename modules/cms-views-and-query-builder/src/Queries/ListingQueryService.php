@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Liberu\Cms\ViewsAndQueryBuilder\Queries;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ViewsAndQueryBuilder\Models\ViewDefinition;

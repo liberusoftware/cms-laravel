@@ -8,7 +8,18 @@ use Liberu\Cms\Core\Module\AbstractModule;
 
 final class VideoAndAudioModule extends AbstractModule
 {
-    public function key(): string { return 'video-and-audio'; }
-    public function name(): string { return 'Video and Audio'; }
-    public function version(): string { return '0.1.0'; }
+    public function key(): string
+    {
+        return 'video-and-audio';
+    }
+
+    public function name(): string
+    {
+        return 'Video and Audio';
+    }
+
+    public function version(): string
+    {
+        return '0.1.0';
+    }
 }

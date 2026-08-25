@@ -6,7 +6,6 @@ namespace Liberu\Cms\Core\Queries;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Liberu\Cms\Core\Models\ContentAlias;
-use Liberu\Cms\Core\Models\ContentIdentity;
 use Liberu\Cms\Core\Models\Site;
 
 /**

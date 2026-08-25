@@ -13,7 +13,9 @@ final class VideoAndAudioApiServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if (! $this->app->bound(ApiResourceRegistryInterface::class)) return;
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
         $registry = $this->app->make(ApiResourceRegistryInterface::class);
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets', VideoAndAudioController::class, 'index', 'cms.video-and-audio.assets'));
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}', VideoAndAudioController::class, 'show', 'cms.video-and-audio.asset'));

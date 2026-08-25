@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentEntitiesApi;
 
 use Illuminate\Support\ServiceProvider;
-use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Liberu\Cms\ContentEntitiesApi\Http\Controllers\ContentEntitiesController;
+use Liberu\Cms\ContentTypes\Queries\PublishedEntityQuery;
 use Liberu\Cms\Contracts\Api\ApiEndpoint;
 use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 

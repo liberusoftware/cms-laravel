@@ -9,5 +9,6 @@ use Liberu\Cms\VideoAndAudio\Support\TranscodeResult;
 interface TranscodingAdapterInterface
 {
     public function key(): string;
+
     public function transcode(string $sourceUri, string $profile, array $context = []): TranscodeResult;
 }

@@ -20,7 +20,9 @@ use UnitEnum;
 final class ViewDefinitionResource extends Resource
 {
     protected static ?string $model = ViewDefinition::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTableCells;
+
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
     public static function form(Schema $schema): Schema

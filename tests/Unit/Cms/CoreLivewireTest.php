@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Liberu\Cms\Core\Models\Site;
-use Liberu\Cms\CoreLivewire\Livewire\ChannelList;
 use Liberu\Cms\CoreLivewire\CoreLivewireServiceProvider;
 use Livewire\Livewire;
 

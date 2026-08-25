@@ -12,6 +12,8 @@ final class WebDeliveryFilamentServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        if ($this->app->bound(AdminResourceRegistryInterface::class)) $this->app->make(AdminResourceRegistryInterface::class)->registerResource('web-delivery', DeliveryRouteResource::class);
+        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
+            $this->app->make(AdminResourceRegistryInterface::class)->registerResource('web-delivery', DeliveryRouteResource::class);
+        }
     }
 }

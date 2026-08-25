@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Liberu\Cms\ThemeIntegrationLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ThemeIntegration\Services\ThemeIntegrationService;
 use Livewire\Component;
-use Illuminate\Validation\ValidationException;
 
 final class ThemePreview extends Component
 {

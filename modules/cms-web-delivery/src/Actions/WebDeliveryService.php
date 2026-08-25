@@ -46,12 +46,22 @@ final class WebDeliveryService
     {
         $normalized = $this->path($path);
         $route = DeliveryRoute::query()->where('path', $normalized)->first();
-        if (! $route) return new DeliveryResult(404, $normalized, null, [], [], null, null, false);
+        if (! $route) {
+            return new DeliveryResult(404, $normalized, null, [], [], null, null, false);
+        }
         $preview = $this->validPreview($route, $previewToken);
-        if ($route->maintenance) return new DeliveryResult((int) config('web-delivery.maintenance_status', 503), $normalized, null, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, null, $preview);
-        if ($route->status !== 'published' && ! $preview) return new DeliveryResult(404, $normalized, null, [], [], null, null, false);
-        if ($route->route_type === 'redirect') return new DeliveryResult((int) $route->redirect_status, $normalized, null, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, $route->redirect_url, $preview);
-        if ($route->route_type === 'error') return new DeliveryResult((int) ($route->error_status ?? 500), $normalized, $route->error_message, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, null, $preview);
+        if ($route->maintenance) {
+            return new DeliveryResult((int) config('web-delivery.maintenance_status', 503), $normalized, null, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, null, $preview);
+        }
+        if ($route->status !== 'published' && ! $preview) {
+            return new DeliveryResult(404, $normalized, null, [], [], null, null, false);
+        }
+        if ($route->route_type === 'redirect') {
+            return new DeliveryResult((int) $route->redirect_status, $normalized, null, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, $route->redirect_url, $preview);
+        }
+        if ($route->route_type === 'error') {
+            return new DeliveryResult((int) ($route->error_status ?? 500), $normalized, $route->error_message, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, null, $preview);
+        }
 
         return new DeliveryResult(200, $normalized, $route->body, $route->metadata ?? [], $route->cache_tags ?? [], $route->canonical_url, null, $preview);
     }
@@ -78,7 +88,9 @@ final class WebDeliveryService
             throw ValidationException::withMessages(['cache_tags' => 'At least one cache tag and an idempotency key are required.']);
         }
         $invalidation = DeliveryInvalidation::query()->firstOrCreate(['idempotency_key' => $idempotencyKey, 'team_id' => $teamId], ['cache_tags' => $tags, 'provider' => $provider, 'status' => 'pending']);
-        if ($invalidation->status === 'completed') return $invalidation;
+        if ($invalidation->status === 'completed') {
+            return $invalidation;
+        }
         try {
             $this->edge->invalidate($invalidation);
             $invalidation->update(['status' => 'completed', 'completed_at' => now(), 'provider' => $provider]);
@@ -103,7 +115,9 @@ final class WebDeliveryService
             throw ValidationException::withMessages(['path' => 'A safe non-empty delivery path is required.']);
         }
         $normalized = '/'.trim(parse_url($path, PHP_URL_PATH) ?: $path, '/');
-        if ($normalized === '/' || strlen($normalized) > 2048) return $normalized;
+        if ($normalized === '/' || strlen($normalized) > 2048) {
+            return $normalized;
+        }
 
         return $normalized;
     }

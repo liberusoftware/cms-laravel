@@ -13,6 +13,7 @@ final class ThemeMarketplaceQuery
     public function catalog(int $perPage = 15, string $search = ''): LengthAwarePaginator
     {
         $term = trim($search);
+
         return MarketplaceTheme::query()->where('status', 'published')->where('security_status', 'approved')->when($term !== '', fn ($query) => $query->where(fn ($query) => $query->where('name', 'like', "%{$term}%")->orWhere('key', 'like', "%{$term}%")))->withCount('ratings')->latest()->paginate(max(1, min(100, $perPage)));
     }
 

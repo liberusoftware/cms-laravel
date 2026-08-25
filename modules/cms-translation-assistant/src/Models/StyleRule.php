@@ -10,6 +10,8 @@ use Liberu\Cms\Core\Tenant\HasTenant;
 final class StyleRule extends Model
 {
     use HasTenant;
+
     protected $table = 'cms_translation_style_rules';
+
     protected $fillable = ['locale', 'name', 'pattern', 'message', 'severity', 'team_id'];
 }

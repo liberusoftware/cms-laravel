@@ -9,5 +9,9 @@ use Livewire\Livewire;
 
 final class VideoAndAudioLivewireServiceProvider extends ServiceProvider
 {
-    public function boot(): void { $this->loadViewsFrom(__DIR__.'/../resources/views', 'module-cms-video-and-audio-livewire'); Livewire::addNamespace('module-cms-video-and-audio', classNamespace: 'Liberu\\Cms\\VideoAndAudioLivewire\\Livewire'); }
+    public function boot(): void
+    {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'module-cms-video-and-audio-livewire');
+        Livewire::addNamespace('module-cms-video-and-audio', classNamespace: 'Liberu\\Cms\\VideoAndAudioLivewire\\Livewire');
+    }
 }

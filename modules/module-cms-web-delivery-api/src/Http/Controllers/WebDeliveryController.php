@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\WebDeliveryApi\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\JsonResponse;
 use Liberu\Cms\WebDelivery\Actions\WebDeliveryService;
 use Liberu\Cms\WebDelivery\Models\DeliveryRoute;
 use Liberu\Cms\WebDelivery\Queries\DeliveryRouteQuery;
@@ -25,7 +25,9 @@ final class WebDeliveryController
     public function show(string $path): DeliveryRouteResource
     {
         $route = $this->routes->find($path);
-        if (! $route) throw new NotFoundHttpException;
+        if (! $route) {
+            throw new NotFoundHttpException;
+        }
 
         return new DeliveryRouteResource($route);
     }
@@ -48,7 +50,9 @@ final class WebDeliveryController
     public function previewToken(int $route): JsonResponse
     {
         $record = DeliveryRoute::query()->find($route);
-        if (! $record) throw new NotFoundHttpException;
+        if (! $record) {
+            throw new NotFoundHttpException;
+        }
 
         return response()->json(['token' => $this->delivery->issuePreviewToken($record), 'expires_at' => $record->fresh()->preview_expires_at?->toISOString()]);
     }
@@ -64,8 +68,11 @@ final class WebDeliveryController
     public function maintenance(Request $request, int $route): DeliveryRouteResource
     {
         $record = DeliveryRoute::query()->find($route);
-        if (! $record) throw new NotFoundHttpException;
+        if (! $record) {
+            throw new NotFoundHttpException;
+        }
         $data = $request->validate(['enabled' => ['required', 'boolean']]);
+
         return new DeliveryRouteResource($this->delivery->setMaintenance($record, (bool) $data['enabled']));
     }
 }

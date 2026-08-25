@@ -19,7 +19,11 @@ uses(RefreshDatabase::class);
 
 final class FakeTranslationVendor implements TranslationVendorInterface
 {
-    public function key(): string { return 'fake'; }
+    public function key(): string
+    {
+        return 'fake';
+    }
+
     public function translate(string $source, string $sourceLocale, string $targetLocale, array $context = []): TranslationResult
     {
         return new TranslationResult("{$targetLocale}: {$source}", 'fake', 'fake-v1', 0.25, ['request_id' => 'test']);

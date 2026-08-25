@@ -6,7 +6,6 @@ namespace Liberu\Cms\ViewsAndQueryBuilderLivewire;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Liberu\Cms\ViewsAndQueryBuilderLivewire\Livewire\ViewBrowser;
 
 final class ViewsAndQueryBuilderLivewireServiceProvider extends ServiceProvider
 {

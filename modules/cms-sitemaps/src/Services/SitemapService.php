@@ -25,7 +25,10 @@ final class SitemapService
     public function exclude(string $url, ?int $siteId = null): int
     {
         $updated = SitemapEntry::query()->where('url', $url)->where('site_id', $siteId)->update(['excluded' => true]);
-        if ($updated > 0) Cache::tags(['cms-sitemaps'])->flush();
+        if ($updated > 0) {
+            Cache::tags(['cms-sitemaps'])->flush();
+        }
+
         return $updated;
     }
 
@@ -47,6 +50,6 @@ final class SitemapService
             throw ValidationException::withMessages(['engine' => 'Unsupported search engine.']);
         }
 
-return ['engine' => $engine, 'url' => url('/sitemap.xml'), 'entries' => count($this->entries($siteId)), 'queued' => true];
+        return ['engine' => $engine, 'url' => url('/sitemap.xml'), 'entries' => count($this->entries($siteId)), 'queued' => true];
     }
 }

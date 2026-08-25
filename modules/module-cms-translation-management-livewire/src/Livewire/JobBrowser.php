@@ -15,16 +15,34 @@ final class JobBrowser extends Component
     use WithPagination;
 
     public string $search = '';
+
     public string $status = '';
+
     public int $perPage = 15;
 
-    public function updatedSearch(): void { $this->search = substr(trim($this->search), 0, 255); $this->resetPage(); }
-    public function updatedStatus(): void { $this->status = substr(trim($this->status), 0, 64); $this->resetPage(); }
-    public function updatedPerPage(): void { $this->perPage = max(1, min(100, $this->perPage)); $this->resetPage(); }
+    public function updatedSearch(): void
+    {
+        $this->search = substr(trim($this->search), 0, 255);
+        $this->resetPage();
+    }
+
+    public function updatedStatus(): void
+    {
+        $this->status = substr(trim($this->status), 0, 64);
+        $this->resetPage();
+    }
+
+    public function updatedPerPage(): void
+    {
+        $this->perPage = max(1, min(100, $this->perPage));
+        $this->resetPage();
+    }
 
     public function reconcile(string $publicId, TranslationJobQuery $jobs, TranslationManagementService $service): void
     {
-        if ($job = $jobs->find($publicId)) $service->reconcile($job);
+        if ($job = $jobs->find($publicId)) {
+            $service->reconcile($job);
+        }
     }
 
     public function render(TranslationJobQuery $jobs): View
