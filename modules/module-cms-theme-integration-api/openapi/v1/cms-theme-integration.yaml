@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Theme Integration API, version: 1.0.0}
+paths:
+  /api/v1/cms/theme-integration:
+    get: {operationId: listThemeBindings, responses: {'200': {description: Tenant theme bindings}}}
+    post: {operationId: createThemeBinding, responses: {'201': {description: Created binding}, '422': {description: Invalid binding}}}
+  /api/v1/cms/theme-integration/resolve:
+    get: {operationId: resolveEffectiveTheme, responses: {'200': {description: Effective theme and components}}}
+  /api/v1/cms/theme-integration/components:
+    get: {operationId: listThemeComponents, responses: {'200': {description: Registered components}}}
+    post: {operationId: registerThemeComponent, responses: {'201': {description: Registered component}}}
+  /api/v1/cms/theme-integration/{binding}:
+    patch: {operationId: updateThemeBinding, responses: {'200': {description: Updated binding}}}
+    delete: {operationId: deleteThemeBinding, responses: {'204': {description: Deleted binding}}}
