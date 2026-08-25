@@ -7,6 +7,8 @@ namespace Database\Seeders;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Liberu\Cms\Users\Access\SyncPermissions;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\PermissionRegistrar;
 
 /**
  * Provisions the baseline CMS role set and maps it onto the module-declared
@@ -27,6 +29,12 @@ final class CmsBaselineRolesSeeder extends Seeder
     {
         $permissions = app(SyncPermissions::class)();
 
+        if (! in_array('modules.view', $permissions, true)) {
+            Permission::findOrCreate('modules.view', 'web');
+            app(PermissionRegistrar::class)->forgetCachedPermissions();
+            $permissions[] = 'modules.view';
+        }
+
         $teamId = getPermissionsTeamId();
 
         $map = [
@@ -38,13 +46,20 @@ final class CmsBaselineRolesSeeder extends Seeder
         ];
 
         foreach ($map as $roleName => $granted) {
-            $role = Role::firstOrCreate([
+            $identity = [
                 'name' => $roleName,
-                'team_id' => $teamId,
                 'guard_name' => 'web',
-            ]);
+            ];
 
-            $role->syncPermissions($granted);
+            if (config('permission.teams')) {
+                $identity['team_id'] = $teamId;
+            }
+
+            $role = Role::firstOrCreate($identity);
+
+            $role->syncPermissions(
+                Permission::query()->whereIn('name', $granted)->where('guard_name', 'web')->get()->all()
+            );
         }
     }
 

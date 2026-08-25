@@ -25,13 +25,15 @@ final class AdminServiceProvider extends ModuleServiceProvider
 
         $this->app->singleton(AdminResourceRegistryInterface::class, AdminResourceRegistry::class);
         $this->app->singleton(AdminDashboardRegistryInterface::class, AdminDashboardRegistry::class);
+
+        $this->app->afterResolving(PermissionRegistrarInterface::class, function (PermissionRegistrarInterface $registrar): void {
+            $this->declarePermissions($registrar);
+        });
     }
 
     protected function bootModule(): void
     {
         $this->loadModuleViews(__DIR__.'/../resources/views', 'cms-admin');
-
-        $this->declarePermissions($this->app->make(PermissionRegistrarInterface::class));
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
