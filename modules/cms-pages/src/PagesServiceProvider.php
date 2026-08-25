@@ -27,6 +27,7 @@ use Liberu\Cms\Pages\Queries\PageTreeQuery;
 use Liberu\Cms\Pages\Repositories\PageRepository;
 use Liberu\Cms\Pages\Search\PageSearchSource;
 use Liberu\Cms\Pages\Seo\PageSitemapProvider;
+use Liberu\Cms\Pages\Services\PageRoutingService;
 
 final class PagesServiceProvider extends ModuleServiceProvider
 {
@@ -41,6 +42,7 @@ final class PagesServiceProvider extends ModuleServiceProvider
 
         $this->app->singleton(PageRepositoryInterface::class, PageRepository::class);
         $this->app->singleton(PageTreeQuery::class);
+        $this->app->singleton(PageRoutingService::class);
 
         if ($this->app->bound(AdminResourceRegistryInterface::class)) {
             $this->app->make(AdminResourceRegistryInterface::class)->registerResource('pages', PageResource::class);

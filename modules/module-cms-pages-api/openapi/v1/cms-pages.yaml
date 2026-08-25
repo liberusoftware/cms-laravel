@@ -1,0 +1,57 @@
+openapi: 3.1.0
+info:
+  title: CMS Pages API
+  version: 1.0.0
+paths:
+  /api/v1/cms/pages:
+    get:
+      operationId: listCmsPages
+      responses:
+        '200': {description: Published pages}
+    post:
+      operationId: createCmsPage
+      security: [{sanctum: [content:write]}]
+      responses:
+        '201': {description: Page created}
+  /api/v1/cms/pages/{slug}:
+    get:
+      operationId: getCmsPage
+      parameters: [{name: slug, in: path, required: true, schema: {type: string}}]
+      responses:
+        '200': {description: Published page}
+  /api/v1/cms/pages/{id}:
+    put:
+      operationId: updateCmsPage
+      security: [{sanctum: [content:write]}]
+      parameters: [{name: id, in: path, required: true, schema: {type: integer}}]
+      responses:
+        '200': {description: Page updated}
+    delete:
+      operationId: deleteCmsPage
+      security: [{sanctum: [content:write]}]
+      parameters: [{name: id, in: path, required: true, schema: {type: integer}}]
+      responses:
+        '204': {description: Page deleted}
+  /api/v1/cms/pages/{id}/aliases:
+    post:
+      operationId: addCmsPageAlias
+      security: [{sanctum: [content:write]}]
+      parameters: [{name: id, in: path, required: true, schema: {type: integer}}]
+      responses:
+        '201': {description: Alias created}
+  /api/v1/cms/page-redirects:
+    post:
+      operationId: createCmsPageRedirect
+      security: [{sanctum: [content:write]}]
+      responses:
+        '201': {description: Redirect created}
+  /api/v1/cms/page-redirects/{id}:
+    delete:
+      operationId: deleteCmsPageRedirect
+      security: [{sanctum: [content:write]}]
+      parameters: [{name: id, in: path, required: true, schema: {type: integer}}]
+      responses:
+        '204': {description: Redirect deleted}
+components:
+  securitySchemes:
+    sanctum: {type: http, scheme: bearer}

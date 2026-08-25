@@ -19,6 +19,11 @@ final class PageTree extends Component
         $this->tree = $tree;
     }
 
+    public function updatedSearch(): void
+    {
+        $this->search = mb_substr(trim($this->search), 0, 255);
+    }
+
     public function render(): View
     {
         $pages = $this->tree->roots($this->search);
