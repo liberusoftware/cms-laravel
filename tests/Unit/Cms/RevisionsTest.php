@@ -22,5 +22,7 @@ it('deduplicates autosaves and validates branches', function (): void {
     $first = $service->autosave('page', 1, ['body' => 'draft']);
     $same = $service->autosave('page', 1, ['body' => 'draft']);
     expect($same->getKey())->toBe($first->getKey());
-    expect(fn () => $service->branch($first, ''))->toThrow(ValidationException::class);
+    expect(fn () => $service->branch($first, ''))->toThrow(ValidationException::class)
+        ->and(fn () => $service->branch($first, '!!!'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->create('', 0, []))->toThrow(ValidationException::class);
 });

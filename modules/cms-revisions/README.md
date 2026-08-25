@@ -1,3 +1,3 @@
-# CMS Revisions
+# Revisions
 
-Provides immutable editorial snapshots, autosave, compare, restore-as-new-revision, branches, attribution, retention, and published/working copies while preserving the existing content revision trait.
+The domain module owns immutable snapshots, branch history, autosave deduplication, comparison, restore, publication, and pruning of unpublished revisions.
