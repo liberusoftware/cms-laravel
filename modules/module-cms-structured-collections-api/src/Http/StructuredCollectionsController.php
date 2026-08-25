@@ -90,4 +90,26 @@ final class StructuredCollectionsController
 
         return new StructuredCollectionRecordResource($service->createRecord($collection, $data));
     }
+
+    public function updateRecord(Request $request, string $slug, string $record, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): StructuredCollectionRecordResource
+    {
+        $model = $query->recordForMutation($slug, $record);
+        if (! $model) {
+            throw new NotFoundHttpException;
+        }
+        $data = $request->validate(['title' => ['sometimes', 'string', 'max:255'], 'slug' => ['sometimes', 'string', 'max:255'], 'content' => ['nullable', 'string'], 'excerpt' => ['nullable', 'string'], 'data' => ['nullable', 'array'], 'metadata' => ['nullable', 'array'], 'status' => ['nullable', 'string', 'max:32'], 'published_at' => ['nullable', 'date']]);
+
+        return new StructuredCollectionRecordResource($service->updateRecord($model, $data));
+    }
+
+    public function deleteRecord(string $slug, string $record, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): Response
+    {
+        $model = $query->recordForMutation($slug, $record);
+        if (! $model) {
+            throw new NotFoundHttpException;
+        }
+        $service->deleteRecord($model);
+
+        return response()->noContent();
+    }
 }

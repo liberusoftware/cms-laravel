@@ -25,3 +25,14 @@ it('exposes the canonical structured collections API contract', function (): voi
         ->assertJsonPath('data.0.type', 'cms-structured-collection-record')
         ->assertJsonPath('data.0.title', 'What?');
 });
+
+it('updates and deletes draft records through the mutation boundary', function (): void {
+    $team = Team::factory()->create();
+    Sanctum::actingAs($team, ['content:read', 'content:write'], 'sanctum');
+    $collection = Collection::create(['name' => 'Drafts', 'slug' => 'drafts', 'type' => 'notes', 'team_id' => $team->id]);
+    $collection->items()->create(['title' => 'Draft', 'slug' => 'draft', 'status' => 'draft', 'team_id' => $team->id]);
+
+    $this->patchJson('/api/v1/cms/structured-collections/drafts/records/draft', ['title' => 'Updated'])
+        ->assertOk()->assertJsonPath('title', 'Updated');
+    $this->deleteJson('/api/v1/cms/structured-collections/drafts/records/draft')->assertNoContent();
+});

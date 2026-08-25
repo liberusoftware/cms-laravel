@@ -26,5 +26,7 @@ final class StructuredCollectionsApiServiceProvider extends ServiceProvider
         $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections/{slug}/records', StructuredCollectionsController::class, 'records', 'cms.structured.collections.records'));
         $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections/{slug}/records', StructuredCollectionsController::class, 'createRecord', 'cms.structured.collections.records.create', 'POST', ['abilities:content:write']));
         $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections/{slug}/records/{record}', StructuredCollectionsController::class, 'record', 'cms.structured.collections.record'));
+        $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections/{slug}/records/{record}', StructuredCollectionsController::class, 'updateRecord', 'cms.structured.collections.record.update', 'PATCH', ['abilities:content:write']));
+        $r->registerEndpoint('structured-collections-api', new ApiEndpoint('cms/structured-collections/{slug}/records/{record}', StructuredCollectionsController::class, 'deleteRecord', 'cms.structured.collections.record.delete', 'DELETE', ['abilities:content:write']));
     }
 }
