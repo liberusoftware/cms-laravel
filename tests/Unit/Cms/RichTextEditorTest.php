@@ -13,3 +13,9 @@ it('validates embeds and formats', function (): void {
     $service = app(RichTextService::class);
     expect($service->embed('https://example.com'))->toContain('data-embed')->and(fn () => $service->prepare('x', 'invalid'))->toThrow(ValidationException::class)->and(fn () => $service->embed('javascript:alert(1)'))->toThrow(ValidationException::class);
 });
+
+it('sanitizes direct input and generates escaped embed titles', function (): void {
+    $service = app(RichTextService::class);
+    expect($service->sanitize('<script>x</script><p>Safe</p>'))->not->toContain('<script')
+        ->and($service->embed('https://example.com/video', '<Video>'))->toContain('&lt;Video&gt;');
+});
