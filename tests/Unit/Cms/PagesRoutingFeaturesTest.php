@@ -3,10 +3,12 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Pages\Models\Page;
 use Liberu\Cms\Pages\Models\PageRedirect;
 use Liberu\Cms\Pages\Queries\PageTreeQuery;
 use Liberu\Cms\Pages\Repositories\PageRepository;
+use Liberu\Cms\Pages\Services\PageRoutingService;
 
 uses(RefreshDatabase::class);
 
@@ -53,4 +55,31 @@ it('builds an arbitrarily deep page tree through the query boundary', function (
 
     expect($tree)->toHaveCount(1)
         ->and($tree->first()->children->first()->children)->toHaveCount(1);
+});
+
+it('centralizes alias and redirect validation in the routing service', function (): void {
+    $page = Page::factory()->create(['slug' => 'landing']);
+    $routing = app(PageRoutingService::class);
+
+    expect($routing->addAlias($page, 'legacy/landing')->path)->toBe('/legacy/landing');
+
+    expect(fn () => $routing->createRedirect([
+        'from_path' => '/legacy/landing',
+        'to_path' => '/landing',
+    ]))->toThrow(ValidationException::class);
+});
+
+it('rejects redirect loops and unsupported status codes', function (): void {
+    $routing = app(PageRoutingService::class);
+
+    expect(fn () => $routing->createRedirect([
+        'from_path' => '/same',
+        'to_path' => '/same',
+    ]))->toThrow(ValidationException::class);
+
+    expect(fn () => $routing->createRedirect([
+        'from_path' => '/old',
+        'to_path' => '/new',
+        'status_code' => 200,
+    ]))->toThrow(ValidationException::class);
 });

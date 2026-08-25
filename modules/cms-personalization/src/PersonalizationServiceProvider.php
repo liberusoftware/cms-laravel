@@ -10,6 +10,7 @@ use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
 use Liberu\Cms\Personalization\Services\DecisionEngine;
+use Liberu\Cms\Personalization\Services\PersonalizationService;
 
 final class PersonalizationServiceProvider extends ModuleServiceProvider
 {
@@ -21,6 +22,7 @@ final class PersonalizationServiceProvider extends ModuleServiceProvider
     protected function registerModule(): void
     {
         $this->app->singleton(DecisionEngine::class);
+        $this->app->singleton(PersonalizationService::class);
     }
 
     protected function bootModule(): void

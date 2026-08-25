@@ -33,3 +33,25 @@ it('honors poll schedules', function (): void {
     expect($poll->isOpen())->toBeFalse();
     expect(fn () => app(PollService::class)->submit($poll, [], null, 'subject'))->toThrow(ValidationException::class);
 });
+
+it('owns poll and question mutations and applies branching rules', function (): void {
+    $service = app(PollService::class);
+    $poll = $service->create(['title' => 'Survey', 'key' => 'survey', 'active' => true]);
+    $service->saveQuestion($poll, ['key' => 'kind', 'prompt' => 'Kind?', 'options' => ['a', 'b'], 'required' => true]);
+    $service->saveQuestion($poll, ['key' => 'detail', 'prompt' => 'Details', 'branching' => ['question' => 'kind', 'equals' => 'b'], 'required' => true]);
+
+    $service->submit($poll->fresh(), ['kind' => 'a']);
+
+    expect(fn () => $service->submit($poll->fresh(), ['kind' => 'b']))->toThrow(ValidationException::class);
+});
+
+it('exports responses without identity by default and erases them', function (): void {
+    $poll = Poll::create(['title' => 'Privacy', 'key' => 'privacy', 'active' => true, 'allow_anonymous' => true]);
+    $response = app(PollService::class)->submit($poll, [], null, 'browser');
+    $service = app(PollService::class);
+
+    expect($service->export($poll->fresh()))->toHaveCount(1)
+        ->and($service->export($poll->fresh())[0])->not->toHaveKey('respondent_hash');
+    $service->eraseResponse($response);
+    expect($poll->responses()->count())->toBe(0);
+});

@@ -1,0 +1,40 @@
+openapi: 3.1.0
+info:
+  title: CMS Personalization API
+  version: 1.0.0
+  description: Tenant-aware audience, variant, eligibility, consent, holdout, and decision APIs.
+paths:
+  /api/v1/cms/personalization/audiences:
+    get:
+      operationId: cms.personalization.audiences.list
+      responses: {'200': {description: Authorized audience collection}}
+    post:
+      operationId: cms.personalization.audiences.create
+      security: [{sanctum: []}]
+      responses: {'201': {description: Audience created}}
+  /api/v1/cms/personalization/audiences/{key}:
+    parameters: [{name: key, in: path, required: true, schema: {type: string}}]
+    get:
+      operationId: cms.personalization.audiences.get
+      responses: {'200': {description: Active audience and variants}}
+    patch:
+      operationId: cms.personalization.audiences.update
+      security: [{sanctum: []}]
+      responses: {'200': {description: Audience updated}}
+    delete:
+      operationId: cms.personalization.audiences.delete
+      security: [{sanctum: []}]
+      responses: {'204': {description: Audience deleted}}
+  /api/v1/cms/personalization/audiences/{key}/variants:
+    post:
+      operationId: cms.personalization.variants.create
+      security: [{sanctum: []}]
+      responses: {'201': {description: Variant created}}
+  /api/v1/cms/personalization/audiences/{key}/decision:
+    post:
+      operationId: cms.personalization.audiences.decide
+      security: [{sanctum: []}]
+      responses: {'200': {description: Decision and explainable evidence reason}}
+components:
+  securitySchemes:
+    sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}

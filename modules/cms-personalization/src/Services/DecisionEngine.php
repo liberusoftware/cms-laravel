@@ -30,7 +30,7 @@ final class DecisionEngine
             }
         }
 
-        Decision::create(['audience_key' => $audienceKey, 'variant_key' => $variant?->key, 'subject_key' => $subjectKey, 'context' => $context, 'reason' => $reason, 'team_id' => $audience?->team_id]);
+        Decision::create(['audience_key' => $audienceKey, 'variant_key' => $variant?->key, 'subject_key' => $subjectKey === null ? null : hash('sha256', $subjectKey), 'context' => $this->evidenceContext($context), 'reason' => $reason, 'team_id' => $audience?->team_id]);
 
         return ['variant' => $variant, 'reason' => $reason];
     }
@@ -54,5 +54,19 @@ final class DecisionEngine
         }
 
         return (hexdec(substr(hash('sha256', $variant->audience_id.':'.$subjectKey), 0, 8)) % 100) >= $variant->holdout_percent;
+    }
+
+    /** @return array<string, scalar|null> */
+    private function evidenceContext(array $context): array
+    {
+        $allowed = ['plan', 'country', 'locale', 'device', 'channel', 'consent'];
+        $evidence = [];
+        foreach ($allowed as $key) {
+            if (array_key_exists($key, $context) && (is_scalar($context[$key]) || $context[$key] === null)) {
+                $evidence[$key] = $context[$key];
+            }
+        }
+
+        return $evidence;
     }
 }

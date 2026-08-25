@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\PollsAndSurveysFilament\Resources;
 
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\PageRegistration;
@@ -28,7 +30,7 @@ final class PollResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema->components([TextInput::make('title')->required(), TextInput::make('key')->required()->alphaDash(), Toggle::make('active'), Toggle::make('allow_anonymous')->default(true), Toggle::make('allow_multiple'), Toggle::make('results_public')]);
+        return $schema->components([TextInput::make('title')->required(), TextInput::make('key')->required()->alphaDash(), Textarea::make('description'), DateTimePicker::make('starts_at'), DateTimePicker::make('ends_at')->afterOrEqual('starts_at'), Toggle::make('active'), Toggle::make('allow_anonymous')->default(true), Toggle::make('allow_multiple'), Toggle::make('results_public')]);
     }
 
     public static function table(Table $table): Table
@@ -39,6 +41,6 @@ final class PollResource extends Resource
     /** @return array<string, PageRegistration> */
     public static function getPages(): array
     {
-        return ['index' => Pages\ListPolls::route('/')];
+        return ['index' => Pages\ListPolls::route('/'), 'edit' => Pages\EditPoll::route('/{record}/edit')];
     }
 }
