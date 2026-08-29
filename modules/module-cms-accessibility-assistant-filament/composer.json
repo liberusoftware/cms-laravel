@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-accessibility-assistant-filament",
+    "description": "Filament adapter for the CMS Accessibility Assistant.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-accessibility-assistant": "^0.1", "filament/filament": "^5.0"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\AccessibilityAssistantFilament\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-accessibility-assistant-filament", "core": "liberusoftware/module-cms-accessibility-assistant"}, "laravel": {"providers": ["Liberu\\Cms\\AccessibilityAssistantFilament\\AccessibilityAssistantFilamentServiceProvider"]}}
+}

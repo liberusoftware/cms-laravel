@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b43765628846138eda7c944feb1321a",
+    "content-hash": "3ea8eaf3ce0976d5af9a65aebd66e084",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5083,6 +5083,84 @@
                 "MIT"
             ],
             "description": "API adapter for the CMS Accessibility Assistant.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-accessibility-assistant-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-accessibility-assistant-filament",
+                "reference": "4d5c5776c12b6054e73d796995d1d23586e9d8b7"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-accessibility-assistant": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-accessibility-assistant-filament",
+                    "core": "liberusoftware/module-cms-accessibility-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AccessibilityAssistantFilament\\AccessibilityAssistantFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AccessibilityAssistantFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for the CMS Accessibility Assistant.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-accessibility-assistant-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-accessibility-assistant-livewire",
+                "reference": "bceaf7467ecf828f8c8706587ee84671151232d9"
+            },
+            "require": {
+                "liberusoftware/module-cms-accessibility-assistant": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-accessibility-assistant-livewire",
+                    "core": "liberusoftware/module-cms-accessibility-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AccessibilityAssistantLivewire\\AccessibilityAssistantLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AccessibilityAssistantLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for the CMS Accessibility Assistant.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

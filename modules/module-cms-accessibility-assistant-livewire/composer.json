@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-accessibility-assistant-livewire",
+    "description": "Livewire adapter for the CMS Accessibility Assistant.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-accessibility-assistant": "^0.1", "livewire/livewire": "^4.0"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\AccessibilityAssistantLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-accessibility-assistant-livewire", "core": "liberusoftware/module-cms-accessibility-assistant"}, "laravel": {"providers": ["Liberu\\Cms\\AccessibilityAssistantLivewire\\AccessibilityAssistantLivewireServiceProvider"]}}
+}
