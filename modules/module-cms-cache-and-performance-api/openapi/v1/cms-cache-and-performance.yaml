@@ -1,0 +1,17 @@
+openapi: 3.1.0
+info:
+  title: CMS Cache and Performance API
+  version: 1.0.0
+paths:
+  /api/v1/cms/cache-and-performance/remember:
+    post:
+      operationId: cms.cache.performance.remember
+      responses: {'200': {description: Cache result}}
+  /api/v1/cms/cache-and-performance/invalidate:
+    post:
+      operationId: cms.cache.performance.invalidate
+      responses: {'200': {description: Invalidation result}}
+  /api/v1/cms/cache-and-performance/diagnostics:
+    get:
+      operationId: cms.cache.performance.diagnostics
+      responses: {'200': {description: Cache diagnostics}}

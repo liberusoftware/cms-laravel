@@ -1,0 +1,1 @@
+{"name":"cms-cache-and-performance","description":"Cache contracts, tags, warming, invalidation, and diagnostics.","provider":"Liberu\\Cms\\CacheAndPerformance\\CacheAndPerformanceServiceProvider","version":"0.1.0"}
