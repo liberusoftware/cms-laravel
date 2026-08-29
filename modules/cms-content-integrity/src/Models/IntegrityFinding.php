@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentIntegrity\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Liberu\Cms\Core\Tenant\HasTenant;
 
 final class IntegrityFinding extends Model
 {
+    use HasTenant;
+
     #[\Override]
     protected $table = 'cms_integrity_findings';
 
