@@ -23,6 +23,11 @@ final class ListingQueryService
         $definition = is_array($view->definition) ? $view->definition : [];
         $query = $modelClass::query();
         $allowedFields = $this->allowedFields($definition);
+        if ($allowedFields === []) {
+            throw ValidationException::withMessages(['definition' => 'The view must declare at least one field.']);
+        }
+        $model = $query->getModel();
+        $query->select(array_values(array_unique([$model->getQualifiedKeyName(), ...$allowedFields])));
 
         foreach (Arr::wrap($definition['filters'] ?? []) as $filter) {
             if (! is_array($filter)) {
@@ -61,11 +66,11 @@ final class ListingQueryService
         $fields = $definition['fields'] ?? [];
 
         return array_values(array_filter(array_map(static function (mixed $field): ?string {
-            if (is_string($field)) {
+            if (is_string($field) && preg_match('/\\A[a-zA-Z_][a-zA-Z0-9_]*\\z/', $field) === 1) {
                 return $field;
             }
 
-            return is_array($field) && is_string($field['name'] ?? null) ? $field['name'] : null;
+            return is_array($field) && is_string($field['name'] ?? null) && preg_match('/\\A[a-zA-Z_][a-zA-Z0-9_]*\\z/', $field['name']) === 1 ? $field['name'] : null;
         }, Arr::wrap($fields))));
     }
 }

@@ -48,6 +48,21 @@ it('executes only allowlisted fields and operators', function (): void {
     expect(fn () => app(ListingQueryService::class)->execute($view))->toThrow(ValidationException::class);
 });
 
+it('projects listing results to declared fields and the record key', function (): void {
+    $collection = Collection::create(['name' => 'Private Articles', 'type' => 'record']);
+    $collection->items()->create(['title' => 'Public title', 'status' => 'published', 'content' => 'Private body', 'metadata' => ['secret' => true]]);
+    $view = ViewDefinition::create([
+        'name' => 'Public titles',
+        'source' => 'collection_items',
+        'definition' => ['fields' => ['title', 'status'], 'filters' => [['field' => 'status', 'operator' => '=', 'value' => 'published']]],
+    ]);
+
+    $attributes = app(ListingQueryService::class)->execute($view)->first()->getAttributes();
+
+    expect($attributes)->toHaveKeys(['id', 'title', 'status'])
+        ->and($attributes)->not->toHaveKeys(['content', 'metadata']);
+});
+
 it('does not expose draft definitions through the public query boundary', function (): void {
     ViewDefinition::create(['name' => 'Draft', 'source' => 'collection_items', 'definition' => ['fields' => ['title']]]);
     ViewDefinition::create(['name' => 'Live', 'source' => 'collection_items', 'definition' => ['fields' => ['title']], 'status' => 'published', 'published_at' => now()]);
