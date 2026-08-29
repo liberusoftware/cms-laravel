@@ -187,6 +187,7 @@
         "liberusoftware/module-cms-cms-copilot": "^0.1",
         "liberusoftware/module-cms-copilot-api": "^0.1",
         "liberusoftware/module-cms-copilot-livewire": "^0.1",
+        "liberusoftware/module-cms-copilot-filament": "^0.1",
         "liberusoftware/module-cms-security-operations": "^0.1",
         "liberusoftware/module-cms-security-operations-api": "^0.1",
         "liberusoftware/module-cms-security-operations-filament": "^0.1",
