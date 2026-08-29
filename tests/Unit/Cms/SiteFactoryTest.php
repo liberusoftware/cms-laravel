@@ -3,9 +3,9 @@
 declare(strict_types=1);
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
-use Liberu\Cms\SiteFactoryApi\Http\SiteFactoryController;
 use Liberu\Cms\SiteFactory\Models\SiteFactoryOperation;
 use Liberu\Cms\SiteFactory\Services\SiteFactoryService;
+use Liberu\Cms\SiteFactoryApi\Http\SiteFactoryController;
 
 uses(RefreshDatabase::class);
 it('provisions, verifies, clones, suspends, and archives sites', function (): void {

@@ -25,8 +25,8 @@ final class SiteFactoryService
     }
 
     /**
-     * @param array<string|int, mixed> $configuration
-     * @param array<string|int, mixed> $initialContent
+     * @param  array<string|int, mixed>  $configuration
+     * @param  array<string|int, mixed>  $initialContent
      */
     public function template(string $key, string $name, array $configuration = [], array $initialContent = [], ?int $teamId = null): SiteTemplate
     {
@@ -39,8 +39,8 @@ final class SiteFactoryService
     }
 
     /**
-     * @param array<string|int, mixed> $configuration
-     * @param array<string|int, mixed> $initialContent
+     * @param  array<string|int, mixed>  $configuration
+     * @param  array<string|int, mixed>  $initialContent
      */
     public function updateTemplate(SiteTemplate $template, string $name, array $configuration, array $initialContent): SiteTemplate
     {
@@ -198,8 +198,9 @@ final class SiteFactoryService
 
     /**
      * @template T
-     * @param array<string, mixed> $payload
-     * @param Closure(SiteFactoryOperation): T $callback
+     *
+     * @param  array<string, mixed>  $payload
+     * @param  Closure(SiteFactoryOperation): T  $callback
      * @return T
      */
     private function execute(string $operation, ?Site $site, array $payload, Closure $callback): mixed
