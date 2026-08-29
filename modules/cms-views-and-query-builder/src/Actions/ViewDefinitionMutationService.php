@@ -46,12 +46,16 @@ final class ViewDefinitionMutationService
 
         $definition = $attributes['definition'];
         $fields = array_values(array_filter(array_map(static function (mixed $field): ?string {
-            if (is_string($field) && $field !== '') {
+            if (is_string($field) && preg_match('/\\A[a-zA-Z_][a-zA-Z0-9_]*\\z/', $field) === 1) {
                 return $field;
             }
 
-            return is_array($field) && is_string($field['name'] ?? null) && $field['name'] !== '' ? $field['name'] : null;
+            return is_array($field) && is_string($field['name'] ?? null) && preg_match('/\\A[a-zA-Z_][a-zA-Z0-9_]*\\z/', $field['name']) === 1 ? $field['name'] : null;
         }, Arr::wrap($definition['fields'] ?? []))));
+
+        if ($fields === []) {
+            throw ValidationException::withMessages(['definition' => 'A view must declare at least one valid field.']);
+        }
 
         foreach (Arr::wrap($definition['filters'] ?? []) as $filter) {
             if (! is_array($filter) || ! in_array($filter['field'] ?? null, $fields, true) || ! in_array(strtolower((string) ($filter['operator'] ?? '=')), config('views-and-query-builder.allowed_operators', []), true)) {
