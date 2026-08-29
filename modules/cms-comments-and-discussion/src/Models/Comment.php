@@ -7,9 +7,12 @@ namespace Liberu\Cms\CommentsAndDiscussion\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Liberu\Cms\Core\Tenant\HasTenant;
 
 final class Comment extends Model
 {
+    use HasTenant;
+
     #[\Override]
     protected $table = 'cms_comments';
 

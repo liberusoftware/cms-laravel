@@ -19,6 +19,9 @@ final readonly class CommentService
 
     public function create(array $data, ?int $authorId = null, ?int $teamId = null): Comment
     {
+        if (blank($data['commentable_type'] ?? null) || blank($data['commentable_id'] ?? null)) {
+            throw ValidationException::withMessages(['commentable' => 'A discussion subject type and identifier are required.']);
+        }
         $body = trim((string) ($data['body'] ?? ''));
         if ($body === '' || mb_strlen($body) > 10000) {
             throw ValidationException::withMessages(['body' => 'Comment body must contain 1 to 10000 characters.']);
@@ -26,7 +29,7 @@ final readonly class CommentService
         if ($authorId === null && (trim((string) ($data['guest_name'] ?? '')) === '' || ! filter_var($data['guest_email'] ?? null, FILTER_VALIDATE_EMAIL))) {
             throw ValidationException::withMessages(['guest_email' => 'A guest name and valid email are required.']);
         }
-        $parent = isset($data['parent_id']) ? Comment::query()->findOrFail($data['parent_id']) : null;
+        $parent = isset($data['parent_id']) ? Comment::query()->where('team_id', $teamId)->findOrFail($data['parent_id']) : null;
         if ($parent && ($parent->commentable_type !== $data['commentable_type'] || (string) $parent->commentable_id !== (string) $data['commentable_id'] || $parent->team_id !== $teamId)) {
             throw ValidationException::withMessages(['parent_id' => 'The parent comment is outside this discussion.']);
         }
@@ -52,6 +55,9 @@ final readonly class CommentService
     {
         if (! in_array($status, ['approved', 'rejected', 'spam', 'removed'], true)) {
             throw ValidationException::withMessages(['status' => 'Unsupported moderation status.']);
+        }
+        if ($comment->status !== 'pending') {
+            throw ValidationException::withMessages(['status' => 'Only pending comments can be moderated.']);
         }
         $comment->update(['status' => $status, 'moderated_at' => now()]);
 

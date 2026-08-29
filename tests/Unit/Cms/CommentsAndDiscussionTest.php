@@ -20,6 +20,9 @@ it('creates moderated comments and exposes only approved discussions', function 
     $service->moderate($comment, 'approved');
 
     expect($service->list('page', '42', 3)->total())->toBe(1);
+
+    expect(fn () => $service->moderate($comment->fresh(), 'rejected'))
+        ->toThrow(ValidationException::class);
 });
 
 it('rejects cross-discussion parents and invalid guests', function (): void {
@@ -27,6 +30,8 @@ it('rejects cross-discussion parents and invalid guests', function (): void {
     $parent = Comment::query()->create(['commentable_type' => 'page', 'commentable_id' => '1', 'body' => 'Parent', 'status' => 'approved']);
 
     expect(fn () => $service->create(['commentable_type' => 'page', 'commentable_id' => '2', 'parent_id' => $parent->id, 'body' => 'Reply'], 7))
+        ->toThrow(ValidationException::class);
+    expect(fn () => $service->create(['body' => 'Missing subject'], 7, 3))
         ->toThrow(ValidationException::class);
     expect(fn () => $service->create(['commentable_type' => 'page', 'commentable_id' => '2', 'body' => 'Guest']))
         ->toThrow(ValidationException::class);
