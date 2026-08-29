@@ -1,0 +1,1 @@
+<div><input wire:model.live="search" placeholder="Search extensions"><ul>@forelse ($listings as $listing)<li>{{ $listing->name }} · {{ $listing->publisher?->name }}</li>@empty<li>No extensions found.</li>@endforelse</ul></div>
