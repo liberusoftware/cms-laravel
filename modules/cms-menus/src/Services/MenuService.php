@@ -96,6 +96,10 @@ final class MenuService
             }
         }
 
+        if ($type === 'custom' && ! $this->isSafeUrl($attributes['url'] ?? $item?->url)) {
+            throw ValidationException::withMessages(['url' => 'Custom links must use a relative path or HTTP(S) URL.']);
+        }
+
         $parentId = $attributes['parent_id'] ?? $item?->parent_id;
         if ($parentId !== null) {
             $parent = MenuItem::query()->where('menu_id', $menu->getKey())->find($parentId);
@@ -133,5 +137,18 @@ final class MenuService
     private function text(mixed $value): string
     {
         return is_string($value) ? trim($value) : (is_scalar($value) ? trim((string) $value) : '');
+    }
+
+    private function isSafeUrl(mixed $value): bool
+    {
+        if (! is_string($value) || trim($value) === '' || preg_match('/[\x00-\x20\\\\]/', $value)) {
+            return false;
+        }
+        if (str_starts_with($value, '/')) {
+            return ! str_starts_with($value, '//');
+        }
+        $parsed = parse_url($value);
+
+        return is_array($parsed) && in_array(strtolower((string) ($parsed['scheme'] ?? '')), ['http', 'https'], true) && isset($parsed['host']);
     }
 }

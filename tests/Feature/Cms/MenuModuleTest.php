@@ -15,6 +15,13 @@ use Spatie\Permission\Models\Role;
 
 uses(RefreshDatabase::class);
 
+it('rejects unsafe custom menu URL schemes at the domain boundary', function (): void {
+    $service = app(MenuService::class);
+    $menu = new Menu(['name' => 'Main', 'location' => 'header']);
+
+    expect(fn () => $service->saveItem($menu, ['label' => 'Unsafe', 'link_type' => 'custom', 'url' => 'javascript:alert(1)']))->toThrow(ValidationException::class);
+});
+
 it('resolves a menu by location', function (): void {
     Menu::factory()->create(['location' => 'footer', 'name' => 'Footer']);
 
