@@ -28,3 +28,11 @@ it('prevents takeover and rejects invalid merge tokens', function (): void {
         ->and(fn () => $service->renew($lock, 'wrong-token'))->toThrow(ValidationException::class)
         ->and(fn () => $service->merge($lock, ['title' => 'Draft'], 'wrong-token'))->toThrow(ValidationException::class);
 });
+
+it('rejects invalid renewal durations', function (): void {
+    $service = app(ContentLockingService::class);
+    $lock = $service->acquire('page', '42', 3, 7);
+
+    expect(fn () => $service->renew($lock, $lock->token, 0))
+        ->toThrow(ValidationException::class);
+});
