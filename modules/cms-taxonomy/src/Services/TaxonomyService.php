@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\Taxonomy\Services;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Taxonomy\Models\Taxonomy;
@@ -99,9 +100,11 @@ final class TaxonomyService
         if ($from->taxonomy_id !== $into->taxonomy_id || $from->id === $into->id) {
             throw ValidationException::withMessages(['term' => 'Terms must be distinct members of the same vocabulary.']);
         }
-        TermAssignment::query()->where('term_id', $from->id)->get()->each(fn (TermAssignment $a): TermAssignment => $this->assign($into, $a->subject_type, $a->subject_id));
-        $from->children()->update(['parent_id' => $into->id]);
-        $from->delete();
+        DB::transaction(function () use ($from, $into): void {
+            TermAssignment::query()->where('term_id', $from->id)->get()->each(fn (TermAssignment $a): TermAssignment => $this->assign($into, $a->subject_type, $a->subject_id));
+            $from->children()->update(['parent_id' => $into->id]);
+            $from->delete();
+        });
 
         return $into->refresh();
     }
