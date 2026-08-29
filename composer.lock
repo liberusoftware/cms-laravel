@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1d32e4dc0d4ba91b92b06153d34c0d0",
+    "content-hash": "92cc8826e9ea4ef9e7069add82ded0c0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5011,6 +5011,45 @@
             "time": "2026-08-05T07:59:00+00:00"
         },
         {
+            "name": "liberusoftware/module-cms-accessibility-assistant",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-accessibility-assistant",
+                "reference": "6070cf595e99440e519ecb632ab0ebf7b458a710"
+            },
+            "require": {
+                "illuminate/support": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-accessibility-assistant",
+                    "capability": "accessibility-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AccessibilityAssistant\\AccessibilityAssistantServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AccessibilityAssistant\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Provider-neutral accessibility checks for CMS authoring content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-admin",
             "version": "0.1.0",
             "dist": {
@@ -7252,7 +7291,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-core",
+                "url": "modules/cms-core",
                 "reference": "acdb8a58777e29b6f8dda27d47550e87216367dd"
             },
             "require": {
