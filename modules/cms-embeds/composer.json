@@ -1,0 +1,9 @@
+{
+  "name": "liberusoftware/module-cms-embeds",
+  "description": "Provider-neutral, privacy-aware CMS embeds.",
+  "type": "liberu-module",
+  "version": "0.1.0",
+  "require": {"php": "^8.5", "laravel/framework": "^13.0", "liberusoftware/module-cms-core": "^0.1"},
+  "autoload": {"psr-4": {"Liberu\\Cms\\Embeds\\": "src/"}},
+  "extra": {"liberu":{"name":"module-cms-embeds","capability":"embeds"},"laravel": {"providers": ["Liberu\\Cms\\Embeds\\EmbedsServiceProvider"]}}
+}

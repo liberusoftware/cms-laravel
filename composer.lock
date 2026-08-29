@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e448a5701861acc97e7b8175490ee135",
+    "content-hash": "ceb56921772fb165b0571161b7dc0555",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8883,6 +8883,145 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-embeds",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-embeds",
+                "reference": "ee6b0b43002cdc8610355ef79c270b4bf5c54c87"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-embeds",
+                    "capability": "embeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Embeds\\EmbedsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Embeds\\": "src/"
+                }
+            },
+            "description": "Provider-neutral, privacy-aware CMS embeds.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-embeds-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-embeds-api",
+                "reference": "f318ac8099985f5f2cb1c608594e4dca2c578a60"
+            },
+            "require": {
+                "liberusoftware/module-cms-embeds": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-embeds-api",
+                    "core": "liberusoftware/module-cms-embeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EmbedsApi\\EmbedsApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EmbedsApi\\": "src/"
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-embeds-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-embeds-filament",
+                "reference": "be5da6c26bb17522dc929423bce68a12441c8708"
+            },
+            "require": {
+                "liberusoftware/module-cms-embeds": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-embeds-filament",
+                    "core": "liberusoftware/module-cms-embeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EmbedsFilament\\EmbedsFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EmbedsFilament\\": "src/"
+                }
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-embeds-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-embeds-livewire",
+                "reference": "8f45bf100eaadeee141cddb0a8a7f4e69c6a26a3"
+            },
+            "require": {
+                "liberusoftware/module-cms-embeds": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-embeds-livewire",
+                    "core": "liberusoftware/module-cms-embeds"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EmbedsLivewire\\EmbedsLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EmbedsLivewire\\": "src/"
+                }
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true
