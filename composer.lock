@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecac379071b3479366fb984ff5b400f2",
+    "content-hash": "50a2ea808b269483ba6503c99c54d371",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9147,6 +9147,161 @@
                 "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
                 "source": "https://github.com/liberusoftware/module-cms-menus"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-metadata",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-metadata",
+                "reference": "18164a38f5cc3a50f838a68f2a4731ced8f00479"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-metadata",
+                    "capability": "metadata"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Metadata\\MetadataServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Metadata\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Generic tenant-scoped metadata for Liberu CMS entities.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-metadata-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-metadata-api",
+                "reference": "9b6c4368e42d834574c80cf180f8a90fd64c5533"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-metadata": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-metadata-api",
+                    "core": "liberusoftware/module-cms-metadata"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MetadataApi\\MetadataApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MetadataApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for CMS Metadata.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-metadata-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-metadata-filament",
+                "reference": "cf27b861f600bf3dd99a1cece32f09a050ca5faf"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-metadata": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-metadata-filament",
+                    "core": "liberusoftware/module-cms-metadata"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MetadataFilament\\MetadataFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MetadataFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Metadata.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-metadata-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-metadata-livewire",
+                "reference": "dd49c91f2ef88c8ce7a735b5b8973350d270f39b"
+            },
+            "require": {
+                "liberusoftware/module-cms-metadata": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-metadata-livewire",
+                    "core": "liberusoftware/module-cms-metadata"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MetadataLivewire\\MetadataLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MetadataLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Metadata.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
