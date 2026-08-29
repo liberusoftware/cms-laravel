@@ -16,3 +16,14 @@ it('selects themes by site and channel with a safe fallback and components', fun
         ->and($service->components('mobile', 'header'))->toHaveCount(1)
         ->and($service->preview($site, $service->previewToken($site)))->toBeTrue();
 });
+
+it('expires theme preview tokens', function (): void {
+    $service = app(ThemeIntegrationService::class);
+    $binding = $service->bind('preview', null, 'base', 'fallback');
+    $token = $service->previewToken($binding);
+
+    expect($service->preview($binding->fresh(), $token))->toBeTrue();
+    $binding->update(['preview_expires_at' => now()->subMinute()]);
+
+    expect($service->preview($binding->fresh(), $token))->toBeFalse();
+});

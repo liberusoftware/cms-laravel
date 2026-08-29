@@ -83,13 +83,13 @@ final readonly class ThemeIntegrationService
 
     public function previewToken(ThemeBinding $binding): string
     {
-        $binding->update(['preview_token' => Str::random(48)]);
+        $binding->update(['preview_token' => Str::random(48), 'preview_expires_at' => now()->addSeconds((int) config('theme-integration.preview_ttl', 900))]);
 
         return (string) $binding->preview_token;
     }
 
     public function preview(ThemeBinding $binding, string $token): bool
     {
-        return hash_equals((string) $binding->preview_token, $token);
+        return $binding->preview_expires_at?->isFuture() === true && hash_equals((string) $binding->preview_token, $token);
     }
 }

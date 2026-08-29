@@ -15,10 +15,10 @@ final class ThemeBinding extends Model
     protected $table = 'cms_theme_bindings';
 
     #[\Override]
-    protected $fillable = ['site_key', 'channel_key', 'theme_key', 'fallback_theme_key', 'preview_token', 'active', 'team_id'];
+    protected $fillable = ['site_key', 'channel_key', 'theme_key', 'fallback_theme_key', 'preview_token', 'preview_expires_at', 'active', 'team_id'];
 
     protected function casts(): array
     {
-        return ['active' => 'boolean'];
+        return ['active' => 'boolean', 'preview_expires_at' => 'datetime'];
     }
 }

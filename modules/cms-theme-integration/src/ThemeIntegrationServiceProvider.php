@@ -21,6 +21,7 @@ final class ThemeIntegrationServiceProvider extends ModuleServiceProvider
 
     protected function registerModule(): void
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/theme-integration.php', 'theme-integration');
         $this->app->singleton(ThemeIntegrationService::class);
         $this->app->singleton(ThemeIntegrationQuery::class);
     }
