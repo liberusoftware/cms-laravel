@@ -38,6 +38,9 @@ final class RegionWidgetService
 
     public function place(Region $region, Widget $widget, int $position = 0, array $visibility = [], ?string $startsAt = null, ?string $endsAt = null): WidgetPlacement
     {
+        if ($region->team_id !== $widget->team_id) {
+            throw ValidationException::withMessages(['widget_id' => 'Regions and widgets must belong to the same team.']);
+        }
         if ($startsAt !== null && $endsAt !== null && $startsAt >= $endsAt) {
             throw ValidationException::withMessages(['ends_at' => 'The placement end must be after its start.']);
         }
