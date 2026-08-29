@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: CMS Extension Marketplace API
+  version: 1.0.0
+paths:
+  /api/v1/cms/extension-marketplace:
+    get: {operationId: cms.extension.marketplace.list, responses: {'200': {description: Authorized extension listings}}}
+    post: {operationId: cms.extension.marketplace.create, responses: {'201': {description: Created extension listing}, '422': {description: Invalid request}}}
+  /api/v1/cms/extension-marketplace/{key}:
+    get: {operationId: cms.extension.marketplace.get, parameters: [{name: key, in: path, required: true, schema: {type: string}}], responses: {'200': {description: Extension listing}, '404': {description: Not found}}}
+  /api/v1/cms/extension-marketplace/{key}/security:
+    post: {operationId: cms.extension.marketplace.security, responses: {'200': {description: Security review recorded}}}
+  /api/v1/cms/extension-marketplace/{key}/publish:
+    post: {operationId: cms.extension.marketplace.publish, responses: {'200': {description: Published listing}, '422': {description: Listing is not releasable}}}

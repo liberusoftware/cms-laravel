@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c50d6abd033736cfc477574fd77e21be",
+    "content-hash": "35ed12687f65d867e5739a82845a90c0",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9038,6 +9038,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Extension Manager.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-marketplace",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-extension-marketplace",
+                "reference": "11f85f37b665987adcbadd897da770fede09e386"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-marketplace",
+                    "capability": "extension-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionMarketplace\\ExtensionMarketplaceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionMarketplace\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Publisher-owned extension marketplace with signed releases, licensing, reviews, and distribution.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-marketplace-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-marketplace-api",
+                "reference": "8dca6efe0e25fe738e2d49c3bbdeeb510794b92b"
+            },
+            "require": {
+                "liberusoftware/module-cms-extension-marketplace": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-marketplace-api",
+                    "core": "liberusoftware/module-cms-extension-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionMarketplaceApi\\ExtensionMarketplaceApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionMarketplaceApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Versioned HTTP API adapter for CMS Extension Marketplace.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-marketplace-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-marketplace-filament",
+                "reference": "7615ba43e5abcddc5f4cbef97e98ca67783c256a"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-extension-marketplace": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-marketplace-filament",
+                    "core": "liberusoftware/module-cms-extension-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionMarketplaceFilament\\ExtensionMarketplaceFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionMarketplaceFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Extension Marketplace.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-marketplace-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-marketplace-livewire",
+                "reference": "dd6aefe06def7ec0bec921a693e37aaedcfbef7d"
+            },
+            "require": {
+                "liberusoftware/module-cms-extension-marketplace": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-marketplace-livewire",
+                    "core": "liberusoftware/module-cms-extension-marketplace"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionMarketplaceLivewire\\ExtensionMarketplaceLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionMarketplaceLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Extension Marketplace.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
