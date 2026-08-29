@@ -21,3 +21,30 @@ it('supports resumable typed records and completion with errors', function (): v
 
     expect(fn () => $service->addRecord($migration->refresh(), 'unknown', 'x'))->toThrow(ValidationException::class);
 });
+
+it('keeps processed and failed counters correct when records are retried', function (): void {
+    $service = app(WordPressMigrationService::class);
+    $migration = $service->start();
+    $record = $service->addRecord($migration, 'post', 'wp-1');
+
+    $service->processRecord($record, false, 'Temporary failure');
+    expect($migration->refresh()->processed_records)->toBe(0)
+        ->and($migration->failed_records)->toBe(1);
+
+    $service->processRecord($record->refresh(), true);
+    expect($migration->refresh()->processed_records)->toBe(1)
+        ->and($migration->failed_records)->toBe(0);
+
+    $service->processRecord($record->refresh(), true);
+    expect($migration->refresh()->processed_records)->toBe(1)
+        ->and($migration->failed_records)->toBe(0);
+});
+
+it('does not complete a migration while records remain pending', function (): void {
+    $service = app(WordPressMigrationService::class);
+    $migration = $service->start();
+    $service->addRecord($migration, 'page', 'wp-2');
+
+    expect(fn () => $service->complete($migration->refresh()))
+        ->toThrow(ValidationException::class);
+});
