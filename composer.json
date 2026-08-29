@@ -172,6 +172,7 @@
         "liberusoftware/module-cms-accessibility-assistant-api": "^0.1",
         "liberusoftware/module-cms-accessibility-assistant-filament": "^0.1",
         "liberusoftware/module-cms-accessibility-assistant-livewire": "^0.1",
+        "liberusoftware/module-cms-backup-and-restore": "^0.1",
         "liberusoftware/module-cms-security-operations": "^0.1",
         "liberusoftware/module-cms-security-operations-api": "^0.1",
         "liberusoftware/module-cms-security-operations-filament": "^0.1",

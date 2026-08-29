@@ -1,0 +1,1 @@
+{"name":"cms-backup-and-restore","description":"Backup artifacts, schedules, verification, retention, and restore previews.","provider":"Liberu\\Cms\\BackupAndRestore\\BackupAndRestoreServiceProvider","version":"0.1.0"}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ea8eaf3ce0976d5af9a65aebd66e084",
+    "content-hash": "226ac78bda81f42890321bf74098c89b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5322,6 +5322,45 @@
                 "issues": "https://github.com/liberusoftware/module-cms-audit/issues",
                 "source": "https://github.com/liberusoftware/module-cms-audit"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-backup-and-restore",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-backup-and-restore",
+                "reference": "e2ee798ecbb3a5c25e8c64fc34f3b41a8c0e35f1"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-backup-and-restore",
+                    "capability": "backup-and-restore"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BackupAndRestore\\BackupAndRestoreServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BackupAndRestore\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS backup artifacts, schedules, verification, retention, and restore previews.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
