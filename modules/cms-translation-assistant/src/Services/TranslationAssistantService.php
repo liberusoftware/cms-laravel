@@ -43,7 +43,10 @@ final class TranslationAssistantService
             }
         }
         foreach (StyleRule::query()->where('locale', $draft->target_locale)->where('team_id', $draft->team_id)->get() as $rule) {
-            if (@preg_match($rule->pattern, $draft->translated_text) === 1) {
+            $match = @preg_match($rule->pattern, $draft->translated_text);
+            if ($match === false) {
+                $violations[] = ['type' => 'style', 'severity' => 'error', 'message' => 'A configured style rule is invalid.'];
+            } elseif ($match === 1) {
                 $violations[] = ['type' => 'style', 'severity' => $rule->severity, 'message' => $rule->message];
             }
         }
@@ -54,6 +57,9 @@ final class TranslationAssistantService
 
     public function review(TranslationDraft $draft, string $decision, string $reviewerType, int|string $reviewerId): TranslationDraft
     {
+        if ($draft->status !== 'draft') {
+            throw ValidationException::withMessages(['status' => 'Only draft translations can be reviewed.']);
+        }
         if (! in_array($decision, ['approved', 'rejected'], true)) {
             throw ValidationException::withMessages(['status' => 'Review decision must be approved or rejected.']);
         }
