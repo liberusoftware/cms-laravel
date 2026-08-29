@@ -176,7 +176,7 @@ final class CoreMutationService
             return;
         }
 
-        if (! is_int($channelId) && ! (is_string($channelId) && ctype_digit($channelId))) {
+        if (! is_int($channelId) && (! is_string($channelId) || ! ctype_digit($channelId))) {
             throw ValidationException::withMessages(['channel_id' => 'The channel must belong to the selected site.']);
         }
 
