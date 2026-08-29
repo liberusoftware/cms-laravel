@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Laravel\Socialite\Two\InvalidStateException;
 use Liberu\Cms\Blocks\Types\CodeBlock;
 use Liberu\Cms\Content\Revisions\Revision;
+use Liberu\Cms\Contracts\Block\BlockRendererInterface;
 use Liberu\Cms\Contracts\Content\WorkflowState;
 use Liberu\Cms\Contracts\Events\Content\ContentStateChanged;
 use Liberu\Cms\Contracts\Events\Media\MediaUploaded;
@@ -63,6 +64,15 @@ it('renders code blocks with escaped language and source', function (): void {
 
     expect($html)->toContain('language-php&quot;')
         ->and($html)->toContain('&lt;script&gt;alert(1)&lt;/script&gt;');
+});
+
+it('limits nested block rendering depth', function (): void {
+    $block = ['type' => 'text', 'data' => ['text' => 'deep']];
+    for ($depth = 0; $depth < 40; $depth++) {
+        $block = ['type' => 'columns', 'children' => [$block]];
+    }
+
+    expect(app(BlockRendererInterface::class)->render($block))->toBeString();
 });
 
 it('uses a null parent for base themes', function (): void {
