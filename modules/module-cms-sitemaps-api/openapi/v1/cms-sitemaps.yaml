@@ -6,6 +6,9 @@ paths:
     post: {operationId: addSitemapEntry, responses: {'201': {description: Created entry}, '422': {description: Invalid URL or priority}}}
   /api/v1/cms/sitemaps/exclude:
     post: {operationId: excludeSitemapEntry, responses: {'200': {description: Exclusion result}}}
+  /api/v1/cms/sitemaps/{entry}:
+    patch: {operationId: updateSitemapEntry, responses: {'200': {description: Updated entry}, '422': {description: Invalid entry}}}
+    delete: {operationId: deleteSitemapEntry, responses: {'204': {description: Entry deleted}}}
   /api/v1/cms/sitemaps/chunks:
     get: {operationId: chunkSitemapEntries, responses: {'200': {description: Chunked sitemap entries}}}
   /api/v1/cms/sitemaps/notify:

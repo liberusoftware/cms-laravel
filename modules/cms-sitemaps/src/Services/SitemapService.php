@@ -32,6 +32,31 @@ final class SitemapService
         return $updated;
     }
 
+    /** @param array<string, mixed> $attributes */
+    public function update(SitemapEntry $entry, array $attributes): SitemapEntry
+    {
+        $url = $attributes['url'] ?? $entry->url;
+        if (! is_string($url) || filter_var($url, FILTER_VALIDATE_URL) === false) {
+            throw ValidationException::withMessages(['url' => 'Sitemap URLs must be absolute.']);
+        }
+
+        $priority = $attributes['priority'] ?? $entry->priority;
+        if (! is_numeric($priority) || (float) $priority < 0 || (float) $priority > 1) {
+            throw ValidationException::withMessages(['priority' => 'Priority must be between 0 and 1.']);
+        }
+
+        $entry->update(array_intersect_key($attributes, array_flip(['url', 'type', 'locale', 'priority', 'change_frequency', 'images', 'video', 'news', 'excluded'])));
+        Cache::tags(['cms-sitemaps'])->flush();
+
+        return $entry->refresh();
+    }
+
+    public function remove(SitemapEntry $entry): void
+    {
+        $entry->delete();
+        Cache::tags(['cms-sitemaps'])->flush();
+    }
+
     /** @return array<int, SitemapEntry> */
     public function entries(?int $siteId = null, ?string $type = null, ?string $locale = null): array
     {
