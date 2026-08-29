@@ -28,3 +28,13 @@ it('imports redirects, records slug changes, and rejects self redirects', functi
         ->and(fn () => $service->resolve('/missing', 0))->toThrow(ValidationException::class)
         ->and(fn () => $service->create('', ''))->toThrow(ValidationException::class);
 });
+
+it('isolates resolution and suggestions by tenant', function (): void {
+    $service = app(RedirectService::class);
+    $service->create('/private', '/team-ten', teamId: 10);
+    $service->create('/private', '/team-eleven', teamId: 11);
+
+    expect($service->resolve('/private', teamId: 10)['path'])->toBe('/team-ten')
+        ->and($service->resolve('/private', teamId: 11)['path'])->toBe('/team-eleven')
+        ->and($service->suggestions('/private', teamId: 10)[0]->to_path)->toBe('/team-ten');
+});

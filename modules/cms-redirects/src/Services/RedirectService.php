@@ -28,7 +28,7 @@ final class RedirectService
     }
 
     /** @return array{redirect: Redirect|null, path: string, loop: bool} */
-    public function resolve(string $path, int $maxHops = 10): array
+    public function resolve(string $path, int $maxHops = 10, ?int $teamId = null): array
     {
         if ($maxHops < 1) {
             throw ValidationException::withMessages(['max_hops' => 'At least one redirect hop is required.']);
@@ -41,13 +41,13 @@ final class RedirectService
                 return ['redirect' => null, 'path' => $current, 'loop' => true];
             }
             $visited[$current] = true;
-            $redirect = Redirect::query()->where('from_path', $current)->where('active', true)->first();
+            $redirect = Redirect::query()->where('from_path', $current)->where('team_id', $teamId)->where('active', true)->first();
             if (! $redirect instanceof Redirect || ! $redirect->isValid()) {
                 return ['redirect' => null, 'path' => $current, 'loop' => false];
             }
             $redirect->increment('hit_count');
             $current = $this->normalize($redirect->to_path);
-            if (! Redirect::query()->where('from_path', $current)->exists()) {
+            if (! Redirect::query()->where('from_path', $current)->where('team_id', $teamId)->exists()) {
                 return ['redirect' => $redirect->fresh(), 'path' => $current, 'loop' => false];
             }
         }
@@ -73,11 +73,11 @@ final class RedirectService
     }
 
     /** @return array<int, Redirect> */
-    public function suggestions(string $missingPath, int $limit = 5): array
+    public function suggestions(string $missingPath, int $limit = 5, ?int $teamId = null): array
     {
         $needle = trim($this->normalize($missingPath), '/');
 
-        return Redirect::query()->where('active', true)->get()->sortBy(fn (Redirect $redirect): int => levenshtein($needle, trim($redirect->from_path, '/')))->take(max(1, min(20, $limit)))->values()->all();
+        return Redirect::query()->where('team_id', $teamId)->where('active', true)->get()->sortBy(fn (Redirect $redirect): int => levenshtein($needle, trim($redirect->from_path, '/')))->take(max(1, min(20, $limit)))->values()->all();
     }
 
     private function normalize(string $path): string

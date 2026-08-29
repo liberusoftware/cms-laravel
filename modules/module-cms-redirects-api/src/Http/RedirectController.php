@@ -14,7 +14,7 @@ final class RedirectController
     {
         $data = $request->validate(['path' => ['required', 'string', 'max:2048']]);
 
-        return response()->json(['data' => $service->resolve($data['path'], (int) $request->integer('max_hops', 10))]);
+        return response()->json(['data' => $service->resolve($data['path'], (int) $request->integer('max_hops', 10), $request->user()?->current_team_id)]);
     }
 
     public function store(Request $request, RedirectService $service): JsonResponse
@@ -43,6 +43,6 @@ final class RedirectController
     {
         $data = $request->validate(['path' => ['required', 'string'], 'limit' => ['sometimes', 'integer', 'min:1', 'max:20']]);
 
-        return response()->json(['data' => $service->suggestions($data['path'], (int) ($data['limit'] ?? 5))]);
+        return response()->json(['data' => $service->suggestions($data['path'], (int) ($data['limit'] ?? 5), $request->user()?->current_team_id)]);
     }
 }
