@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35ed12687f65d867e5739a82845a90c0",
+    "content-hash": "7a52f8515c015f9b728ff3d87114431b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8883,6 +8883,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-experimentation",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-experimentation",
+                "reference": "9a8f4af542945a8b706596f1d05d4cf0a200a6a4"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-experimentation",
+                    "capability": "experimentation"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Experimentation\\ExperimentationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Experimentation\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Tenant-aware A/B and multivariate content experimentation with allocation and promotion history.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-experimentation-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-experimentation-api",
+                "reference": "e3f4da2dc16c424604ea5302cbd935ca6b3320dd"
+            },
+            "require": {
+                "liberusoftware/module-cms-experimentation": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-experimentation-api",
+                    "core": "liberusoftware/module-cms-experimentation"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExperimentationApi\\ExperimentationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExperimentationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Versioned HTTP API adapter for CMS Experimentation.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-experimentation-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-experimentation-filament",
+                "reference": "593bfb3c9794119fc832f723999c64641e116b66"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-experimentation": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-experimentation-filament",
+                    "core": "liberusoftware/module-cms-experimentation"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExperimentationFilament\\ExperimentationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExperimentationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Experimentation.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-experimentation-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-experimentation-livewire",
+                "reference": "827cd0944f3ddf1239247fb571f1cca30af18a28"
+            },
+            "require": {
+                "liberusoftware/module-cms-experimentation": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-experimentation-livewire",
+                    "core": "liberusoftware/module-cms-experimentation"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExperimentationLivewire\\ExperimentationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExperimentationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Experimentation.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
