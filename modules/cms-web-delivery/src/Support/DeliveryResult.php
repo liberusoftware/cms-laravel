@@ -10,7 +10,9 @@ final readonly class DeliveryResult
         public int $status,
         public string $path,
         public ?string $body,
+        /** @var array<string, mixed> */
         public array $metadata,
+        /** @var array<int, string> */
         public array $cacheTags,
         public ?string $canonicalUrl = null,
         public ?string $redirectUrl = null,

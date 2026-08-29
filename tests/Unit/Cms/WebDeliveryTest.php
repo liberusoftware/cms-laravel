@@ -44,6 +44,11 @@ it('renders published content, preview tokens, redirects, maintenance, and edge 
     $service->setMaintenance($route, true);
     expect($service->render($route->path)->status)->toBe(503);
 
+    $updated = $service->updateRoute($route, ['body' => 'Updated', 'status' => 'published']);
+    expect($updated->body)->toBe('Updated');
+    $service->deleteRoute($updated);
+    expect($service->render('/docs/start')->status)->toBe(404);
+
     $first = $service->invalidate(['content:1'], 'invalidate-1', 'test');
     $second = $service->invalidate(['content:1'], 'invalidate-1', 'test');
     expect($first->status)->toBe('completed')->and($second->is($first))->toBeTrue()->and($edge->calls)->toBe(1);

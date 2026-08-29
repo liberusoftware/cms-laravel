@@ -5,11 +5,20 @@ declare(strict_types=1);
 namespace Liberu\Cms\WebDeliveryApi\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\WebDelivery\Models\DeliveryRoute;
 
 final class DeliveryRouteResource extends JsonResource
 {
+    /** @return array<string, mixed> */
     public function toArray($request): array
     {
-        return ['id' => (string) $this->resource->getKey(), 'type' => 'cms-delivery-route', 'path' => $this->resource->path, 'route_type' => $this->resource->route_type, 'content_type' => $this->resource->content_type, 'content_id' => $this->resource->content_id, 'canonical_url' => $this->resource->canonical_url, 'redirect_url' => $this->resource->redirect_url, 'redirect_status' => $this->resource->redirect_status, 'metadata' => $this->resource->metadata, 'cache_tags' => $this->resource->cache_tags, 'cache_ttl' => $this->resource->cache_ttl, 'preview_enabled' => $this->resource->preview_enabled, 'maintenance' => $this->resource->maintenance, 'status' => $this->resource->status];
+        $route = $this->resource;
+        if (! $route instanceof DeliveryRoute) {
+            throw new \UnexpectedValueException('Expected a delivery route resource.');
+        }
+
+        $routeId = $route->getKey();
+
+        return ['id' => is_scalar($routeId) ? (string) $routeId : '', 'type' => 'cms-delivery-route', 'path' => $route->path, 'route_type' => $route->route_type, 'content_type' => $route->content_type, 'content_id' => $route->content_id, 'canonical_url' => $route->canonical_url, 'redirect_url' => $route->redirect_url, 'redirect_status' => $route->redirect_status, 'metadata' => $route->metadata, 'cache_tags' => $route->cache_tags, 'cache_ttl' => $route->cache_ttl, 'preview_enabled' => $route->preview_enabled, 'maintenance' => $route->maintenance, 'status' => $route->status];
     }
 }
