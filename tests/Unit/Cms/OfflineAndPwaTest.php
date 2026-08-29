@@ -23,3 +23,8 @@ it('rejects invalid install metadata and cache limits', function (): void {
     expect(fn () => $service->setCachePolicy($configuration, ['max_entries' => 0]))->toThrow(ValidationException::class);
     expect(fn () => $service->configure('other', 'Name', 'PWA', attributes: ['offline_url' => 'https://example.test/offline']))->toThrow(ValidationException::class);
 });
+
+it('rejects traversal in site-relative PWA paths', function (): void {
+    expect(fn () => app(OfflineAndPwaService::class)->configure('unsafe', 'Name', 'PWA', attributes: ['start_url' => '/../private']))
+        ->toThrow(ValidationException::class);
+});

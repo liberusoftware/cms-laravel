@@ -82,11 +82,21 @@ final class OfflineAndPwaService
         $allowed = ['start_url', 'scope', 'display', 'theme_color', 'background_color', 'icon_url', 'offline_url', 'cache_policy', 'service_worker_version'];
         $result = array_intersect_key($attributes, array_flip($allowed));
         foreach (['start_url', 'scope', 'offline_url'] as $key) {
-            if (isset($result[$key]) && ! str_starts_with((string) $result[$key], '/')) {
+            if (isset($result[$key]) && ! $this->isSafePath($result[$key])) {
                 throw ValidationException::withMessages([$key => 'PWA paths must be site-relative.']);
             }
         }
 
         return $result;
+    }
+
+    private function isSafePath(mixed $path): bool
+    {
+        if (! is_string($path) || ! str_starts_with($path, '/') || preg_match('/[\x00-\x20]/', $path) || str_contains($path, '\\')) {
+            return false;
+        }
+        $pathOnly = explode('?', $path, 2)[0];
+
+        return ! in_array('..', explode('/', $pathOnly), true);
     }
 }
