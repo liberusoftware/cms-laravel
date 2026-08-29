@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50a2ea808b269483ba6503c99c54d371",
+    "content-hash": "d9e91e2b0c14356db825817925952708",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9302,6 +9302,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for CMS Metadata.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-migration-framework",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-migration-framework",
+                "reference": "d540ff5d9d3771d8d49938e6d67f7705a17e06ec"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-migration-framework",
+                    "capability": "migration-framework"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MigrationFramework\\MigrationFrameworkServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MigrationFramework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Resumable, typed migration jobs for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-migration-framework-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-migration-framework-api",
+                "reference": "e6d3b02705a3b7030794594d3980e565a4353cda"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-migration-framework": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-migration-framework-api",
+                    "core": "liberusoftware/module-cms-migration-framework"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MigrationFrameworkApi\\MigrationFrameworkApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MigrationFrameworkApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for the CMS Migration Framework.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-migration-framework-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-migration-framework-filament",
+                "reference": "1cbaf71ef91deaa01289e7e3f07705168dceda13"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-migration-framework": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-migration-framework-filament",
+                    "core": "liberusoftware/module-cms-migration-framework"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MigrationFrameworkFilament\\MigrationFrameworkFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MigrationFrameworkFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for the CMS Migration Framework.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-migration-framework-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-migration-framework-livewire",
+                "reference": "99ea9a14d6f7b9b580544da263239d0832ba1daf"
+            },
+            "require": {
+                "liberusoftware/module-cms-migration-framework": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-migration-framework-livewire",
+                    "core": "liberusoftware/module-cms-migration-framework"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\MigrationFrameworkLivewire\\MigrationFrameworkLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\MigrationFrameworkLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for the CMS Migration Framework.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
