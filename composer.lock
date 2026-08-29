@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c3e6472af24a2a0cac7b118ecc320de",
+    "content-hash": "cf5479e56dfd37f2c970e1e398f876ad",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5212,6 +5212,153 @@
                 "issues": "https://github.com/liberusoftware/module-cms-admin/issues",
                 "source": "https://github.com/liberusoftware/module-cms-admin"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-analytics-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-analytics-integration",
+                "reference": "9e0ef4695af46bdc9e0972ba7a6481f867deb07b"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-analytics-integration",
+                    "capability": "analytics-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AnalyticsIntegration\\AnalyticsIntegrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AnalyticsIntegration\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS canonical analytics events, consent mappings, dashboards, and provider-neutral adapters.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-analytics-integration-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-analytics-integration-api",
+                "reference": "f72d46bebdbcf25f1e9f4447d2d16ae861d9e480"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "liberusoftware/module-cms-analytics-integration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-analytics-integration-api",
+                    "core": "liberusoftware/module-cms-analytics-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AnalyticsIntegrationApi\\AnalyticsIntegrationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AnalyticsIntegrationApi\\": "src/"
+                }
+            },
+            "description": "API adapter for CMS Analytics Integration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-analytics-integration-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-analytics-integration-filament",
+                "reference": "adb61baa96bce5a759c5915fb83814be34feb71f"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-analytics-integration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-analytics-integration-filament",
+                    "core": "liberusoftware/module-cms-analytics-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AnalyticsIntegrationFilament\\AnalyticsIntegrationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AnalyticsIntegrationFilament\\": "src/"
+                }
+            },
+            "description": "Filament adapter for CMS Analytics Integration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-analytics-integration-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-analytics-integration-livewire",
+                "reference": "bbd32ddd97a674ed1a633baf557930a0c2cfe409"
+            },
+            "require": {
+                "liberusoftware/module-cms-analytics-integration": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-analytics-integration-livewire",
+                    "core": "liberusoftware/module-cms-analytics-integration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AnalyticsIntegrationLivewire\\AnalyticsIntegrationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AnalyticsIntegrationLivewire\\": "src/"
+                }
+            },
+            "description": "Livewire adapter for CMS Analytics Integration.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
