@@ -40,7 +40,8 @@ return new class extends Migration
             $table->string('status')->default('active')->index();
             $table->unsignedBigInteger('team_id')->nullable()->index();
             $table->timestamps();
-            $table->unique(['source_site_id', 'target_site_id', 'content_type', 'content_id']);
+            // MySQL limits index names to 64 characters; the generated name exceeds it.
+            $table->unique(['source_site_id', 'target_site_id', 'content_type', 'content_id'], 'cms_multisite_refs_identity_unique');
         });
     }
 
