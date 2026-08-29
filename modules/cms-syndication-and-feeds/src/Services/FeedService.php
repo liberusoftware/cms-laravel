@@ -38,6 +38,25 @@ final class FeedService
         return FeedItem::query()->updateOrCreate(['feed_id' => $feed->getKey(), 'dedupe_hash' => $hash], ['external_id' => $item['external_id'], 'title' => $item['title'], 'url' => $item['url'], 'summary' => $item['summary'] ?? null, 'content' => $item['content'] ?? null, 'attribution' => $item['attribution'] ?? ['source' => 'cms'], 'payload' => $item, 'published_at' => $item['published_at'] ?? now()]);
     }
 
+    public function update(Feed $feed, array $attributes): Feed
+    {
+        $format = $attributes['format'] ?? $feed->format;
+        if (! is_string($format) || ! in_array($format, ['rss', 'atom', 'json'], true)) {
+            throw ValidationException::withMessages(['format' => 'Unsupported feed format.']);
+        }
+        if (array_key_exists('source_url', $attributes) && $attributes['source_url'] !== null && filter_var($attributes['source_url'], FILTER_VALIDATE_URL) === false) {
+            throw ValidationException::withMessages(['source_url' => 'Source URL must be valid.']);
+        }
+        $feed->update(array_intersect_key($attributes, array_flip(['title', 'format', 'source_url', 'mapping', 'active'])));
+
+        return $feed->refresh();
+    }
+
+    public function remove(Feed $feed): void
+    {
+        $feed->update(['active' => false]);
+    }
+
     public function import(Feed $feed, string $xml): int
     {
         $parsed = @simplexml_load_string($xml);
