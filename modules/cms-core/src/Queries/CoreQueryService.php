@@ -73,6 +73,16 @@ final class CoreQueryService
         return $site->identities()->latest()->paginate($this->perPage($perPage));
     }
 
+    public function settings(string $siteKey, int $perPage = 15, string $environment = 'production'): LengthAwarePaginator
+    {
+        $site = Site::query()->where('key', $siteKey)->firstOrFail();
+
+        return $site->cmsSettings()
+            ->where('environment', $environment)
+            ->latest()
+            ->paginate($this->perPage($perPage));
+    }
+
     private function perPage(int $perPage): int
     {
         $max = config('cms-api.pagination.max', 100);

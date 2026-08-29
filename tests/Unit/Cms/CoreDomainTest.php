@@ -6,11 +6,13 @@ namespace Tests\Unit\Cms;
 
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Contracts\Events\Core\ChannelCreated;
 use Liberu\Cms\Contracts\Events\Core\ContentIdentityCreated;
 use Liberu\Cms\Contracts\Events\Core\SettingChanged;
 use Liberu\Cms\Contracts\Events\Core\SiteCreated;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
+use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Models\Site;
 use Liberu\Cms\Core\Queries\CoreQueryService;
 
@@ -90,6 +92,25 @@ it('enforces the site and channel identity constraints', function (): void {
 
     expect(fn () => $site->channels()->create(['key' => 'web', 'name' => 'Duplicate']))
         ->toThrow(QueryException::class);
+});
+
+it('keeps channel references within their owning site', function (): void {
+    $site = Site::create(['key' => 'one', 'name' => 'One']);
+    $otherSite = Site::create(['key' => 'two', 'name' => 'Two']);
+    $channel = $otherSite->channels()->create(['key' => 'web', 'name' => 'Web']);
+    $mutations = app(CoreMutationService::class);
+
+    expect(fn () => $mutations->createIdentity($site, [
+        'channel_id' => $channel->id,
+        'content_type' => 'page',
+        'content_id' => '1',
+    ]))->toThrow(ValidationException::class);
+
+    $siteChannel = $site->channels()->create(['key' => 'web', 'name' => 'Web']);
+    $mutations->updateChannel($siteChannel, ['site_id' => $otherSite->id, 'name' => 'Updated']);
+
+    expect($siteChannel->fresh()->site_id)->toBe($site->id)
+        ->and($siteChannel->fresh()->name)->toBe('Updated');
 });
 
 it('paginates aliases and identities through the core query boundary', function (): void {

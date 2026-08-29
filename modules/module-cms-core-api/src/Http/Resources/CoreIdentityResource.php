@@ -6,23 +6,32 @@ namespace Liberu\Cms\CoreApi\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\Core\Models\ContentIdentity;
 
+/** @extends JsonResource<ContentIdentity> */
+/** @mixin ContentIdentity */
 final class CoreIdentityResource extends JsonResource
 {
+    /** @return array<string, mixed> */
     public function toArray(Request $request): array
     {
+        $identity = $this->resource;
+        if (! $identity instanceof ContentIdentity) {
+            throw new \UnexpectedValueException('Core identity resource requires a ContentIdentity model.');
+        }
+
         return [
-            'id' => (string) $this->getKey(),
+            'id' => (string) $identity->id,
             'type' => 'cms-content-identity',
-            'site_id' => (string) $this->site_id,
-            'channel_id' => $this->channel_id === null ? null : (string) $this->channel_id,
-            'content_type' => $this->content_type,
-            'content_id' => (string) $this->content_id,
-            'canonical_path' => $this->canonical_path,
-            'status' => $this->status,
-            'metadata' => $this->metadata,
-            'created_at' => $this->created_at?->toAtomString(),
-            'updated_at' => $this->updated_at?->toAtomString(),
+            'site_id' => (string) $identity->site_id,
+            'channel_id' => $identity->channel_id === null ? null : (string) $identity->channel_id,
+            'content_type' => $identity->content_type,
+            'content_id' => (string) $identity->content_id,
+            'canonical_path' => $identity->canonical_path,
+            'status' => $identity->status,
+            'metadata' => $identity->metadata,
+            'created_at' => $identity->created_at?->toAtomString(),
+            'updated_at' => $identity->updated_at?->toAtomString(),
         ];
     }
 }

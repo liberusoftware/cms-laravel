@@ -7,10 +7,23 @@ namespace Liberu\Cms\Core\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Contracts\Events\Core\ContentIdentityCreated;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int $id
+ * @property int $site_id
+ * @property int|null $channel_id
+ * @property string $content_type
+ * @property string $content_id
+ * @property string|null $canonical_path
+ * @property string $status
+ * @property array<string, mixed>|null $metadata
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ */
 final class ContentIdentity extends Model
 {
     use HasTenant;

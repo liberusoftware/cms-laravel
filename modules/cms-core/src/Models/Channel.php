@@ -7,10 +7,21 @@ namespace Liberu\Cms\Core\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Contracts\Events\Core\ChannelCreated;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int $id
+ * @property int $site_id
+ * @property string $key
+ * @property string $name
+ * @property string $type
+ * @property array<string, mixed>|null $settings
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ */
 final class Channel extends Model
 {
     use HasTenant;
