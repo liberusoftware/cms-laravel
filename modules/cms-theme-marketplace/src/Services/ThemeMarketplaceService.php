@@ -28,6 +28,9 @@ final class ThemeMarketplaceService
         if (($manifest['parent_key'] ?? null) === $manifest['key']) {
             throw ValidationException::withMessages(['parent_key' => 'A theme cannot inherit from itself.']);
         }
+        if (is_string($manifest['parent_key'] ?? null) && ! MarketplaceTheme::query()->where('key', $manifest['parent_key'])->where('team_id', $teamId)->where('status', 'published')->exists()) {
+            throw ValidationException::withMessages(['parent_key' => 'The selected parent theme is not available.']);
+        }
 
         return MarketplaceTheme::query()->updateOrCreate(['key' => $manifest['key'], 'version' => $manifest['version'], 'team_id' => $teamId], ['name' => $manifest['name'], 'author' => $manifest['author'], 'description' => $manifest['description'] ?? null, 'manifest' => $manifest, 'compatibility' => $manifest['compatibility'] ?? [], 'preview_url' => $manifest['preview_url'] ?? null, 'license' => $manifest['license'] ?? 'proprietary', 'parent_key' => $manifest['parent_key'] ?? null, 'status' => 'published', 'security_status' => 'pending', 'team_id' => $teamId]);
     }

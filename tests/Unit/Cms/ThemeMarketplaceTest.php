@@ -25,3 +25,15 @@ it('rejects unreviewed or incompatible themes and invalid ratings', function ():
     expect(fn () => $service->install($theme, 'main', '1.0.0'))->toThrow(ValidationException::class);
     expect(fn () => $service->rate($theme, 'user', 1, 6))->toThrow(ValidationException::class);
 });
+
+it('requires child themes to reference an available published parent', function (): void {
+    $service = app(ThemeMarketplaceService::class);
+
+    expect(fn () => $service->publish(['key' => 'child', 'name' => 'Child', 'version' => '1.0.0', 'author' => 'A', 'parent_key' => 'missing']))
+        ->toThrow(ValidationException::class);
+
+    $parent = $service->publish(['key' => 'parent', 'name' => 'Parent', 'version' => '1.0.0', 'author' => 'A']);
+    $child = $service->publish(['key' => 'child', 'name' => 'Child', 'version' => '1.0.0', 'author' => 'A', 'parent_key' => $parent->key]);
+
+    expect($child->parent_key)->toBe('parent');
+});
