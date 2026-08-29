@@ -1,0 +1,12 @@
+openapi: 3.1.0
+info: {title: CMS Events Content API, version: 1.0.0}
+paths:
+  /api/v1/cms/events-content:
+    get: {operationId: cms.events.content.list, responses: {'200': {description: Event calendar}}}
+    post: {operationId: cms.events.content.create, responses: {'201': {description: Created event}}}
+  /api/v1/cms/events-content/{key}:
+    get: {operationId: cms.events.content.get, responses: {'200': {description: Event}, '404': {description: Not found}}}
+  /api/v1/cms/events-content/{key}/publish:
+    post: {operationId: cms.events.content.publish, responses: {'200': {description: Published event}}}
+  /api/v1/cms/events-content/{key}/archive:
+    post: {operationId: cms.events.content.archive, responses: {'200': {description: Archived event}}}

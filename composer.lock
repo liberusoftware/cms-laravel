@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a52f8515c015f9b728ff3d87114431b",
+    "content-hash": "e448a5701861acc97e7b8175490ee135",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8883,6 +8883,160 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-events-content",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-events-content",
+                "reference": "81c68205ebcc81bb97e6420ffc1e71df6e779f79"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-events-content",
+                    "capability": "events-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EventsContent\\EventsContentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EventsContent\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Tenant-aware events, sessions, speakers, venues, calendars, and structured data for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-events-content-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-events-content-api",
+                "reference": "b73251db292ecdaffe2472ac5e6827f7ef92ab7c"
+            },
+            "require": {
+                "liberusoftware/module-cms-events-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-events-content-api",
+                    "core": "liberusoftware/module-cms-events-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EventsContentApi\\EventsContentApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EventsContentApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Versioned HTTP API adapter for CMS Events Content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-events-content-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-events-content-filament",
+                "reference": "d3baa1278490b3903916780df8a5980f16cb6a19"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-events-content": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-events-content-filament",
+                    "core": "liberusoftware/module-cms-events-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EventsContentFilament\\EventsContentFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EventsContentFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for CMS Events Content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-events-content-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-events-content-livewire",
+                "reference": "b965ff5f84297efd83233feb39d6ff4c58ac9d16"
+            },
+            "require": {
+                "liberusoftware/module-cms-events-content": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-events-content-livewire",
+                    "core": "liberusoftware/module-cms-events-content"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\EventsContentLivewire\\EventsContentLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\EventsContentLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for CMS Events Content.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

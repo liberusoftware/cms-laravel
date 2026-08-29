@@ -1,0 +1,1 @@
+<div><input wire:model.live="search" placeholder="Search events"><ul>@forelse ($events as $event)<li>{{ $event->title }} · {{ $event->starts_at?->toFormattedDateString() }}</li>@empty<li>No events found.</li>@endforelse</ul></div>
