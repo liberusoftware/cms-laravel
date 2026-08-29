@@ -47,3 +47,15 @@ it('rolls back only promoted releases', function (): void {
     $service->promote($draft);
     expect($service->rollback($draft)->status)->toBe('rolled_back');
 });
+
+it('does not allow terminal releases or blank environments to bypass lifecycle rules', function (): void {
+    $service = app(ConfigurationService::class);
+    $release = $service->export(['enabled' => true], 'draft', 'production');
+    $service->promote($release);
+    $service->rollback($release->fresh());
+
+    expect(fn () => $service->promote($release->fresh()))
+        ->toThrow(ValidationException::class);
+    expect(fn () => $service->export([], 'other', ' '))
+        ->toThrow(ValidationException::class);
+});
