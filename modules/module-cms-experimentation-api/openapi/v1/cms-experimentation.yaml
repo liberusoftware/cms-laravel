@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info: {title: CMS Experimentation API, version: 1.0.0}
+paths:
+  /api/v1/cms/experimentation:
+    get: {operationId: cms.experimentation.list, responses: {'200': {description: Experiments}}}
+    post: {operationId: cms.experimentation.create, responses: {'201': {description: Created experiment}}}
+  /api/v1/cms/experimentation/{key}:
+    get: {operationId: cms.experimentation.get, responses: {'200': {description: Experiment}, '404': {description: Not found}}}
+  /api/v1/cms/experimentation/{key}/start:
+    post: {operationId: cms.experimentation.start, responses: {'200': {description: Started experiment}}}
+  /api/v1/cms/experimentation/{key}/allocate:
+    post: {operationId: cms.experimentation.allocate, responses: {'200': {description: Allocation result}}}
+  /api/v1/cms/experimentation/{key}/promote:
+    post: {operationId: cms.experimentation.promote, responses: {'200': {description: Promoted winner}}}

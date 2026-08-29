@@ -1,0 +1,1 @@
+<div><input wire:model.live="search" placeholder="Search experiments"><ul>@forelse ($experiments as $experiment)<li>{{ $experiment->name }} · {{ $experiment->status }}</li>@empty<li>No experiments found.</li>@endforelse</ul></div>
