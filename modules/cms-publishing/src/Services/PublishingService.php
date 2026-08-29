@@ -23,6 +23,7 @@ final class PublishingService
 
     public function schedule(PublicationRelease $release): PublicationRelease
     {
+        $this->ensureState($release, ['draft', 'scheduled', 'unpublished'], 'schedule');
         if ($release->embargo_until !== null && $release->publish_at !== null && $release->embargo_until->greaterThan($release->publish_at)) {
             throw ValidationException::withMessages(['embargo_until' => 'An embargo cannot end after publication.']);
         }
@@ -37,6 +38,7 @@ final class PublishingService
 
     public function publish(PublicationRelease $release): PublicationRelease
     {
+        $this->ensureState($release, ['scheduled', 'unpublished'], 'publish');
         if ($release->embargo_until?->isFuture()) {
             throw ValidationException::withMessages(['embargo_until' => 'The release is still embargoed.']);
         }
@@ -47,6 +49,7 @@ final class PublishingService
 
     public function unpublish(PublicationRelease $release): PublicationRelease
     {
+        $this->ensureState($release, ['published'], 'unpublish');
         $release->forceFill(['state' => 'unpublished'])->save();
 
         return $this->record($release, 'unpublished');
@@ -54,6 +57,7 @@ final class PublishingService
 
     public function archive(PublicationRelease $release): PublicationRelease
     {
+        $this->ensureState($release, ['draft', 'scheduled', 'published', 'unpublished'], 'archive');
         $release->forceFill(['state' => 'archived'])->save();
 
         return $this->record($release, 'archived');
@@ -82,5 +86,13 @@ final class PublishingService
         event(new PublicationReleaseChanged($release, $event));
 
         return $release->fresh();
+    }
+
+    /** @param list<string> $allowed */
+    private function ensureState(PublicationRelease $release, array $allowed, string $transition): void
+    {
+        if (! in_array($release->state, $allowed, true)) {
+            throw ValidationException::withMessages(['state' => "Cannot {$transition} a release from its current state."]);
+        }
     }
 }

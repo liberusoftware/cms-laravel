@@ -40,3 +40,12 @@ it('creates releases through the domain boundary and rejects missing keys', func
     expect($service->create(['key' => 'new-release'])->state)->toBe('scheduled')
         ->and(fn () => $service->create([]))->toThrow(ValidationException::class);
 });
+
+it('rejects invalid publication state transitions', function (): void {
+    $service = app(PublishingService::class);
+    $archived = PublicationRelease::create(['key' => 'archived', 'state' => 'archived']);
+    $draft = PublicationRelease::create(['key' => 'draft', 'state' => 'draft']);
+
+    expect(fn () => $service->publish($archived))->toThrow(ValidationException::class)
+        ->and(fn () => $service->unpublish($draft))->toThrow(ValidationException::class);
+});
