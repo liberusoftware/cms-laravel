@@ -1,0 +1,1 @@
+<div><input wire:model.live="search" placeholder="Search embeds"><ul>@forelse($embeds as $embed)<li>{{ $embed->title ?: $embed->external_key }}</li>@empty<li>No embeds found.</li>@endforelse</ul></div>
