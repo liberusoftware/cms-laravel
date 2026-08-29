@@ -95,6 +95,16 @@ final readonly class TranslationManagementController
         return new TranslationJobResource($this->service->queue($job));
     }
 
+    public function cancel(string $publicId): TranslationJobResource
+    {
+        $job = $this->jobs->find($publicId);
+        if (! $job) {
+            throw new NotFoundHttpException;
+        }
+
+        return new TranslationJobResource($this->service->cancel($job));
+    }
+
     public function assign(Request $request, int $sourceChange): mixed
     {
         $change = TranslationSourceChange::query()->find($sourceChange);
