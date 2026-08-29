@@ -73,25 +73,23 @@ final class SiteFactoryService
             throw ValidationException::withMessages(['name' => 'Site key and name are required.']);
         }
 
-        return $this->execute('provision', null, ['key' => $key, 'template' => $templateKey], function (SiteFactoryOperation $operation) use ($key, $name, $templateKey, $domain, $teamId): Site {
-            return DB::transaction(function () use ($operation, $key, $name, $templateKey, $domain, $teamId): Site {
-                if (Site::query()->where('key', $key)->exists()) {
-                    throw ValidationException::withMessages(['key' => 'A site with this key already exists.']);
-                }
-                $template = null;
-                if ($templateKey !== null) {
-                    $template = SiteTemplate::query()->where('key', Str::slug($templateKey))->where('active', true)->firstOrFail();
-                }
-                $settings = ['factory' => ['configuration' => $template?->getAttribute('configuration') ?? [], 'initial_content' => $template?->getAttribute('initial_content') ?? []]];
-                $site = Site::query()->create(['key' => $key, 'name' => trim($name), 'domain' => $domain, 'status' => 'active', 'settings' => $settings, 'team_id' => $teamId]);
-                $operation->forceFill(['site_id' => $site->getKey(), 'team_id' => $site->getAttribute('team_id')])->save();
-                if ($domain !== null && trim($domain) !== '') {
-                    $this->addDomain($site, $domain);
-                }
+        return $this->execute('provision', null, ['key' => $key, 'template' => $templateKey], fn (SiteFactoryOperation $operation): Site => DB::transaction(function () use ($operation, $key, $name, $templateKey, $domain, $teamId): Site {
+            if (Site::query()->where('key', $key)->exists()) {
+                throw ValidationException::withMessages(['key' => 'A site with this key already exists.']);
+            }
+            $template = null;
+            if ($templateKey !== null) {
+                $template = SiteTemplate::query()->where('key', Str::slug($templateKey))->where('active', true)->firstOrFail();
+            }
+            $settings = ['factory' => ['configuration' => $template?->getAttribute('configuration') ?? [], 'initial_content' => $template?->getAttribute('initial_content') ?? []]];
+            $site = Site::query()->create(['key' => $key, 'name' => trim($name), 'domain' => $domain, 'status' => 'active', 'settings' => $settings, 'team_id' => $teamId]);
+            $operation->forceFill(['site_id' => $site->getKey(), 'team_id' => $site->getAttribute('team_id')])->save();
+            if ($domain !== null && trim($domain) !== '') {
+                $this->addDomain($site, $domain);
+            }
 
-                return $site;
-            });
-        });
+            return $site;
+        }));
     }
 
     public function addDomain(Site $site, string $domain): SiteDomain
@@ -152,13 +150,11 @@ final class SiteFactoryService
             return $site->refresh() ?? $site;
         }
 
-        return $this->execute('transition', $site, ['from' => $site->getAttribute('status'), 'to' => $status], function () use ($site, $status): Site {
-            return DB::transaction(function () use ($site, $status): Site {
-                $site->forceFill(['status' => $status])->save();
+        return $this->execute('transition', $site, ['from' => $site->getAttribute('status'), 'to' => $status], fn (): Site => DB::transaction(function () use ($site, $status): Site {
+            $site->forceFill(['status' => $status])->save();
 
-                return $site->refresh() ?? $site;
-            });
-        });
+            return $site->refresh() ?? $site;
+        }));
     }
 
     public function teardown(Site $site, bool $confirm = false): void
@@ -179,7 +175,7 @@ final class SiteFactoryService
     public function operations(?Site $site = null): Collection
     {
         $query = SiteFactoryOperation::query();
-        if ($site !== null) {
+        if ($site instanceof Site) {
             $query->where('site_id', $site->getKey());
         }
 
