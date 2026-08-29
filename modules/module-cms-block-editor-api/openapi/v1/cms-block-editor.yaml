@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: CMS Block Editor API
+  version: 1.0.0
+paths:
+  /api/v1/cms/block-editor/documents/{subjectType}/{subjectId}:
+    put:
+      operationId: cms.block.editor.documents.save
+      responses: {'200': {description: Revision-safe document}}
+  /api/v1/cms/block-editor/patterns:
+    post:
+      operationId: cms.block.editor.patterns.create
+      responses: {'201': {description: Reusable block pattern}}

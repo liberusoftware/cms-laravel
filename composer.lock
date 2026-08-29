@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a65988f87f14ad98362bc8d8c0f7ca85",
+    "content-hash": "3a60ac4e6f7e855a9c9b4588f43cfb8e",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5616,6 +5616,154 @@
                 }
             },
             "description": "Livewire adapter for CMS Backup and Restore.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-block-editor",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-block-editor",
+                "reference": "d884996df1b3bc7f777ba39793c9225d20c3eaed"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-blocks": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-block-editor",
+                    "capability": "block-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BlockEditor\\BlockEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BlockEditor\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS block documents, patterns, nesting validation, locking, previews, and revisions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-block-editor-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-block-editor-api",
+                "reference": "90ac7a488a5a89c47141aa5d165d9d77adf1421c"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "liberusoftware/module-cms-block-editor": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-block-editor-api",
+                    "core": "liberusoftware/module-cms-block-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BlockEditorApi\\BlockEditorApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BlockEditorApi\\": "src/"
+                }
+            },
+            "description": "API adapter for CMS Block Editor.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-block-editor-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-block-editor-filament",
+                "reference": "3e61b444cb4543755f25965b08582105b0669f50"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-block-editor": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-block-editor-filament",
+                    "core": "liberusoftware/module-cms-block-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BlockEditorFilament\\BlockEditorFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BlockEditorFilament\\": "src/"
+                }
+            },
+            "description": "Filament adapter for CMS Block Editor.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-block-editor-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-block-editor-livewire",
+                "reference": "16976569db0bfac6d88b4f499be2a7d869d5e6a2"
+            },
+            "require": {
+                "liberusoftware/module-cms-block-editor": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-block-editor-livewire",
+                    "core": "liberusoftware/module-cms-block-editor"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BlockEditorLivewire\\BlockEditorLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BlockEditorLivewire\\": "src/"
+                }
+            },
+            "description": "Livewire adapter for CMS Block Editor.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
