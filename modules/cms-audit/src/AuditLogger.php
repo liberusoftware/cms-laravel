@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Audit\Models\AuditLog;
 
 /**
@@ -34,6 +35,10 @@ final readonly class AuditLogger
         ?Authenticatable $actor = null,
         ?string $actorLabel = null,
     ): AuditLog {
+        $action = trim($action);
+        if ($action === '' || mb_strlen($action) > 255) {
+            throw ValidationException::withMessages(['action' => 'An audit action is required and must be 255 characters or fewer.']);
+        }
         $actor ??= $this->auth->guard()->user();
 
         return AuditLog::query()->create([

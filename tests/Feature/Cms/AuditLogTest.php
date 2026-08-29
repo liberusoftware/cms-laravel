@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use Liberu\Cms\Audit\AuditLogger;
 use Liberu\Cms\Audit\Filament\AuditLogResource;
 use Liberu\Cms\Audit\Models\AuditLog;
 use Liberu\Cms\Contracts\Content\WorkflowState;
@@ -68,6 +70,13 @@ it('produces exactly one row per event', function (): void {
     app(EventBusInterface::class)->dispatch(new ContentPublished('page', 1));
 
     expect(AuditLog::query()->count())->toBe(1);
+});
+
+it('rejects invalid audit action identifiers', function (): void {
+    $logger = app(AuditLogger::class);
+
+    expect(fn () => $logger->record(' '))->toThrow(ValidationException::class)
+        ->and(fn () => $logger->record(str_repeat('x', 256)))->toThrow(ValidationException::class);
 });
 
 it('refuses to update an audit record', function (): void {
