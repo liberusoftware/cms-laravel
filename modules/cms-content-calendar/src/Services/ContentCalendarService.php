@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentCalendar\Services;
 
+use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\ValidationException;
@@ -31,8 +32,8 @@ final readonly class ContentCalendarService
         if (blank($data['title'] ?? null)) {
             throw ValidationException::withMessages(['title' => 'A calendar title is required.']);
         }
-        $startsAt = Carbon::parse($data['starts_at'] ?? '');
-        $deadlineAt = isset($data['deadline_at']) ? Carbon::parse($data['deadline_at']) : null;
+        $startsAt = $this->parseDate($data['starts_at'] ?? null, 'starts_at');
+        $deadlineAt = isset($data['deadline_at']) ? $this->parseDate($data['deadline_at'], 'deadline_at') : null;
         if ($deadlineAt instanceof Carbon && $deadlineAt->lessThan($startsAt)) {
             throw ValidationException::withMessages(['deadline_at' => 'A deadline cannot precede the scheduled start.']);
         }
@@ -45,8 +46,8 @@ final readonly class ContentCalendarService
 
     public function reschedule(CalendarItem $item, string $startsAt, ?string $deadlineAt = null): CalendarItem
     {
-        $start = Carbon::parse($startsAt);
-        $deadline = $deadlineAt === null ? null : Carbon::parse($deadlineAt);
+        $start = $this->parseDate($startsAt, 'starts_at');
+        $deadline = $deadlineAt === null ? null : $this->parseDate($deadlineAt, 'deadline_at');
         if ($deadline instanceof Carbon && $deadline->lessThan($start)) {
             throw ValidationException::withMessages(['deadline_at' => 'A deadline cannot precede the scheduled start.']);
         }
@@ -65,5 +66,18 @@ final readonly class ContentCalendarService
                 $nested->whereNotNull('deadline_at')->where('deadline_at', '>=', $start);
             });
         })->exists();
+    }
+
+    private function parseDate(mixed $value, string $field): Carbon
+    {
+        if (! is_string($value) || trim($value) === '') {
+            throw ValidationException::withMessages([$field => 'A valid date and time is required.']);
+        }
+
+        try {
+            return Carbon::parse($value);
+        } catch (InvalidFormatException) {
+            throw ValidationException::withMessages([$field => 'A valid date and time is required.']);
+        }
     }
 }
