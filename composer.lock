@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25354789e764cf0f66b9dfac81fbae51",
+    "content-hash": "cd2b6fe6017245490779e8b8f3986d4e",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9350,6 +9350,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Joomla Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-layout-builder",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-layout-builder",
+                "reference": "64f893bf233b00d36d99f03ef27cd40f688ce81d"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-layout-builder",
+                    "capability": "layout-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\LayoutBuilder\\LayoutBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\LayoutBuilder\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Validated, tenant-scoped layouts and regions for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-layout-builder-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-layout-builder-api",
+                "reference": "9448e5875389982c5c759403b1e93c4a6d470248"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-layout-builder": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-layout-builder-api",
+                    "core": "liberusoftware/module-cms-layout-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\LayoutBuilderApi\\LayoutBuilderApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\LayoutBuilderApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for Layout Builder.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-layout-builder-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-layout-builder-filament",
+                "reference": "84c15664680e9eb93712ed026e199466178eec43"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-layout-builder": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-layout-builder-filament",
+                    "core": "liberusoftware/module-cms-layout-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\LayoutBuilderFilament\\LayoutBuilderFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\LayoutBuilderFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for Layout Builder.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-layout-builder-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-layout-builder-livewire",
+                "reference": "0a1fdf9fadd02a3385b5b57c0a8df681dcd24217"
+            },
+            "require": {
+                "liberusoftware/module-cms-layout-builder": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-layout-builder-livewire",
+                    "core": "liberusoftware/module-cms-layout-builder"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\LayoutBuilderLivewire\\LayoutBuilderLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\LayoutBuilderLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for Layout Builder.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
