@@ -40,14 +40,25 @@ final class RevisionService
     public function compare(Revision $from, Revision $to): array
     {
         $changes = [];
-        $keys = array_unique([...array_keys($from->snapshot()), ...array_keys($to->snapshot())]);
-        foreach ($keys as $key) {
-            if (($from->snapshot()[$key] ?? null) !== ($to->snapshot()[$key] ?? null)) {
-                $changes[] = ['path' => (string) $key, 'from' => $from->snapshot()[$key] ?? null, 'to' => $to->snapshot()[$key] ?? null];
-            }
-        }
+        $this->compareValues($from->snapshot(), $to->snapshot(), '', $changes);
 
         return ['from' => $from->snapshot(), 'to' => $to->snapshot(), 'changes' => $changes];
+    }
+
+    /** @param array<int, array{path:string,from:mixed,to:mixed}> $changes */
+    private function compareValues(mixed $from, mixed $to, string $path, array &$changes): void
+    {
+        if (is_array($from) && is_array($to)) {
+            foreach (array_unique([...array_keys($from), ...array_keys($to)]) as $key) {
+                $childPath = $path === '' ? (string) $key : $path.'.'.$key;
+                $this->compareValues($from[$key] ?? null, $to[$key] ?? null, $childPath, $changes);
+            }
+
+            return;
+        }
+        if ($from !== $to) {
+            $changes[] = ['path' => $path, 'from' => $from, 'to' => $to];
+        }
     }
 
     public function restore(Revision $revision, ?int $userId = null, string $branch = 'main'): Revision
