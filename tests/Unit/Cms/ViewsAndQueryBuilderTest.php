@@ -56,3 +56,14 @@ it('does not expose draft definitions through the public query boundary', functi
         ->and(app(ViewDefinitionQuery::class)->findPublished('draft'))->toBeNull()
         ->and(app(ViewDefinitionQuery::class)->findPublished('live'))->not->toBeNull();
 });
+
+it('rejects unsafe query definitions at the mutation boundary', function (): void {
+    expect(fn () => app(ViewDefinitionMutationService::class)->create([
+        'name' => 'Unsafe view',
+        'source' => 'collection_items',
+        'definition' => [
+            'fields' => ['title'],
+            'filters' => [['field' => 'secret', 'operator' => '=']],
+        ],
+    ]))->toThrow(ValidationException::class);
+});
