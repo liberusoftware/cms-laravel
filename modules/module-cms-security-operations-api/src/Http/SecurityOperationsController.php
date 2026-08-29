@@ -6,6 +6,7 @@ namespace Liberu\Cms\SecurityOperationsApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Liberu\Cms\SecurityOperations\Models\SecurityOperation;
 use Liberu\Cms\SecurityOperations\Services\SecurityOperationsService;
 
@@ -40,6 +41,15 @@ final class SecurityOperationsController
         $data = $request->validate(['title' => ['required', 'string'], 'severity' => ['required', 'in:low,medium,high,critical'], 'details' => ['array']]);
 
         return response()->json(['data' => $service->advisory($data['title'], $data['severity'], $data['details'] ?? [], $request->user()?->id)], 201);
+    }
+
+    public function scan(Request $request, SecurityOperationsService $service): JsonResponse
+    {
+        $file = $request->file('file');
+        abort_unless($file instanceof UploadedFile, 422);
+        $file->isValid() || abort(422, 'The uploaded file is invalid.');
+
+        return response()->json(['data' => $service->scan($file, $request->user()?->id)], 201);
     }
 
     public function incident(Request $request, SecurityOperationsService $service): JsonResponse

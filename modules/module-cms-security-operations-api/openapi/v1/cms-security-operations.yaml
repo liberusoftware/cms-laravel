@@ -11,5 +11,7 @@ paths:
     post: {operationId: recordContentIntegrity, responses: {'201': {description: Integrity evidence recorded}}}
   /api/v1/cms/security-operations/advisories:
     post: {operationId: recordSecurityAdvisory, responses: {'201': {description: Advisory recorded}}}
+  /api/v1/cms/security-operations/scans:
+    post: {operationId: scanSecurityUpload, requestBody: {required: true, content: {multipart/form-data: {schema: {type: object, required: [file], properties: {file: {type: string, format: binary}}}}}}, responses: {'201': {description: Scan recorded}, '422': {description: Invalid upload}}}
   /api/v1/cms/security-operations/incidents:
     post: {operationId: generateIncidentBundle, responses: {'200': {description: Incident bundle}}}
