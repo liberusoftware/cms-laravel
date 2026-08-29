@@ -1,0 +1,14 @@
+{
+    "name": "liberusoftware/module-cms-accessibility-assistant-api",
+    "description": "API adapter for the CMS Accessibility Assistant.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "liberusoftware/module-cms-accessibility-assistant": "^0.1",
+        "illuminate/http": "^13.0"
+    },
+    "autoload": {"psr-4": {"Liberu\\Cms\\AccessibilityAssistantApi\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-accessibility-assistant-api", "core": "liberusoftware/module-cms-accessibility-assistant"}, "laravel": {"providers": ["Liberu\\Cms\\AccessibilityAssistantApi\\AccessibilityAssistantApiServiceProvider"]}}
+}

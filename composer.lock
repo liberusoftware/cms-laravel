@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92cc8826e9ea4ef9e7069add82ded0c0",
+    "content-hash": "7b43765628846138eda7c944feb1321a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5044,6 +5044,45 @@
                 "MIT"
             ],
             "description": "Provider-neutral accessibility checks for CMS authoring content.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-accessibility-assistant-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-accessibility-assistant-api",
+                "reference": "5c6b2386b18306307da2b5fea28024037c2ae36e"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "liberusoftware/module-cms-accessibility-assistant": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-accessibility-assistant-api",
+                    "core": "liberusoftware/module-cms-accessibility-assistant"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\AccessibilityAssistantApi\\AccessibilityAssistantApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\AccessibilityAssistantApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for the CMS Accessibility Assistant.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

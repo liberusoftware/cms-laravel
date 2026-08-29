@@ -1,0 +1,21 @@
+openapi: 3.1.0
+info:
+  title: CMS Accessibility Assistant API
+  version: 1.0.0
+paths:
+  /api/v1/cms/accessibility-assistant/analyze:
+    post:
+      operationId: analyzeAccessibility
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [html]
+              properties:
+                html: {type: string}
+                exceptions: {type: array, items: {type: string}}
+      responses:
+        '200': {description: Accessibility findings}
+        '422': {description: Invalid content}
