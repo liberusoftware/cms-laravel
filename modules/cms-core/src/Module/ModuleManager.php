@@ -152,6 +152,9 @@ final readonly class ModuleManager implements ModuleManagerInterface
 
         if ($module instanceof ModuleInterface) {
             foreach ($module->dependencies() as $dependency) {
+                if (! $this->registry->has($dependency)) {
+                    throw ModuleDependencyException::missingDependency($key, $dependency);
+                }
                 if ($this->isEnabled($dependency)) {
                     $this->visit($dependency, $order, $visiting);
                 }
