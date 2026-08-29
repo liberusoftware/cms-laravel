@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6076ffc71b88fd998095a463441d03cd",
+    "content-hash": "25354789e764cf0f66b9dfac81fbae51",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8728,6 +8728,161 @@
             "license": [
                 "MIT"
             ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-drupal-migration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-drupal-migration",
+                "reference": "1f0210d0fcfc941fa35bb1c834b2769b6cc4855e"
+            },
+            "require": {
+                "liberusoftware/module-cms-migration-framework": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-drupal-migration",
+                    "capability": "drupal-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DrupalMigration\\DrupalMigrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DrupalMigration\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Drupal migration adapter for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-drupal-migration-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-drupal-migration-api",
+                "reference": "e66012ddab65d0f3a6ec7003c9e04e41f5cff251"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-drupal-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-drupal-migration-api",
+                    "core": "liberusoftware/module-cms-drupal-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DrupalMigrationApi\\DrupalMigrationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DrupalMigrationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-drupal-migration-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-drupal-migration-filament",
+                "reference": "c2474a09a0d6f55c56ab2786cdd0ad03cc39edf9"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-drupal-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-drupal-migration-filament",
+                    "core": "liberusoftware/module-cms-drupal-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DrupalMigrationFilament\\DrupalMigrationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DrupalMigrationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-drupal-migration-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-drupal-migration-livewire",
+                "reference": "d8f21b1675aea08631fde7d41fed944b49109b14"
+            },
+            "require": {
+                "liberusoftware/module-cms-drupal-migration": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-drupal-migration-livewire",
+                    "core": "liberusoftware/module-cms-drupal-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\DrupalMigrationLivewire\\DrupalMigrationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\DrupalMigrationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for Drupal Migration.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
