@@ -43,8 +43,8 @@ final class WordPressMigrationController
 
     private function find(string $publicId, WordPressMigrationQuery $query): WordPressMigration
     {
-        $migration = WordPressMigration::query()->where('public_id', $publicId)->first();
-        abort_unless($migration && $query->migration($migration->id), 404);
+        $migration = $query->migrationByPublicId($publicId);
+        abort_unless($migration, 404);
 
         return $migration;
     }

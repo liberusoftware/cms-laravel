@@ -29,6 +29,11 @@ final readonly class WordPressMigrationQuery
         return WordPressMigration::query()->whereKey($id)->where('team_id', $this->tenantId($teamId))->first();
     }
 
+    public function migrationByPublicId(string $publicId, ?int $teamId = null): ?WordPressMigration
+    {
+        return WordPressMigration::query()->where('public_id', $publicId)->where('team_id', $this->tenantId($teamId))->first();
+    }
+
     /** @return LengthAwarePaginator<int, WordPressMigrationRecord> */
     public function records(WordPressMigration $migration, int $perPage = 25): LengthAwarePaginator
     {
