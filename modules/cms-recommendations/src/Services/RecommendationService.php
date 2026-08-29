@@ -35,6 +35,28 @@ final class RecommendationService
         return $list->items()->updateOrCreate(['item_type' => $attributes['item_type'], 'item_key' => $attributes['item_key']], array_intersect_key($attributes, array_flip(['title', 'summary', 'context', 'popularity_score', 'editorial_score', 'published_at', 'position'])) + ['item_type' => $attributes['item_type']]);
     }
 
+    /** @param array<string, mixed> $attributes */
+    public function updateList(RecommendationList $list, array $attributes): RecommendationList
+    {
+        if (array_key_exists('name', $attributes) && (! is_string($attributes['name']) || trim($attributes['name']) === '')) {
+            throw ValidationException::withMessages(['name' => 'Recommendation list name cannot be blank.']);
+        }
+        if (array_key_exists('kind', $attributes) && (! is_string($attributes['kind']) || ! in_array($attributes['kind'], ['latest', 'popular', 'trending', 'editorial'], true))) {
+            throw ValidationException::withMessages(['kind' => 'Unsupported recommendation list kind.']);
+        }
+
+        $list->update(array_intersect_key($attributes, array_flip(['name', 'kind', 'ranker', 'audience_rules', 'exclusions', 'active'])));
+
+        return $list->refresh();
+    }
+
+    public function removeList(RecommendationList $list): RecommendationList
+    {
+        $list->update(['active' => false]);
+
+        return $list->refresh();
+    }
+
     public function exclude(RecommendationList $list, string $itemKey): RecommendationList
     {
         if (trim($itemKey) === '') {

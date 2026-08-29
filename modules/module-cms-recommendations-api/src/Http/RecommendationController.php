@@ -25,6 +25,22 @@ final class RecommendationController
         return response()->json(['data' => $service->recommend($key, $data['context'] ?? [], $data['exclude'] ?? null, (int) ($data['limit'] ?? 10))]);
     }
 
+    public function update(Request $request, string $key, RecommendationService $service): JsonResponse
+    {
+        $list = RecommendationList::query()->where('key', $key)->where('active', true)->firstOrFail();
+        $data = $request->validate(['name' => ['sometimes', 'string', 'max:255'], 'kind' => ['sometimes', 'in:latest,popular,trending,editorial'], 'ranker' => ['sometimes', 'nullable', 'string', 'max:255'], 'audience_rules' => ['sometimes', 'array'], 'exclusions' => ['sometimes', 'array'], 'active' => ['sometimes', 'boolean']]);
+
+        return response()->json(['data' => $service->updateList($list, $data)]);
+    }
+
+    public function remove(string $key, RecommendationService $service): JsonResponse
+    {
+        $list = RecommendationList::query()->where('key', $key)->where('active', true)->firstOrFail();
+        $service->removeList($list);
+
+        return response()->json([], 204);
+    }
+
     public function addItem(Request $request, string $key, RecommendationService $service): JsonResponse
     {
         $list = RecommendationList::query()->where('key', $key)->where('active', true)->firstOrFail();
