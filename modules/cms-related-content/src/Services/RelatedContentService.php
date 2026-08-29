@@ -29,6 +29,15 @@ final class RelatedContentService
         return RelatedContent::query()->updateOrCreate(['source_type' => $sourceType, 'source_id' => $sourceId, 'target_type' => $targetType, 'target_id' => $targetId, 'team_id' => $teamId], ['mode' => 'manual', 'excluded' => true, 'explanation' => ['reason' => 'explicit-exclusion']]);
     }
 
+    public function remove(string $sourceType, int $sourceId, string $targetType, int $targetId, ?int $teamId = null): int
+    {
+        if (trim($sourceType) === '' || trim($targetType) === '' || $sourceId < 1 || $targetId < 1) {
+            throw ValidationException::withMessages(['relationship' => 'Valid source and target identities are required.']);
+        }
+
+        return RelatedContent::query()->where('source_type', $sourceType)->where('source_id', $sourceId)->where('target_type', $targetType)->where('target_id', $targetId)->where('team_id', $teamId)->delete();
+    }
+
     /** @return array<int, array<string, mixed>> */
     public function related(string $sourceType, int $sourceId, int $limit = 10, array $taxonomy = [], ?int $teamId = null): array
     {

@@ -18,6 +18,7 @@ final class RelatedContentApiServiceProvider extends ServiceProvider
             $r->registerEndpoint('related-content-api', new ApiEndpoint('cms/related-content/{type}/{id}', RelatedContentController::class, 'index', 'cms.related-content.index'));
             $r->registerEndpoint('related-content-api', new ApiEndpoint('cms/related-content/{type}/{id}/relations', RelatedContentController::class, 'relate', 'cms.related-content.relate', 'POST', ['abilities:content:write']));
             $r->registerEndpoint('related-content-api', new ApiEndpoint('cms/related-content/{type}/{id}/exclude', RelatedContentController::class, 'exclude', 'cms.related-content.exclude', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('related-content-api', new ApiEndpoint('cms/related-content/{type}/{id}', RelatedContentController::class, 'remove', 'cms.related-content.remove', 'DELETE', ['abilities:content:write']));
         }
     }
 }

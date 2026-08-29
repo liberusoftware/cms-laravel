@@ -23,3 +23,13 @@ it('rejects self relationships and unknown modes', function (): void {
         ->and(fn () => $service->relate('', 0, 'post', 2))->toThrow(ValidationException::class);
     expect(fn () => $service->relate('post', 1, 'post', 2, 'unknown'))->toThrow(ValidationException::class);
 });
+
+it('removes only the requested tenant relationship', function (): void {
+    $service = app(RelatedContentService::class);
+    $service->relate('post', 4, 'post', 5, teamId: 10);
+    $service->relate('post', 4, 'post', 5, teamId: 11);
+
+    expect($service->remove('post', 4, 'post', 5, 10))->toBe(1)
+        ->and($service->related('post', 4, teamId: 11))->toHaveCount(1)
+        ->and($service->related('post', 4, teamId: 10))->toBeEmpty();
+});
