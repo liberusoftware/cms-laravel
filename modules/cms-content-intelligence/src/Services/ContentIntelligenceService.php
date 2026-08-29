@@ -24,13 +24,20 @@ final readonly class ContentIntelligenceService
             throw ValidationException::withMessages(['score' => 'Score must be between 0 and 100.']);
         }
 
-        return ContentInsight::query()->create([...$data, 'team_id' => $teamId, 'status' => $data['status'] ?? 'open']);
+        return ContentInsight::query()->create([
+            ...array_intersect_key($data, array_flip(['subject_type', 'subject_key', 'metric', 'score', 'severity', 'summary', 'rationale', 'context'])),
+            'team_id' => $teamId,
+            'status' => 'open',
+        ]);
     }
 
     public function review(ContentInsight $insight, string $status): ContentInsight
     {
         if (! in_array($status, ['accepted', 'dismissed', 'queued'], true)) {
             throw ValidationException::withMessages(['status' => 'The review status is invalid.']);
+        }
+        if (! in_array($insight->status, ['open', 'queued'], true)) {
+            throw ValidationException::withMessages(['status' => 'Only open or queued insights can be reviewed.']);
         }
         $insight->update(['status' => $status, 'reviewed_at' => now()]);
 
