@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5efacc71cb9bca8910ad81cb19442ef3",
+    "content-hash": "ab65b48770c24a51c4546e732f81268b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5818,6 +5818,45 @@
             }
         },
         {
+            "name": "liberusoftware/module-cms-cms-copilot",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-copilot",
+                "reference": "f42e510d6ac99455d9ccaae5e8d65d798411fe9e"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-cms-copilot",
+                    "capability": "cms-copilot"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\Copilot\\CopilotServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\Copilot\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS Copilot permission-bounded requests, results, and confirmations.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "liberusoftware/module-cms-collections",
             "version": "0.1.0",
             "dist": {
@@ -7839,6 +7878,78 @@
                 "issues": "https://github.com/liberusoftware/module-cms-contracts/issues",
                 "source": "https://github.com/liberusoftware/module-cms-contracts"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-copilot-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-copilot-api",
+                "reference": "fb25cb14adaba7f415775239facc1d1fe77ce677"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "liberusoftware/module-cms-cms-copilot": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-copilot-api",
+                    "core": "liberusoftware/module-cms-cms-copilot"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CopilotApi\\CopilotApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CopilotApi\\": "src/"
+                }
+            },
+            "description": "API adapter for CMS Copilot.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-copilot-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-copilot-livewire",
+                "reference": "a58f960ce4e5cf70312aa725f77e6f29b784f9a5"
+            },
+            "require": {
+                "liberusoftware/module-cms-cms-copilot": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-copilot-livewire",
+                    "core": "liberusoftware/module-cms-cms-copilot"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\CopilotLivewire\\CopilotLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\CopilotLivewire\\": "src/"
+                }
+            },
+            "description": "Livewire adapter for CMS Copilot.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
