@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "226ac78bda81f42890321bf74098c89b",
+    "content-hash": "1c3e6472af24a2a0cac7b118ecc320de",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5361,6 +5361,114 @@
                 "MIT"
             ],
             "description": "CMS backup artifacts, schedules, verification, retention, and restore previews.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-backup-and-restore-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-backup-and-restore-api",
+                "reference": "91ddcbea094e6812b62aa8582bc00258a60dc521"
+            },
+            "require": {
+                "illuminate/http": "^13.0",
+                "liberusoftware/module-cms-backup-and-restore": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-backup-and-restore-api",
+                    "core": "liberusoftware/module-cms-backup-and-restore"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BackupAndRestoreApi\\BackupAndRestoreApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BackupAndRestoreApi\\": "src/"
+                }
+            },
+            "description": "API adapter for CMS Backup and Restore.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-backup-and-restore-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-backup-and-restore-filament",
+                "reference": "94f98ad96422bb27c2d46fdc0e02d972765b412b"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-backup-and-restore": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-backup-and-restore-filament",
+                    "core": "liberusoftware/module-cms-backup-and-restore"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BackupAndRestoreFilament\\BackupAndRestoreFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BackupAndRestoreFilament\\": "src/"
+                }
+            },
+            "description": "Filament adapter for CMS Backup and Restore.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-backup-and-restore-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-backup-and-restore-livewire",
+                "reference": "77567dc4d25a38f9438e4e384a47690be37ec39f"
+            },
+            "require": {
+                "liberusoftware/module-cms-backup-and-restore": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-backup-and-restore-livewire",
+                    "core": "liberusoftware/module-cms-backup-and-restore"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\BackupAndRestoreLivewire\\BackupAndRestoreLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\BackupAndRestoreLivewire\\": "src/"
+                }
+            },
+            "description": "Livewire adapter for CMS Backup and Restore.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
