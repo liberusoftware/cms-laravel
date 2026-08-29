@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27000b24d2bac885c8dd2fce6f29ec56",
+    "content-hash": "c50d6abd033736cfc477574fd77e21be",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8883,6 +8883,161 @@
                 "MIT"
             ],
             "description": "Livewire adapter for Drupal Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-manager",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-extension-manager",
+                "reference": "9f995631921fa606421648e19e4cfe9583efd982"
+            },
+            "require": {
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-manager",
+                    "capability": "extension-manager"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionManager\\ExtensionManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionManager\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Safe module lifecycle management for Liberu CMS extensions.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-manager-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-manager-api",
+                "reference": "b9096210443c1511e67519797e3f4cb7b2e44d14"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-extension-manager": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-manager-api",
+                    "core": "liberusoftware/module-cms-extension-manager"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionManagerApi\\ExtensionManagerApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionManagerApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for Extension Manager.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-manager-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-manager-filament",
+                "reference": "580ad22931fe47dff800bb66a27911a93af9d34d"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-extension-manager": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-manager-filament",
+                    "core": "liberusoftware/module-cms-extension-manager"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionManagerFilament\\ExtensionManagerFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionManagerFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for Extension Manager.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-extension-manager-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-extension-manager-livewire",
+                "reference": "594901384d57457be58438a864107d3a307ff570"
+            },
+            "require": {
+                "liberusoftware/module-cms-extension-manager": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-extension-manager-livewire",
+                    "core": "liberusoftware/module-cms-extension-manager"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\ExtensionManagerLivewire\\ExtensionManagerLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\ExtensionManagerLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for Extension Manager.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
