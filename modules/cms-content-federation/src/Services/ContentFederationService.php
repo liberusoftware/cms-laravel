@@ -31,7 +31,12 @@ final readonly class ContentFederationService
         if ($externalType === '' || $externalKey === '' || $payload === []) {
             throw ValidationException::withMessages(['reference' => 'A type, key, and non-empty payload are required.']);
         }
-        $reference = FederationReference::query()->updateOrCreate(['source_id' => $source->id, 'external_type' => $externalType, 'external_key' => $externalKey], ['payload' => $payload, 'etag' => $etag, 'cached_until' => now()->addMinutes($cacheMinutes ?? (int) config('content-federation.default_cache_minutes', 60)), 'last_fetched_at' => now()]);
+        $cacheMinutes ??= (int) config('content-federation.default_cache_minutes', 60);
+        $maxCacheMinutes = (int) config('content-federation.max_cache_minutes', 1440);
+        if ($cacheMinutes < 1 || $cacheMinutes > $maxCacheMinutes) {
+            throw ValidationException::withMessages(['cache_minutes' => 'The cache duration is invalid.']);
+        }
+        $reference = FederationReference::query()->updateOrCreate(['source_id' => $source->id, 'external_type' => $externalType, 'external_key' => $externalKey], ['payload' => $payload, 'etag' => $etag, 'cached_until' => now()->addMinutes($cacheMinutes), 'last_fetched_at' => now()]);
         $source->update(['status' => 'healthy', 'last_checked_at' => now(), 'last_succeeded_at' => now(), 'last_error' => null]);
 
         return $reference;
