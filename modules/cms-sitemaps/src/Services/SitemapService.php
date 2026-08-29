@@ -6,10 +6,13 @@ namespace Liberu\Cms\Sitemaps\Services;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Sitemaps\Models\SitemapEntry;
 
 final class SitemapService
 {
+    public function __construct(private readonly TenantContextInterface $tenant) {}
+
     public function add(string $url, ?int $siteId = null, string $type = 'web', ?string $locale = null, float $priority = .5, array $extensions = [], ?int $teamId = null): SitemapEntry
     {
         if (! filter_var($url, FILTER_VALIDATE_URL)) {
@@ -60,7 +63,7 @@ final class SitemapService
     /** @return array<int, SitemapEntry> */
     public function entries(?int $siteId = null, ?string $type = null, ?string $locale = null): array
     {
-        return Cache::tags(['cms-sitemaps'])->remember('cms-sitemap:'.sha1(serialize([$siteId, $type, $locale])), 300, fn (): array => SitemapEntry::query()->where('site_id', $siteId)->when($type, fn ($query) => $query->where('type', $type))->when($locale, fn ($query) => $query->where('locale', $locale))->where('excluded', false)->orderBy('url')->get()->all());
+        return Cache::tags(['cms-sitemaps'])->remember('cms-sitemap:'.sha1(serialize([$this->tenant->tenantId(), $siteId, $type, $locale])), 300, fn (): array => SitemapEntry::query()->where('site_id', $siteId)->when($type, fn ($query) => $query->where('type', $type))->when($locale, fn ($query) => $query->where('locale', $locale))->where('excluded', false)->orderBy('url')->get()->all());
     }
 
     /** @return array<int, array<int, SitemapEntry>> */
