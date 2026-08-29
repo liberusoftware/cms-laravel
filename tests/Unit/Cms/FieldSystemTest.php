@@ -67,3 +67,15 @@ it('renders the field schema through the Livewire adapter', function (): void {
         ->assertSee('Biography')
         ->assertSee('textarea');
 });
+
+it('fails closed for malformed conditional field definitions', function (): void {
+    $type = ContentType::create([
+        'key' => 'conditional',
+        'name' => 'Conditional',
+        'singular_label' => 'Conditional',
+        'plural_label' => 'Conditionals',
+        'fields' => [['name' => 'secret', 'label' => 'Secret', 'type' => 'text', 'condition' => ['field' => 'status']]],
+    ]);
+
+    expect(app(SchemaValidator::class)->validate($type, ['status' => 'published', 'secret' => 'value']))->toBe([]);
+});
