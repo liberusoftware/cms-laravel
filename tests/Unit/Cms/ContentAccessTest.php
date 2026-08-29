@@ -30,3 +30,8 @@ it('creates single-use private links and rejects invalid schedules', function ()
     expect(fn () => $service->rule('page', 'bad', ['visibility' => 'scheduled', 'available_from' => '2026-08-26', 'available_until' => '2026-08-25'], 3))
         ->toThrow(ValidationException::class);
 });
+
+it('rejects private links with a non-positive usage limit', function (): void {
+    expect(fn () => app(ContentAccessService::class)->createPrivateLink('page', 'secret', 3, 0))
+        ->toThrow(ValidationException::class);
+});
