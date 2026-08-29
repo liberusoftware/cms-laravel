@@ -34,6 +34,15 @@ final class SiteRecipesController
         return response()->json(['data' => SiteRecipeResource::make($service->create($data['key'], $data['name'], $data['description'] ?? null))], 201);
     }
 
+    public function update(Request $request, string $recipe, SiteRecipeQuery $query, SiteRecipeService $service): JsonResponse
+    {
+        $model = $query->find($recipe);
+        abort_unless($model, 404);
+        $data = $request->validate(['key' => ['sometimes', 'string', 'max:100'], 'name' => ['sometimes', 'string', 'max:255'], 'description' => ['sometimes', 'nullable', 'string'], 'status' => ['sometimes', 'in:draft,published,archived']]);
+
+        return response()->json(['data' => SiteRecipeResource::make($service->update($model, $data))]);
+    }
+
     public function version(Request $request, string $recipe, SiteRecipeQuery $query, SiteRecipeService $service): JsonResponse
     {
         $model = $query->find($recipe);
