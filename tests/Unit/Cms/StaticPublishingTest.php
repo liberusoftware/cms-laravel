@@ -19,7 +19,8 @@ it('validates build kinds and invalidation paths', function (): void {
     $service = app(StaticPublishingService::class);
     expect(fn () => $service->build([], null, 'unknown'))->toThrow(ValidationException::class);
     $build = $service->build([], 'docs');
-    expect(fn () => $service->invalidate($build, 'relative'))->toThrow(ValidationException::class);
+    expect(fn () => $service->invalidate($build, 'relative'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->invalidate($build, '/../secrets'))->toThrow(ValidationException::class);
 });
 
 it('records malformed routes as diagnostics instead of publishing them', function (): void {
