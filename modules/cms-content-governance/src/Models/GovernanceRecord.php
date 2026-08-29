@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentGovernance\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Liberu\Cms\Core\Tenant\HasTenant;
 
 final class GovernanceRecord extends Model
 {
+    use HasTenant;
+
     #[\Override]
     protected $table = 'cms_content_governance_records';
 
