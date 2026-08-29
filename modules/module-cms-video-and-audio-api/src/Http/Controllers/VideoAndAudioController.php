@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\VideoAndAudio\Actions\MediaManagementService;
+use Liberu\Cms\VideoAndAudio\Models\MediaTrack;
 use Liberu\Cms\VideoAndAudio\Queries\MediaAssetQuery;
 use Liberu\Cms\VideoAndAudioApi\Http\Resources\MediaAssetResource;
 use Liberu\Cms\VideoAndAudioApi\Http\Resources\MediaTrackResource;
@@ -67,6 +68,28 @@ final readonly class VideoAndAudioController
         } $data = $request->validate(['track_type' => ['required', 'in:poster,chapter,caption,transcript'], 'language' => ['nullable', 'string', 'max:16'], 'label' => ['nullable', 'string', 'max:255'], 'uri' => ['nullable', 'string'], 'content' => ['nullable', 'string'], 'start_seconds' => ['nullable', 'numeric', 'min:0'], 'end_seconds' => ['nullable', 'numeric', 'min:0'], 'metadata' => ['nullable', 'array']]);
 
         return new MediaTrackResource($this->service->addTrack($asset, $data));
+    }
+
+    public function updateTrack(Request $request, int $track): MediaTrackResource
+    {
+        $record = MediaTrack::query()->find($track);
+        if (! $record) {
+            throw new NotFoundHttpException;
+        }
+        $data = $request->validate(['track_type' => ['sometimes', 'in:poster,chapter,caption,transcript'], 'language' => ['nullable', 'string', 'max:16'], 'label' => ['nullable', 'string', 'max:255'], 'uri' => ['nullable', 'string'], 'content' => ['nullable', 'string'], 'start_seconds' => ['nullable', 'numeric', 'min:0'], 'end_seconds' => ['nullable', 'numeric', 'min:0'], 'metadata' => ['nullable', 'array'], 'status' => ['nullable', 'in:active,inactive']]);
+
+        return new MediaTrackResource($this->service->updateTrack($record, $data));
+    }
+
+    public function deleteTrack(int $track): JsonResponse
+    {
+        $record = MediaTrack::query()->find($track);
+        if (! $record) {
+            throw new NotFoundHttpException;
+        }
+        $this->service->deleteTrack($record);
+
+        return response()->json(status: 204);
     }
 
     public function playback(string $publicId): JsonResponse

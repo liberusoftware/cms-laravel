@@ -68,3 +68,14 @@ it('records a failed transcoding variant for recovery', function (): void {
         ->toThrow(\RuntimeException::class);
     expect($asset->variants()->first()?->status)->toBe('failed');
 });
+
+it('updates and removes tracks through the media boundary', function (): void {
+    $service = app(MediaManagementService::class);
+    $asset = $service->createAsset(['title' => 'Track lifecycle', 'kind' => 'audio', 'source_type' => 'upload', 'source_uri' => 'audio.mp3']);
+    $track = $service->addTrack($asset, ['track_type' => 'caption', 'language' => 'en', 'content' => 'Draft']);
+
+    expect($service->updateTrack($track, ['content' => 'Final'])->content)->toBe('Final');
+    $service->deleteTrack($track->fresh());
+
+    expect($asset->tracks()->count())->toBe(0);
+});

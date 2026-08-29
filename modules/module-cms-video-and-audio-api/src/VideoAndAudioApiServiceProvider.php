@@ -23,6 +23,8 @@ final class VideoAndAudioApiServiceProvider extends ServiceProvider
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}', VideoAndAudioController::class, 'update', 'cms.video-and-audio.asset.update', 'PATCH', ['abilities:content:write']));
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}/archive', VideoAndAudioController::class, 'archive', 'cms.video-and-audio.asset.archive', 'POST', ['abilities:content:write']));
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}/tracks', VideoAndAudioController::class, 'track', 'cms.video-and-audio.track', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/tracks/{track}', VideoAndAudioController::class, 'updateTrack', 'cms.video-and-audio.track.update', 'PATCH', ['abilities:content:write']));
+        $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/tracks/{track}', VideoAndAudioController::class, 'deleteTrack', 'cms.video-and-audio.track.delete', 'DELETE', ['abilities:content:write']));
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}/transcode', VideoAndAudioController::class, 'transcode', 'cms.video-and-audio.transcode', 'POST', ['abilities:content:write']));
         $registry->registerEndpoint('video-and-audio-api', new ApiEndpoint('cms/video-and-audio/assets/{publicId}/playback', VideoAndAudioController::class, 'playback', 'cms.video-and-audio.playback'));
     }
