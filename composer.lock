@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a60ac4e6f7e855a9c9b4588f43cfb8e",
+    "content-hash": "ecac379071b3479366fb984ff5b400f2",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8728,6 +8728,46 @@
             "license": [
                 "MIT"
             ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-field-system",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-field-system",
+                "reference": "faecd00c19d403e7cae7a67a377120ccaeacb24e"
+            },
+            "require": {
+                "laravel/framework": "^13.0",
+                "liberusoftware/module-cms-contracts": "^0.1",
+                "liberusoftware/module-cms-core": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-field-system",
+                    "capability": "field-system"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\FieldSystem\\FieldSystemServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\FieldSystem\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CMS reusable field schemas, validation, computed and conditional fields, and schema versions.",
             "transport-options": {
                 "symlink": true,
                 "relative": true

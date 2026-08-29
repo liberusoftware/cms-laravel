@@ -1,0 +1,1 @@
+{"name":"cms-field-system","description":"Reusable typed fields, schema validation, conditions, computed fields, and migrations.","provider":"Liberu\\Cms\\FieldSystem\\FieldSystemServiceProvider","version":"0.1.0"}

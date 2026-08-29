@@ -106,6 +106,7 @@
         "liberusoftware/module-cms-core-filament": "^0.1",
         "liberusoftware/module-cms-core-livewire": "^0.1",
         "liberusoftware/module-cms-field-system-api": "^0.1",
+        "liberusoftware/module-cms-field-system": "^0.1",
         "liberusoftware/module-cms-field-system-filament": "^0.1",
         "liberusoftware/module-cms-field-system-livewire": "^0.1",
         "liberusoftware/module-cms-contracts": "^0.1",
