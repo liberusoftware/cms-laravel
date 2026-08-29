@@ -27,3 +27,11 @@ it('rejects invalid contacts and supports directory metadata', function (): void
         ->and($service->location(['name' => 'HQ', 'city' => 'London'], 3)->city)->toBe('London')
         ->and($service->form(['name' => 'Contact us', 'schema' => [['name' => 'message']]], 3)->is_active)->toBeTrue();
 });
+
+it('rejects contact metadata from another tenant', function (): void {
+    $service = app(ContactDirectoryService::class);
+    $category = $service->category(['name' => 'External'], 4);
+
+    expect(fn () => $service->saveContact(['name' => 'Invalid', 'category_id' => $category->id], 3))
+        ->toThrow(ValidationException::class);
+});

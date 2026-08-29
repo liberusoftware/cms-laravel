@@ -26,6 +26,8 @@ final readonly class ContactDirectoryService
         if (filled($data['email'] ?? null) && ! filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             throw ValidationException::withMessages(['email' => 'The email address is invalid.']);
         }
+        $this->validateTenantReference(ContactCategory::class, $data['category_id'] ?? null, $teamId, 'category_id');
+        $this->validateTenantReference(ContactLocation::class, $data['location_id'] ?? null, $teamId, 'location_id');
 
         return Contact::query()->create([...$data, 'team_id' => $teamId]);
     }
@@ -55,5 +57,16 @@ final readonly class ContactDirectoryService
         }
 
         return ContactForm::query()->create([...$data, 'team_id' => $teamId, 'is_active' => $data['is_active'] ?? true]);
+    }
+
+    private function validateTenantReference(string $model, mixed $id, ?int $teamId, string $field): void
+    {
+        if ($id === null) {
+            return;
+        }
+
+        if (! $model::query()->whereKey($id)->where('team_id', $teamId)->exists()) {
+            throw ValidationException::withMessages([$field => 'The selected record must belong to the same tenant.']);
+        }
     }
 }
