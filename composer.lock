@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9e91e2b0c14356db825817925952708",
+    "content-hash": "6076ffc71b88fd998095a463441d03cd",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9040,6 +9040,161 @@
                 "issues": "https://github.com/liberusoftware/module-cms-hello-livewire/issues",
                 "source": "https://github.com/liberusoftware/module-cms-hello-livewire"
             },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-joomla-migration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/cms-joomla-migration",
+                "reference": "6c04f405a6d1d5ecaf63d9729fc179dfe3129201"
+            },
+            "require": {
+                "liberusoftware/module-cms-migration-framework": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-joomla-migration",
+                    "capability": "joomla-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\JoomlaMigration\\JoomlaMigrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\JoomlaMigration\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Joomla migration adapter for Liberu CMS.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-joomla-migration-api",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-joomla-migration-api",
+                "reference": "016f2c783ee5c448247033767b598171d9e30dfa"
+            },
+            "require": {
+                "liberusoftware/module-cms-api": "^0.1",
+                "liberusoftware/module-cms-joomla-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-joomla-migration-api",
+                    "core": "liberusoftware/module-cms-joomla-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\JoomlaMigrationApi\\JoomlaMigrationApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\JoomlaMigrationApi\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "API adapter for Joomla Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-joomla-migration-filament",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-joomla-migration-filament",
+                "reference": "970201127a065f86d44acf2b68b94dc414a84322"
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "liberusoftware/module-cms-joomla-migration": "^0.1",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-joomla-migration-filament",
+                    "core": "liberusoftware/module-cms-joomla-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\JoomlaMigrationFilament\\JoomlaMigrationFilamentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\JoomlaMigrationFilament\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filament adapter for Joomla Migration.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "liberusoftware/module-cms-joomla-migration-livewire",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "modules/module-cms-joomla-migration-livewire",
+                "reference": "81821fc67f1ab727b7b85f44033a44237b55f66d"
+            },
+            "require": {
+                "liberusoftware/module-cms-joomla-migration": "^0.1",
+                "livewire/livewire": "^4.0",
+                "php": "^8.5"
+            },
+            "type": "liberu-module",
+            "extra": {
+                "liberu": {
+                    "name": "module-cms-joomla-migration-livewire",
+                    "core": "liberusoftware/module-cms-joomla-migration"
+                },
+                "laravel": {
+                    "providers": [
+                        "Liberu\\Cms\\JoomlaMigrationLivewire\\JoomlaMigrationLivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liberu\\Cms\\JoomlaMigrationLivewire\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Livewire adapter for Joomla Migration.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
