@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\WordPressMigration\Queries\WordPressMigrationQuery;
 use Liberu\Cms\WordPressMigration\Services\WordPressMigrationService;
 
 uses(RefreshDatabase::class);
@@ -47,4 +48,12 @@ it('does not complete a migration while records remain pending', function (): vo
 
     expect(fn () => $service->complete($migration->refresh()))
         ->toThrow(ValidationException::class);
+});
+
+it('resolves migrations by public id within the requested tenant', function (): void {
+    $service = app(WordPressMigrationService::class);
+    $migration = $service->start(teamId: 10);
+
+    expect(app(WordPressMigrationQuery::class)->migrationByPublicId($migration->public_id, 10)?->is($migration))->toBeTrue()
+        ->and(app(WordPressMigrationQuery::class)->migrationByPublicId($migration->public_id, 20))->toBeNull();
 });
