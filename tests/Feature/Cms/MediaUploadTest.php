@@ -66,6 +66,12 @@ it('stores an image upload without dimensions when its metadata is unreadable', 
     expect($media->metadata())->toBe([]);
 });
 
+it('rejects unsafe media folder paths', function (): void {
+    expect(fn () => app(StoreUpload::class)(UploadedFile::fake()->image('photo.jpg'), '../outside'))
+        ->toThrow(InvalidUpload::class)
+        ->and(Storage::disk('public')->allFiles())->toBe([]);
+});
+
 it('finds media and lists it by folder through the repository', function (): void {
     $a = app(StoreUpload::class)(UploadedFile::fake()->image('a.jpg'), 'gallery');
     app(StoreUpload::class)(UploadedFile::fake()->image('b.jpg'), 'other');
