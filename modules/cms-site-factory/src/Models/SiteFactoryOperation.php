@@ -9,19 +9,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Liberu\Cms\Core\Models\Site;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
-final class SiteDomain extends Model
+final class SiteFactoryOperation extends Model
 {
     use HasTenant;
 
     #[\Override]
-    protected $table = 'cms_site_domains';
+    protected $table = 'cms_site_factory_operations';
 
     #[\Override]
-    protected $fillable = ['site_id', 'domain', 'verification_token', 'verified_at', 'team_id'];
+    protected $fillable = ['site_id', 'team_id', 'operation', 'status', 'payload', 'error', 'completed_at'];
 
     protected function casts(): array
     {
-        return ['verified_at' => 'datetime'];
+        return ['payload' => 'array', 'completed_at' => 'datetime'];
     }
 
     /** @return BelongsTo<Site, $this> */
