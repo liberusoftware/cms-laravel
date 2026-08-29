@@ -12,6 +12,7 @@ final class OfflineAndPwaLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cms-offline-and-pwa-livewire');
         Livewire::component('module-cms-offline-and-pwa.pwa-status', PwaStatus::class);
     }
 }

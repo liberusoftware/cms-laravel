@@ -52,6 +52,17 @@ final class SeoMetadataService
         if (isset($attributes['canonical_url']) && ! filter_var($attributes['canonical_url'], FILTER_VALIDATE_URL)) {
             throw ValidationException::withMessages(['canonical_url' => 'Canonical URL must be absolute.']);
         }
+        if (isset($attributes['robots'])) {
+            if (! is_string($attributes['robots'])) {
+                throw ValidationException::withMessages(['robots' => 'Robots directives must be a string.']);
+            }
+            $directives = array_filter(array_map('trim', explode(',', strtolower($attributes['robots']))));
+            $allowed = ['all', 'index', 'noindex', 'follow', 'nofollow', 'none', 'noarchive', 'nosnippet', 'noimageindex', 'notranslate'];
+            if ($directives === [] || array_diff($directives, $allowed) !== [] || count($directives) !== count(array_unique($directives))) {
+                throw ValidationException::withMessages(['robots' => 'Robots contains unsupported or duplicate directives.']);
+            }
+            $attributes['robots'] = implode(',', $directives);
+        }
         $attributes['robots'] ??= 'index,follow';
 
         return array_intersect_key($attributes, array_flip(['title', 'description', 'canonical_url', 'robots', 'structured_data', 'social_cards', 'hreflang', 'noindex', 'noarchive']));

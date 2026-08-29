@@ -25,7 +25,10 @@ final readonly class ContentGovernanceService
             throw ValidationException::withMessages(['classification' => 'The classification is invalid.']);
         }
 
-        return GovernanceRecord::query()->updateOrCreate(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey], [...$data, 'team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey, 'classification' => $classification]);
+        return GovernanceRecord::query()->updateOrCreate(
+            ['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey],
+            [...array_intersect_key($data, array_flip(['owner_id', 'steward_id', 'policy_labels', 'review_due_at', 'retention_until', 'evidence'])), 'classification' => $classification, 'legal_hold' => false, 'legal_hold_at' => null, 'legal_hold_reason' => null],
+        );
     }
 
     public function placeLegalHold(GovernanceRecord $record, string $reason): GovernanceRecord
@@ -40,7 +43,7 @@ final readonly class ContentGovernanceService
 
     public function releaseLegalHold(GovernanceRecord $record): GovernanceRecord
     {
-        $record->update(['legal_hold' => false, 'legal_hold_reason' => null]);
+        $record->update(['legal_hold' => false, 'legal_hold_at' => null, 'legal_hold_reason' => null]);
 
         return $record->fresh();
     }

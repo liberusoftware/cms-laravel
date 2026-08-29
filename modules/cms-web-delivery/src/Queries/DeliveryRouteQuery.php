@@ -9,6 +9,7 @@ use Liberu\Cms\WebDelivery\Models\DeliveryRoute;
 
 final class DeliveryRouteQuery
 {
+    /** @return LengthAwarePaginator<int, DeliveryRoute> */
     public function paginate(int $perPage = 15, string $search = '', ?string $status = null): LengthAwarePaginator
     {
         $term = trim($search);

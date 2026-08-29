@@ -25,3 +25,13 @@ it('requires feed identity and validates source URLs', function (): void {
     expect(fn () => $service->create('', 'Untitled'))->toThrow(ValidationException::class)
         ->and(fn () => $service->create('news', 'News', sourceUrl: 'not-a-url'))->toThrow(ValidationException::class);
 });
+
+it('updates and archives feeds through the domain boundary', function (): void {
+    $service = app(FeedService::class);
+    $feed = $service->create('updates', 'Updates');
+
+    expect($service->update($feed, ['title' => 'Latest', 'format' => 'atom'])->title)->toBe('Latest');
+    $service->remove($feed->fresh());
+
+    expect($feed->fresh()->active)->toBeFalse();
+});

@@ -86,3 +86,11 @@ it('records vendor failures on the source change and job', function (): void {
     expect(fn () => $service->translate($change, 'failing'))->toThrow(\RuntimeException::class);
     expect($change->refresh()->status)->toBe('failed')->and($job->refresh()->status)->toBe('failed');
 });
+
+it('cancels an active job and rejects cancellation after completion', function (): void {
+    $service = app(TranslationManagementService::class);
+    $job = $service->createJob(['name' => 'Cancel me', 'source_locale' => 'en', 'target_locale' => 'fr']);
+
+    expect($service->cancel($job)->status)->toBe('cancelled');
+    expect(fn () => $service->cancel($job->refresh()))->toThrow(ValidationException::class);
+});

@@ -28,7 +28,7 @@ final readonly class StaticPublishingService
 
     public function invalidate(StaticBuild $build, string $path, string $reason = 'content-changed'): StaticInvalidation
     {
-        if (! str_starts_with($path, '/')) {
+        if (! str_starts_with($path, '/') || str_contains($path, '..') || str_contains($path, '\\')) {
             throw ValidationException::withMessages(['path' => 'Invalidation paths must start with /.']);
         } Cache::tags(['cms-static-publishing', 'cms-static-site-'.$build->site_key])->flush();
 

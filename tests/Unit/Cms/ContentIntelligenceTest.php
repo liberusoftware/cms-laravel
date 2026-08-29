@@ -25,3 +25,20 @@ it('validates scores and supports review queue transitions', function (): void {
     $insight = $service->analyze(['subject_type' => 'page', 'subject_key' => '42', 'metric' => 'seo', 'summary' => 'Add a description'], 3);
     expect($service->review($insight, 'accepted')->status)->toBe('accepted');
 });
+
+it('does not allow analysis input to bypass the review lifecycle', function (): void {
+    $service = app(ContentIntelligenceService::class);
+    $insight = $service->analyze([
+        'subject_type' => 'page',
+        'subject_key' => '42',
+        'metric' => 'seo',
+        'summary' => 'Add a description',
+        'status' => 'accepted',
+    ], 3);
+
+    expect($insight->status)->toBe('open');
+    $accepted = $service->review($insight, 'accepted');
+
+    expect(fn () => $service->review($accepted, 'dismissed'))
+        ->toThrow(ValidationException::class);
+});

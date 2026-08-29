@@ -6,6 +6,7 @@ namespace Liberu\Cms\SitemapsApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\Sitemaps\Models\SitemapEntry;
 use Liberu\Cms\Sitemaps\Services\SitemapService;
 use Liberu\Cms\SitemapsApi\Http\Resources\SitemapEntryResource;
 
@@ -30,6 +31,22 @@ final class SitemapsController
         $data = $request->validate(['url' => ['required', 'url'], 'site_id' => ['sometimes', 'nullable', 'integer']]);
 
         return response()->json(['data' => ['updated' => $service->exclude($data['url'], $data['site_id'] ?? null)]]);
+    }
+
+    public function update(Request $request, string $entry, SitemapService $service): JsonResponse
+    {
+        $model = SitemapEntry::query()->findOrFail($entry);
+        $data = $request->validate(['url' => ['sometimes', 'url', 'max:2048'], 'type' => ['sometimes', 'string', 'max:50'], 'locale' => ['sometimes', 'nullable', 'string', 'max:20'], 'priority' => ['sometimes', 'numeric', 'between:0,1'], 'change_frequency' => ['sometimes', 'nullable', 'string', 'max:20'], 'images' => ['sometimes', 'array'], 'video' => ['sometimes', 'array'], 'news' => ['sometimes', 'array'], 'excluded' => ['sometimes', 'boolean']]);
+
+        return response()->json(['data' => SitemapEntryResource::make($service->update($model, $data))]);
+    }
+
+    public function delete(string $entry, SitemapService $service): JsonResponse
+    {
+        $model = SitemapEntry::query()->findOrFail($entry);
+        $service->remove($model);
+
+        return response()->json([], 204);
     }
 
     public function notify(Request $request, SitemapService $service): JsonResponse

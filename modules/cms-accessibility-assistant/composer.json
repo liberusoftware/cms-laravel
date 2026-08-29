@@ -1,0 +1,28 @@
+{
+    "name": "liberusoftware/module-cms-accessibility-assistant",
+    "description": "Provider-neutral accessibility checks for CMS authoring content.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "liberusoftware/module-cms-core": "^0.1",
+        "illuminate/support": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Liberu\\Cms\\AccessibilityAssistant\\": "src/"
+        }
+    },
+    "extra": {
+        "liberu": {
+            "name": "module-cms-accessibility-assistant",
+            "capability": "accessibility-assistant"
+        },
+        "laravel": {
+            "providers": [
+                "Liberu\\Cms\\AccessibilityAssistant\\AccessibilityAssistantServiceProvider"
+            ]
+        }
+    }
+}

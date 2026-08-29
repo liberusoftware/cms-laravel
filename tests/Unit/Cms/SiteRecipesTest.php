@@ -28,3 +28,11 @@ it('exports the latest version and rejects blank recipe identity', function (): 
     expect($service->export($recipe)['version'])->toBe(2)
         ->and($service->export($recipe)['bundle']['configuration']['revision'])->toBe(2);
 });
+
+it('updates recipe identity through the domain boundary', function (): void {
+    $service = app(SiteRecipeService::class);
+    $recipe = $service->create('starter', 'Starter');
+
+    expect($service->update($recipe, ['key' => 'marketing-starter', 'name' => 'Marketing Starter'])->key)->toBe('marketing-starter')
+        ->and($recipe->fresh()->name)->toBe('Marketing Starter');
+});

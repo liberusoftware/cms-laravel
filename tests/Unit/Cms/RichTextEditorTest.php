@@ -19,3 +19,11 @@ it('sanitizes direct input and generates escaped embed titles', function (): voi
     expect($service->sanitize('<script>x</script><p>Safe</p>'))->not->toContain('<script')
         ->and($service->embed('https://example.com/video', '<Video>'))->toContain('&lt;Video&gt;');
 });
+
+it('rejects credentialed and private-network embed targets', function (): void {
+    $service = app(RichTextService::class);
+
+    expect(fn () => $service->embed('https://user:secret@example.com/video'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->embed('http://127.0.0.1/video'))->toThrow(ValidationException::class)
+        ->and(fn () => $service->embed('http://localhost/video'))->toThrow(ValidationException::class);
+});

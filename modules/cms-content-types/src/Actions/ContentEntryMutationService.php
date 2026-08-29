@@ -24,6 +24,9 @@ final class ContentEntryMutationService
             $clone->save();
 
             foreach ($entry->relatedEntries()->get() as $related) {
+                if ($related->team_id !== $clone->team_id) {
+                    continue;
+                }
                 $pivot = $related->pivot;
                 $clone->relatedEntries()->attach($related->getKey(), [
                     'relation' => $pivot->relation,

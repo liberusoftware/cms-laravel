@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Content\Revisions\HasRevisions;
 use Liberu\Cms\Content\Support\Slugger;
 use Liberu\Cms\Content\Workflow\HasWorkflow;
@@ -114,6 +115,10 @@ final class ContentEntry extends Model implements PublishableInterface
 
     public function relateTo(self $entry, string $relation = 'related', int $position = 0): void
     {
+        if ($this->team_id !== $entry->team_id) {
+            throw ValidationException::withMessages(['relation' => 'Related entities must belong to the same tenant.']);
+        }
+
         $this->relatedEntries()->syncWithoutDetaching([
             $entry->getKey() => ['relation' => $relation, 'position' => $position],
         ]);

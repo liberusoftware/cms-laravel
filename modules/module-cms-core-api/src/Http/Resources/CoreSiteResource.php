@@ -6,24 +6,33 @@ namespace Liberu\Cms\CoreApi\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\Core\Models\Site;
 
+/** @extends JsonResource<Site> */
+/** @mixin Site */
 final class CoreSiteResource extends JsonResource
 {
+    /** @return array<string, mixed> */
     public function toArray(Request $request): array
     {
+        $site = $this->resource;
+        if (! $site instanceof Site) {
+            throw new \UnexpectedValueException('Core site resource requires a Site model.');
+        }
+
         return [
-            'id' => (string) $this->getKey(),
+            'id' => (string) $site->id,
             'type' => 'cms-site',
-            'key' => $this->key,
-            'name' => $this->name,
-            'domain' => $this->domain,
-            'default_locale' => $this->default_locale,
-            'timezone' => $this->timezone,
-            'status' => $this->status,
-            'settings' => $this->settings,
+            'key' => $site->key,
+            'name' => $site->name,
+            'domain' => $site->domain,
+            'default_locale' => $site->default_locale,
+            'timezone' => $site->timezone,
+            'status' => $site->status,
+            'settings' => $site->settings,
             'channels' => CoreChannelResource::collection($this->whenLoaded('channels')),
-            'created_at' => $this->created_at?->toAtomString(),
-            'updated_at' => $this->updated_at?->toAtomString(),
+            'created_at' => $site->created_at?->toAtomString(),
+            'updated_at' => $site->updated_at?->toAtomString(),
         ];
     }
 }

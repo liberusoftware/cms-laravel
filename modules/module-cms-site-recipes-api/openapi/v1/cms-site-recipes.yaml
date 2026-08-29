@@ -6,6 +6,7 @@ paths:
     post: {operationId: createSiteRecipe, responses: {'201': {description: Created recipe}}}
   /api/v1/cms/site-recipes/{recipe}:
     get: {operationId: getSiteRecipe, responses: {'200': {description: Recipe and latest export}}}
+    patch: {operationId: updateSiteRecipe, responses: {'200': {description: Updated recipe}, '422': {description: Invalid recipe}}}
   /api/v1/cms/site-recipes/{recipe}/versions:
     post: {operationId: createSiteRecipeVersion, responses: {'201': {description: Created version}, '422': {description: Invalid bundle}}}
   /api/v1/cms/site-recipes/{recipe}/publish:

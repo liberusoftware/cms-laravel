@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: CMS Copilot API
+  version: 1.0.0
+paths:
+  /api/v1/cms/cms-copilot/requests:
+    post:
+      operationId: cms.copilot.submit
+      responses: {'201': {description: Copilot request created}}
+  /api/v1/cms/cms-copilot/requests/{request}/execute:
+    post:
+      operationId: cms.copilot.execute
+      responses: {'200': {description: Copilot request result}}

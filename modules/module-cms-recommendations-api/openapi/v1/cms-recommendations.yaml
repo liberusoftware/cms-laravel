@@ -5,6 +5,8 @@ paths:
     post: {operationId: createRecommendationList, responses: {'201': {description: Created list}}}
   /api/v1/cms/recommendations/{key}:
     get: {operationId: getRecommendations, responses: {'200': {description: Ranked recommendations}}}
+    patch: {operationId: updateRecommendationList, responses: {'200': {description: Updated list}}}
+    delete: {operationId: archiveRecommendationList, responses: {'204': {description: List archived}}}
   /api/v1/cms/recommendations/{key}/items:
     post: {operationId: addRecommendationItem, responses: {'201': {description: Created item}}}
   /api/v1/cms/recommendations/{key}/exclude:

@@ -1,0 +1,17 @@
+openapi: 3.1.0
+info:
+  title: CMS Backup and Restore API
+  version: 1.0.0
+paths:
+  /api/v1/cms/backup-and-restore/artifacts:
+    post:
+      operationId: createBackupArtifact
+      responses: {'201': {description: Backup artifact created}, '422': {description: Invalid request}}
+  /api/v1/cms/backup-and-restore/artifacts/{artifact}/verify:
+    post:
+      operationId: verifyBackupArtifact
+      responses: {'200': {description: Verification result}}
+  /api/v1/cms/backup-and-restore/artifacts/{artifact}/restore-preview:
+    get:
+      operationId: previewBackupRestore
+      responses: {'200': {description: Restore preview}}

@@ -26,6 +26,17 @@ final readonly class BlockRenderer implements BlockRendererInterface
 
     public function render(array $block): string
     {
+        return $this->renderAtDepth($block, 0);
+    }
+
+    private function renderAtDepth(array $block, int $depth): string
+    {
+        $configuredMaxDepth = config('cms-blocks.max_nesting_depth', 32);
+        $maxDepth = is_numeric($configuredMaxDepth) ? max(1, (int) $configuredMaxDepth) : 32;
+        if ($depth > $maxDepth) {
+            return '';
+        }
+
         $key = is_string($block['type'] ?? null) ? $block['type'] : '';
         $type = $this->registry->get($key);
 
@@ -36,18 +47,23 @@ final readonly class BlockRenderer implements BlockRendererInterface
         $data = is_array($block['data'] ?? null) ? $block['data'] : [];
         $children = is_array($block['children'] ?? null) ? $block['children'] : [];
 
-        $html = $type->render($data, $this->renderMany($children));
+        $html = $type->render($data, $this->renderChildren($children, $depth + 1));
 
         return $this->hooks->apply(new BlockRenderFilter($html, $key, $data))->html;
     }
 
     public function renderMany(array $blocks): string
     {
+        return $this->renderChildren($blocks, 0);
+    }
+
+    private function renderChildren(array $blocks, int $depth): string
+    {
         $html = '';
 
         foreach ($blocks as $block) {
             if (is_array($block)) {
-                $html .= $this->render($block);
+                $html .= $this->renderAtDepth($block, $depth);
             }
         }
 

@@ -6,21 +6,30 @@ namespace Liberu\Cms\CoreApi\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Liberu\Cms\Core\Models\Channel;
 
+/** @extends JsonResource<Channel> */
+/** @mixin Channel */
 final class CoreChannelResource extends JsonResource
 {
+    /** @return array<string, mixed> */
     public function toArray(Request $request): array
     {
+        $channel = $this->resource;
+        if (! $channel instanceof Channel) {
+            throw new \UnexpectedValueException('Core channel resource requires a Channel model.');
+        }
+
         return [
-            'id' => (string) $this->getKey(),
+            'id' => (string) $channel->id,
             'type' => 'cms-channel',
-            'site_id' => (string) $this->site_id,
-            'key' => $this->key,
-            'name' => $this->name,
-            'channel_type' => $this->type,
-            'settings' => $this->settings,
-            'created_at' => $this->created_at?->toAtomString(),
-            'updated_at' => $this->updated_at?->toAtomString(),
+            'site_id' => (string) $channel->site_id,
+            'key' => $channel->key,
+            'name' => $channel->name,
+            'channel_type' => $channel->type,
+            'settings' => $channel->settings,
+            'created_at' => $channel->created_at?->toAtomString(),
+            'updated_at' => $channel->updated_at?->toAtomString(),
         ];
     }
 }

@@ -36,3 +36,11 @@ it('creates lists, items, and exclusions through the domain boundary', function 
     expect($service->exclude($list, 'one')->exclusions)->toContain('one')
         ->and(fn () => $service->createList('', '', 'invalid'))->toThrow(ValidationException::class);
 });
+
+it('updates and archives recommendation lists through the domain boundary', function (): void {
+    $service = app(RecommendationService::class);
+    $list = $service->createList('home', 'Home');
+
+    expect($service->updateList($list, ['name' => 'Homepage', 'kind' => 'trending'])->name)->toBe('Homepage');
+    expect($service->removeList($list->fresh())->active)->toBeFalse();
+});

@@ -18,7 +18,7 @@ final readonly class ContentIntegrityService
 
     public function startScan(?int $teamId, string $scope = 'all'): IntegrityScan
     {
-        if ($scope === '') {
+        if (trim($scope) === '') {
             throw ValidationException::withMessages(['scope' => 'A scan scope is required.']);
         }
 
@@ -27,6 +27,9 @@ final readonly class ContentIntegrityService
 
     public function finding(IntegrityScan $scan, array $data): IntegrityFinding
     {
+        if ($scan->status !== 'running') {
+            throw ValidationException::withMessages(['scan' => 'Findings can only be added to a running scan.']);
+        }
         if (blank($data['subject_type'] ?? null) || blank($data['subject_key'] ?? null) || blank($data['kind'] ?? null) || blank($data['message'] ?? null)) {
             throw ValidationException::withMessages(['finding' => 'Finding subject, kind, and message are required.']);
         }
@@ -38,6 +41,9 @@ final readonly class ContentIntegrityService
 
     public function completeScan(IntegrityScan $scan): IntegrityScan
     {
+        if ($scan->status !== 'running') {
+            throw ValidationException::withMessages(['scan' => 'Only a running scan can be completed.']);
+        }
         $scan->update(['status' => 'completed', 'completed_at' => now()]);
 
         return $scan->fresh();

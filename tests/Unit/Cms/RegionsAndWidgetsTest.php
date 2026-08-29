@@ -34,3 +34,11 @@ it('requires region and widget identities at the domain boundary', function (): 
     expect(fn () => $service->createRegion('', ''))->toThrow(ValidationException::class)
         ->and(fn () => $service->createWidget('', ''))->toThrow(ValidationException::class);
 });
+
+it('rejects cross-team widget placements', function (): void {
+    $service = app(RegionWidgetService::class);
+    $region = $service->createRegion('team-a-sidebar', 'Sidebar', teamId: 10);
+    $widget = $service->createWidget('team-b-notice', 'text', teamId: 11);
+
+    expect(fn () => $service->place($region, $widget))->toThrow(ValidationException::class);
+});

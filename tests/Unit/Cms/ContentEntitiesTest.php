@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ContentEntitiesLivewire\Livewire\EntityBrowser;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
@@ -62,6 +63,14 @@ it('maintains typed relationships between entities', function (): void {
     expect($source->fresh()->relatedEntries->first()->is($target))->toBeTrue()
         ->and($source->fresh()->relatedEntries->first()->pivot->relation)->toBe('references')
         ->and($source->fresh()->relatedEntries->first()->pivot->position)->toBe(2);
+});
+
+it('rejects relationships that cross tenant boundaries', function (): void {
+    $type = entityType();
+    $source = ContentEntry::create(['content_type_id' => $type->id, 'title' => 'Source', 'team_id' => 3]);
+    $target = ContentEntry::create(['content_type_id' => $type->id, 'title' => 'Target', 'team_id' => 4]);
+
+    expect(fn () => $source->relateTo($target))->toThrow(ValidationException::class);
 });
 
 it('browses published entities through the Livewire presentation adapter', function (): void {

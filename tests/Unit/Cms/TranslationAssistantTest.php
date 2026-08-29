@@ -37,3 +37,12 @@ it('persists style rules with the tenant key and validates severity', function (
     expect(fn () => $service->addStyleRule('fr', 'Bad', '/x/', 'Invalid severity.', 'critical', 42))
         ->toThrow(ValidationException::class);
 });
+
+it('does not allow a reviewed draft to be reviewed again', function (): void {
+    $service = app(TranslationAssistantService::class);
+    $draft = $service->draft('post', 1, 'en', 'fr', 'Hello', 'Bonjour', .9, 'test', 'v1');
+    $service->review($draft, 'approved', 'user', 1);
+
+    expect(fn () => $service->review($draft->fresh(), 'rejected', 'user', 2))
+        ->toThrow(ValidationException::class);
+});

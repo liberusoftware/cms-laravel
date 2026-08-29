@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info: {title: CMS Navigation API, version: 1.0.0}
+paths:
+  /api/v1/cms/navigation:
+    get: {operationId: cms.navigation.list, responses: {'200': {description: Authorized menus}}}
+    post: {operationId: cms.navigation.create, security: [{sanctum: [content:write]}], responses: {'201': {description: Menu created}}}
+  /api/v1/cms/navigation/{id}:
+    get: {operationId: cms.navigation.get, responses: {'200': {description: Menu with visible tree}}}
+    patch: {operationId: cms.navigation.update, security: [{sanctum: [content:write]}], responses: {'200': {description: Menu updated}}}
+    delete: {operationId: cms.navigation.delete, security: [{sanctum: [content:write]}], responses: {'204': {description: Menu deleted}}}
+  /api/v1/cms/navigation/{id}/items:
+    post: {operationId: cms.navigation.item.create, security: [{sanctum: [content:write]}], responses: {'201': {description: Item created}}}
+  /api/v1/cms/navigation/{id}/items/{item}:
+    patch: {operationId: cms.navigation.item.update, security: [{sanctum: [content:write]}], responses: {'200': {description: Item updated}}}
+    delete: {operationId: cms.navigation.item.delete, security: [{sanctum: [content:write]}], responses: {'204': {description: Item deleted}}}
+components:
+  securitySchemes:
+    sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}

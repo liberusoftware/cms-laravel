@@ -27,3 +27,11 @@ it('serves cached fallback and rejects empty remote references', function (): vo
     expect($service->fallback($source, 'article', '42')->id)->toBe($reference->id)
         ->and($source->fresh()->status)->toBe('degraded');
 });
+
+it('rejects cache durations outside the configured bounds', function (): void {
+    $service = app(ContentFederationService::class);
+    $source = $service->source(['name' => 'Remote CMS', 'adapter' => 'json-api'], 3);
+
+    expect(fn () => $service->ingest($source, 'article', '42', ['title' => 'Cached'], null, 0))
+        ->toThrow(ValidationException::class);
+});

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentAccess\Services;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ContentAccess\Models\AccessRule;
@@ -51,6 +52,9 @@ final readonly class ContentAccessService
 
     public function createPrivateLink(string $subjectType, string $subjectKey, ?int $teamId, ?int $maxUses = null): string
     {
+        if ($maxUses !== null && $maxUses < 1) {
+            throw ValidationException::withMessages(['max_uses' => 'Maximum uses must be at least one.']);
+        }
         $token = Str::random(64);
         PrivateLink::query()->create(['team_id' => $teamId, 'token_hash' => hash('sha256', $token), 'subject_type' => $subjectType, 'subject_key' => $subjectKey, 'expires_at' => now()->addMinutes((int) config('content-access.private_link_ttl_minutes', 60)), 'max_uses' => $maxUses]);
 
@@ -59,12 +63,14 @@ final readonly class ContentAccessService
 
     public function consumePrivateLink(string $token, string $subjectType, string $subjectKey, ?int $teamId): bool
     {
-        $link = PrivateLink::query()->where(['token_hash' => hash('sha256', $token), 'team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey])->first();
-        if (! $link || $link->revoked_at !== null || $link->expires_at->isPast() || ($link->max_uses !== null && $link->uses >= $link->max_uses)) {
-            return false;
-        }
-        $link->increment('uses');
+        return DB::transaction(function () use ($token, $subjectType, $subjectKey, $teamId): bool {
+            $link = PrivateLink::query()->where(['token_hash' => hash('sha256', $token), 'team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey])->lockForUpdate()->first();
+            if (! $link || $link->revoked_at !== null || $link->expires_at->isPast() || ($link->max_uses !== null && $link->uses >= $link->max_uses)) {
+                return false;
+            }
+            $link->increment('uses');
 
-        return true;
+            return true;
+        });
     }
 }

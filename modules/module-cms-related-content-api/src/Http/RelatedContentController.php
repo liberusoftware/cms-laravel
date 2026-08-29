@@ -30,4 +30,11 @@ final class RelatedContentController
 
         return response()->json(['data' => $service->exclude($type, $id, $data['target_type'], $data['target_id'], $request->user()?->current_team_id)]);
     }
+
+    public function remove(Request $request, string $type, int $id, RelatedContentService $service): JsonResponse
+    {
+        $data = $request->validate(['target_type' => ['required', 'string'], 'target_id' => ['required', 'integer', 'min:1']]);
+
+        return response()->json(['data' => ['deleted' => $service->remove($type, $id, $data['target_type'], $data['target_id'], $request->user()?->current_team_id)]]);
+    }
 }

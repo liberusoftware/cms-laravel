@@ -17,6 +17,8 @@ final class SitemapsApiServiceProvider extends ServiceProvider
             $r = $this->app->make(ApiResourceRegistryInterface::class);
             $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps', SitemapsController::class, 'index', 'cms.sitemaps.index'));
             $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps', SitemapsController::class, 'create', 'cms.sitemaps.create', 'POST', ['abilities:content:write']));
+            $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps/{entry}', SitemapsController::class, 'update', 'cms.sitemaps.update', 'PATCH', ['abilities:content:write']));
+            $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps/{entry}', SitemapsController::class, 'delete', 'cms.sitemaps.delete', 'DELETE', ['abilities:content:write']));
             $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps/exclude', SitemapsController::class, 'exclude', 'cms.sitemaps.exclude', 'POST', ['abilities:content:write']));
             $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps/notify', SitemapsController::class, 'notify', 'cms.sitemaps.notify', 'POST', ['abilities:content:write']));
             $r->registerEndpoint('sitemaps-api', new ApiEndpoint('cms/sitemaps/chunks', SitemapsController::class, 'chunks', 'cms.sitemaps.chunks'));

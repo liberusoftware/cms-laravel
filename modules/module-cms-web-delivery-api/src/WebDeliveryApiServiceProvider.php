@@ -20,6 +20,8 @@ final class WebDeliveryApiServiceProvider extends ServiceProvider
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes', WebDeliveryController::class, 'index', 'cms.web-delivery.routes'));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes/{path}', WebDeliveryController::class, 'show', 'cms.web-delivery.route'));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes', WebDeliveryController::class, 'create', 'cms.web-delivery.routes.create', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes/{route}', WebDeliveryController::class, 'update', 'cms.web-delivery.route.update', 'PATCH', ['abilities:content:write']));
+        $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes/{route}', WebDeliveryController::class, 'destroy', 'cms.web-delivery.route.delete', 'DELETE', ['abilities:content:write']));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/resolve', WebDeliveryController::class, 'resolve', 'cms.web-delivery.resolve'));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/routes/{route}/preview-token', WebDeliveryController::class, 'previewToken', 'cms.web-delivery.preview', 'POST', ['abilities:content:write']));
         $registry->registerEndpoint('web-delivery-api', new ApiEndpoint('cms/web-delivery/invalidate', WebDeliveryController::class, 'invalidate', 'cms.web-delivery.invalidate', 'POST', ['abilities:content:write']));

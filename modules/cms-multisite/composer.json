@@ -1,0 +1,11 @@
+{
+    "name": "liberusoftware/module-cms-multisite",
+    "description": "Multisite network governance for Liberu CMS.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-core": "^0.1", "liberusoftware/module-cms-site-factory": "^0.1", "illuminate/database": "^13.0", "illuminate/support": "^13.0"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\Multisite\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-multisite"}, "laravel": {"providers": ["Liberu\\Cms\\Multisite\\MultisiteServiceProvider"]}},
+    "minimum-stability": "dev", "prefer-stable": true
+}

@@ -25,6 +25,6 @@ final class SiteProvisioner extends Component
 
     public function render(): View
     {
-        return view('cms-site-factory-livewire::site-provisioner');
+        return app('view')->make('cms-site-factory-livewire::site-provisioner');
     }
 }

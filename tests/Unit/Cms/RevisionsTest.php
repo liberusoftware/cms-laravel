@@ -26,3 +26,14 @@ it('deduplicates autosaves and validates branches', function (): void {
         ->and(fn () => $service->branch($first, '!!!'))->toThrow(ValidationException::class)
         ->and(fn () => $service->create('', 0, []))->toThrow(ValidationException::class);
 });
+
+it('reports nested snapshot changes by dot path', function (): void {
+    $service = app(RevisionService::class);
+    $from = $service->create('post', 2, ['settings' => ['seo' => ['title' => 'Old'], 'published' => false]]);
+    $to = $service->create('post', 2, ['settings' => ['seo' => ['title' => 'New'], 'published' => true]]);
+
+    expect($service->compare($from, $to)['changes'])->toContain(
+        ['path' => 'settings.seo.title', 'from' => 'Old', 'to' => 'New'],
+        ['path' => 'settings.published', 'from' => false, 'to' => true],
+    );
+});

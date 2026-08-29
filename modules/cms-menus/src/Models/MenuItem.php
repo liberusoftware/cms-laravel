@@ -19,8 +19,13 @@ use Liberu\Cms\Menus\Database\Factories\MenuItemFactory;
  * @property int|null $parent_id
  * @property string $label
  * @property string $url
+ * @property string $link_type
+ * @property string|null $content_id
+ * @property string|null $system_route
  * @property int $sort
  * @property string|null $permission
+ * @property array<string, mixed>|null $visibility
+ * @property bool $active
  * @property int|null $team_id
  */
 final class MenuItem extends Model
@@ -37,7 +42,10 @@ final class MenuItem extends Model
      * @var list<string>
      */
     #[\Override]
-    protected $fillable = ['menu_id', 'parent_id', 'label', 'url', 'sort', 'permission', 'team_id'];
+    protected $fillable = [
+        'menu_id', 'parent_id', 'label', 'url', 'link_type', 'content_id',
+        'system_route', 'sort', 'permission', 'visibility', 'active', 'team_id',
+    ];
 
     /**
      * @return array<string, string>
@@ -45,7 +53,7 @@ final class MenuItem extends Model
     #[\Override]
     protected function casts(): array
     {
-        return ['sort' => 'integer'];
+        return ['sort' => 'integer', 'visibility' => 'array', 'active' => 'boolean'];
     }
 
     /**

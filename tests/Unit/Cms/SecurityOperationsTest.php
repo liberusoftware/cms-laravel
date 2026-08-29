@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\SecurityOperations\Services\SecurityOperationsService;
 
@@ -22,4 +23,10 @@ it('requires an integrity subject and stores actor evidence under the canonical 
     expect(fn () => $service->integrity('', 'content'))->toThrow(ValidationException::class);
     $operation = $service->integrity('config', 'content', 9);
     expect($operation->actor_id)->toBe(9)->and($operation->content_hash)->not->toBeNull();
+});
+
+it('quarantines dangerous upload extensions', function (): void {
+    $operation = app(SecurityOperationsService::class)->scan(UploadedFile::fake()->create('payload.php', 10));
+
+    expect($operation->kind)->toBe('upload-scan')->and($operation->status)->toBe('quarantined');
 });

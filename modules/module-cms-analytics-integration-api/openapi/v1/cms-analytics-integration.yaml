@@ -1,0 +1,17 @@
+openapi: 3.1.0
+info:
+  title: CMS Analytics Integration API
+  version: 1.0.0
+paths:
+  /api/v1/cms/analytics-integration/events:
+    post:
+      operationId: cms.analytics.integration.record
+      responses: {'201': {description: Canonical event recorded}, '422': {description: Invalid request}}
+  /api/v1/cms/analytics-integration/mappings:
+    post:
+      operationId: cms.analytics.integration.mapping
+      responses: {'201': {description: Analytics mapping saved}}
+  /api/v1/cms/analytics-integration/dashboard:
+    get:
+      operationId: cms.analytics.integration.dashboard
+      responses: {'200': {description: Dashboard summary}}

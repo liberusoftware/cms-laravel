@@ -23,6 +23,22 @@ final class FeedController
         return response()->json(['data' => $service->create($data['key'], $data['title'], $data['format'] ?? 'rss', $data['source_url'] ?? null, $data['mapping'] ?? [])], 201);
     }
 
+    public function update(Request $request, string $feed, FeedService $service): JsonResponse
+    {
+        $model = Feed::query()->where('key', $feed)->where('active', true)->firstOrFail();
+        $data = $request->validate(['title' => ['sometimes', 'string', 'max:255'], 'format' => ['sometimes', 'in:rss,atom,json'], 'source_url' => ['nullable', 'url'], 'mapping' => ['sometimes', 'array'], 'active' => ['sometimes', 'boolean']]);
+
+        return response()->json(['data' => $service->update($model, $data)]);
+    }
+
+    public function delete(string $feed, FeedService $service): JsonResponse
+    {
+        $model = Feed::query()->where('key', $feed)->where('active', true)->firstOrFail();
+        $service->remove($model);
+
+        return response()->json([], 204);
+    }
+
     public function show(string $feed, FeedService $service): JsonResponse
     {
         $model = Feed::query()->where('key', $feed)->where('active', true)->firstOrFail();

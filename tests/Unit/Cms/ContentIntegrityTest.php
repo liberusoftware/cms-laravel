@@ -28,3 +28,12 @@ it('validates repair findings and resolves them', function (): void {
     $finding = $service->finding($scan, ['subject_type' => 'page', 'subject_key' => '42', 'kind' => 'duplicate', 'message' => 'Duplicate content']);
     expect($service->resolve($finding)->status)->toBe('resolved');
 });
+
+it('prevents findings after a scan has completed', function (): void {
+    $service = app(ContentIntegrityService::class);
+    $scan = $service->startScan(3);
+    $service->completeScan($scan);
+
+    expect(fn () => $service->finding($scan->fresh(), ['subject_type' => 'page', 'subject_key' => '1', 'kind' => 'stale', 'message' => 'Stale']))
+        ->toThrow(ValidationException::class);
+});

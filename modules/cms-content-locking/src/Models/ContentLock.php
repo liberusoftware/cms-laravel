@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentLocking\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Liberu\Cms\Core\Tenant\HasTenant;
 
 final class ContentLock extends Model
 {
+    use HasTenant;
+
     #[\Override]
     protected $table = 'cms_content_locks';
 

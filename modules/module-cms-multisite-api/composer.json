@@ -1,0 +1,9 @@
+{
+    "name": "liberusoftware/module-cms-multisite-api",
+    "description": "Multisite API for Liberu CMS",
+    "version": "0.1.0",
+    "type": "liberu-module",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-multisite": "^0.1", "liberusoftware/module-cms-contracts": "^0.1", "illuminate/http": "^13.0", "illuminate/support": "^13.0"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\MultisiteApi\\": "src/"}},
+    "extra": {"liberu":{"name":"module-cms-multisite-api","core":"liberusoftware/module-cms-multisite"},"laravel": {"providers": ["Liberu\\Cms\\MultisiteApi\\MultisiteApiServiceProvider"]}}
+}

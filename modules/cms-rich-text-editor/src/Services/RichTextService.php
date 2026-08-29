@@ -64,7 +64,11 @@ final readonly class RichTextService
 
     public function embed(string $url, ?string $title = null): string
     {
-        if (! Str::startsWith($url, ['https://', 'http://'])) {
+        $parsed = parse_url($url);
+        $host = is_array($parsed) ? ($parsed['host'] ?? null) : null;
+        $isPrivateIp = is_string($host) && filter_var($host, FILTER_VALIDATE_IP) !== false
+            && filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false;
+        if (! Str::startsWith($url, ['https://', 'http://']) || ! is_string($host) || isset($parsed['user'], $parsed['pass']) || $isPrivateIp || in_array(strtolower($host), ['localhost', 'localhost.localdomain'], true)) {
             throw ValidationException::withMessages(['url' => 'Embeds require an HTTP or HTTPS URL.']);
         }
 

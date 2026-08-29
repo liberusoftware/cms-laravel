@@ -1,0 +1,1 @@
+{"name":"module-cms-accessibility-assistant","title":"Accessibility Assistant","description":"Provider-neutral accessibility checks for authoring content.","version":"0.1.0","providers":["Liberu\\Cms\\AccessibilityAssistant\\AccessibilityAssistantServiceProvider"]}

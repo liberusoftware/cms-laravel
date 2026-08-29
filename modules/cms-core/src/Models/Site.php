@@ -6,10 +6,23 @@ namespace Liberu\Cms\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Contracts\Events\Core\SiteCreated;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int $id
+ * @property string $key
+ * @property string $name
+ * @property string|null $domain
+ * @property string $default_locale
+ * @property string $timezone
+ * @property string $status
+ * @property array<string, mixed>|null $settings
+ * @property-read Carbon|null $created_at
+ * @property-read Carbon|null $updated_at
+ */
 final class Site extends Model
 {
     use HasTenant;

@@ -70,11 +70,14 @@ final readonly class SchemaValidator
     /** @param array<string, mixed>|null $condition */
     private function conditionMatches(?array $condition, array $data): bool
     {
-        if ($condition === null || ! is_string($condition['field'] ?? null)) {
+        if ($condition === null) {
             return true;
         }
+        if (! is_string($condition['field'] ?? null) || $condition['field'] === '' || ! array_key_exists('equals', $condition)) {
+            return false;
+        }
 
-        return ($data[$condition['field']] ?? null) === ($condition['equals'] ?? null);
+        return ($data[$condition['field']] ?? null) === $condition['equals'];
     }
 
     /** @param array<string, mixed> $rules */

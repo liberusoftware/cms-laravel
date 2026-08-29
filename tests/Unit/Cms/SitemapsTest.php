@@ -26,3 +26,13 @@ it('removes excluded entries from subsequent cached reads', function (): void {
 
     expect($service->entries(7))->toHaveCount(0);
 });
+
+it('updates and removes entries through the domain boundary', function (): void {
+    $service = app(SitemapService::class);
+    $entry = $service->add('https://example.com/lifecycle', 8);
+
+    expect($service->update($entry, ['url' => 'https://example.com/updated', 'priority' => .8])->url)->toBe('https://example.com/updated');
+    $service->remove($entry->fresh());
+
+    expect($entry->fresh())->toBeNull();
+});

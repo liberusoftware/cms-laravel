@@ -1,0 +1,16 @@
+openapi: 3.1.0
+info: {title: CMS Offline and PWA API, version: 1.0.0}
+paths:
+  /api/v1/cms/offline-and-pwa:
+    get: {operationId: cms.offline-and-pwa.list, responses: {'200': {description: Authorized PWA configurations}}}
+    post: {operationId: cms.offline-and-pwa.create, security: [{sanctum: [content:write]}], responses: {'201': {description: Configuration created}}}
+  /api/v1/cms/offline-and-pwa/{id}:
+    get: {operationId: cms.offline-and-pwa.get, responses: {'200': {description: Configuration}}}
+    patch: {operationId: cms.offline-and-pwa.update, security: [{sanctum: [content:write]}], responses: {'200': {description: Configuration updated}}}
+    delete: {operationId: cms.offline-and-pwa.delete, security: [{sanctum: [content:write]}], responses: {'204': {description: Configuration deleted}}}
+  /api/v1/cms/offline-and-pwa/{id}/cache-policy:
+    post: {operationId: cms.offline-and-pwa.cache-policy, security: [{sanctum: [content:write]}], responses: {'200': {description: Cache policy updated}}}
+  /api/v1/cms/offline-and-pwa/{id}/publish-update:
+    post: {operationId: cms.offline-and-pwa.publish-update, security: [{sanctum: [content:write]}], responses: {'200': {description: Service worker update published}}}
+components:
+  securitySchemes: {sanctum: {type: http, scheme: bearer, bearerFormat: Sanctum}}

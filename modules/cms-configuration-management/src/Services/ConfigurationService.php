@@ -23,7 +23,7 @@ final readonly class ConfigurationService
         if ($version === '' || ! preg_match('/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/', $version)) {
             throw ValidationException::withMessages(['version' => 'Version must be a stable identifier.']);
         }
-        if ($environment === '') {
+        if (trim($environment) === '' || mb_strlen($environment) > 80) {
             throw ValidationException::withMessages(['environment' => 'Environment is required.']);
         }
         $safe = $this->excludeSecrets($payload);
@@ -54,6 +54,9 @@ final readonly class ConfigurationService
 
     public function promote(ConfigurationRelease $release, array $available = []): ConfigurationRelease
     {
+        if ($release->status !== 'draft') {
+            throw ValidationException::withMessages(['release' => 'Only a draft release can be promoted.']);
+        }
         $dependency = $this->validateDependencies($release, $available);
         if (! $dependency['valid']) {
             throw ValidationException::withMessages(['dependencies' => 'Required dependencies are unavailable: '.implode(', ', $dependency['missing'])]);

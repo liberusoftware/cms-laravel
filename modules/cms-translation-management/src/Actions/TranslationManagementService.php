@@ -70,6 +70,16 @@ final readonly class TranslationManagementService
         return $job->refresh();
     }
 
+    public function cancel(TranslationJob $job): TranslationJob
+    {
+        if (in_array($job->status, ['completed', 'cancelled'], true)) {
+            throw ValidationException::withMessages(['status' => 'This translation job cannot be cancelled.']);
+        }
+        $job->update(['status' => 'cancelled', 'completed_at' => now()]);
+
+        return $job->refresh();
+    }
+
     public function translate(TranslationSourceChange $change, string $vendorKey, array $context = []): TranslationSourceChange
     {
         $job = $change->job()->firstOrFail();

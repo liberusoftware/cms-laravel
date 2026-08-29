@@ -7,8 +7,9 @@ namespace Liberu\Cms\Menus\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Liberu\Cms\Core\Http\Concerns\FiltersApiResource;
+use Liberu\Cms\Menus\MenuBuilder;
+use Liberu\Cms\Menus\MenuNode;
 use Liberu\Cms\Menus\Models\Menu;
-use Liberu\Cms\Menus\Models\MenuItem;
 
 /**
  * The Delivery API wire shape for a Menu: its name, location, and the ordered,
@@ -28,32 +29,26 @@ final class MenuResource extends JsonResource
     public function toArray(Request $request): array
     {
         return $this->withApiResourceFilter([
+            'id' => (string) $this->id,
+            'type' => 'cms-navigation',
             'name' => $this->name,
             'location' => $this->location,
-            'items' => $this->buildTree($this->items()->get()->all(), null),
+            'variant' => $this->variant,
+            'items' => collect($this->resource instanceof Menu ? app(MenuBuilder::class)->tree($this->resource, $request->query('path')) : [])
+                ->map(fn (MenuNode $node): array => $this->node($node))
+                ->all(),
         ]);
     }
 
-    /**
-     * @param  array<int, MenuItem>  $items
-     * @return array<int, array<string, mixed>>
-     */
-    private function buildTree(array $items, ?int $parentId): array
+    /** @return array<string, mixed> */
+    private function node(MenuNode $node): array
     {
-        $nodes = [];
-
-        foreach ($items as $item) {
-            if ($item->parent_id !== $parentId) {
-                continue;
-            }
-
-            $nodes[] = [
-                'label' => $item->label,
-                'url' => $item->url,
-                'children' => $this->buildTree($items, $item->id),
-            ];
-        }
-
-        return $nodes;
+        return [
+            'label' => $node->label,
+            'url' => $node->url,
+            'link_type' => $node->linkType,
+            'active' => $node->active,
+            'children' => collect($node->children)->map(fn (MenuNode $child): array => $this->node($child))->all(),
+        ];
     }
 }

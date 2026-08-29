@@ -15,7 +15,7 @@ final class PublicationRelease extends Model
     protected $table = 'cms_publication_releases';
 
     #[\Override]
-    protected $attributes = ['targets' => '[]', 'cache_tags' => '[]'];
+    protected $attributes = ['state' => 'scheduled', 'targets' => '[]', 'cache_tags' => '[]'];
 
     #[\Override]
     protected $fillable = ['key', 'state', 'publish_at', 'embargo_until', 'expires_at', 'review_at', 'recurrence', 'targets', 'cache_tags', 'team_id'];

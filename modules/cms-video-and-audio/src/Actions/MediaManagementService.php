@@ -41,18 +41,22 @@ final readonly class MediaManagementService
 
     public function addTrack(MediaAsset $asset, array $attributes): MediaTrack
     {
-        $type = $attributes['track_type'] ?? null;
-        if (! in_array($type, config('video-and-audio.track_types', []), true)) {
-            throw ValidationException::withMessages(['track_type' => 'Unsupported media track type.']);
-        }
-        if ($type === 'chapter' && ((float) ($attributes['end_seconds'] ?? 0) <= (float) ($attributes['start_seconds'] ?? 0))) {
-            throw ValidationException::withMessages(['end_seconds' => 'Chapter end must be after its start.']);
-        }
-        if (in_array($type, ['caption', 'transcript'], true) && blank($attributes['uri'] ?? $attributes['content'] ?? null)) {
-            throw ValidationException::withMessages(['content' => 'Captions and transcripts require a URI or content.']);
-        }
+        $this->validateTrack($attributes);
 
         return $asset->tracks()->create([...$attributes, 'team_id' => $attributes['team_id'] ?? $asset->team_id]);
+    }
+
+    public function updateTrack(MediaTrack $track, array $attributes): MediaTrack
+    {
+        $this->validateTrack([...$track->only(['track_type', 'uri', 'content', 'start_seconds', 'end_seconds']), ...$attributes]);
+        $track->fill(array_intersect_key($attributes, array_flip(['track_type', 'language', 'label', 'uri', 'content', 'start_seconds', 'end_seconds', 'metadata', 'status'])))->save();
+
+        return $track->refresh();
+    }
+
+    public function deleteTrack(MediaTrack $track): void
+    {
+        DB::transaction(fn (): ?bool => $track->delete());
     }
 
     public function updateAsset(MediaAsset $asset, array $attributes): MediaAsset
@@ -108,5 +112,19 @@ final readonly class MediaManagementService
         }
 
         return new PlaybackMetadata($asset->public_id, $asset->kind, $asset->title, $asset->stream_uri, $asset->poster_uri, $asset->duration_seconds, $asset->tracks()->where('status', 'active')->get()->map(fn (MediaTrack $track): array => ['type' => $track->track_type, 'language' => $track->language, 'label' => $track->label, 'uri' => $track->uri, 'content' => $track->content, 'start_seconds' => $track->start_seconds, 'end_seconds' => $track->end_seconds])->all(), $asset->metadata ?? []);
+    }
+
+    private function validateTrack(array $attributes): void
+    {
+        $type = $attributes['track_type'] ?? null;
+        if (! in_array($type, config('video-and-audio.track_types', []), true)) {
+            throw ValidationException::withMessages(['track_type' => 'Unsupported media track type.']);
+        }
+        if ($type === 'chapter' && ((float) ($attributes['end_seconds'] ?? 0) <= (float) ($attributes['start_seconds'] ?? 0))) {
+            throw ValidationException::withMessages(['end_seconds' => 'Chapter end must be after its start.']);
+        }
+        if (in_array($type, ['caption', 'transcript'], true) && blank($attributes['uri'] ?? $attributes['content'] ?? null)) {
+            throw ValidationException::withMessages(['content' => 'Captions and transcripts require a URI or content.']);
+        }
     }
 }

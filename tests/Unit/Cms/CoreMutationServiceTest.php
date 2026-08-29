@@ -43,6 +43,21 @@ it('upserts settings within a site and environment boundary', function (): void 
         ->and($second->fresh()->value)->toBe(['value' => 'Two']);
 });
 
+it('rejects invalid redirect statuses and blank setting environments', function (): void {
+    $service = app(CoreMutationService::class);
+    $site = $service->createSite(['key' => 'docs', 'name' => 'Docs']);
+
+    expect(fn () => $service->createAlias($site, [
+        'alias' => 'guides/start',
+        'target_type' => 'page',
+        'target_id' => '42',
+        'redirect_status' => 200,
+    ]))->toThrow(ValidationException::class);
+
+    expect(fn () => $service->putSetting($site, 'footer', [], ' '))
+        ->toThrow(ValidationException::class);
+});
+
 it('updates and deletes sites and channels through the mutation boundary', function (): void {
     $service = app(CoreMutationService::class);
     $site = $service->createSite(['key' => 'docs', 'name' => 'Docs']);

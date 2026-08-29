@@ -18,6 +18,7 @@ final readonly class WordPressMigrationQuery
         return $teamId ?? $this->tenant->tenantId();
     }
 
+    /** @return LengthAwarePaginator<int, WordPressMigration> */
     public function migrations(int $perPage = 15, ?int $teamId = null): LengthAwarePaginator
     {
         return WordPressMigration::query()->where('team_id', $this->tenantId($teamId))->latest()->paginate(max(1, min(100, $perPage)));
@@ -28,6 +29,7 @@ final readonly class WordPressMigrationQuery
         return WordPressMigration::query()->whereKey($id)->where('team_id', $this->tenantId($teamId))->first();
     }
 
+    /** @return LengthAwarePaginator<int, WordPressMigrationRecord> */
     public function records(WordPressMigration $migration, int $perPage = 25): LengthAwarePaginator
     {
         return WordPressMigrationRecord::query()->where('migration_id', $migration->id)->latest()->paginate(max(1, min(100, $perPage)));

@@ -26,3 +26,10 @@ it('rejects overlapping schedules and supports drag-drop rescheduling', function
 
     expect($service->reschedule($item, '2026-09-02 10:00')->starts_at->format('Y-m-d H:i'))->toBe('2026-09-02 10:00');
 });
+
+it('rejects malformed schedule dates through the validation boundary', function (): void {
+    expect(fn () => app(ContentCalendarService::class)->schedule([
+        'title' => 'Invalid',
+        'starts_at' => 'not-a-date',
+    ], 3))->toThrow(ValidationException::class);
+});

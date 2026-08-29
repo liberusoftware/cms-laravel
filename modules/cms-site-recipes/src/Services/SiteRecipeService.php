@@ -29,6 +29,25 @@ final class SiteRecipeService
         return $recipe->versions()->create($payload + ['version' => $version, 'checksum' => hash('sha256', json_encode($payload, JSON_THROW_ON_ERROR)), 'author_id' => $authorId]);
     }
 
+    /** @param array<string, mixed> $attributes */
+    public function update(SiteRecipe $recipe, array $attributes): SiteRecipe
+    {
+        if (array_key_exists('key', $attributes) && (! is_string($attributes['key']) || trim($attributes['key']) === '')) {
+            throw ValidationException::withMessages(['key' => 'Recipe key cannot be blank.']);
+        }
+        if (array_key_exists('name', $attributes) && (! is_string($attributes['name']) || trim($attributes['name']) === '')) {
+            throw ValidationException::withMessages(['name' => 'Recipe name cannot be blank.']);
+        }
+
+        $values = array_intersect_key($attributes, array_flip(['key', 'name', 'description', 'status']));
+        if (isset($values['key'])) {
+            $values['key'] = Str::slug($values['key']);
+        }
+        $recipe->update($values);
+
+        return $recipe->refresh();
+    }
+
     public function publish(SiteRecipe $recipe): SiteRecipe
     {
         if ($recipe->versions()->doesntExist()) {

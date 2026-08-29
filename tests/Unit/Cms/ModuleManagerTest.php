@@ -166,6 +166,13 @@ it('excludes disabled modules from the boot order', function (): void {
     expect($manager->bootOrder())->toBe(['media']);
 });
 
+it('refuses to compute a boot order with an unregistered dependency', function (): void {
+    [$manager] = makeManager([fakeModule('posts', ['media'])]);
+
+    expect(fn () => $manager->bootOrder())
+        ->toThrow(ModuleDependencyException::class);
+});
+
 it('resolves transitive dependencies', function (): void {
     [$manager] = makeManager([
         fakeModule('seo', ['posts']),

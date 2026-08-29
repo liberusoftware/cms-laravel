@@ -29,3 +29,15 @@ it('enforces legal holds and appends compliance evidence', function (): void {
 
     expect($service->releaseLegalHold($record)->legal_hold)->toBeFalse();
 });
+
+it('does not allow record input to bypass legal hold workflow', function (): void {
+    $record = app(ContentGovernanceService::class)->record('page', '99', [
+        'legal_hold' => true,
+        'legal_hold_reason' => 'Forged input',
+    ], 3);
+
+    expect($record->legal_hold)->toBeFalse()
+        ->and($record->legal_hold_reason)->toBeNull()
+        ->and($record->subject_type)->toBe('page')
+        ->and($record->subject_key)->toBe('99');
+});

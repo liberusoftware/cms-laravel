@@ -16,9 +16,7 @@ final readonly class ContentLockingService
         if ($subjectType === '' || $subjectKey === '') {
             throw ValidationException::withMessages(['subject' => 'A subject type and key are required.']);
         }
-        if ($ttl < 1 || $ttl > (int) config('content-locking.max_ttl_minutes', 120)) {
-            throw ValidationException::withMessages(['ttl' => 'The lock duration is invalid.']);
-        }
+        $this->validateTtl($ttl);
         $existing = ContentLock::query()->where(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey])->first();
         if ($existing?->expires_at->isFuture() && $existing->holder_id !== $holderId) {
             throw ValidationException::withMessages(['lock' => 'Content is currently locked by another editor.']);
@@ -31,6 +29,7 @@ final readonly class ContentLockingService
     {
         $this->assertToken($lock, $token);
         $ttl = $ttlMinutes ?? (int) config('content-locking.default_ttl_minutes', 15);
+        $this->validateTtl($ttl);
         $lock->update(['expires_at' => now()->addMinutes($ttl)]);
 
         return $lock->fresh();
@@ -69,6 +68,13 @@ final readonly class ContentLockingService
     {
         if (! hash_equals($lock->token, $token) || $lock->expires_at->isPast()) {
             throw ValidationException::withMessages(['lock' => 'The lock token is invalid or expired.']);
+        }
+    }
+
+    private function validateTtl(int $ttl): void
+    {
+        if ($ttl < 1 || $ttl > (int) config('content-locking.max_ttl_minutes', 120)) {
+            throw ValidationException::withMessages(['ttl' => 'The lock duration is invalid.']);
         }
     }
 }
