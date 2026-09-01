@@ -17,21 +17,44 @@ final class ContactDirectoryController
 
     public function store(Request $request, ContactDirectoryService $service): JsonResponse
     {
-        return response()->json(['data' => $service->saveContact($request->validate(['name' => ['required', 'string', 'max:160'], 'email' => ['nullable', 'email'], 'department' => ['nullable', 'string'], 'phone' => ['nullable', 'string'], 'details' => ['array'], 'is_public' => ['boolean']]), $request->user()?->current_team_id)], 201);
+        $data = $request->validate(['name' => ['required', 'string', 'max:160'], 'email' => ['nullable', 'email'], 'department' => ['nullable', 'string'], 'phone' => ['nullable', 'string'], 'details' => ['array'], 'is_public' => ['boolean']]);
+
+        return response()->json(['data' => $service->saveContact($this->normalized($data), $request->user()?->current_team_id)], 201);
     }
 
     public function category(Request $request, ContactDirectoryService $service): JsonResponse
     {
-        return response()->json(['data' => $service->category($request->validate(['name' => ['required', 'string', 'max:120'], 'slug' => ['nullable', 'string']]), $request->user()?->current_team_id)], 201);
+        $data = $request->validate(['name' => ['required', 'string', 'max:120'], 'slug' => ['nullable', 'string']]);
+
+        return response()->json(['data' => $service->category($this->normalized($data), $request->user()?->current_team_id)], 201);
     }
 
     public function location(Request $request, ContactDirectoryService $service): JsonResponse
     {
-        return response()->json(['data' => $service->location($request->validate(['name' => ['required', 'string', 'max:160'], 'address' => ['nullable', 'string'], 'city' => ['nullable', 'string'], 'country' => ['nullable', 'string']]), $request->user()?->current_team_id)], 201);
+        $data = $request->validate(['name' => ['required', 'string', 'max:160'], 'address' => ['nullable', 'string'], 'city' => ['nullable', 'string'], 'country' => ['nullable', 'string']]);
+
+        return response()->json(['data' => $service->location($this->normalized($data), $request->user()?->current_team_id)], 201);
     }
 
     public function form(Request $request, ContactDirectoryService $service): JsonResponse
     {
-        return response()->json(['data' => $service->form($request->validate(['name' => ['required', 'string', 'max:120'], 'schema' => ['required', 'array'], 'is_active' => ['boolean']]), $request->user()?->current_team_id)], 201);
+        $data = $request->validate(['name' => ['required', 'string', 'max:120'], 'schema' => ['required', 'array'], 'is_active' => ['boolean']]);
+
+        return response()->json(['data' => $service->form($this->normalized($data), $request->user()?->current_team_id)], 201);
+    }
+
+    /** @return array<string, mixed> */
+    private function normalized(mixed $value): array
+    {
+        $data = [];
+        if (is_array($value)) {
+            foreach ($value as $key => $item) {
+                if (is_string($key)) {
+                    $data[$key] = $item;
+                }
+            }
+        }
+
+        return $data;
     }
 }

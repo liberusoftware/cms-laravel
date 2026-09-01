@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-content-api","title":"Editorial Content API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\EditorialContentApi\\EditorialContentApiServiceProvider"],"package":"liberusoftware/module-cms-editorial-content-api"}

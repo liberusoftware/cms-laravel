@@ -1,1 +1,1 @@
-{"name":"cms-digital-asset-management","description":"Digital asset governance, renditions, approvals, and distribution.","provider":"Liberu\\Cms\\DigitalAssetManagement\\DigitalAssetManagementServiceProvider","version":"0.1.0"}
+{"name":"cms-digital-asset-management","description":"Digital asset governance, renditions, approvals, and distribution.","provider":"Liberu\\Cms\\DigitalAssetManagement\\DigitalAssetManagementServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-digital-asset-management"}

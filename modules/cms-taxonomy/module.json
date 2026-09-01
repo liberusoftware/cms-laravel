@@ -1,1 +1,1 @@
-{"name":"module-cms-taxonomy","title":"Taxonomy","description":"Reusable vocabularies and terms.","version":"0.1.0","providers":["Liberu\\Cms\\Taxonomy\\TaxonomyServiceProvider"]}
+{"name":"module-cms-taxonomy","title":"Taxonomy","description":"Reusable vocabularies and terms.","version":"0.1.0","providers":["Liberu\\Cms\\Taxonomy\\TaxonomyServiceProvider"],"package":"liberusoftware/module-cms-taxonomy"}

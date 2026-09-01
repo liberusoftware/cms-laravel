@@ -1,10 +1,9 @@
 {
-    "name": "module-cms-audit",
-    "package": "liberusoftware/module-cms-audit",
+    "name": "module-cms-audit-and-history",
+    "package": "liberusoftware/module-cms-audit-and-history",
     "version": "0.1.0",
     "layers": [
-        "core",
-        "filament"
+        "core"
     ],
     "service_providers": [
         "Liberu\\Cms\\Audit\\CmsAuditServiceProvider"

@@ -9,5 +9,6 @@ use Liberu\Cms\JoomlaMigrationFilament\Resources\JoomlaMigrationResource;
 
 final class ListJoomlaMigrations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = JoomlaMigrationResource::class;
 }

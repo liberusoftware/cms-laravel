@@ -1,1 +1,1 @@
-{"name":"module-cms-content-federation-filament","description":"Content Federation Filament surface.","provider":"Liberu\\Cms\\ContentFederationFilament\\ContentFederationFilamentServiceProvider","version":"0.1.0"}
+{"name":"module-cms-content-federation-filament","description":"Content Federation Filament surface.","provider":"Liberu\\Cms\\ContentFederationFilament\\ContentFederationFilamentServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-federation-filament"}

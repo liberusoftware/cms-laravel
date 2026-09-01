@@ -1,10 +1,10 @@
-# cms-menus
+# cms-navigation
 
 ## Repository
 
-Source, issues, and release history: https://github.com/liberusoftware/module-cms-menus
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-navigation
 
-Composer package: https://packagist.org/packages/liberusoftware/module-cms-menus
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-navigation
 
 Menu & navigation for Liberu CMS: multi-level menus assigned to locations, with
 **permission-aware rendering**.

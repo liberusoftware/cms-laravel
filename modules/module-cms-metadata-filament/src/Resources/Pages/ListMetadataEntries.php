@@ -9,5 +9,6 @@ use Liberu\Cms\MetadataFilament\Resources\MetadataEntryResource;
 
 final class ListMetadataEntries extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MetadataEntryResource::class;
 }

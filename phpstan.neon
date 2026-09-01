@@ -7,6 +7,8 @@ includes:
     - phpstan-baseline.neon
 
 parameters:
+    bootstrapFiles:
+        - phpstan-bootstrap.php
     level: max
     paths:
         - app
@@ -16,6 +18,12 @@ parameters:
         - modules/cms-audit/src
         - modules/cms-blocks/src
         - modules/cms-content/src
+        - modules/cms-editorial-workflow/src
+        - modules/cms-editorial-content/src
+        - modules/cms-localization/src
+        - modules/cms-form-builder/src
+        - modules/cms-image-processing/src
+        - modules/cms-media-assistant/src
         - modules/cms-content-types/src
         - modules/cms-contracts/src
         - modules/cms-core/src
@@ -32,6 +40,48 @@ parameters:
         - modules/cms-themes/src
         - modules/cms-users/src
         - modules/cms-widgets/src
+        - modules/module-cms-editorial-workflow-api/src
+        - modules/module-cms-editorial-workflow-filament/src
+        - modules/module-cms-editorial-workflow-livewire/src
+        - modules/module-cms-editorial-content-api/src
+        - modules/module-cms-editorial-content-filament/src
+        - modules/module-cms-editorial-content-livewire/src
+        - modules/module-cms-localization-api/src
+        - modules/module-cms-localization-filament/src
+        - modules/module-cms-localization-livewire/src
+        - modules/module-cms-form-builder-api/src
+        - modules/module-cms-form-builder-filament/src
+        - modules/module-cms-form-builder-livewire/src
+        - modules/module-cms-image-processing-api/src
+        - modules/module-cms-image-processing-filament/src
+        - modules/module-cms-image-processing-livewire/src
+        - modules/module-cms-media-assistant-api/src
+        - modules/module-cms-media-assistant-filament/src
+        - modules/module-cms-media-assistant-livewire/src
+        - modules/cms-hook-and-event-sdk/src
+        - modules/module-cms-hook-and-event-sdk-api/src
+        - modules/module-cms-hook-and-event-sdk-filament/src
+        - modules/module-cms-hook-and-event-sdk-livewire/src
+        - modules/cms-knowledge-base/src
+        - modules/module-cms-knowledge-base-api/src
+        - modules/module-cms-knowledge-base-filament/src
+        - modules/module-cms-knowledge-base-livewire/src
+        - modules/cms-form-operations/src
+        - modules/module-cms-form-operations-api/src
+        - modules/module-cms-form-operations-filament/src
+        - modules/module-cms-form-operations-livewire/src
+        - modules/cms-headless-api/src
+        - modules/module-cms-headless-api-api/src
+        - modules/module-cms-headless-api-filament/src
+        - modules/module-cms-headless-api-livewire/src
+        - modules/cms-experience-assistant/src
+        - modules/module-cms-experience-assistant-api/src
+        - modules/module-cms-experience-assistant-filament/src
+        - modules/module-cms-experience-assistant-livewire/src
+        - modules/cms-forums-integration/src
+        - modules/module-cms-forums-integration-api/src
+        - modules/module-cms-forums-integration-filament/src
+        - modules/module-cms-forums-integration-livewire/src
         - tests/Fixtures
     excludePaths:
         - modules/cms-content-types/src/*

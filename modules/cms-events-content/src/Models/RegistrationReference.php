@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class RegistrationReference extends Model
 {
+    #[\Override]
     protected $table = 'cms_event_registrations';
 
+    #[\Override]
     protected $fillable = ['event_id', 'provider', 'external_key', 'url', 'status', 'metadata'];
 
     protected function casts(): array

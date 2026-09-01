@@ -1,0 +1,1 @@
+{"name":"module-cms-membership-content","title":"Membership Content","version":"0.1.0","layers":["core"],"service_providers":["Liberu\\Cms\\MembershipContent\\MembershipContentServiceProvider"],"package":"liberusoftware/module-cms-membership-content"}

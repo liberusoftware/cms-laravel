@@ -13,8 +13,10 @@ use Liberu\Cms\Metadata\Models\MetadataEntry;
 
 final class MetadataEntryResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = MetadataEntry::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-metadata';
 
     public static function form(Schema $schema): Schema

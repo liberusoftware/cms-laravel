@@ -1,0 +1,1 @@
+{"name":"module-cms-forums-integration","description":"Forum provider contracts, references, discussions, moderation links, and SSO context.","version":"0.1.0","enabled":true,"dependencies":["module-cms-core"],"package":"liberusoftware/module-cms-forums-integration"}

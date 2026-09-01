@@ -14,6 +14,7 @@ final class BlockEditor extends Component
 
     public string $subjectId = '';
 
+    /** @var array<mixed, mixed> */
     public array $blocks = [];
 
     public ?int $version = null;
@@ -23,7 +24,7 @@ final class BlockEditor extends Component
     public function save(BlockEditorService $service): void
     {
         $document = $service->save(null, $this->subjectType, $this->subjectId, $this->blocks, $this->version);
-        $this->version = $document->version;
+        $this->version = is_int($document->version) ? $document->version : null;
         $this->status = 'Saved';
     }
 

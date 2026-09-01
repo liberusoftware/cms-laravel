@@ -9,5 +9,6 @@ use Liberu\Cms\EventsContentFilament\Resources\EventResource;
 
 final class ListEvents extends ListRecords
 {
+    #[\Override]
     protected static string $resource = EventResource::class;
 }

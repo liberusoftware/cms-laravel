@@ -68,7 +68,12 @@ final class CmsApiServiceProvider extends ModuleServiceProvider
         $router->aliasMiddleware('ability', CheckForAnyAbility::class);
 
         $this->configureRateLimiting();
-        $this->registerRoutes();
+        // Defer endpoint materialization until every module provider has
+        // completed its register/boot phase. This lets optional adapters that
+        // load after the API infrastructure contribute endpoints reliably.
+        $this->app->booted(function (): void {
+            $this->registerRoutes();
+        });
         $this->registerPreviewRoute();
         $this->registerOpenApiRoute();
         $this->declarePermissions();

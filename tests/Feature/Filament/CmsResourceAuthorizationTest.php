@@ -6,7 +6,7 @@ use App\Models\Team;
 use App\Models\User;
 use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentEntityResource as ContentEntryResource;
 use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
 use Liberu\Cms\Forms\Filament\FormResource;
 use Liberu\Cms\Forms\Filament\FormSubmissionResource;

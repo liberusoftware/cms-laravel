@@ -10,8 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class ExtensionVersion extends Model
 {
+    #[\Override]
     protected $table = 'cms_extension_versions';
 
+    #[\Override]
     protected $fillable = ['listing_id', 'version', 'download_url', 'checksum', 'signature', 'signing_key', 'status', 'released_at'];
 
     protected function casts(): array

@@ -4,8 +4,8 @@
     "type": "liberu-module",
     "license": "MIT",
     "version": "0.1.0",
-    "require": {"php": "^8.5", "liberusoftware/module-cms-menus": "^0.1", "filament/filament": "^5.0"},
+    "require": {"php": "^8.5", "liberusoftware/module-cms-navigation": "^0.1", "filament/filament": "^5.0"},
     "autoload": {"psr-4": {"Liberu\\Cms\\NavigationFilament\\": "src/"}},
-    "extra": {"liberu": {"name": "module-cms-navigation-filament", "core": "liberusoftware/module-cms-menus"}, "laravel": {"providers": ["Liberu\\Cms\\NavigationFilament\\NavigationFilamentServiceProvider"]}},
+    "extra": {"liberu": {"name": "module-cms-navigation-filament", "core": "liberusoftware/module-cms-navigation"}, "laravel": {"providers": ["Liberu\\Cms\\NavigationFilament\\NavigationFilamentServiceProvider"]}},
     "minimum-stability": "dev", "prefer-stable": true
 }

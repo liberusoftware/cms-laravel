@@ -1,10 +1,10 @@
-# cms-media
+# cms-media-library
 
 ## Repository
 
-Source, issues, and release history: https://github.com/liberusoftware/module-cms-media
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-media-library
 
-Composer package: https://packagist.org/packages/liberusoftware/module-cms-media
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-media-library
 
 The media library for Liberu CMS: secure uploads, storage, folders, and
 metadata, exposed to the rest of the platform behind a content-agnostic contract.

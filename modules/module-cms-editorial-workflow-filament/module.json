@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-workflow-filament","title":"Editorial Workflow Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\EditorialWorkflowFilament\\EditorialWorkflowFilamentServiceProvider"],"package":"liberusoftware/module-cms-editorial-workflow-filament"}

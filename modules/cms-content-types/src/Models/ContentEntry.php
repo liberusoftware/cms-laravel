@@ -26,6 +26,8 @@ use Liberu\Cms\Core\Tenant\HasTenant;
  * @property string $title
  * @property string $slug
  * @property array<string, mixed>|null $data
+ * @property string|null $canonical_id
+ * @property int|null $author_id
  * @property int|null $team_id
  */
 final class ContentEntry extends Model implements PublishableInterface

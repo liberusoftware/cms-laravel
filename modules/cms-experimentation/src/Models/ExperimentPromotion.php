@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class ExperimentPromotion extends Model
 {
+    #[\Override]
     protected $table = 'cms_experiment_promotions';
 
+    #[\Override]
     protected $fillable = ['experiment_id', 'variant_id', 'actor_type', 'actor_id', 'reason', 'promoted_at'];
 
     protected function casts(): array

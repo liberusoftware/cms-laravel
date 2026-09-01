@@ -13,18 +13,38 @@ final class CopilotController
 {
     public function submit(Request $request, CopilotService $service): JsonResponse
     {
-        $data = $request->validate(['capability' => ['required', 'string'], 'prompt' => ['required', 'string', 'max:10000'], 'input' => ['sometimes', 'array'], 'idempotency_key' => ['sometimes', 'string', 'max:255']]);
+        $data = $this->normalized($request->validate(['capability' => ['required', 'string'], 'prompt' => ['required', 'string', 'max:10000'], 'input' => ['sometimes', 'array'], 'idempotency_key' => ['sometimes', 'string', 'max:255']]));
 
-        return response()->json(['data' => $service->submit(null, $data['capability'], $data['prompt'], $data['input'] ?? [], $data['idempotency_key'] ?? null)], 201);
+        return response()->json(['data' => $service->submit($request->user()?->current_team_id, is_string($data['capability'] ?? null) ? $data['capability'] : '', is_string($data['prompt'] ?? null) ? $data['prompt'] : '', $this->normalized($data['input'] ?? []), is_string($data['idempotency_key'] ?? null) ? $data['idempotency_key'] : null)], 201);
     }
 
-    public function execute(CopilotRequest $request, CopilotService $service): JsonResponse
+    public function execute(Request $request, CopilotRequest $copilotRequest, CopilotService $service): JsonResponse
     {
-        return response()->json(['data' => $service->execute($request)]);
+        abort_unless($copilotRequest->team_id === $request->user()?->current_team_id, 404);
+
+        return response()->json(['data' => $service->execute($copilotRequest)]);
     }
 
     public function confirm(Request $request, CopilotRequest $copilotRequest, CopilotService $service): JsonResponse
     {
-        return response()->json(['data' => $service->confirm($copilotRequest, (string) $request->input('token'))]);
+        abort_unless($copilotRequest->team_id === $request->user()?->current_team_id, 404);
+        $token = $request->input('token');
+
+        return response()->json(['data' => $service->confirm($copilotRequest, is_string($token) ? $token : '')]);
+    }
+
+    /** @return array<string, mixed> */
+    private function normalized(mixed $value): array
+    {
+        $data = [];
+        if (is_array($value)) {
+            foreach ($value as $key => $item) {
+                if (is_string($key)) {
+                    $data[$key] = $item;
+                }
+            }
+        }
+
+        return $data;
     }
 }

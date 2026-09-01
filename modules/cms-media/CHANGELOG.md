@@ -2,4 +2,4 @@
 
 ## 0.1.0
 
-- Initial independently installable liberusoftware/module-cms-media package.
+- Initial independently installable liberusoftware/module-cms-media-library package.

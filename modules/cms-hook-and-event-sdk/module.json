@@ -1,0 +1,1 @@
+{"name":"module-cms-hook-and-event-sdk","description":"Stable typed hooks and events for Liberu CMS extensions.","version":"0.1.0","enabled":true,"dependencies":["module-cms-contracts","module-cms-core"],"package":"liberusoftware/module-cms-hook-and-event-sdk"}

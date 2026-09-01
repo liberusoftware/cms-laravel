@@ -11,11 +11,12 @@ use Liberu\Cms\Copilot\Models\CopilotRequest;
 
 final class CopilotService
 {
-    private const CAPABILITIES = ['search', 'summary', 'draft', 'transform', 'metadata', 'internal-links', 'action-confirmation'];
+    private const array CAPABILITIES = ['search', 'summary', 'draft', 'transform', 'metadata', 'internal-links', 'action-confirmation'];
 
     /** @var array<string, CopilotHandlerInterface> */
     private array $handlers = [];
 
+    /** @param array<string, mixed> $input */
     public function submit(?int $teamId, string $capability, string $prompt, array $input = [], ?string $idempotencyKey = null): CopilotRequest
     {
         if (! in_array($capability, self::CAPABILITIES, true)) {
@@ -35,7 +36,7 @@ final class CopilotService
     public function execute(CopilotRequest $request): CopilotRequest
     {
         if ($request->status !== 'pending') {
-            return $request->fresh();
+            return $request->fresh() ?? $request;
         }
         if (! isset($this->handlers[$request->capability])) {
             throw ValidationException::withMessages(['capability' => 'No approved Copilot handler is registered for this capability.']);
@@ -48,7 +49,7 @@ final class CopilotService
             throw $exception;
         }
 
-        return $request->fresh();
+        return $request->fresh() ?? $request;
     }
 
     public function requireConfirmation(CopilotRequest $request): string
@@ -69,7 +70,7 @@ final class CopilotService
         }
         $request->update(['status' => 'confirmed', 'confirmed_at' => now(), 'confirmation_hash' => null]);
 
-        return $request->fresh();
+        return $request->fresh() ?? $request;
     }
 
     public function registerHandler(CopilotHandlerInterface $handler): void

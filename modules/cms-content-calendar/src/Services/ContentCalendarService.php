@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentCalendar\Services;
 
 use Carbon\Exceptions\InvalidFormatException;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ContentCalendar\Models\CalendarCampaign;
@@ -13,20 +13,27 @@ use Liberu\Cms\ContentCalendar\Models\CalendarItem;
 
 final readonly class ContentCalendarService
 {
+    /** @return LengthAwarePaginator<int, CalendarItem> */
     public function items(?int $teamId, ?string $channel = null, ?string $site = null, int $perPage = 25): LengthAwarePaginator
     {
-        return CalendarItem::query()->where('team_id', $teamId)->when($channel !== null, fn ($q) => $q->where('channel', $channel))->when($site !== null, fn ($q) => $q->where('site', $site))->orderBy('starts_at')->paginate(max(1, min($perPage, (int) config('content-calendar.pagination.max', 100))));
+        $maximum = config('content-calendar.pagination.max', 100);
+
+        return CalendarItem::query()->where('team_id', $teamId)->when($channel !== null, fn ($q) => $q->where('channel', $channel))->when($site !== null, fn ($q) => $q->where('site', $site))->orderBy('starts_at')->paginate(max(1, min($perPage, is_int($maximum) ? $maximum : 100)));
     }
 
+    /** @param array<string, mixed> $data */
     public function campaign(array $data, ?int $teamId = null): CalendarCampaign
     {
         if (blank($data['name'] ?? null)) {
             throw ValidationException::withMessages(['name' => 'A campaign name is required.']);
         }
 
-        return CalendarCampaign::query()->create([...$data, 'team_id' => $teamId, 'slug' => $data['slug'] ?? (string) str($data['name'])->slug()]);
+        $name = is_string($data['name'] ?? null) ? $data['name'] : '';
+
+        return CalendarCampaign::query()->create([...$data, 'team_id' => $teamId, 'slug' => is_string($data['slug'] ?? null) ? $data['slug'] : (string) str($name)->slug()]);
     }
 
+    /** @param array<string, mixed> $data */
     public function schedule(array $data, ?int $teamId = null): CalendarItem
     {
         if (blank($data['title'] ?? null)) {
@@ -37,7 +44,9 @@ final readonly class ContentCalendarService
         if ($deadlineAt instanceof Carbon && $deadlineAt->lessThan($startsAt)) {
             throw ValidationException::withMessages(['deadline_at' => 'A deadline cannot precede the scheduled start.']);
         }
-        if ($this->hasConflict($teamId, $data['channel'] ?? null, $data['site'] ?? null, $startsAt, $deadlineAt)) {
+        $channel = is_string($data['channel'] ?? null) ? $data['channel'] : null;
+        $site = is_string($data['site'] ?? null) ? $data['site'] : null;
+        if ($this->hasConflict($teamId, $channel, $site, $startsAt, $deadlineAt)) {
             throw ValidationException::withMessages(['starts_at' => 'The schedule conflicts with another calendar item.']);
         }
 
@@ -56,7 +65,12 @@ final readonly class ContentCalendarService
         }
         $item->update(['starts_at' => $start, 'deadline_at' => $deadline]);
 
-        return $item->fresh();
+        $fresh = $item->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The calendar item could not be refreshed.');
+        }
+
+        return $fresh;
     }
 
     private function hasConflict(?int $teamId, ?string $channel, ?string $site, Carbon $start, ?Carbon $deadline, ?int $ignore = null): bool

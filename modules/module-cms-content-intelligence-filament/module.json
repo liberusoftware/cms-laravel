@@ -1,1 +1,1 @@
-{"name":"module-cms-content-intelligence-filament","description":"Content Intelligence Filament surface.","provider":"Liberu\\Cms\\ContentIntelligenceFilament\\ContentIntelligenceFilamentServiceProvider","version":"0.1.0"}
+{"name":"module-cms-content-intelligence-filament","description":"Content Intelligence Filament surface.","provider":"Liberu\\Cms\\ContentIntelligenceFilament\\ContentIntelligenceFilamentServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-intelligence-filament"}

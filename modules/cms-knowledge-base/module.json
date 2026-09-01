@@ -1,0 +1,1 @@
+{"name":"module-cms-knowledge-base","description":"Hierarchical, versioned knowledge-base articles.","version":"0.1.0","enabled":true,"dependencies":["module-cms-core"],"package":"liberusoftware/module-cms-knowledge-base"}

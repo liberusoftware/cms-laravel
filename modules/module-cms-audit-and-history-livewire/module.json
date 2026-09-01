@@ -1,0 +1,1 @@
+{"name":"module-cms-audit-and-history-livewire","package":"liberusoftware/module-cms-audit-and-history-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\AuditAndHistoryLivewire\\AuditAndHistoryLivewireServiceProvider"]}

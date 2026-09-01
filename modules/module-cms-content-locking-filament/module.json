@@ -1,1 +1,1 @@
-{"name":"module-cms-content-locking-filament","description":"Content Locking Filament surface.","provider":"Liberu\\Cms\\ContentLockingFilament\\ContentLockingFilamentServiceProvider","version":"0.1.0"}
+{"name":"module-cms-content-locking-filament","description":"Content Locking Filament surface.","provider":"Liberu\\Cms\\ContentLockingFilament\\ContentLockingFilamentServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-locking-filament"}

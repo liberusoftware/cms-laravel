@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentTemplatesApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\ContentTemplatesApi\Http\ContentTemplatesController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class ContentTemplatesApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/content-templates')->middleware('api')->group(function (): void {
-            Route::get('templates', [ContentTemplatesController::class, 'index'])->name('cms.content-templates.index');
-            Route::post('templates', [ContentTemplatesController::class, 'store'])->name('cms.content-templates.store');
-            Route::post('templates/{template}/publish', [ContentTemplatesController::class, 'publish'])->name('cms.content-templates.publish');
-            Route::post('templates/{template}/lock', [ContentTemplatesController::class, 'lock'])->name('cms.content-templates.lock');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('content-templates-api', new ApiEndpoint('cms/content-templates/templates', ContentTemplatesController::class, 'index', 'cms.content-templates.index'));
+        $registry->registerEndpoint('content-templates-api', new ApiEndpoint('cms/content-templates/templates', ContentTemplatesController::class, 'store', 'cms.content-templates.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-templates-api', new ApiEndpoint('cms/content-templates/templates/{template}/publish', ContentTemplatesController::class, 'publish', 'cms.content-templates.publish', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-templates-api', new ApiEndpoint('cms/content-templates/templates/{template}/lock', ContentTemplatesController::class, 'lock', 'cms.content-templates.lock', 'POST', ['abilities:content:write']));
     }
 }

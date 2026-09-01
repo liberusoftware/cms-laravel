@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\DisplayModesApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\DisplayModesApi\Http\DisplayModesController;
 
 final class DisplayModesApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/display-modes')->middleware('api')->group(function (): void {
-            Route::get('modes', [DisplayModesController::class, 'index'])->name('cms.display-modes.index');
-            Route::post('modes', [DisplayModesController::class, 'store'])->name('cms.display-modes.store');
-            Route::get('projection', [DisplayModesController::class, 'select'])->name('cms.display-modes.select');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('display-modes-api', new ApiEndpoint('cms/display-modes/modes', DisplayModesController::class, 'index', 'cms.display-modes.index'));
+        $registry->registerEndpoint('display-modes-api', new ApiEndpoint('cms/display-modes/modes', DisplayModesController::class, 'store', 'cms.display-modes.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('display-modes-api', new ApiEndpoint('cms/display-modes/projection', DisplayModesController::class, 'select', 'cms.display-modes.select'));
     }
 }

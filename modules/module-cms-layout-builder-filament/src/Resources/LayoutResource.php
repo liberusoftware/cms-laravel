@@ -13,8 +13,10 @@ use Liberu\Cms\LayoutBuilder\Models\Layout;
 
 final class LayoutResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Layout::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-layout-builder';
 
     public static function form(Schema $schema): Schema

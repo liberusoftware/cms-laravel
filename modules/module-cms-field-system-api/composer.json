@@ -6,12 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.5",
-        "liberusoftware/module-cms-content-types": "^0.1",
+        "liberusoftware/module-cms-content-entities": "^0.1",
         "liberusoftware/module-cms-api": "^0.1"
     },
     "autoload": {"psr-4": {"Liberu\\Cms\\FieldSystemApi\\": "src/"}},
     "extra": {
-        "liberu": {"name": "module-cms-field-system-api", "core": "liberusoftware/module-cms-content-types"},
+        "liberu": {"name": "module-cms-field-system-api", "core": "liberusoftware/module-cms-content-entities"},
         "laravel": {"providers": ["Liberu\\Cms\\FieldSystemApi\\FieldSystemApiServiceProvider"]}
     }
 }

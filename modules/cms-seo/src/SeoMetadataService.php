@@ -56,7 +56,7 @@ final class SeoMetadataService
             if (! is_string($attributes['robots'])) {
                 throw ValidationException::withMessages(['robots' => 'Robots directives must be a string.']);
             }
-            $directives = array_filter(array_map('trim', explode(',', strtolower($attributes['robots']))));
+            $directives = array_filter(array_map(trim(...), explode(',', strtolower($attributes['robots']))));
             $allowed = ['all', 'index', 'noindex', 'follow', 'nofollow', 'none', 'noarchive', 'nosnippet', 'noimageindex', 'notranslate'];
             if ($directives === [] || array_diff($directives, $allowed) !== [] || count($directives) !== count(array_unique($directives))) {
                 throw ValidationException::withMessages(['robots' => 'Robots contains unsupported or duplicate directives.']);

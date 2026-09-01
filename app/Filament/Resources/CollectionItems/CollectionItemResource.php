@@ -15,9 +15,12 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CollectionItemResource extends Resource
 {
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
+
     #[\Override]
     protected static ?string $model = CollectionItem::class;
 

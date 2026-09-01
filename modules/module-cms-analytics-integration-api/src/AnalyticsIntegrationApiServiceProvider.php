@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\AnalyticsIntegrationApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\AnalyticsIntegrationApi\Http\AnalyticsIntegrationController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class AnalyticsIntegrationApiServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Route::prefix('api/v1/cms/analytics-integration')->middleware('api')->group(function (): void {
-            Route::post('events', [AnalyticsIntegrationController::class, 'record'])->name('cms.analytics-integration.events.record');
-            Route::post('mappings', [AnalyticsIntegrationController::class, 'mapping'])->name('cms.analytics-integration.mappings.create');
-            Route::get('dashboard', [AnalyticsIntegrationController::class, 'dashboard'])->name('cms.analytics-integration.dashboard');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('analytics-integration-api', new ApiEndpoint('cms/analytics-integration/events', AnalyticsIntegrationController::class, 'record', 'cms.analytics-integration.events.record', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('analytics-integration-api', new ApiEndpoint('cms/analytics-integration/mappings', AnalyticsIntegrationController::class, 'mapping', 'cms.analytics-integration.mappings.create', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('analytics-integration-api', new ApiEndpoint('cms/analytics-integration/dashboard', AnalyticsIntegrationController::class, 'dashboard', 'cms.analytics-integration.dashboard'));
     }
 }

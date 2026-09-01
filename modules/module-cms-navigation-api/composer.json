@@ -6,7 +6,7 @@
     "version": "0.1.0",
     "require": {
         "php": "^8.5",
-        "liberusoftware/module-cms-menus": "^0.1",
+        "liberusoftware/module-cms-navigation": "^0.1",
         "liberusoftware/module-cms-contracts": "^0.1",
         "illuminate/http": "^13.0",
         "illuminate/support": "^13.0"
@@ -15,7 +15,7 @@
         "psr-4": {"Liberu\\Cms\\NavigationApi\\": "src/"}
     },
     "extra": {
-        "liberu": {"name": "module-cms-navigation-api", "core": "liberusoftware/module-cms-menus"},
+        "liberu": {"name": "module-cms-navigation-api", "core": "liberusoftware/module-cms-navigation"},
         "laravel": {"providers": ["Liberu\\Cms\\NavigationApi\\NavigationApiServiceProvider"]}
     },
     "minimum-stability": "dev",

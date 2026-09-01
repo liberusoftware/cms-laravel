@@ -1,1 +1,1 @@
-{"name":"module-cms-content-governance-api","description":"Content Governance HTTP API.","provider":"Liberu\\Cms\\ContentGovernanceApi\\ContentGovernanceApiServiceProvider","version":"0.1.0"}
+{"name":"module-cms-content-governance-api","description":"Content Governance HTTP API.","provider":"Liberu\\Cms\\ContentGovernanceApi\\ContentGovernanceApiServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-governance-api"}

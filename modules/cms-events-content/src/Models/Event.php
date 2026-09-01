@@ -13,8 +13,10 @@ final class Event extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_events';
 
+    #[\Override]
     protected $fillable = ['key', 'title', 'description', 'status', 'timezone', 'starts_at', 'ends_at', 'archived_at', 'structured_data', 'venue_id', 'team_id'];
 
     protected function casts(): array

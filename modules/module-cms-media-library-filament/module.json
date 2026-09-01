@@ -1,0 +1,7 @@
+{
+    "name": "module-cms-media-library-filament",
+    "package": "liberusoftware/module-cms-media-library-filament",
+    "version": "0.1.0",
+    "layers": ["filament"],
+    "service_providers": ["Liberu\\Cms\\MediaLibraryFilament\\MediaLibraryFilamentServiceProvider"]
+}

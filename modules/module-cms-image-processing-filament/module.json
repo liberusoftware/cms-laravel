@@ -1,0 +1,1 @@
+{"name":"module-cms-image-processing-filament","title":"Image Processing Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\ImageProcessingFilament\\ImageProcessingFilamentServiceProvider"],"package":"liberusoftware/module-cms-image-processing-filament"}

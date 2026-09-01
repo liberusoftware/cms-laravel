@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('cms_embed_providers', function (Blueprint $t) {
+        Schema::create('cms_embed_providers', function (Blueprint $t): void {
             $t->id();
             $t->string('key');
             $t->string('name');
@@ -20,7 +20,7 @@ return new class extends Migration
             $t->timestamps();
             $t->unique(['team_id', 'key']);
         });
-        Schema::create('cms_embeds', function (Blueprint $t) {
+        Schema::create('cms_embeds', function (Blueprint $t): void {
             $t->id();
             $t->foreignId('provider_id')->constrained('cms_embed_providers')->cascadeOnDelete();
             $t->string('external_key');

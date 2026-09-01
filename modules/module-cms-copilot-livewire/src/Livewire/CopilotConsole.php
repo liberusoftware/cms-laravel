@@ -14,11 +14,12 @@ final class CopilotConsole extends Component
 
     public string $prompt = '';
 
+    /** @var array<string, mixed> */
     public array $result = [];
 
     public function submit(CopilotService $service): void
     {
-        $request = $service->submit(null, $this->capability, $this->prompt);
+        $request = $service->submit(auth()->user()?->current_team_id, $this->capability, $this->prompt);
         $this->result = ['request_id' => $request->getKey(), 'status' => $request->status];
     }
 

@@ -16,6 +16,6 @@ final class GovernanceRecordResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->columns([TextColumn::make('subject_type'), TextColumn::make('subject_key')->searchable(), TextColumn::make('classification'), TextColumn::make('review_due_at')->dateTime(), TextColumn::make('legal_hold')->boolean()]);
+        return $table->columns([TextColumn::make('subject_type'), TextColumn::make('subject_key')->searchable(), TextColumn::make('classification'), TextColumn::make('review_due_at')->dateTime(), TextColumn::make('legal_hold')]);
     }
 }

@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class ExtensionDistribution extends Model
 {
+    #[\Override]
     protected $table = 'cms_extension_distributions';
 
+    #[\Override]
     protected $fillable = ['version_id', 'channel', 'url', 'checksum', 'status'];
 
     public function version(): BelongsTo

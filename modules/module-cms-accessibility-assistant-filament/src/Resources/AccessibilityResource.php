@@ -11,6 +11,7 @@ use Filament\Tables\Table;
 
 final class AccessibilityResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'accessibility-assistant';
 
     public static function form(Schema $schema): Schema

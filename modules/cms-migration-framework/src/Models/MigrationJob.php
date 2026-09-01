@@ -12,8 +12,10 @@ final class MigrationJob extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_migration_jobs';
 
+    #[\Override]
     protected $fillable = ['public_id', 'source', 'status', 'total_records', 'processed_records', 'failed_records', 'options', 'failure_reason', 'started_at', 'completed_at', 'team_id'];
 
     protected function casts(): array

@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\AccessibilityAssistantApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\AccessibilityAssistantApi\Http\AccessibilityAssistantController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class AccessibilityAssistantApiServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Route::prefix('api/v1/cms/accessibility-assistant')->middleware('api')->group(function (): void {
-            Route::post('analyze', [AccessibilityAssistantController::class, 'analyze'])->name('cms.accessibility-assistant.analyze');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $this->app->make(ApiResourceRegistryInterface::class)->registerEndpoint('accessibility-assistant-api', new ApiEndpoint('cms/accessibility-assistant/analyze', AccessibilityAssistantController::class, 'analyze', 'cms.accessibility-assistant.analyze', 'POST', ['abilities:content:read']));
     }
 }

@@ -13,8 +13,10 @@ use Liberu\Cms\IntegrationDirectory\Models\Integration;
 
 final class IntegrationResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Integration::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-integrations';
 
     public static function form(Schema $schema): Schema

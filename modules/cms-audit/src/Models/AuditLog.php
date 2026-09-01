@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\Audit\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use RuntimeException;
 
 /**
@@ -23,6 +24,7 @@ use RuntimeException;
  * @property int|null $team_id
  * @property string|null $ip_address
  * @property array<string, mixed>|null $metadata
+ * @property Carbon $created_at
  */
 final class AuditLog extends Model
 {

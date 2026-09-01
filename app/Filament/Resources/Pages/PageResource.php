@@ -13,9 +13,12 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Liberu\Cms\Pages\Models\Page;
+use UnitEnum;
 
 class PageResource extends Resource
 {
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
+
     #[\Override]
     protected static ?string $model = Page::class;
 

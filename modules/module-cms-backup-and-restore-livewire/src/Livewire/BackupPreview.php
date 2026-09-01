@@ -13,6 +13,7 @@ final class BackupPreview extends Component
 {
     public ?int $artifactId = null;
 
+    /** @var array<string, mixed> */
     public array $preview = [];
 
     public function loadPreview(BackupAndRestoreService $service): void

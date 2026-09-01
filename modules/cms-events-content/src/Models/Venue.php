@@ -12,8 +12,10 @@ final class Venue extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_event_venues';
 
+    #[\Override]
     protected $fillable = ['name', 'address', 'timezone', 'latitude', 'longitude', 'team_id'];
 
     public function events(): HasMany

@@ -1,1 +1,1 @@
-{"name":"module-cms-content-access-filament","description":"Content Access Filament surface.","provider":"Liberu\\Cms\\ContentAccessFilament\\ContentAccessFilamentServiceProvider","version":"0.1.0"}
+{"name":"module-cms-content-access-filament","description":"Content Access Filament surface.","provider":"Liberu\\Cms\\ContentAccessFilament\\ContentAccessFilamentServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-access-filament"}

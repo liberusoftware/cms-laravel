@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-editorial-workflow",
+    "description": "Configurable CMS editorial workflow, assignments, reviews, delegation, and evidence.",
+    "type": "liberu-module",
+    "version": "0.1.0",
+    "license": "MIT",
+    "require": {"php": "^8.5", "laravel/framework": "^13.0", "liberusoftware/module-cms-core": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\EditorialWorkflow\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-editorial-workflow"}, "laravel": {"providers": ["Liberu\\Cms\\EditorialWorkflow\\EditorialWorkflowServiceProvider"]}}
+}

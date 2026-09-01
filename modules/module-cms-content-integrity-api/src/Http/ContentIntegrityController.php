@@ -14,7 +14,7 @@ final class ContentIntegrityController
 {
     public function index(Request $request, ContentIntegrityService $service): JsonResponse
     {
-        return response()->json(['data' => $service->findings($request->user()?->current_team_id, $request->input('status'), $request->integer('page_size', 25))]);
+        return response()->json(['data' => $service->findings($request->user()?->current_team_id, $request->string('status')->toString() ?: null, $request->integer('page_size', 25))]);
     }
 
     public function scan(Request $request, ContentIntegrityService $service): JsonResponse
@@ -24,11 +24,31 @@ final class ContentIntegrityController
 
     public function finding(Request $request, IntegrityScan $scan, ContentIntegrityService $service): JsonResponse
     {
-        return response()->json(['data' => $service->finding($scan, $request->validate(['subject_type' => ['required', 'string'], 'subject_key' => ['required', 'string'], 'kind' => ['required', 'string'], 'severity' => ['nullable', 'string'], 'message' => ['required', 'string'], 'context' => ['array']]))], 201);
+        abort_unless($scan->team_id === $request->user()?->current_team_id, 404);
+        $data = $request->validate(['subject_type' => ['required', 'string'], 'subject_key' => ['required', 'string'], 'kind' => ['required', 'string'], 'severity' => ['nullable', 'string'], 'message' => ['required', 'string'], 'context' => ['array']]);
+
+        return response()->json(['data' => $service->finding($scan, $this->normalized($data))], 201);
     }
 
-    public function resolve(IntegrityFinding $finding, ContentIntegrityService $service): JsonResponse
+    public function resolve(Request $request, IntegrityFinding $finding, ContentIntegrityService $service): JsonResponse
     {
+        abort_unless($finding->team_id === $request->user()?->current_team_id, 404);
+
         return response()->json(['data' => $service->resolve($finding)]);
+    }
+
+    /** @return array<string, mixed> */
+    private function normalized(mixed $value): array
+    {
+        $data = [];
+        if (is_array($value)) {
+            foreach ($value as $key => $item) {
+                if (is_string($key)) {
+                    $data[$key] = $item;
+                }
+            }
+        }
+
+        return $data;
     }
 }

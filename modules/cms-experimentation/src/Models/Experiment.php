@@ -12,8 +12,10 @@ final class Experiment extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_experiments';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'type', 'status', 'allocation_percentage', 'goals', 'guardrails', 'analysis_policy', 'winner_variant_key', 'team_id'];
 
     protected function casts(): array

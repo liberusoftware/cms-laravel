@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-workflow-livewire","title":"Editorial Workflow Livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\EditorialWorkflowLivewire\\EditorialWorkflowLivewireServiceProvider"],"package":"liberusoftware/module-cms-editorial-workflow-livewire"}

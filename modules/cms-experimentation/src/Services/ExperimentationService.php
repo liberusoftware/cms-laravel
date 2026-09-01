@@ -21,7 +21,7 @@ final class ExperimentationService
         if ($key === '' || $name === '' || ! is_array($variants) || count($variants) < 2) {
             throw ValidationException::withMessages(['experiment' => 'An experiment requires a key, name, and at least two variants.']);
         }
-        $weights = array_map(static fn ($variant): int => (int) ($variant['weight'] ?? 0), $variants);
+        $weights = array_map(static fn (array $variant): int => (int) ($variant['weight'] ?? 0), $variants);
         if (array_sum($weights) !== 100 || min($weights) < 1) {
             throw ValidationException::withMessages(['variants' => 'Variant weights must be positive and total 100.']);
         }

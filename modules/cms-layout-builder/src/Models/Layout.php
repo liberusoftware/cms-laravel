@@ -13,8 +13,10 @@ final class Layout extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_layouts';
 
+    #[\Override]
     protected $fillable = ['name', 'slug', 'target_type', 'target_id', 'definition', 'status', 'published_at', 'user_id', 'team_id'];
 
     protected function casts(): array

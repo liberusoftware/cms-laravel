@@ -1,0 +1,1 @@
+{"name":"module-cms-media-assistant","title":"Media Assistant","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\MediaAssistant\\MediaAssistantServiceProvider"],"package":"liberusoftware/module-cms-media-assistant"}

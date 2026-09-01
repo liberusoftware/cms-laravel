@@ -6,6 +6,7 @@ namespace Liberu\Cms\Admin\Filament;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Resources\Resource;
 use Liberu\Cms\Admin\Filament\Pages\ModuleManagement;
 use Liberu\Cms\Admin\Filament\Widgets\ContentOverviewWidget;
 use Liberu\Cms\Admin\Filament\Widgets\ModulesOverviewWidget;
@@ -76,14 +77,65 @@ final class CmsAdminPlugin implements Plugin
 
         $classes = [];
 
-        foreach ($catalogue(app(AdminResourceRegistryInterface::class)) as $moduleClasses) {
+        foreach ($catalogue(app(AdminResourceRegistryInterface::class)) as $moduleKey => $moduleClasses) {
             foreach ($moduleClasses as $class) {
                 if (class_exists($class)) {
+                    if (is_subclass_of($class, Resource::class)) {
+                        $class::navigationGroup($this->navigationGroup($moduleKey));
+                    }
+
                     $classes[] = $class;
                 }
             }
         }
 
         return $classes;
+    }
+
+    private function navigationGroup(string $moduleKey): string
+    {
+        $groups = [
+            'content' => 'Content',
+            'post' => 'Content',
+            'page' => 'Content',
+            'collection' => 'Content',
+            'form' => 'Content',
+            'taxonomy' => 'Structure',
+            'category' => 'Structure',
+            'tag' => 'Structure',
+            'menu' => 'Structure',
+            'navigation' => 'Structure',
+            'core' => 'Structure',
+            'field' => 'Structure',
+            'asset' => 'Assets',
+            'media' => 'Assets',
+            'image' => 'Assets',
+            'video' => 'Assets',
+            'embed' => 'Assets',
+            'experience' => 'Experience',
+            'seo' => 'Experience',
+            'redirect' => 'Experience',
+            'recommend' => 'Experience',
+            'personal' => 'Experience',
+            'localiz' => 'Experience',
+            'setting' => 'Settings',
+            'api' => 'Administration',
+            'user' => 'Administration',
+            'audit' => 'Administration',
+            'security' => 'Administration',
+            'notification' => 'Administration',
+            'operation' => 'Operations',
+            'backup' => 'Operations',
+            'cache' => 'Operations',
+            'revision' => 'Operations',
+        ];
+
+        foreach ($groups as $needle => $group) {
+            if (str_contains($moduleKey, $needle)) {
+                return $group;
+            }
+        }
+
+        return 'Content';
     }
 }

@@ -12,6 +12,7 @@ use Liberu\Cms\ContentAccess\Models\PrivateLink;
 
 final readonly class ContentAccessService
 {
+    /** @param array<string, mixed> $data */
     public function rule(string $subjectType, string $subjectKey, array $data = [], ?int $teamId = null): AccessRule
     {
         $visibility = $data['visibility'] ?? 'public';
@@ -25,6 +26,7 @@ final readonly class ContentAccessService
         return AccessRule::query()->updateOrCreate(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey], [...$data, 'team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey]);
     }
 
+    /** @param array<int, string> $audiences */
     public function canAccess(string $subjectType, string $subjectKey, ?int $teamId, array $audiences = [], bool $preview = false, ?string $privateToken = null): bool
     {
         if ($privateToken !== null && $this->consumePrivateLink($privateToken, $subjectType, $subjectKey, $teamId)) {
@@ -56,7 +58,8 @@ final readonly class ContentAccessService
             throw ValidationException::withMessages(['max_uses' => 'Maximum uses must be at least one.']);
         }
         $token = Str::random(64);
-        PrivateLink::query()->create(['team_id' => $teamId, 'token_hash' => hash('sha256', $token), 'subject_type' => $subjectType, 'subject_key' => $subjectKey, 'expires_at' => now()->addMinutes((int) config('content-access.private_link_ttl_minutes', 60)), 'max_uses' => $maxUses]);
+        $ttl = config('content-access.private_link_ttl_minutes', 60);
+        PrivateLink::query()->create(['team_id' => $teamId, 'token_hash' => hash('sha256', $token), 'subject_type' => $subjectType, 'subject_key' => $subjectKey, 'expires_at' => now()->addMinutes(is_int($ttl) ? $ttl : 60), 'max_uses' => $maxUses]);
 
         return $token;
     }

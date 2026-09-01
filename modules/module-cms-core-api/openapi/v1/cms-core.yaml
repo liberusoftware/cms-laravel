@@ -1,0 +1,248 @@
+openapi: 3.1.0
+info:
+  title: CMS Core API
+  version: 1.0.0
+  description: Authorized sites, channels, content identities, aliases, and settings.
+servers:
+  - url: /api/v1
+paths:
+  /sites:
+    get:
+      operationId: cms.core.sites.list
+      security: [{ sanctum: [] }]
+      parameters: [{ $ref: '#/components/parameters/PageSize' }]
+      responses:
+        '200': { $ref: '#/components/responses/Collection' }
+    post:
+      operationId: cms.core.sites.create
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/Site' }
+      responses:
+        '201': { $ref: '#/components/responses/Site' }
+  /sites/{site}:
+    parameters: [{ $ref: '#/components/parameters/Site' }]
+    get:
+      operationId: cms.core.sites.get
+      security: [{ sanctum: [] }]
+      responses:
+        '200': { $ref: '#/components/responses/Site' }
+    patch:
+      operationId: cms.core.sites.update
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/SitePatch' }
+      responses:
+        '200': { $ref: '#/components/responses/Site' }
+    delete:
+      operationId: cms.core.sites.delete
+      security: [{ sanctum: [] }]
+      responses:
+        '204': { description: Site deleted. }
+  /sites/{site}/channels:
+    parameters: [{ $ref: '#/components/parameters/Site' }]
+    get:
+      operationId: cms.core.channels.list
+      security: [{ sanctum: [] }]
+      parameters: [{ $ref: '#/components/parameters/PageSize' }]
+      responses:
+        '200': { $ref: '#/components/responses/Collection' }
+    post:
+      operationId: cms.core.channels.create
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/Channel' }
+      responses:
+        '201': { $ref: '#/components/responses/Channel' }
+  /sites/{site}/channels/{channel}:
+    parameters:
+      - { $ref: '#/components/parameters/Site' }
+      - { $ref: '#/components/parameters/Channel' }
+    patch:
+      operationId: cms.core.channels.update
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/ChannelPatch' }
+      responses:
+        '200': { $ref: '#/components/responses/Channel' }
+    delete:
+      operationId: cms.core.channels.delete
+      security: [{ sanctum: [] }]
+      responses:
+        '204': { description: Channel deleted. }
+  /sites/{site}/aliases:
+    parameters: [{ $ref: '#/components/parameters/Site' }]
+    get:
+      operationId: cms.core.aliases.list
+      security: [{ sanctum: [] }]
+      parameters: [{ $ref: '#/components/parameters/PageSize' }]
+      responses:
+        '200': { $ref: '#/components/responses/Collection' }
+    post:
+      operationId: cms.core.aliases.create
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/Alias' }
+      responses:
+        '201': { $ref: '#/components/responses/Alias' }
+  /sites/{site}/aliases/{alias}:
+    parameters:
+      - { $ref: '#/components/parameters/Site' }
+      - { $ref: '#/components/parameters/Alias' }
+    get:
+      operationId: cms.core.aliases.get
+      security: [{ sanctum: [] }]
+      responses:
+        '200': { $ref: '#/components/responses/Alias' }
+  /sites/{site}/identities:
+    parameters: [{ $ref: '#/components/parameters/Site' }]
+    get:
+      operationId: cms.core.identities.list
+      security: [{ sanctum: [] }]
+      parameters: [{ $ref: '#/components/parameters/PageSize' }]
+      responses:
+        '200': { $ref: '#/components/responses/Collection' }
+    post:
+      operationId: cms.core.identities.create
+      security: [{ sanctum: [] }]
+      requestBody: { $ref: '#/components/requestBodies/Identity' }
+      responses:
+        '201': { $ref: '#/components/responses/Identity' }
+  /sites/{site}/settings:
+    parameters: [{ $ref: '#/components/parameters/Site' }]
+    get:
+      operationId: cms.core.settings.list
+      security: [{ sanctum: [] }]
+      parameters:
+        - { $ref: '#/components/parameters/PageSize' }
+        - { $ref: '#/components/parameters/Environment' }
+      responses:
+        '200': { $ref: '#/components/responses/Collection' }
+  /sites/{site}/settings/{key}:
+    parameters:
+      - { $ref: '#/components/parameters/Site' }
+      - { $ref: '#/components/parameters/Key' }
+    put:
+      operationId: cms.core.settings.put
+      security: [{ sanctum: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [value]
+              properties:
+                value: { type: object, additionalProperties: true }
+                environment: { type: string, maxLength: 255, default: production }
+      responses:
+        '200': { $ref: '#/components/responses/Setting' }
+components:
+  securitySchemes:
+    sanctum: { type: http, scheme: bearer, bearerFormat: Sanctum }
+  parameters:
+    Site: { name: site, in: path, required: true, schema: { type: string } }
+    Channel: { name: channel, in: path, required: true, schema: { type: string } }
+    Alias: { name: alias, in: path, required: true, schema: { type: string } }
+    Key: { name: key, in: path, required: true, schema: { type: string, maxLength: 255 } }
+    PageSize: { name: per_page, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 15 } }
+    Environment: { name: environment, in: query, schema: { type: string, maxLength: 255, default: production } }
+  requestBodies:
+    Site:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/SiteInput' } } }
+    SitePatch:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/SitePatch' } } }
+    Channel:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/ChannelInput' } } }
+    ChannelPatch:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/ChannelPatch' } } }
+    Alias:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/AliasInput' } } }
+    Identity:
+      required: true
+      content: { application/json: { schema: { $ref: '#/components/schemas/IdentityInput' } } }
+  responses:
+    Collection:
+      description: Authorized paginated resources.
+      content: { application/json: { schema: { $ref: '#/components/schemas/Collection' } } }
+    Site: { description: Site resource., content: { application/json: { schema: { $ref: '#/components/schemas/Site' } } } }
+    Channel: { description: Channel resource., content: { application/json: { schema: { $ref: '#/components/schemas/Channel' } } } }
+    Alias: { description: Alias resource., content: { application/json: { schema: { $ref: '#/components/schemas/Alias' } } } }
+    Identity: { description: Identity resource., content: { application/json: { schema: { $ref: '#/components/schemas/Identity' } } } }
+    Setting: { description: Setting resource., content: { application/json: { schema: { $ref: '#/components/schemas/Setting' } } } }
+  schemas:
+    Collection:
+      type: object
+      required: [data]
+      properties:
+        data: { type: array, items: { type: object } }
+        links: { type: object, additionalProperties: true }
+        meta: { type: object, additionalProperties: true }
+    SiteInput:
+      type: object
+      required: [key, name]
+      properties:
+        key: { type: string, maxLength: 255 }
+        name: { type: string, maxLength: 255 }
+        domain: { type: [string, 'null'], format: uri }
+        default_locale: { type: string, maxLength: 16, default: en }
+        timezone: { type: string, maxLength: 64, default: UTC }
+        status: { type: string, maxLength: 64 }
+        settings: { type: [object, 'null'], additionalProperties: true }
+    SitePatch:
+      type: object
+      properties:
+        key: { type: string, maxLength: 255 }
+        name: { type: string, maxLength: 255 }
+        domain: { type: [string, 'null'], format: uri }
+        default_locale: { type: string, maxLength: 16 }
+        timezone: { type: string, maxLength: 64 }
+        status: { type: string, maxLength: 64 }
+        settings: { type: [object, 'null'], additionalProperties: true }
+    Site:
+      allOf:
+        - { $ref: '#/components/schemas/Resource' }
+        - type: object
+          properties:
+            attributes: { $ref: '#/components/schemas/SiteInput' }
+    ChannelInput:
+      type: object
+      required: [key, name]
+      properties:
+        key: { type: string, maxLength: 255 }
+        name: { type: string, maxLength: 255 }
+        type: { type: string, maxLength: 64, default: web }
+        settings: { type: [object, 'null'], additionalProperties: true }
+    ChannelPatch: { $ref: '#/components/schemas/ChannelInput' }
+    Channel: { allOf: [{ $ref: '#/components/schemas/Resource' }] }
+    AliasInput:
+      type: object
+      required: [alias, target_type, target_id]
+      properties:
+        alias: { type: string, maxLength: 255 }
+        target_type: { type: string, maxLength: 255 }
+        target_id: { type: string, maxLength: 255 }
+        channel_id: { type: [integer, 'null'] }
+        redirect_status: { type: integer, enum: [301, 302, 307, 308], default: 301 }
+    Alias: { allOf: [{ $ref: '#/components/schemas/Resource' }] }
+    IdentityInput:
+      type: object
+      required: [content_type, content_id]
+      properties:
+        content_type: { type: string, maxLength: 255 }
+        content_id: { type: string, maxLength: 255 }
+        channel_id: { type: [integer, 'null'] }
+        canonical_path: { type: [string, 'null'], maxLength: 255 }
+        status: { type: string, maxLength: 64 }
+        owner_type: { type: [string, 'null'], maxLength: 255 }
+        owner_id: { type: [string, 'null'], maxLength: 255 }
+        metadata: { type: [object, 'null'], additionalProperties: true }
+    Identity: { allOf: [{ $ref: '#/components/schemas/Resource' }] }
+    Setting: { allOf: [{ $ref: '#/components/schemas/Resource' }] }
+    Resource:
+      type: object
+      required: [id, type]
+      properties:
+        id: { type: string, description: Opaque resource identifier. }
+        type: { type: string }
+        attributes: { type: object, additionalProperties: true }

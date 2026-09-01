@@ -7,6 +7,10 @@ namespace Liberu\Cms\ContentIntegrity\Models;
 use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int|null $team_id
+ * @property string $status
+ */
 final class IntegrityScan extends Model
 {
     use HasTenant;
