@@ -7,7 +7,7 @@ use App\Models\User;
 use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Liberu\Cms\ContentEntitiesFilament\Resources\ContentEntityResource as ContentEntryResource;
-use Liberu\Cms\ContentTypes\Filament\Pages\ListContentEntries;
+use Liberu\Cms\ContentEntitiesFilament\Resources\Pages\ListContentEntities as ListContentEntries;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Models\ContentType;
 use Livewire\Livewire;

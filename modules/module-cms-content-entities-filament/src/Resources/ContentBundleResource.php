@@ -39,7 +39,7 @@ final class ContentBundleResource extends Resource
 
     protected static function cmsPermissionKey(): string
     {
-        return 'content-entities';
+        return 'content-entries';
     }
 
     public static function form(Schema $schema): Schema
