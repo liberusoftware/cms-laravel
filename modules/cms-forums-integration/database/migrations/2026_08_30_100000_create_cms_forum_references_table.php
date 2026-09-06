@@ -21,7 +21,7 @@ return new class extends Migration
             $table->json('metadata')->nullable();
             $table->timestamp('last_activity_at')->nullable();
             $table->timestamps();
-            $table->unique(['team_id', 'provider', 'external_type', 'external_id']);
+            $table->unique(['team_id', 'provider', 'external_type', 'external_id'], 'cms_forum_reference_identity');
         });
     }
 
