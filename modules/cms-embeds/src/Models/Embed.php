@@ -10,13 +10,10 @@ class Embed extends Model
 {
     use HasTenant;
 
-    #[\Override]
     protected $table = 'cms_embeds';
 
-    #[\Override]
     protected $guarded = [];
 
-    #[\Override]
     protected $casts = ['metadata' => 'array', 'responsive' => 'boolean', 'consent_required' => 'boolean'];
 
     public function provider(): BelongsTo

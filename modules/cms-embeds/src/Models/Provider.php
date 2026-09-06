@@ -10,13 +10,10 @@ class Provider extends Model
 {
     use HasTenant;
 
-    #[\Override]
     protected $table = 'cms_embed_providers';
 
-    #[\Override]
     protected $guarded = [];
 
-    #[\Override]
     protected $casts = ['config' => 'array'];
 
     public function embeds(): HasMany
