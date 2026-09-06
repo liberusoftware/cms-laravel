@@ -111,7 +111,7 @@ final class EditorialWorkflowController
     private function workflow(string $publicId, Request $request, EditorialWorkflowQuery $query): EditorialWorkflow
     {
         $workflow = $query->find($publicId, $request->user()?->current_team_id);
-        if (! $workflow) {
+        if (! $workflow instanceof EditorialWorkflow) {
             throw new NotFoundHttpException;
         }
 

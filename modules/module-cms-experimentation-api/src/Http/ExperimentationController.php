@@ -6,6 +6,8 @@ namespace Liberu\Cms\ExperimentationApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\Experimentation\Models\Experiment;
+use Liberu\Cms\Experimentation\Models\ExperimentVariant;
 use Liberu\Cms\Experimentation\Queries\ExperimentationQuery;
 use Liberu\Cms\Experimentation\Services\ExperimentationService;
 use Liberu\Cms\ExperimentationApi\Http\Resources\ExperimentResource;
@@ -24,7 +26,7 @@ final class ExperimentationController
     public function show(string $key, ExperimentationQuery $query): ExperimentResource
     {
         $experiment = $query->find($key);
-        if (! $experiment) {
+        if (! $experiment instanceof Experiment) {
             throw new NotFoundHttpException;
         }
 
@@ -41,7 +43,7 @@ final class ExperimentationController
     public function start(string $key, ExperimentationQuery $query, ExperimentationService $service): ExperimentResource
     {
         $experiment = $query->find($key);
-        if (! $experiment) {
+        if (! $experiment instanceof Experiment) {
             throw new NotFoundHttpException;
         }
 
@@ -51,19 +53,19 @@ final class ExperimentationController
     public function allocate(Request $request, string $key, ExperimentationQuery $query, ExperimentationService $service): JsonResponse
     {
         $experiment = $query->active($key);
-        if (! $experiment) {
+        if (! $experiment instanceof Experiment) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['subject_key' => ['required', 'string', 'max:255']]);
         $variant = $service->allocate($experiment, $data['subject_key']);
 
-        return response()->json(['data' => $variant ? ['experiment_key' => $key, 'variant_key' => $variant->key, 'content' => $variant->content] : null]);
+        return response()->json(['data' => $variant instanceof ExperimentVariant ? ['experiment_key' => $key, 'variant_key' => $variant->key, 'content' => $variant->content] : null]);
     }
 
     public function promote(Request $request, string $key, ExperimentationQuery $query, ExperimentationService $service): ExperimentResource
     {
         $experiment = $query->find($key);
-        if (! $experiment) {
+        if (! $experiment instanceof Experiment) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['variant_key' => ['required', 'string'], 'reason' => ['nullable', 'string', 'max:2000']]);

@@ -47,7 +47,9 @@ final class SecurityOperationsController
     {
         $file = $request->file('file');
         abort_unless($file instanceof UploadedFile, 422);
-        $file->isValid() || abort(422, 'The uploaded file is invalid.');
+        if (! $file->isValid()) {
+            abort(422, 'The uploaded file is invalid.');
+        }
 
         return response()->json(['data' => $service->scan($file, $request->user()?->id)], 201);
     }

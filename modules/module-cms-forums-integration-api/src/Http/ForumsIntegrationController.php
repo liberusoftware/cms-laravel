@@ -7,6 +7,7 @@ namespace Liberu\Cms\ForumsIntegrationApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\ForumsIntegration\Models\ForumReference;
 use Liberu\Cms\ForumsIntegration\Queries\ForumReferenceQuery;
 use Liberu\Cms\ForumsIntegration\Services\ForumsIntegrationService;
 use Liberu\Cms\ForumsIntegrationApi\Http\Resources\ForumReferenceResource;
@@ -52,7 +53,7 @@ final class ForumsIntegrationController
     public function moderation(string $publicId, Request $request, ForumReferenceQuery $query, ForumsIntegrationService $service): JsonResponse
     {
         $reference = $query->find($publicId, $request->user()?->current_team_id);
-        if (! $reference) {
+        if (! $reference instanceof ForumReference) {
             throw new NotFoundHttpException;
         }
 

@@ -54,7 +54,7 @@ class EmbedsService
         $x = parse_url($url);
         if (! $x || ! in_array($x['scheme'] ?? '', ['http', 'https'], true) || empty($x['host']) || isset($x['user'],$x['pass'])) {
             throw ValidationException::withMessages(['url' => 'Invalid embed URL.']);
-        } if ($p?->domain_pattern && ! ($x['host'] === $p->domain_pattern || (str_starts_with($p->domain_pattern, '*.') && str_ends_with($x['host'], substr($p->domain_pattern, 1))))) {
+        } if ($p?->domain_pattern && ($x['host'] !== $p->domain_pattern && (! str_starts_with($p->domain_pattern, '*.') || ! str_ends_with($x['host'], substr($p->domain_pattern, 1))))) {
             throw ValidationException::withMessages(['url' => 'URL is not allowed for this provider.']);
         }
 

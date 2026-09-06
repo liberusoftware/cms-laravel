@@ -7,6 +7,7 @@ namespace Liberu\Cms\FormOperationsApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\FormOperations\Models\OperationalSubmission;
 use Liberu\Cms\FormOperations\Queries\OperationalSubmissionQuery;
 use Liberu\Cms\FormOperations\Services\FormOperationsService;
 use Liberu\Cms\FormOperationsApi\Http\Resources\OperationalSubmissionResource;
@@ -43,7 +44,7 @@ final class FormOperationsController
     public function export(string $publicId, Request $request, OperationalSubmissionQuery $query, FormOperationsService $service): JsonResponse
     {
         $submission = $query->find($publicId, $request->user()?->current_team_id);
-        if (! $submission) {
+        if (! $submission instanceof OperationalSubmission) {
             throw new NotFoundHttpException;
         }
 

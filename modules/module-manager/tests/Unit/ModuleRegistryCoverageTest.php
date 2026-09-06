@@ -194,13 +194,13 @@ it('orders dependencies and exposes lookup and enabled state', function (): void
         ->and($registry->searchFeatures('missing'))->toBe([])
         ->and($registry->providingFeature(' readiness '))->toBe([$foundation])
         ->and($registry->providingFeature('missing'))->toBe([])
-        ->and(array_map(fn (Manifest $item) => $item->name(), $registry->resolve([])))->toBe(['foundation', 'feature'])
+        ->and(array_map(fn (Manifest $item): string => $item->name(), $registry->resolve([])))->toBe(['foundation', 'feature'])
         ->and($registry->enabled('feature'))->toBeTrue()
         ->and($registry->enabled('feature', [], ['feature']))->toBeFalse();
 });
 
 it('rejects invalid dependency graphs', function (array $modules, string $message): void {
-    $modules = array_combine(array_map(fn (Manifest $manifest) => $manifest->name(), $modules), $modules);
+    $modules = array_combine(array_map(fn (Manifest $manifest): string => $manifest->name(), $modules), $modules);
     expect(fn (): array => new ModuleRegistry($modules)->resolve([]))->toThrow(DependencyResolutionFailed::class, $message);
 })->with([
     'missing package' => fn (): array => [[

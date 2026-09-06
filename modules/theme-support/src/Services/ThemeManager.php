@@ -105,12 +105,12 @@ final class ThemeManager
 
     public function getThemes(): array
     {
-        return array_map(fn (ThemeManifest $manifest) => $manifest->toArray(), $this->themes);
+        return array_map(fn (ThemeManifest $manifest): array => $manifest->toArray(), $this->themes);
     }
 
     public function providers(): array
     {
-        return array_values(array_unique(array_map(fn (ThemeManifest $manifest) => $manifest->provider(), $this->themes)));
+        return array_values(array_unique(array_map(fn (ThemeManifest $manifest): string => $manifest->provider(), $this->themes)));
     }
 
     public function themeExists(string $theme): bool
@@ -278,6 +278,6 @@ final class ThemeManager
             return [];
         }$resolved = app(ModuleRegistry::class)->resolve((array) config('modules.enabled', []), (array) config('modules.disabled', []));
 
-        return array_values(array_unique(array_merge(...array_map(fn (Manifest $manifest) => $manifest->capabilities(), $resolved))));
+        return array_values(array_unique(array_merge(...array_map(fn (Manifest $manifest): array => $manifest->capabilities(), $resolved))));
     }
 }

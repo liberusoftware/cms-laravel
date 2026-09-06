@@ -23,7 +23,7 @@ final class ContentAccessController
         $raw = $request->validate(['subject_type' => ['required', 'string'], 'subject_key' => ['required', 'string'], 'audiences' => ['array'], 'preview' => ['boolean'], 'private_token' => ['nullable', 'string']]);
         $data = is_array($raw) ? $raw : [];
 
-        $audiences = is_array($data['audiences'] ?? null) ? array_values(array_filter($data['audiences'], static fn (mixed $item): bool => is_string($item))) : [];
+        $audiences = is_array($data['audiences'] ?? null) ? array_values(array_filter($data['audiences'], is_string(...))) : [];
 
         return response()->json(['allowed' => $service->canAccess(is_string($data['subject_type'] ?? null) ? $data['subject_type'] : '', is_string($data['subject_key'] ?? null) ? $data['subject_key'] : '', $request->user()?->current_team_id, $audiences, is_bool($data['preview'] ?? null) ? $data['preview'] : false, is_string($data['private_token'] ?? null) ? $data['private_token'] : null)]);
     }

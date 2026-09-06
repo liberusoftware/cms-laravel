@@ -67,7 +67,7 @@ final readonly class BackupAndRestoreService
 
         $types = ['full'];
         if (is_array($data['artifact_types'] ?? null)) {
-            $requested = array_values(array_filter($data['artifact_types'], static fn (mixed $item): bool => is_string($item)));
+            $requested = array_values(array_filter($data['artifact_types'], is_string(...)));
             $types = array_values(array_intersect($requested, self::TYPES));
         }
         $retention = $this->retention($data['retention_days'] ?? null);

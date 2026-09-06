@@ -6,6 +6,7 @@ namespace Liberu\Cms\EditorialContentApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\EditorialContent\Models\EditorialPost;
 use Liberu\Cms\EditorialContent\Queries\EditorialContentQuery;
 use Liberu\Cms\EditorialContent\Services\EditorialContentService;
 use Liberu\Cms\EditorialContentApi\Http\Resources\EditorialPostResource;
@@ -35,7 +36,7 @@ final class EditorialContentController
     public function show(string $key, EditorialContentQuery $query): EditorialPostResource
     {
         $post = $query->find($key, true);
-        if (! $post) {
+        if (! $post instanceof EditorialPost) {
             throw new NotFoundHttpException;
         }
 
@@ -60,7 +61,7 @@ final class EditorialContentController
     public function publish(string $key, EditorialContentQuery $query, EditorialContentService $service): EditorialPostResource
     {
         $post = $query->find($key);
-        if (! $post) {
+        if (! $post instanceof EditorialPost) {
             throw new NotFoundHttpException;
         }
 
@@ -70,7 +71,7 @@ final class EditorialContentController
     public function archive(string $key, EditorialContentQuery $query, EditorialContentService $service): EditorialPostResource
     {
         $post = $query->find($key);
-        if (! $post) {
+        if (! $post instanceof EditorialPost) {
             throw new NotFoundHttpException;
         }
 

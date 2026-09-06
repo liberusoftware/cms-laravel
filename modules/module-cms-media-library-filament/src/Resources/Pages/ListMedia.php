@@ -16,6 +16,7 @@ use Liberu\Cms\MediaLibraryFilament\Resources\MediaResource;
 
 final class ListMedia extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MediaResource::class;
 
     protected function getHeaderActions(): array

@@ -6,6 +6,7 @@ namespace Liberu\Cms\HeadlessApiApi\Http;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\HeadlessApi\Models\PersistedQuery;
 use Liberu\Cms\HeadlessApi\Services\PersistedQueryService;
 use Liberu\Cms\HeadlessApiApi\Http\Resources\PersistedQueryResource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -25,7 +26,7 @@ final class PersistedQueryController
     public function resolve(string $hash, Request $request, PersistedQueryService $service): PersistedQueryResource
     {
         $query = $service->resolve($hash, $request->user()?->current_team_id);
-        if (! $query) {
+        if (! $query instanceof PersistedQuery) {
             throw new NotFoundHttpException;
         }
 

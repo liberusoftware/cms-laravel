@@ -17,6 +17,7 @@ use UnitEnum;
 
 class CategoryResource extends Resource
 {
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'Structure';
 
     #[\Override]

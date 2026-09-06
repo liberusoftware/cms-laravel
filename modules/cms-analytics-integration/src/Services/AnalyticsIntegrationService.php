@@ -83,8 +83,7 @@ final class AnalyticsIntegrationService
         }
 
         $config = is_array($mapping->config) ? $mapping->config : [];
-        $payload = $this->adapters[$provider]->payload($event, ['measurement_key' => $mapping->measurement_key, ...$config]);
 
-        return $payload;
+        return $this->adapters[$provider]->payload($event, ['measurement_key' => $mapping->measurement_key, ...$config]);
     }
 }

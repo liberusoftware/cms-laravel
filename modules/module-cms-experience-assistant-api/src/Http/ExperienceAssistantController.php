@@ -7,6 +7,7 @@ namespace Liberu\Cms\ExperienceAssistantApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\ExperienceAssistant\Models\ExperienceSuggestion;
 use Liberu\Cms\ExperienceAssistant\Queries\ExperienceSuggestionQuery;
 use Liberu\Cms\ExperienceAssistant\Services\ExperienceAssistantService;
 use Liberu\Cms\ExperienceAssistantApi\Http\Resources\ExperienceSuggestionResource;
@@ -47,7 +48,7 @@ final class ExperienceAssistantController
     public function approve(string $publicId, Request $request, ExperienceSuggestionQuery $query, ExperienceAssistantService $service): ExperienceSuggestionResource
     {
         $suggestion = $query->find($publicId, $request->user()?->current_team_id);
-        if (! $suggestion) {
+        if (! $suggestion instanceof ExperienceSuggestion) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['reviewer_key' => ['required', 'string', 'max:180']]);

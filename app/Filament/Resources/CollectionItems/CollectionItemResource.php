@@ -19,6 +19,7 @@ use UnitEnum;
 
 class CollectionItemResource extends Resource
 {
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'Content';
 
     #[\Override]

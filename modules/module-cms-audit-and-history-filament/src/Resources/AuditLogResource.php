@@ -23,16 +23,22 @@ final class AuditLogResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = AuditLog::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShieldCheck;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-audit-logs';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Audit log';
 
+    #[\Override]
     protected static bool $isScopedToTenant = false;
 
     protected static function cmsPermissionKey(): string

@@ -17,6 +17,7 @@ use UnitEnum;
 
 class PageResource extends Resource
 {
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'Content';
 
     #[\Override]

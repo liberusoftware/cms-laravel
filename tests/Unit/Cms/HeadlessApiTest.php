@@ -15,7 +15,7 @@ it('validates delivery query capabilities and persists tenant-scoped queries', f
 });
 
 it('rejects unsafe query options and cross-tenant persisted query lookup', function (): void {
-    expect(fn () => DeliveryQuery::from(['per_page' => 101]))->toThrow(ValidationException::class);
+    expect(fn (): DeliveryQuery => DeliveryQuery::from(['per_page' => 101]))->toThrow(ValidationException::class);
     $service = app(PersistedQueryService::class);
     $stored = $service->store('query', 7);
     expect($service->resolve(hash('sha256', 'query'), 8))->toBeNull()

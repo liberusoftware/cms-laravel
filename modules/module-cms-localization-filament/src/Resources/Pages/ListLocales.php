@@ -9,5 +9,6 @@ use Liberu\Cms\LocalizationFilament\Resources\LocaleResource;
 
 final class ListLocales extends ListRecords
 {
+    #[\Override]
     protected static string $resource = LocaleResource::class;
 }

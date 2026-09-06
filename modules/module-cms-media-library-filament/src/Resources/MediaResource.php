@@ -26,16 +26,22 @@ final class MediaResource extends Resource
 {
     use AuthorizesWithPermissions;
 
+    #[\Override]
     protected static ?string $model = Media::class;
 
+    #[\Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
+    #[\Override]
     protected static string|UnitEnum|null $navigationGroup = 'CMS';
 
+    #[\Override]
     protected static ?string $slug = 'cms-media';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Media';
 
+    #[\Override]
     protected static ?string $recordTitleAttribute = 'file_name';
 
     protected static function cmsPermissionKey(): string

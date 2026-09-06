@@ -16,8 +16,10 @@ use Liberu\Cms\LocalizationFilament\Resources\Pages\ListLocales;
 
 final class LocaleResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Locale::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-localization-locales';
 
     public static function form(Schema $schema): Schema

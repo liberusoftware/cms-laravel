@@ -25,7 +25,7 @@ final class FoundationOperations extends Page
 
     public function mount(ModuleRegistry $registry): void
     {
-        $this->modules = array_map(fn (Manifest $manifest) => $manifest->toArray(), $registry->all());
+        $this->modules = array_map(fn (Manifest $manifest): array => $manifest->toArray(), $registry->all());
     }
 
     public static function canAccess(): bool

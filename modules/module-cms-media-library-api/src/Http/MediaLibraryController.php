@@ -7,6 +7,7 @@ namespace Liberu\Cms\MediaLibraryApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Liberu\Cms\Contracts\Media\MediaItemInterface;
 use Liberu\Cms\Contracts\Media\MediaRepositoryInterface;
 use Liberu\Cms\Media\Media\StoreUpload;
 use Liberu\Cms\MediaLibraryApi\Http\Resources\MediaItemResource;
@@ -24,15 +25,15 @@ final readonly class MediaLibraryController
         $items = array_slice(iterator_to_array($this->media->inFolder($folder)), 0, $size);
 
         return response()->json(['data' => array_map(
-            static fn ($item): array => (new MediaItemResource($item))->resolve($request),
+            static fn (MediaItemInterface $item): array => new MediaItemResource($item)->resolve($request),
             $items,
         )]);
     }
 
-    public function show(int|string $media, Request $request): MediaItemResource
+    public function show(int|string $media): MediaItemResource
     {
         $item = $this->media->find($media);
-        if ($item === null) {
+        if (! $item instanceof MediaItemInterface) {
             throw new NotFoundHttpException;
         }
 
@@ -50,7 +51,7 @@ final readonly class MediaLibraryController
         $folder = $request->input('folder');
         $item = $store($file, is_string($folder) ? $folder : null);
 
-        return response()->json(['data' => (new MediaItemResource($item))->resolve($request)], 201);
+        return response()->json(['data' => new MediaItemResource($item)->resolve($request)], 201);
     }
 
     public function destroy(int|string $media): JsonResponse

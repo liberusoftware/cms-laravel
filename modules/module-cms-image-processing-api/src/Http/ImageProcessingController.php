@@ -7,6 +7,7 @@ namespace Liberu\Cms\ImageProcessingApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\ImageProcessing\Models\ProcessingProfile;
 use Liberu\Cms\ImageProcessing\Queries\ImageProcessingQuery;
 use Liberu\Cms\ImageProcessing\Services\ImageProcessingService;
 use Liberu\Cms\ImageProcessingApi\Http\Resources\ImageDerivativeResource;
@@ -37,7 +38,7 @@ final class ImageProcessingController
     public function storeDerivative(string $key, Request $request, ImageProcessingQuery $query, ImageProcessingService $service): ImageDerivativeResource
     {
         $profile = $query->profile($key, $request->user()?->current_team_id);
-        if (! $profile) {
+        if (! $profile instanceof ProcessingProfile) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['asset_key' => ['required', 'string', 'max:500'], 'checksum' => ['required', 'string', 'max:128'], 'metadata' => ['sometimes', 'array']]);

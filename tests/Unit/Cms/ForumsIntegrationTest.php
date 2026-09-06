@@ -16,7 +16,7 @@ it('links references and delegates recent discussions, moderation, and SSO throu
             return [['id' => 'thread-1', 'title' => 'Welcome']];
         }
 
-        public function moderationUrl(string $externalType, string $externalId): ?string
+        public function moderationUrl(string $externalType, string $externalId): string
         {
             return 'https://forum.test/moderate/'.$externalId;
         }

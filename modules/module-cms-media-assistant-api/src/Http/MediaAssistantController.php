@@ -7,6 +7,7 @@ namespace Liberu\Cms\MediaAssistantApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\MediaAssistant\Models\MediaSuggestion;
 use Liberu\Cms\MediaAssistant\Queries\MediaSuggestionQuery;
 use Liberu\Cms\MediaAssistant\Services\MediaAssistantService;
 use Liberu\Cms\MediaAssistantApi\Http\Resources\MediaSuggestionResource;
@@ -48,7 +49,7 @@ final class MediaAssistantController
     public function review(string $publicId, Request $request, MediaSuggestionQuery $query, MediaAssistantService $service): MediaSuggestionResource
     {
         $suggestion = $query->find($publicId, $request->user()?->current_team_id);
-        if (! $suggestion) {
+        if (! $suggestion instanceof MediaSuggestion) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['decision' => ['required', 'in:accepted,rejected'], 'reviewer_key' => ['required', 'string', 'max:255'], 'note' => ['nullable', 'string']]);

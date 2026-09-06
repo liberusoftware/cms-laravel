@@ -26,16 +26,22 @@ use Illuminate\Validation\ValidationException;
  */
 final class AccountSetupWizard extends Page
 {
+    #[\Override]
     protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
+    #[\Override]
     protected static string|\UnitEnum|null $navigationGroup = 'Getting started';
 
+    #[\Override]
     protected static ?string $navigationLabel = 'Setup guide';
 
+    #[\Override]
     protected static ?string $title = 'Finish setting up your workspace';
 
+    #[\Override]
     protected static ?int $navigationSort = -100;
 
+    #[\Override]
     protected string $view = 'filament.pages.account-setup-wizard';
 
     /** @var array<string, mixed> */

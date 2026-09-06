@@ -9,8 +9,10 @@ use Liberu\Cms\AccessibilityAssistant\Services\AccessibilityAssistantService;
 
 final class AccessibilityAnalyzerPage extends Page
 {
+    #[\Override]
     protected string $view = 'module-cms-accessibility-assistant-filament::accessibility-analyzer';
 
+    #[\Override]
     protected static ?string $title = 'Accessibility Analyzer';
 
     public string $html = '';

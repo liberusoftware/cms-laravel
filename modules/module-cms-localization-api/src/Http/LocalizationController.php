@@ -6,6 +6,7 @@ namespace Liberu\Cms\LocalizationApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\Localization\Models\LocaleVariant;
 use Liberu\Cms\Localization\Queries\LocalizationQuery;
 use Liberu\Cms\Localization\Services\LocalizationService;
 use Liberu\Cms\LocalizationApi\Http\Resources\LocalizationResource;
@@ -53,7 +54,7 @@ final class LocalizationController
         $data = $this->validated($request->validate(['source_type' => 'required|string', 'source_key' => 'required|string', 'field' => 'required|string', 'locale' => 'required|string', 'fallback' => 'nullable|string']));
         $variant = $service->resolve($this->string($data, 'source_type'), $this->string($data, 'source_key'), $this->string($data, 'field'), $this->string($data, 'locale'), $request->user()?->current_team_id, $this->nullableString($data, 'fallback'));
 
-        return response()->json(['data' => $variant ? (new LocalizationResource($variant))->resolve($request) : null]);
+        return response()->json(['data' => $variant instanceof LocaleVariant ? new LocalizationResource($variant)->resolve($request) : null]);
     }
 
     public function completeness(Request $request, LocalizationService $service): JsonResponse

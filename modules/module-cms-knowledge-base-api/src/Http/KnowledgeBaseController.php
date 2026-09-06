@@ -7,6 +7,7 @@ namespace Liberu\Cms\KnowledgeBaseApi\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\KnowledgeBase\Models\KnowledgeArticle;
 use Liberu\Cms\KnowledgeBase\Queries\KnowledgeBaseQuery;
 use Liberu\Cms\KnowledgeBase\Services\KnowledgeBaseService;
 use Liberu\Cms\KnowledgeBaseApi\Http\Resources\KnowledgeArticleResource;
@@ -28,7 +29,7 @@ final class KnowledgeBaseController
     public function show(string $key, KnowledgeBaseQuery $query): KnowledgeArticleResource
     {
         $article = $query->find($key);
-        if (! $article) {
+        if (! $article instanceof KnowledgeArticle) {
             throw new NotFoundHttpException;
         }
 
@@ -55,7 +56,7 @@ final class KnowledgeBaseController
     public function publish(string $key, Request $request, KnowledgeBaseQuery $query, KnowledgeBaseService $service): KnowledgeArticleResource
     {
         $article = $query->find($key, false);
-        if (! $article) {
+        if (! $article instanceof KnowledgeArticle) {
             throw new NotFoundHttpException;
         }
 

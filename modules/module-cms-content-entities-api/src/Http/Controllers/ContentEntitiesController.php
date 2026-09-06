@@ -86,7 +86,7 @@ final readonly class ContentEntitiesController
             $entry->transitionTo($status);
         }
 
-        return (new LegacyContentEntryResource($entry->refresh()->load('type')))->response()->setStatusCode(201);
+        return new LegacyContentEntryResource($entry->refresh()->load('type'))->response()->setStatusCode(201);
     }
 
     public function update(UpdateContentEntryRequest $request, int $id): ContentEntityResource
@@ -148,6 +148,6 @@ final readonly class ContentEntitiesController
         $title = is_array($data) ? ($data['title'] ?? null) : null;
         $clone = $this->mutations->clone($entry, is_string($title) ? $title : null);
 
-        return (new ContentEntityResource($clone))->response()->setStatusCode(201);
+        return new ContentEntityResource($clone)->response()->setStatusCode(201);
     }
 }
