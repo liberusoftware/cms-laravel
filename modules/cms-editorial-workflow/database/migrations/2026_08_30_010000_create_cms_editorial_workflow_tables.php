@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('permission', 160)->nullable();
             $table->boolean('requires_review')->default(false);
             $table->timestamps();
-            $table->unique(['workflow_id', 'from_state', 'to_state']);
+            $table->unique(['workflow_id', 'from_state', 'to_state'], 'cms_editorial_workflow_transition_unique');
         });
         Schema::create('cms_editorial_workflow_assignments', function (Blueprint $table): void {
             $table->id();

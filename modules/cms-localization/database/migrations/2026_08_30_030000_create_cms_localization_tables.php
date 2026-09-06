@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('status', 30)->default('draft');
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
-            $table->unique(['team_id', 'source_type', 'source_key', 'field', 'locale']);
+            $table->unique(['team_id', 'source_type', 'source_key', 'field', 'locale'], 'cms_localization_variant_identity');
             $table->index(['team_id', 'locale']);
         });
     }
