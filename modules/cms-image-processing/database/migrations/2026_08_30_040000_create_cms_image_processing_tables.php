@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('status', 30)->default('ready');
             $table->json('metadata')->nullable();
             $table->timestamps();
-            $table->unique(['profile_id', 'asset_key', 'source_checksum']);
+            $table->unique(['profile_id', 'asset_key', 'source_checksum'], 'cms_image_derivative_identity');
         });
     }
 

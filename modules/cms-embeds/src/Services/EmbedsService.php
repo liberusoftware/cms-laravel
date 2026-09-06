@@ -14,7 +14,7 @@ class EmbedsService
             throw ValidationException::withMessages(['key' => 'Invalid provider key.']);
         }
 
-return Provider::updateOrCreate(['team_id' => $teamId, 'key' => $a['key']], ['name' => $a['name'], 'domain_pattern' => $a['domain_pattern'] ?? null, 'privacy_domain' => $a['privacy_domain'] ?? null, 'status' => $a['status'] ?? 'active', 'config' => $a['config'] ?? []]);
+        return Provider::updateOrCreate(['team_id' => $teamId, 'key' => $a['key']], ['name' => $a['name'], 'domain_pattern' => $a['domain_pattern'] ?? null, 'privacy_domain' => $a['privacy_domain'] ?? null, 'status' => $a['status'] ?? 'active', 'config' => $a['config'] ?? []]);
     }
 
     public function embed(array $a, ?int $teamId = null): Embed
@@ -28,7 +28,7 @@ return Provider::updateOrCreate(['team_id' => $teamId, 'key' => $a['key']], ['na
             throw ValidationException::withMessages(['privacy_mode' => 'Invalid privacy mode.']);
         }
 
-return Embed::updateOrCreate(['team_id' => $teamId, 'provider_id' => $provider->id, 'external_key' => $a['external_key']], array_merge($a, ['team_id' => $teamId, 'consent_required' => $mode === 'consent', 'status' => $a['status'] ?? 'draft']));
+        return Embed::updateOrCreate(['team_id' => $teamId, 'provider_id' => $provider->id, 'external_key' => $a['external_key']], array_merge($a, ['team_id' => $teamId, 'consent_required' => $mode === 'consent', 'status' => $a['status'] ?? 'draft']));
     }
 
     public function publish(Embed $e): Embed
@@ -46,7 +46,7 @@ return Embed::updateOrCreate(['team_id' => $teamId, 'provider_id' => $provider->
             return ['status' => 'fallback', 'url' => $e->fallback_url, 'title' => $e->title];
         }
 
-return ['status' => 'published', 'url' => $e->url, 'title' => $e->title, 'provider' => $e->provider?->key, 'responsive' => $e->responsive, 'aspect_ratio' => $e->aspect_ratio];
+        return ['status' => 'published', 'url' => $e->url, 'title' => $e->title, 'provider' => $e->provider?->key, 'responsive' => $e->responsive, 'aspect_ratio' => $e->aspect_ratio];
     }
 
     private function url(string $url, ?Provider $p = null): string
@@ -58,6 +58,6 @@ return ['status' => 'published', 'url' => $e->url, 'title' => $e->title, 'provid
             throw ValidationException::withMessages(['url' => 'URL is not allowed for this provider.']);
         }
 
-return $url;
+        return $url;
     }
 }
