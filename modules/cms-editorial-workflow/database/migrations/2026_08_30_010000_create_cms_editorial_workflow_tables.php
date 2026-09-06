@@ -50,7 +50,7 @@ return new class extends Migration
             $table->string('status', 40)->default('active');
             $table->foreignId('delegated_from_id')->nullable()->constrained('cms_editorial_workflow_assignments')->nullOnDelete();
             $table->timestamps();
-            $table->index(['workflow_id', 'subject_type', 'subject_key']);
+            $table->index(['workflow_id', 'subject_type', 'subject_key'], 'cms_editorial_assignment_subject_idx');
         });
         Schema::create('cms_editorial_workflow_reviews', function (Blueprint $table): void {
             $table->id();
@@ -61,7 +61,7 @@ return new class extends Migration
             $table->string('decision', 40);
             $table->text('comment')->nullable();
             $table->timestamps();
-            $table->index(['workflow_id', 'subject_type', 'subject_key']);
+            $table->index(['workflow_id', 'subject_type', 'subject_key'], 'cms_editorial_review_subject_idx');
         });
         Schema::create('cms_editorial_workflow_evidence', function (Blueprint $table): void {
             $table->id();
@@ -72,7 +72,7 @@ return new class extends Migration
             $table->string('actor_key', 255)->nullable();
             $table->json('payload')->nullable();
             $table->timestamps();
-            $table->index(['workflow_id', 'subject_type', 'subject_key']);
+            $table->index(['workflow_id', 'subject_type', 'subject_key'], 'cms_editorial_evidence_subject_idx');
         });
     }
 
