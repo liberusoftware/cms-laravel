@@ -8,9 +8,12 @@ use App\Models\Team;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Notifications\Notification;
 use Filament\Pages\Dashboard;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Wizard;
 use Filament\Schemas\Components\Wizard\Step;
 use Filament\Schemas\Schema;
@@ -25,7 +28,7 @@ final class AccountSetupWizard extends Page
 {
     protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedSparkles;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Account';
+    protected static string|\UnitEnum|null $navigationGroup = 'Getting started';
 
     protected static ?string $navigationLabel = 'Setup guide';
 
@@ -57,7 +60,8 @@ final class AccountSetupWizard extends Page
             'oauth_provider' => is_string($integrations['oauth_provider'] ?? null) ? $integrations['oauth_provider'] : 'none',
             'oauth_client_id' => '',
             'oauth_client_secret' => '',
-            'delivery_api_key' => '',
+            'create_delivery_token' => true,
+            'delivery_token_name' => 'Website delivery',
         ];
 
         $this->form->fill($this->data);
@@ -92,14 +96,30 @@ final class AccountSetupWizard extends Page
                                         'github' => 'GitHub',
                                         'google' => 'Google',
                                         'gitlab' => 'GitLab',
-                                    ])->native(false)->required(),
-                                    TextInput::make('oauth_client_id')->label('Client ID')->maxLength(255),
-                                    TextInput::make('oauth_client_secret')->label('Client secret')->password()->revealable()->maxLength(255),
+                                    ])->native(false)->required()->live(),
+                                    TextInput::make('oauth_client_id')
+                                        ->label('Client ID')
+                                        ->maxLength(255)
+                                        ->visible(fn (Get $get): bool => $get('oauth_provider') !== 'none'),
+                                    TextInput::make('oauth_client_secret')
+                                        ->label('Client secret')
+                                        ->password()
+                                        ->revealable()
+                                        ->maxLength(255)
+                                        ->visible(fn (Get $get): bool => $get('oauth_provider') !== 'none'),
                                 ])->columns(2),
                             Section::make('Delivery API')
-                                ->description('Optional team delivery key for headless API consumers. Leave blank to create one later from API Tokens.')
+                                ->description('Create a least-privilege read token for a website or headless client. The secret is shown once after setup.')
                                 ->schema([
-                                    TextInput::make('delivery_api_key')->label('API key')->password()->revealable()->maxLength(4096),
+                                    Toggle::make('create_delivery_token')
+                                        ->label('Create a delivery token')
+                                        ->default(true)
+                                        ->live(),
+                                    TextInput::make('delivery_token_name')
+                                        ->label('Token name')
+                                        ->default('Website delivery')
+                                        ->maxLength(255)
+                                        ->visible(fn (callable $get): bool => (bool) $get('create_delivery_token')),
                                 ]),
                         ]),
                 ])->submitAction(Action::make('complete')->label('Finish setup')->submit('complete')),
@@ -124,7 +144,7 @@ final class AccountSetupWizard extends Page
             throw ValidationException::withMessages(['oauth_client_id' => 'Provide both OAuth credentials or choose Not now.']);
         }
 
-        DB::transaction(function () use ($state, $user, $team, $oauthProvider, $clientId, $clientSecret): void {
+        $deliveryToken = DB::transaction(function () use ($state, $user, $team, $oauthProvider, $clientId, $clientSecret): ?string {
             $user->forceFill([
                 'name' => $state['name'],
                 'setup_completed_at' => now(),
@@ -137,13 +157,35 @@ final class AccountSetupWizard extends Page
                 'oauth_provider' => $oauthProvider,
                 'oauth_client_id' => $clientId,
                 'oauth_client_secret' => $clientSecret,
-                'delivery_api_key' => $state['delivery_api_key'] ?? '',
             ], static fn (mixed $value): bool => is_string($value) && trim($value) !== '');
 
             $team->forceFill(['name' => $state['team_name'], 'settings' => $settings])->save();
+
+            if (($state['create_delivery_token'] ?? false) !== true) {
+                return null;
+            }
+
+            $token = $team->createToken(
+                is_string($state['delivery_token_name'] ?? null) && trim($state['delivery_token_name']) !== ''
+                    ? trim($state['delivery_token_name'])
+                    : 'Website delivery',
+                ['content:read'],
+            );
+
+            return $token->plainTextToken;
         });
 
         session()->forget('account_setup_required');
+
+        if (is_string($deliveryToken)) {
+            Notification::make()
+                ->title('Workspace ready — copy your delivery token')
+                ->body($deliveryToken)
+                ->persistent()
+                ->success()
+                ->send();
+        }
+
         $this->redirect(Dashboard::getUrl());
     }
 

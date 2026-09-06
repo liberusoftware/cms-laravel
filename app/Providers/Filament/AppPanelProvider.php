@@ -54,6 +54,7 @@ class AppPanelProvider extends PanelProvider
                 AccountSetupWizard::class,
             ])
             ->navigationGroups([
+                'Getting started',
                 'Content',
                 'Structure',
                 'Assets',
@@ -61,6 +62,7 @@ class AppPanelProvider extends PanelProvider
                 'Administration',
                 'Account',
                 'Settings',
+                'Developer tools',
                 'Operations',
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
