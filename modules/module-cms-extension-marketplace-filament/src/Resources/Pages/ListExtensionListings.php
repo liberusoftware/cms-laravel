@@ -10,6 +10,7 @@ use Liberu\Cms\ExtensionMarketplaceFilament\Resources\ExtensionListingResource;
 
 final class ListExtensionListings extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ExtensionListingResource::class;
 
     protected function getHeaderActions(): array

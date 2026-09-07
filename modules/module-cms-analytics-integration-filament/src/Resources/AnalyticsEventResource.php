@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 
 final class AnalyticsEventResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'analytics-events';
 
     public static function form(Schema $schema): Schema

@@ -13,8 +13,10 @@ use Liberu\Cms\MigrationFramework\Models\MigrationJob;
 
 final class DrupalMigrationResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = MigrationJob::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-drupal-migrations';
 
     public static function form(Schema $schema): Schema

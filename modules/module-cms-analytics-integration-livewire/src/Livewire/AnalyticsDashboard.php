@@ -10,7 +10,8 @@ use Livewire\Component;
 
 final class AnalyticsDashboard extends Component
 {
-    public array $summary = [];
+    /** @var array{total:int,by_type:array<string,int>,accepted:int,suppressed:int} */
+    public array $summary = ['total' => 0, 'by_type' => [], 'accepted' => 0, 'suppressed' => 0];
 
     public function refreshDashboard(AnalyticsIntegrationService $service): void
     {

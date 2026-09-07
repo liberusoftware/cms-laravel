@@ -1,0 +1,1 @@
+{"name":"module-cms-form-operations","description":"Secure consent, rate control, encrypted storage, retention, and export for form submissions.","version":"0.1.0","enabled":true,"dependencies":["module-cms-core"],"package":"liberusoftware/module-cms-form-operations"}

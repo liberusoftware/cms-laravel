@@ -4,8 +4,22 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\DigitalAssetManagement\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int|null $team_id
+ * @property string $name
+ * @property string $asset_type
+ * @property string $storage_key
+ * @property Carbon|null $expires_at
+ * @property array<string, mixed>|null $renditions
+ * @property string $status
+ * @property bool $brand_asset
+ * @property bool $approved
+ * @property Carbon|null $approved_at
+ * @property array<string, mixed>|null $distribution
+ */
 final class DigitalAsset extends Model
 {
     #[\Override]

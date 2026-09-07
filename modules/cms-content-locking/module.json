@@ -1,1 +1,1 @@
-{"name":"cms-content-locking","description":"Optimistic content locking and conflict recovery.","provider":"Liberu\\Cms\\ContentLocking\\ContentLockingServiceProvider","version":"0.1.0"}
+{"name":"cms-content-locking","description":"Optimistic content locking and conflict recovery.","provider":"Liberu\\Cms\\ContentLocking\\ContentLockingServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-locking"}

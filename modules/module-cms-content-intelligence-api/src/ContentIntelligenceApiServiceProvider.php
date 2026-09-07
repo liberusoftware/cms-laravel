@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentIntelligenceApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\ContentIntelligenceApi\Http\ContentIntelligenceController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class ContentIntelligenceApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/content-intelligence')->middleware('api')->group(function (): void {
-            Route::get('insights', [ContentIntelligenceController::class, 'index'])->name('cms.content-intelligence.insights.index');
-            Route::post('insights', [ContentIntelligenceController::class, 'store'])->name('cms.content-intelligence.insights.store');
-            Route::post('insights/{insight}/review', [ContentIntelligenceController::class, 'review'])->name('cms.content-intelligence.insights.review');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('content-intelligence-api', new ApiEndpoint('cms/content-intelligence/insights', ContentIntelligenceController::class, 'index', 'cms.content-intelligence.insights.index'));
+        $registry->registerEndpoint('content-intelligence-api', new ApiEndpoint('cms/content-intelligence/insights', ContentIntelligenceController::class, 'store', 'cms.content-intelligence.insights.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-intelligence-api', new ApiEndpoint('cms/content-intelligence/insights/{insight}/review', ContentIntelligenceController::class, 'review', 'cms.content-intelligence.insights.review', 'POST', ['abilities:content:write']));
     }
 }

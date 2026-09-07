@@ -39,7 +39,7 @@ it('uses the API tenant before the panel tenant', function (): void {
     config()->set('permission.teams', true);
     app()->instance(TenantContextInterface::class, new class implements TenantContextInterface
     {
-        public function tenantId(): int|string|null
+        public function tenantId(): int
         {
             return 123;
         }
@@ -54,7 +54,7 @@ it('uses the API tenant before the panel tenant', function (): void {
 });
 
 it('configures the Fortify passkey limiter with a credential or session fallback', function (): void {
-    (new FortifyServiceProvider(app()))->boot();
+    new FortifyServiceProvider(app())->boot();
     $limiter = RateLimiter::limiter('passkeys');
 
     $withCredential = Request::create('/login/passkeys', 'POST', ['credential' => ['id' => 'credential-1']]);

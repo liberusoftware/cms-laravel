@@ -9,5 +9,6 @@ use Liberu\Cms\ExperimentationFilament\Resources\ExperimentResource;
 
 final class ListExperiments extends ListRecords
 {
+    #[\Override]
     protected static string $resource = ExperimentResource::class;
 }

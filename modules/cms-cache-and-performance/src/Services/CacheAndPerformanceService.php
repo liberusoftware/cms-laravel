@@ -12,7 +12,11 @@ use Liberu\Cms\CacheAndPerformance\Models\CacheInvalidation;
 
 final class CacheAndPerformanceService
 {
-    /** @return array{entry:CacheEntry,hit:bool} */
+    /**
+     * @param  array<int, string>  $tags
+     * @param  array<string, mixed>  $metadata
+     * @return array{entry:CacheEntry,hit:bool}
+     */
     public function remember(?int $teamId, string $key, string $type, int $ttl, callable $resolver, array $tags = [], array $metadata = []): array
     {
         $this->validateKey($key);
@@ -27,20 +31,34 @@ final class CacheAndPerformanceService
         if ($hit) {
             $entry->increment('hits');
 
-            return ['entry' => $entry->fresh(), 'hit' => true];
+            $fresh = $entry->fresh();
+            if (! $fresh) {
+                throw new \RuntimeException('The cache entry could not be refreshed.');
+            }
+
+            return ['entry' => $fresh, 'hit' => true];
         }
         $value = $resolver();
         Cache::put($key, $value, $ttl);
         $entry->update(['status' => 'warm', 'tags' => array_values(array_unique($tags)), 'ttl_seconds' => $ttl, 'size_bytes' => strlen(serialize($value)), 'warmed_at' => now(), 'metadata' => $metadata]);
         $entry->increment('misses');
 
-        return ['entry' => $entry->fresh(), 'hit' => false];
+        $fresh = $entry->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The cache entry could not be refreshed.');
+        }
+
+        return ['entry' => $fresh, 'hit' => false];
     }
 
+    /**
+     * @param  array<int, string>  $tags
+     * @param  array<int, string>  $keys
+     */
     public function invalidate(?int $teamId, array $tags = [], array $keys = [], string $idempotencyKey = ''): CacheInvalidation
     {
-        $tags = array_values(array_filter(array_unique(array_map('strval', $tags)), fn (string $tag): bool => trim($tag) !== ''));
-        $keys = array_values(array_filter(array_unique(array_map('strval', $keys)), fn (string $key): bool => trim($key) !== ''));
+        $tags = array_values(array_filter(array_unique($tags), static fn (string $tag): bool => trim($tag) !== ''));
+        $keys = array_values(array_filter(array_unique($keys), static fn (mixed $key): bool => is_string($key) && trim($key) !== ''));
         if ($tags === [] && $keys === []) {
             throw ValidationException::withMessages(['cache' => 'At least one cache tag or key is required.']);
         }
@@ -71,8 +89,12 @@ final class CacheAndPerformanceService
     public function diagnostics(?int $teamId): array
     {
         $entries = CacheEntry::query()->where('team_id', $teamId)->get(['status', 'hits', 'misses']);
-        $hits = $entries->sum('hits');
-        $misses = $entries->sum('misses');
+        $hits = 0;
+        $misses = 0;
+        foreach ($entries as $entry) {
+            $hits += is_int($entry->hits) ? $entry->hits : 0;
+            $misses += is_int($entry->misses) ? $entry->misses : 0;
+        }
 
         return ['entries' => $entries->count(), 'warm' => $entries->where('status', 'warm')->count(), 'hits' => $hits, 'misses' => $misses, 'hit_rate' => $hits + $misses === 0 ? 0.0 : round($hits / ($hits + $misses), 4)];
     }

@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 final class ExtensionCategory extends Model
 {
+    #[\Override]
     protected $table = 'cms_extension_categories';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'description'];
 
     public function listings(): HasMany

@@ -1,1 +1,1 @@
-{"name":"module-cms-contact-directory-api","description":"Contact Directory HTTP API.","provider":"Liberu\\Cms\\ContactDirectoryApi\\ContactDirectoryApiServiceProvider","version":"0.1.0"}
+{"name":"module-cms-contact-directory-api","description":"Contact Directory HTTP API.","provider":"Liberu\\Cms\\ContactDirectoryApi\\ContactDirectoryApiServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-contact-directory-api"}

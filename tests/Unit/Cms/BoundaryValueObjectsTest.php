@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 use App\Actions\Socialstream\HandleInvalidState;
+use Illuminate\Contracts\Cache\Factory;
+use Illuminate\Database\ConnectionResolverInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Laravel\Socialite\Two\InvalidStateException;
 use Liberu\Cms\Blocks\Types\CodeBlock;
@@ -17,12 +20,14 @@ use Liberu\Cms\Contracts\Hooks\Filters\ApiResourceFilter;
 use Liberu\Cms\Contracts\Hooks\Filters\BlockRenderFilter;
 use Liberu\Cms\Contracts\Hooks\Filters\ContentQueryFilter;
 use Liberu\Cms\Contracts\Media\MediaItemInterface;
+use Liberu\Cms\Contracts\Search\SearchIndexInterface;
 use Liberu\Cms\Core\Module\ArrayModuleStateRepository;
 use Liberu\Cms\Core\Tenant\NullTenantResolver;
 use Liberu\Cms\Hello\Events\HelloGreeted;
 use Liberu\Cms\Observability\Health\Checks\CacheHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\DatabaseHealthCheck;
 use Liberu\Cms\Observability\Health\Checks\QueueHealthCheck;
+use Liberu\Cms\Posts\Contracts\PostRepositoryInterface;
 use Liberu\Cms\Posts\Http\Resources\PostResource;
 use Liberu\Cms\Posts\Models\Post;
 use Liberu\Cms\Posts\Preview\PostPreviewSource;
@@ -98,43 +103,43 @@ it('uses a null parent for base themes', function (): void {
 });
 
 it('reports successful and failing readiness probes through their contracts', function (): void {
-    $cache = Mockery::mock('Illuminate\\Contracts\\Cache\\Factory');
+    $cache = Mockery::mock(Factory::class);
     $cache->shouldReceive('store')->twice()->andReturnSelf();
     $cache->shouldReceive('get')->once()->andReturn(null);
     $cache->shouldReceive('get')->once()->andThrow(new RuntimeException('cache down'));
 
-    $database = Mockery::mock('Illuminate\\Database\\ConnectionResolverInterface');
+    $database = Mockery::mock(ConnectionResolverInterface::class);
     $database->shouldReceive('connection')->twice()->andReturnSelf();
     $database->shouldReceive('select')->once()->andReturn([]);
     $database->shouldReceive('select')->once()->andThrow(new RuntimeException('db down'));
 
-    $queue = Mockery::mock('Illuminate\\Contracts\\Queue\\Factory');
+    $queue = Mockery::mock(Illuminate\Contracts\Queue\Factory::class);
     $queue->shouldReceive('connection')->twice()->andReturnSelf();
     $queue->shouldReceive('size')->once()->andReturn(0);
     $queue->shouldReceive('size')->once()->andThrow(new RuntimeException('queue down'));
 
-    $search = Mockery::mock('Liberu\\Cms\\Contracts\\Search\\SearchIndexInterface');
+    $search = Mockery::mock(SearchIndexInterface::class);
     $search->shouldReceive('isReady')->twice()->andReturn(true, false);
 
-    expect((new CacheHealthCheck($cache, false))->check())->toBeTrue()
-        ->and((new CacheHealthCheck($cache, false))->isCritical())->toBeFalse()
-        ->and((new CacheHealthCheck($cache, false))->check())->toBeFalse()
-        ->and((new DatabaseHealthCheck($database, true))->check())->toBeTrue()
-        ->and((new DatabaseHealthCheck($database, true))->isCritical())->toBeTrue()
-        ->and((new DatabaseHealthCheck($database, true))->check())->toBeFalse()
-        ->and((new QueueHealthCheck($queue, false))->check())->toBeTrue()
-        ->and((new QueueHealthCheck($queue, false))->isCritical())->toBeFalse()
-        ->and((new QueueHealthCheck($queue, false))->check())->toBeFalse()
-        ->and((new SearchHealthCheck($search, false))->check())->toBeTrue()
-        ->and((new SearchHealthCheck($search, false))->isCritical())->toBeFalse()
-        ->and((new SearchHealthCheck($search, false))->check())->toBeFalse();
+    expect(new CacheHealthCheck($cache, false)->check())->toBeTrue()
+        ->and(new CacheHealthCheck($cache, false)->isCritical())->toBeFalse()
+        ->and(new CacheHealthCheck($cache, false)->check())->toBeFalse()
+        ->and(new DatabaseHealthCheck($database, true)->check())->toBeTrue()
+        ->and(new DatabaseHealthCheck($database, true)->isCritical())->toBeTrue()
+        ->and(new DatabaseHealthCheck($database, true)->check())->toBeFalse()
+        ->and(new QueueHealthCheck($queue, false)->check())->toBeTrue()
+        ->and(new QueueHealthCheck($queue, false)->isCritical())->toBeFalse()
+        ->and(new QueueHealthCheck($queue, false)->check())->toBeFalse()
+        ->and(new SearchHealthCheck($search, false)->check())->toBeTrue()
+        ->and(new SearchHealthCheck($search, false)->isCritical())->toBeFalse()
+        ->and(new SearchHealthCheck($search, false)->check())->toBeFalse();
 });
 
 it('exposes stable names for the public hook filter value objects', function (): void {
-    expect((new AdminFormSchemaFilter([], 'pages'))->name())->toBe('pages.admin.form')
-        ->and((new ApiResourceFilter([], null))->name())->toBe('api.resource')
-        ->and((new BlockRenderFilter('', 'text', []))->name())->toBe('blocks.render')
-        ->and((new ContentQueryFilter('pages.published', Mockery::mock('Illuminate\\Database\\Eloquent\\Builder')))->name())
+    expect(new AdminFormSchemaFilter([], 'pages')->name())->toBe('pages.admin.form')
+        ->and(new ApiResourceFilter([], null)->name())->toBe('api.resource')
+        ->and(new BlockRenderFilter('', 'text', [])->name())->toBe('blocks.render')
+        ->and(new ContentQueryFilter('pages.published', Mockery::mock(Builder::class))->name())
         ->toBe('pages.published');
 });
 
@@ -160,7 +165,7 @@ it('exposes revision and preview adapter values without loading records', functi
         'snapshot' => ['title' => 'Draft'],
     ]);
 
-    $posts = Mockery::mock('Liberu\\Cms\\Posts\\Contracts\\PostRepositoryInterface');
+    $posts = Mockery::mock(PostRepositoryInterface::class);
     $posts->shouldReceive('find')->once()->with(404)->andReturn(null);
     $preview = new PostPreviewSource($posts);
     $resource = $preview->toResource(new Post(['title' => 'Preview']));

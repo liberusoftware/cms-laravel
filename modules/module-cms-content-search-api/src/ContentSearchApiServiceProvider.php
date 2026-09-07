@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentSearchApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\ContentSearchApi\Http\ContentSearchController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class ContentSearchApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/content-search')->middleware('api')->group(function (): void {
-            Route::get('search', [ContentSearchController::class, 'search'])->name('cms.content-search.search');
-            Route::get('autocomplete', [ContentSearchController::class, 'autocomplete'])->name('cms.content-search.autocomplete');
-            Route::get('analytics', [ContentSearchController::class, 'analytics'])->name('cms.content-search.analytics');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('content-search-api', new ApiEndpoint('cms/content-search/search', ContentSearchController::class, 'search', 'cms.content-search.search'));
+        $registry->registerEndpoint('content-search-api', new ApiEndpoint('cms/content-search/autocomplete', ContentSearchController::class, 'autocomplete', 'cms.content-search.autocomplete'));
+        $registry->registerEndpoint('content-search-api', new ApiEndpoint('cms/content-search/analytics', ContentSearchController::class, 'analytics', 'cms.content-search.analytics'));
     }
 }

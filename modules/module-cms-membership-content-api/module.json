@@ -1,0 +1,1 @@
+{"name":"module-cms-membership-content-api","title":"Membership Content API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\MembershipContentApi\\MembershipContentApiServiceProvider"],"package":"liberusoftware/module-cms-membership-content-api"}

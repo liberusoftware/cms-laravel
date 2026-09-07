@@ -6,11 +6,11 @@ use App\Models\Team;
 use App\Models\User;
 use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
-use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentBundleResource as ContentTypeResource;
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentEntityResource as ContentEntryResource;
 use Liberu\Cms\Forms\Filament\FormResource;
 use Liberu\Cms\Forms\Filament\FormSubmissionResource;
-use Liberu\Cms\Media\Filament\MediaResource;
+use Liberu\Cms\MediaLibraryFilament\Resources\MediaResource;
 use Liberu\Cms\Menus\Filament\MenuItemResource;
 use Liberu\Cms\Menus\Filament\MenuResource;
 use Liberu\Cms\Notifications\Filament\NotificationLogResource;
@@ -44,7 +44,7 @@ dataset('cms resources', [
     'pages' => [PageResource::class, 'pages'],
     'posts' => [PostResource::class, 'posts'],
     'media' => [MediaResource::class, 'media'],
-    'content types' => [ContentTypeResource::class, 'content-types'],
+    'content types' => [ContentTypeResource::class, 'content-entries'],
     'content entries' => [ContentEntryResource::class, 'content-entries'],
     'menus' => [MenuResource::class, 'menus'],
     'menu items' => [MenuItemResource::class, 'menus'],

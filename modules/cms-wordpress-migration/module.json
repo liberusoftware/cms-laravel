@@ -1,1 +1,1 @@
-{"name":"module-cms-wordpress-migration","title":"WordPress Migration","description":"Safe, resumable WordPress migration boundaries.","version":"0.1.0","providers":["Liberu\\Cms\\WordPressMigration\\WordPressMigrationServiceProvider"]}
+{"name":"module-cms-wordpress-migration","title":"WordPress Migration","description":"Safe, resumable WordPress migration boundaries.","version":"0.1.0","providers":["Liberu\\Cms\\WordPressMigration\\WordPressMigrationServiceProvider"],"package":"liberusoftware/module-cms-wordpress-migration"}

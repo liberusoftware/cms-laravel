@@ -1,0 +1,1 @@
+{"name":"module-cms-headless-api-livewire","description":"Livewire adapter for the CMS Headless API.","version":"0.1.0","enabled":true,"dependencies":["module-cms-headless-api"],"package":"liberusoftware/module-cms-headless-api-livewire"}

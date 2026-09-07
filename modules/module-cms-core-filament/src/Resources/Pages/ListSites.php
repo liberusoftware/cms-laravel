@@ -18,7 +18,10 @@ final class ListSites extends ListRecords
     {
         return [
             CreateAction::make()
-                ->using(fn (array $data) => app(CoreMutationService::class)->createSite($data)),
+                ->using(
+                    /** @param array<string, mixed> $data */
+                    fn (array $data) => app(CoreMutationService::class)->createSite($data),
+                ),
         ];
     }
 }

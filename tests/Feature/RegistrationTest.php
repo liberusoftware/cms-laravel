@@ -20,6 +20,8 @@ it('can register with valid data', function (): void {
     $response->assertRedirect('/dashboard');
     $this->assertAuthenticated();
     $this->assertDatabaseHas('users', ['email' => 'test@example.com', 'name' => 'Test User']);
+    expect(session('account_setup_required'))->toBeTrue();
+    expect(User::where('email', 'test@example.com')->first()->setup_completed_at)->toBeNull();
 });
 
 it('fails registration when name is missing', function (): void {

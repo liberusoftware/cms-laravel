@@ -8,7 +8,7 @@ return [
      * ships is grouped. Keeping it in config lets a host rebrand the grouping
      * without touching module code.
      */
-    'navigation_group' => 'CMS',
+    'navigation_group' => 'Administration',
 
     /*
      * The guard whose permissions gate the admin surfaces. Mirrors cms-users so

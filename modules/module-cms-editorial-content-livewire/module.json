@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-content-livewire","title":"Editorial Content Livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\EditorialContentLivewire\\EditorialContentLivewireServiceProvider"],"package":"liberusoftware/module-cms-editorial-content-livewire"}

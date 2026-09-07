@@ -12,22 +12,39 @@ final class DisplayModesController
 {
     public function index(Request $request, DisplayModesService $service): JsonResponse
     {
-        return response()->json(['data' => $service->modes($request->user()?->current_team_id, $request->input('content_type'), $request->integer('page_size', 25))]);
+        $contentType = $request->input('content_type');
+
+        return response()->json(['data' => $service->modes($request->user()?->current_team_id, is_string($contentType) ? $contentType : null, $request->integer('page_size', 25))]);
     }
 
     public function store(Request $request, DisplayModesService $service): JsonResponse
     {
-        return response()->json(['data' => $service->create($request->validate([
+        return response()->json(['data' => $service->create($this->normalized($request->validate([
             'name' => ['required', 'string'], 'slug' => ['required', 'string'], 'content_type' => ['required', 'string'],
             'mode_type' => ['nullable', 'in:view,form'], 'formatters' => ['array'], 'configuration' => ['array'],
             'responsive_variants' => ['array'], 'projection' => ['array'], 'active' => ['boolean'],
-        ]), $request->user()?->current_team_id)], 201);
+        ])), $request->user()?->current_team_id)], 201);
     }
 
     public function select(Request $request, DisplayModesService $service): JsonResponse
     {
-        $data = $request->validate(['content_type' => ['required', 'string'], 'slug' => ['nullable', 'string'], 'variant' => ['nullable', 'string']]);
+        $data = $this->normalized($request->validate(['content_type' => ['required', 'string'], 'slug' => ['nullable', 'string'], 'variant' => ['nullable', 'string']]));
 
-        return response()->json(['data' => $service->select($data['content_type'], $request->user()?->current_team_id, $data['slug'] ?? 'default', $data['variant'] ?? null)]);
+        return response()->json(['data' => $service->select(is_string($data['content_type'] ?? null) ? $data['content_type'] : '', $request->user()?->current_team_id, is_string($data['slug'] ?? null) ? $data['slug'] : 'default', is_string($data['variant'] ?? null) ? $data['variant'] : null)]);
+    }
+
+    /** @return array<string, mixed> */
+    private function normalized(mixed $value): array
+    {
+        $data = [];
+        if (is_array($value)) {
+            foreach ($value as $key => $item) {
+                if (is_string($key)) {
+                    $data[$key] = $item;
+                }
+            }
+        }
+
+        return $data;
     }
 }

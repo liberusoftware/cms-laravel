@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\AccountSetupWizard;
+use App\Http\Middleware\EnsureAccountSetup;
 use App\Http\Middleware\EnsureTwoFactorForPrivilegedUsers;
 use App\Http\Middleware\SetPermissionsTeam;
 use App\Models\Team;
@@ -49,6 +51,19 @@ class AppPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Dashboard::class,
+                AccountSetupWizard::class,
+            ])
+            ->navigationGroups([
+                'Getting started',
+                'Content',
+                'Structure',
+                'Assets',
+                'Experience',
+                'Administration',
+                'Account',
+                'Settings',
+                'Developer tools',
+                'Operations',
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
@@ -70,6 +85,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                EnsureAccountSetup::class,
                 EnsureTwoFactorForPrivilegedUsers::class,
             ])
             ->plugins([

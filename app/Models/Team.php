@@ -23,6 +23,7 @@ class Team extends Model implements AuthenticatableContract, HasApiTokensContrac
         'user_id',
         'name',
         'personal_team',
+        'settings',
     ];
 
     #[\Override]
@@ -30,6 +31,7 @@ class Team extends Model implements AuthenticatableContract, HasApiTokensContrac
     {
         return [
             'personal_team' => 'boolean',
+            'settings' => 'encrypted:array',
         ];
     }
 

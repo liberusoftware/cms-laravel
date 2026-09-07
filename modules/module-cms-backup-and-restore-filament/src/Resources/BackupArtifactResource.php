@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 
 final class BackupArtifactResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'backup-artifacts';
 
     public static function form(Schema $schema): Schema

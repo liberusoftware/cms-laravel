@@ -12,6 +12,7 @@ final class ContentGovernanceLivewireServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'module-cms-content-governance');
         Livewire::component('module-cms-content-governance::governance-overview', GovernanceOverview::class);
     }
 }

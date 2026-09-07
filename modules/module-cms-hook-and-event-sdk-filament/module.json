@@ -1,0 +1,1 @@
+{"name":"module-cms-hook-and-event-sdk-filament","description":"Filament adapter for the CMS Hook and Event SDK.","version":"0.1.0","enabled":true,"dependencies":["module-cms-hook-and-event-sdk"],"package":"liberusoftware/module-cms-hook-and-event-sdk-filament"}

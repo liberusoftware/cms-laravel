@@ -9,5 +9,6 @@ use Liberu\Cms\DrupalMigrationFilament\Resources\DrupalMigrationResource;
 
 final class ListDrupalMigrations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = DrupalMigrationResource::class;
 }

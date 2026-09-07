@@ -35,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
             ]);
 
             $user->createPersonalTeam();
+            session()->put('account_setup_required', true);
 
             return $user;
         });

@@ -44,9 +44,9 @@ class ModuleManagement extends Page
     #[\Override]
     public static function getNavigationGroup(): string|UnitEnum|null
     {
-        $group = config('cms-admin.navigation_group', 'CMS');
+        $group = config('cms-admin.navigation_group', 'Administration');
 
-        return is_string($group) ? $group : 'CMS';
+        return is_string($group) ? $group : 'Administration';
     }
 
     /**

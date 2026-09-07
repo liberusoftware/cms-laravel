@@ -1,0 +1,1 @@
+{"name":"module-cms-media-assistant-filament","title":"Media Assistant Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\MediaAssistantFilament\\MediaAssistantFilamentServiceProvider"],"package":"liberusoftware/module-cms-media-assistant-filament"}

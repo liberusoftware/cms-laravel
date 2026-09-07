@@ -13,8 +13,10 @@ use Liberu\Cms\BlockEditor\Models\BlockDocument;
 
 final class BlockDocumentResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = BlockDocument::class;
 
+    #[\Override]
     protected static ?string $slug = 'block-documents';
 
     public static function form(Schema $schema): Schema

@@ -1,0 +1,1 @@
+{"name":"module-cms-audit-and-history-filament","package":"liberusoftware/module-cms-audit-and-history-filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\AuditAndHistoryFilament\\AuditAndHistoryFilamentServiceProvider"]}

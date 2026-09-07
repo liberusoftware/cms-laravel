@@ -6,7 +6,7 @@ namespace Liberu\Cms\PagesFilament;
 
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
-use Liberu\Cms\Pages\Filament\PageResource;
+use Liberu\Cms\PagesFilament\Resources\PageResource;
 
 final class PagesFilamentServiceProvider extends ServiceProvider
 {

@@ -9,5 +9,6 @@ use Liberu\Cms\MigrationFrameworkFilament\Resources\MigrationJobResource;
 
 final class ListMigrationJobs extends ListRecords
 {
+    #[\Override]
     protected static string $resource = MigrationJobResource::class;
 }

@@ -1,0 +1,1 @@
+{"name":"module-cms-membership-content-livewire","title":"Membership Content Livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\MembershipContentLivewire\\MembershipContentLivewireServiceProvider"],"package":"liberusoftware/module-cms-membership-content-livewire"}

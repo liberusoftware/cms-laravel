@@ -9,5 +9,6 @@ use Liberu\Cms\LayoutBuilderFilament\Resources\LayoutResource;
 
 final class ListLayouts extends ListRecords
 {
+    #[\Override]
     protected static string $resource = LayoutResource::class;
 }

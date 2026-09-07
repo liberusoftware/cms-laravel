@@ -1,1 +1,1 @@
-{"name":"module-cms-translation-assistant","title":"Translation Assistant","description":"Provider-neutral translation assistance workflows.","version":"0.1.0","providers":["Liberu\\Cms\\TranslationAssistant\\TranslationAssistantServiceProvider"]}
+{"name":"module-cms-translation-assistant","title":"Translation Assistant","description":"Provider-neutral translation assistance workflows.","version":"0.1.0","providers":["Liberu\\Cms\\TranslationAssistant\\TranslationAssistantServiceProvider"],"package":"liberusoftware/module-cms-translation-assistant"}

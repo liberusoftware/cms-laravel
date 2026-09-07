@@ -9,5 +9,6 @@ use Liberu\Cms\IntegrationDirectoryFilament\Resources\IntegrationResource;
 
 final class ListIntegrations extends ListRecords
 {
+    #[\Override]
     protected static string $resource = IntegrationResource::class;
 }

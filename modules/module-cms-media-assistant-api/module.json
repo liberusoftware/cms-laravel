@@ -1,0 +1,1 @@
+{"name":"module-cms-media-assistant-api","title":"Media Assistant API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\MediaAssistantApi\\MediaAssistantApiServiceProvider"],"package":"liberusoftware/module-cms-media-assistant-api"}

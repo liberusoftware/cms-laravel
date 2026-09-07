@@ -6,6 +6,8 @@ namespace Liberu\Cms\TaxonomyApi\Http;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Liberu\Cms\Taxonomy\Models\Taxonomy;
+use Liberu\Cms\Taxonomy\Models\Term;
 use Liberu\Cms\Taxonomy\Queries\TaxonomyQuery;
 use Liberu\Cms\Taxonomy\Services\TaxonomyService;
 use Liberu\Cms\TaxonomyApi\Http\Resources\TaxonomyResource;
@@ -24,7 +26,7 @@ final class TaxonomyController
     public function show(int $taxonomy, TaxonomyQuery $query): TaxonomyResource
     {
         $model = $query->taxonomy($taxonomy);
-        if (! $model) {
+        if (! $model instanceof Taxonomy) {
             throw new NotFoundHttpException;
         }
 
@@ -41,7 +43,7 @@ final class TaxonomyController
     public function update(Request $request, int $taxonomy, TaxonomyQuery $query, TaxonomyService $service): TaxonomyResource
     {
         $model = $query->taxonomy($taxonomy);
-        if (! $model) {
+        if (! $model instanceof Taxonomy) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['key' => ['sometimes', 'string', 'max:255'], 'name' => ['sometimes', 'string', 'max:255'], 'description' => ['nullable', 'string'], 'hierarchical' => ['sometimes', 'boolean'], 'exclusive' => ['sometimes', 'boolean']]);
@@ -52,7 +54,7 @@ final class TaxonomyController
     public function delete(int $taxonomy, TaxonomyQuery $query, TaxonomyService $service): Response
     {
         $model = $query->taxonomy($taxonomy);
-        if (! $model) {
+        if (! $model instanceof Taxonomy) {
             throw new NotFoundHttpException;
         }
         $service->delete($model);
@@ -62,7 +64,7 @@ final class TaxonomyController
 
     public function terms(Request $request, int $taxonomy, TaxonomyQuery $query): mixed
     {
-        if (! $query->taxonomy($taxonomy)) {
+        if (! $query->taxonomy($taxonomy) instanceof Taxonomy) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['search' => ['sometimes', 'nullable', 'string', 'max:255']]);
@@ -73,7 +75,7 @@ final class TaxonomyController
     public function addTerm(Request $request, int $taxonomy, TaxonomyQuery $query, TaxonomyService $service): TermResource
     {
         $model = $query->taxonomy($taxonomy);
-        if (! $model) {
+        if (! $model instanceof Taxonomy) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['name' => ['required', 'string', 'max:255'], 'slug' => ['nullable', 'string', 'max:255'], 'parent_id' => ['nullable', 'integer'], 'synonyms' => ['sometimes', 'array'], 'translations' => ['sometimes', 'array'], 'position' => ['sometimes', 'integer', 'min:0']]);
@@ -84,7 +86,7 @@ final class TaxonomyController
     public function moveTerm(Request $request, int $term, TaxonomyQuery $query, TaxonomyService $service): TermResource
     {
         $model = $query->term($term);
-        if (! $model) {
+        if (! $model instanceof Term) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['parent_id' => ['nullable', 'integer'], 'position' => ['sometimes', 'integer', 'min:0']]);

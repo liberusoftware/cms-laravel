@@ -1,1 +1,1 @@
-{"name":"cms-content-templates","description":"Versioned content templates and controlled rollout.","provider":"Liberu\\Cms\\ContentTemplates\\ContentTemplatesServiceProvider","version":"0.1.0"}
+{"name":"cms-content-templates","description":"Versioned content templates and controlled rollout.","provider":"Liberu\\Cms\\ContentTemplates\\ContentTemplatesServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-templates"}

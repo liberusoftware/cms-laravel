@@ -1,0 +1,1 @@
+{"name":"module-cms-form-builder","title":"Form Builder","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\FormBuilder\\FormBuilderServiceProvider"],"package":"liberusoftware/module-cms-form-builder"}

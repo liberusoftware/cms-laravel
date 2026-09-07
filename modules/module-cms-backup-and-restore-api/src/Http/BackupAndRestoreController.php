@@ -15,7 +15,7 @@ final class BackupAndRestoreController
     {
         $data = $request->validate(['name' => ['required', 'string', 'max:180'], 'artifact_type' => ['required', 'string'], 'path' => ['required', 'string'], 'disk' => ['sometimes', 'string'], 'checksum' => ['sometimes', 'string'], 'encrypted' => ['sometimes', 'boolean'], 'metadata' => ['sometimes', 'array']]);
 
-        return response()->json(['data' => $service->createArtifact(null, $data)], 201);
+        return response()->json(['data' => $service->createArtifact($request->user()?->current_team_id, $this->normalized($data))], 201);
     }
 
     public function verify(BackupArtifact $artifact, BackupAndRestoreService $service): JsonResponse
@@ -32,6 +32,21 @@ final class BackupAndRestoreController
     {
         $data = $request->validate(['name' => ['required', 'string', 'max:180'], 'frequency' => ['required', 'string'], 'artifact_types' => ['sometimes', 'array'], 'retention_days' => ['sometimes', 'integer'], 'enabled' => ['sometimes', 'boolean']]);
 
-        return response()->json(['data' => $service->schedule(null, $data)], 201);
+        return response()->json(['data' => $service->schedule($request->user()?->current_team_id, $this->normalized($data))], 201);
+    }
+
+    /** @return array<string, mixed> */
+    private function normalized(mixed $value): array
+    {
+        $data = [];
+        if (is_array($value)) {
+            foreach ($value as $key => $item) {
+                if (is_string($key)) {
+                    $data[$key] = $item;
+                }
+            }
+        }
+
+        return $data;
     }
 }

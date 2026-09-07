@@ -7,6 +7,7 @@ namespace Liberu\Cms\ContentFederation\Models;
 use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/** @property int|null $team_id */
 final class FederationSource extends Model
 {
     use HasTenant;

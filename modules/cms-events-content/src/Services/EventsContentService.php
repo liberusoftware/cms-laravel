@@ -58,7 +58,7 @@ final class EventsContentService
         }
         $session = $event->sessions()->updateOrCreate(['key' => $attributes['key']], ['title' => $attributes['title'], 'description' => $attributes['description'] ?? null, 'starts_at' => $start, 'ends_at' => $end, 'room' => $attributes['room'] ?? null]);
         if (isset($attributes['speaker_ids'])) {
-            $session->speakers()->sync(array_map('intval', $attributes['speaker_ids']));
+            $session->speakers()->sync(array_map(intval(...), $attributes['speaker_ids']));
         }
 
         return $session->load('speakers');

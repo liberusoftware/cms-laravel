@@ -10,14 +10,12 @@ use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
-use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
 use Liberu\Cms\Contracts\Health\HealthCheckRegistryInterface;
 use Liberu\Cms\Contracts\Media\MediaRepositoryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Core\Module\ModuleServiceProvider;
-use Liberu\Cms\Media\Filament\MediaResource;
 use Liberu\Cms\Media\Health\StorageHealthCheck;
 use Liberu\Cms\Media\Media\MediaRepository;
 use Liberu\Cms\Media\Media\StoreUpload;
@@ -51,9 +49,6 @@ final class MediaServiceProvider extends ModuleServiceProvider
             );
         });
 
-        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
-            $this->app->make(AdminResourceRegistryInterface::class)->registerResource('media', MediaResource::class);
-        }
     }
 
     protected function bootModule(): void

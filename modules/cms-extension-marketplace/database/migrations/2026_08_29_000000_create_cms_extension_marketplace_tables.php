@@ -69,7 +69,7 @@ return new class extends Migration
             $table->string('status')->default('published');
             $table->unsignedBigInteger('team_id')->nullable();
             $table->timestamps();
-            $table->unique(['listing_id', 'reviewer_type', 'reviewer_id', 'team_id']);
+            $table->unique(['listing_id', 'reviewer_type', 'reviewer_id', 'team_id'], 'cms_ext_reviews_reviewer_unique');
         });
         Schema::create('cms_extension_licenses', function (Blueprint $table): void {
             $table->id();

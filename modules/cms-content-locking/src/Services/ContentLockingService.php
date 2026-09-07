@@ -10,9 +10,11 @@ use Liberu\Cms\ContentLocking\Models\ContentLock;
 
 final readonly class ContentLockingService
 {
+    /** @param array<string, mixed> $snapshot */
     public function acquire(string $subjectType, string $subjectKey, ?int $teamId, ?int $holderId, array $snapshot = [], ?int $ttlMinutes = null): ContentLock
     {
-        $ttl = $ttlMinutes ?? (int) config('content-locking.default_ttl_minutes', 15);
+        $configuredTtl = config('content-locking.default_ttl_minutes', 15);
+        $ttl = $ttlMinutes ?? (is_int($configuredTtl) ? $configuredTtl : 15);
         if ($subjectType === '' || $subjectKey === '') {
             throw ValidationException::withMessages(['subject' => 'A subject type and key are required.']);
         }
@@ -22,17 +24,18 @@ final readonly class ContentLockingService
             throw ValidationException::withMessages(['lock' => 'Content is currently locked by another editor.']);
         }
 
-        return ContentLock::query()->updateOrCreate(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey], ['holder_id' => $holderId, 'token' => $existing?->token ?? Str::random(64), 'version' => $existing?->version ?? 1, 'snapshot' => $snapshot, 'expires_at' => now()->addMinutes($ttl)]);
+        return ContentLock::query()->updateOrCreate(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_key' => $subjectKey], ['holder_id' => $holderId, 'token' => $existing ? $existing->token : Str::random(64), 'version' => $existing ? $existing->version : 1, 'snapshot' => $snapshot, 'expires_at' => now()->addMinutes($ttl)]);
     }
 
     public function renew(ContentLock $lock, string $token, ?int $ttlMinutes = null): ContentLock
     {
         $this->assertToken($lock, $token);
-        $ttl = $ttlMinutes ?? (int) config('content-locking.default_ttl_minutes', 15);
+        $configuredTtl = config('content-locking.default_ttl_minutes', 15);
+        $ttl = $ttlMinutes ?? (is_int($configuredTtl) ? $configuredTtl : 15);
         $this->validateTtl($ttl);
         $lock->update(['expires_at' => now()->addMinutes($ttl)]);
 
-        return $lock->fresh();
+        return $lock->fresh() ?? $lock;
     }
 
     public function release(ContentLock $lock, string $token): void
@@ -41,6 +44,10 @@ final readonly class ContentLockingService
         $lock->delete();
     }
 
+    /**
+     * @param  array<string, mixed>  $current
+     * @return array{conflicted: bool, changes: list<array{path: string, expected: mixed, actual: mixed}>}
+     */
     public function compare(ContentLock $lock, array $current): array
     {
         $changes = [];
@@ -53,6 +60,10 @@ final readonly class ContentLockingService
         return ['conflicted' => $changes !== [], 'changes' => $changes];
     }
 
+    /**
+     * @param  array<string, mixed>  $current
+     * @return array<string, mixed>
+     */
     public function merge(ContentLock $lock, array $current, string $token): array
     {
         $this->assertToken($lock, $token);
@@ -73,7 +84,9 @@ final readonly class ContentLockingService
 
     private function validateTtl(int $ttl): void
     {
-        if ($ttl < 1 || $ttl > (int) config('content-locking.max_ttl_minutes', 120)) {
+        $configuredMaxTtl = config('content-locking.max_ttl_minutes', 120);
+        $maxTtl = is_int($configuredMaxTtl) ? $configuredMaxTtl : 120;
+        if ($ttl < 1 || $ttl > $maxTtl) {
             throw ValidationException::withMessages(['ttl' => 'The lock duration is invalid.']);
         }
     }

@@ -4,17 +4,22 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\DocumentManagement\Services;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\DocumentManagement\Models\Document;
 
 final readonly class DocumentManagementService
 {
+    /** @return LengthAwarePaginator<int, Document> */
     public function documents(?int $teamId, int $perPage = 25): LengthAwarePaginator
     {
-        return Document::query()->where('team_id', $teamId)->latest()->paginate(max(1, min($perPage, (int) config('document-management.pagination.max', 100))));
+        $configuredMax = config('document-management.pagination.max', 100);
+        $maxPerPage = is_int($configuredMax) ? $configuredMax : 100;
+
+        return Document::query()->where('team_id', $teamId)->latest()->paginate(max(1, min($perPage, $maxPerPage)));
     }
 
+    /** @param array<string, mixed> $data */
     public function create(array $data, ?int $teamId = null): Document
     {
         if (blank($data['title'] ?? null) || blank($data['slug'] ?? null)) {
@@ -24,7 +29,10 @@ final readonly class DocumentManagementService
             throw ValidationException::withMessages(['status' => 'The document status is invalid.']);
         }
 
-        return Document::query()->create([...$data, 'team_id' => $teamId, 'status' => $data['status'] ?? 'draft', 'retention_until' => $data['retention_until'] ?? now()->addDays((int) config('document-management.retention.default_days', 3650))]);
+        $configuredDays = config('document-management.retention.default_days', 3650);
+        $retentionDays = is_int($configuredDays) ? $configuredDays : 3650;
+
+        return Document::query()->create([...$data, 'team_id' => $teamId, 'status' => $data['status'] ?? 'draft', 'retention_until' => $data['retention_until'] ?? now()->addDays($retentionDays)]);
     }
 
     public function transition(Document $document, string $status): Document

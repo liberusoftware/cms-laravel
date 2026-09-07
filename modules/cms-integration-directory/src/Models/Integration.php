@@ -11,8 +11,10 @@ final class Integration extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_integrations';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'provider', 'category', 'configuration', 'status', 'health_status', 'health_message', 'last_checked_at', 'team_id'];
 
     protected function casts(): array

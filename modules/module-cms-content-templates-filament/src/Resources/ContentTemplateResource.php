@@ -16,6 +16,6 @@ final class ContentTemplateResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('content_type'), TextColumn::make('version'), TextColumn::make('published')->boolean(), TextColumn::make('locked')->boolean(), TextColumn::make('rollout_percent')]);
+        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('content_type'), TextColumn::make('version'), TextColumn::make('published'), TextColumn::make('locked'), TextColumn::make('rollout_percent')]);
     }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "module-cms-content-types",
-    "package": "liberusoftware/module-cms-content-types",
+    "name": "module-cms-content-entities",
+    "package": "liberusoftware/module-cms-content-entities",
     "version": "0.1.0",
     "layers": [
         "core",

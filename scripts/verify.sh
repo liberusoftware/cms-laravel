@@ -7,7 +7,13 @@ composer validate --no-check-publish
 composer audit --locked --no-interaction
 
 echo '== Independent module metadata and boundaries =='
-for package_manifest in modules/*/composer.json; do
+# Composer also installs reusable boilerplate packages into modules/. Release
+# checks must cover this repository's owned CMS packages, not dependency source.
+for package_manifest in \
+    modules/cms-*/composer.json \
+    modules/module-cms-*-api/composer.json \
+    modules/module-cms-*-filament/composer.json \
+    modules/module-cms-*-livewire/composer.json; do
     package_dir="${package_manifest%/*}"
 
     jq -e '.name | startswith("liberusoftware/module-")' "$package_manifest" >/dev/null
@@ -35,7 +41,8 @@ php artisan test \
     tests/Feature/Cms/EmbeddabilityTest.php
 
 echo '== Full release-scope tests and coverage =='
-XDEBUG_MODE=coverage php -d memory_limit=-1 artisan test \
+XDEBUG_MODE=coverage php -d memory_limit=1G vendor/bin/pest \
+    --configuration=phpunit.xml \
     --coverage-clover=coverage.xml \
     --min=100
 

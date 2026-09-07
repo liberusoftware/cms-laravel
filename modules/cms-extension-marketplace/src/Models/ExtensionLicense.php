@@ -11,8 +11,10 @@ final class ExtensionLicense extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_extension_licenses';
 
+    #[\Override]
     protected $fillable = ['listing_id', 'license_key', 'subject_type', 'subject_id', 'status', 'starts_at', 'ends_at'];
 
     protected function casts(): array

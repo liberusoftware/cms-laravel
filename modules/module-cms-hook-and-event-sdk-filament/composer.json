@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-hook-and-event-sdk-filament",
+    "description": "Filament adapter for the Liberu CMS Hook and Event SDK.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-hook-and-event-sdk": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\HookAndEventSdkFilament\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-hook-and-event-sdk-filament"}, "laravel": {"providers": ["Liberu\\Cms\\HookAndEventSdkFilament\\HookAndEventSdkFilamentServiceProvider"]}}
+}

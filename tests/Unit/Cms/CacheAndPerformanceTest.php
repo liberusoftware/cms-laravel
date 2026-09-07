@@ -12,8 +12,8 @@ uses(RefreshDatabase::class);
 it('warms a tagged cache entry, records diagnostics, and invalidates it idempotently', function (): void {
     Cache::flush();
     $service = app(CacheAndPerformanceService::class);
-    $first = $service->remember(8, 'page:home', 'page', 60, fn () => ['html' => 'home'], ['site:8', 'page']);
-    $second = $service->remember(8, 'page:home', 'page', 60, fn () => ['html' => 'changed'], ['site:8', 'page']);
+    $first = $service->remember(8, 'page:home', 'page', 60, fn (): array => ['html' => 'home'], ['site:8', 'page']);
+    $second = $service->remember(8, 'page:home', 'page', 60, fn (): array => ['html' => 'changed'], ['site:8', 'page']);
     $invalidation = $service->invalidate(8, ['site:8'], [], 'invalidate-1');
     $same = $service->invalidate(8, ['site:8'], [], 'invalidate-1');
 
@@ -22,6 +22,6 @@ it('warms a tagged cache entry, records diagnostics, and invalidates it idempote
 
 it('validates cache contracts', function (): void {
     $service = app(CacheAndPerformanceService::class);
-    expect(fn () => $service->remember(8, '', 'page', 60, fn () => 'x'))->toThrow(ValidationException::class)
+    expect(fn () => $service->remember(8, '', 'page', 60, fn (): string => 'x'))->toThrow(ValidationException::class)
         ->and(fn () => $service->invalidate(8, [], [], 'x'))->toThrow(ValidationException::class);
 });

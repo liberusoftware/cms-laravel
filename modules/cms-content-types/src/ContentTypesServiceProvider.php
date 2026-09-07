@@ -8,10 +8,6 @@ use Liberu\Cms\ContentTypes\Actions\ContentEntryMutationService;
 use Liberu\Cms\ContentTypes\Contracts\ContentEntryRepositoryInterface;
 use Liberu\Cms\ContentTypes\Fields\DefaultFieldTypes;
 use Liberu\Cms\ContentTypes\Fields\FieldTypeRegistry;
-use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
-use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
-use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryApiController;
-use Liberu\Cms\ContentTypes\Http\Controllers\ContentEntryWriteController;
 use Liberu\Cms\ContentTypes\Models\ContentEntry;
 use Liberu\Cms\ContentTypes\Preview\ContentEntryPreviewSource;
 use Liberu\Cms\ContentTypes\Queries\FieldSchemaQuery;
@@ -23,10 +19,7 @@ use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
 use Liberu\Cms\Contracts\Admin\AdminDashboardRegistryInterface;
-use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Admin\DashboardStat;
-use Liberu\Cms\Contracts\Api\ApiEndpoint;
-use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 use Liberu\Cms\Contracts\Module\ModuleInterface;
 use Liberu\Cms\Contracts\Preview\PreviewRegistryInterface;
@@ -51,21 +44,6 @@ final class ContentTypesServiceProvider extends ModuleServiceProvider
         $this->app->singleton(SchemaValidator::class);
         $this->app->singleton(FieldSchemaQuery::class);
         $this->app->singleton(PublishedEntityQuery::class);
-
-        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
-            $registry = $this->app->make(AdminResourceRegistryInterface::class);
-            $registry->registerResource('content-types', ContentTypeResource::class);
-            $registry->registerResource('content-types', ContentEntryResource::class);
-        }
-
-        if ($this->app->bound(ApiResourceRegistryInterface::class)) {
-            $registry = $this->app->make(ApiResourceRegistryInterface::class);
-            $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}', ContentEntryApiController::class, 'index', 'content.index'));
-            $registry->registerEndpoint('content-types', new ApiEndpoint('content/{type}/{slug}', ContentEntryApiController::class, 'show', 'content.show'));
-            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries', ContentEntryWriteController::class, 'store', 'content-entries.store', 'POST', ['abilities:content:write']));
-            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'update', 'content-entries.update', 'PUT', ['abilities:content:write']));
-            $registry->registerEndpoint('content-types', new ApiEndpoint('content-entries/{id}', ContentEntryWriteController::class, 'destroy', 'content-entries.destroy', 'DELETE', ['abilities:content:write']));
-        }
 
         if ($this->app->bound(PreviewRegistryInterface::class)) {
             $this->app->make(PreviewRegistryInterface::class)

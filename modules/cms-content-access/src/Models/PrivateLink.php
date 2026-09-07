@@ -5,8 +5,15 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentAccess\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property Carbon $expires_at
+ * @property Carbon|null $revoked_at
+ * @property int $uses
+ * @property int|null $max_uses
+ */
 final class PrivateLink extends Model
 {
     use HasTenant;

@@ -81,6 +81,7 @@ class User extends Authenticatable implements FilamentUser, HasPasskeys, HasTena
     {
         return [
             'email_verified_at' => 'datetime',
+            'setup_completed_at' => 'datetime',
         ];
     }
 

@@ -1,0 +1,10 @@
+{
+    "name": "liberusoftware/module-cms-hook-and-event-sdk-livewire",
+    "description": "Livewire adapter for the Liberu CMS Hook and Event SDK.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-hook-and-event-sdk": "^0.1"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\HookAndEventSdkLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-hook-and-event-sdk-livewire"}, "laravel": {"providers": ["Liberu\\Cms\\HookAndEventSdkLivewire\\HookAndEventSdkLivewireServiceProvider"]}}
+}

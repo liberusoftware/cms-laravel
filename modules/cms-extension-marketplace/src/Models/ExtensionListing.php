@@ -13,8 +13,10 @@ final class ExtensionListing extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_extension_listings';
 
+    #[\Override]
     protected $fillable = ['publisher_id', 'category_id', 'key', 'name', 'description', 'license', 'status', 'security_status', 'metadata', 'team_id'];
 
     protected function casts(): array

@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 
 final class CopilotRequestResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'cms-copilot-requests';
 
     public static function form(Schema $schema): Schema

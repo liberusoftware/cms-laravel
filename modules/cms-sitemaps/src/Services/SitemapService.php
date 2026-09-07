@@ -9,9 +9,9 @@ use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Contracts\Tenancy\TenantContextInterface;
 use Liberu\Cms\Sitemaps\Models\SitemapEntry;
 
-final class SitemapService
+final readonly class SitemapService
 {
-    public function __construct(private readonly TenantContextInterface $tenant) {}
+    public function __construct(private TenantContextInterface $tenant) {}
 
     public function add(string $url, ?int $siteId = null, string $type = 'web', ?string $locale = null, float $priority = .5, array $extensions = [], ?int $teamId = null): SitemapEntry
     {

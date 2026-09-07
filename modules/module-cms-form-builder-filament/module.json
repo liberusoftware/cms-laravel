@@ -1,0 +1,1 @@
+{"name":"module-cms-form-builder-filament","title":"Form Builder Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\FormBuilderFilament\\FormBuilderFilamentServiceProvider"],"package":"liberusoftware/module-cms-form-builder-filament"}

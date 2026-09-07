@@ -16,8 +16,10 @@ use Liberu\Cms\EventsContent\Models\Event;
 
 final class EventResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Event::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-events-content';
 
     public static function form(Schema $schema): Schema

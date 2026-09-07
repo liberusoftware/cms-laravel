@@ -5,7 +5,9 @@ declare(strict_types=1);
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\Metadata\Services\MetadataService;
+use Tests\TestCase;
 
+uses(TestCase::class);
 uses(RefreshDatabase::class);
 
 it('stores, reads, replaces, and removes tenant-scoped metadata', function (): void {

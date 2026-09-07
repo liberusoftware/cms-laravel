@@ -1,0 +1,12 @@
+{
+    "name": "liberusoftware/module-cms-media-library-livewire",
+    "description": "Livewire presentation adapter for the CMS Media Library.",
+    "type": "liberu-module",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {"php": "^8.5", "liberusoftware/module-cms-media-library": "^0.1", "livewire/livewire": "^4.0"},
+    "autoload": {"psr-4": {"Liberu\\Cms\\MediaLibraryLivewire\\": "src/"}},
+    "extra": {"liberu": {"name": "module-cms-media-library-livewire", "core": "liberusoftware/module-cms-media-library"}, "laravel": {"providers": ["Liberu\\Cms\\MediaLibraryLivewire\\MediaLibraryLivewireServiceProvider"]}},
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -13,9 +13,13 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CategoryResource extends Resource
 {
+    #[\Override]
+    protected static string|UnitEnum|null $navigationGroup = 'Structure';
+
     #[\Override]
     protected static ?string $model = Category::class;
 

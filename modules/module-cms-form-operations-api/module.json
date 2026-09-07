@@ -1,0 +1,1 @@
+{"name":"module-cms-form-operations-api","description":"HTTP API adapter for CMS Form Operations.","version":"0.1.0","enabled":true,"dependencies":["module-cms-form-operations"],"package":"liberusoftware/module-cms-form-operations-api"}

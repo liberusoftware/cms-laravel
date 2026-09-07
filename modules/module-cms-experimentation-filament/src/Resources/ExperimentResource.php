@@ -15,8 +15,10 @@ use Liberu\Cms\Experimentation\Models\Experiment;
 
 final class ExperimentResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = Experiment::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-experimentation';
 
     public static function form(Schema $schema): Schema

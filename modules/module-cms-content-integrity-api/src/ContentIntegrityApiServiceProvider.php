@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentIntegrityApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\ContentIntegrityApi\Http\ContentIntegrityController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class ContentIntegrityApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/content-integrity')->middleware('api')->group(function (): void {
-            Route::get('findings', [ContentIntegrityController::class, 'index'])->name('cms.content-integrity.findings.index');
-            Route::post('scans', [ContentIntegrityController::class, 'scan'])->name('cms.content-integrity.scans.store');
-            Route::post('scans/{scan}/findings', [ContentIntegrityController::class, 'finding'])->name('cms.content-integrity.findings.store');
-            Route::post('findings/{finding}/resolve', [ContentIntegrityController::class, 'resolve'])->name('cms.content-integrity.findings.resolve');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('content-integrity-api', new ApiEndpoint('cms/content-integrity/findings', ContentIntegrityController::class, 'index', 'cms.content-integrity.findings.index'));
+        $registry->registerEndpoint('content-integrity-api', new ApiEndpoint('cms/content-integrity/scans', ContentIntegrityController::class, 'scan', 'cms.content-integrity.scans.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-integrity-api', new ApiEndpoint('cms/content-integrity/scans/{scan}/findings', ContentIntegrityController::class, 'finding', 'cms.content-integrity.findings.store', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-integrity-api', new ApiEndpoint('cms/content-integrity/findings/{finding}/resolve', ContentIntegrityController::class, 'resolve', 'cms.content-integrity.findings.resolve', 'POST', ['abilities:content:write']));
     }
 }

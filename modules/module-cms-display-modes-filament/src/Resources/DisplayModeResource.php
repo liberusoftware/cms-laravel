@@ -16,6 +16,6 @@ final class DisplayModeResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('content_type'), TextColumn::make('mode_type'), TextColumn::make('active')->boolean()]);
+        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('content_type'), TextColumn::make('mode_type'), TextColumn::make('active')]);
     }
 }
