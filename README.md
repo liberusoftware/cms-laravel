@@ -44,7 +44,7 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 
 6. **Menu Builder:** Easily create and manage navigation menus across your site using the integrated Filament Menu Builder.
 
-7. **Scalability and Performance:** Suitable for personal blogs through to enterprise-scale websites. The modern Laravel 12 foundation ensures excellent performance and reliability.
+7. **Scalability and Performance:** Suitable for personal blogs through to enterprise-scale websites. The modern Laravel 13 foundation ensures excellent performance and reliability.
 
 8. **Docker & Laravel Sail Support:** Spin up a full development environment in minutes using Docker or Laravel Sail.
 
@@ -62,6 +62,17 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 * [Maintenance](https://github.com/liberu-maintenance/maintenance-laravel)
 * [Real Estate](https://github.com/liberu-real-estate/real-estate-laravel)
 * [Social Network](https://github.com/liberu-social-network/social-network-laravel)
+
+## Documentation
+
+- [Content architecture](docs/CONTENT_ARCHITECTURE.md)
+- [Extension API](docs/EXTENSION-API.md)
+- [Build your first extension](docs/BUILD-YOUR-FIRST-EXTENSION.md)
+- [Performance](docs/PERFORMANCE.md)
+- [Production checklist](docs/PRODUCTION-CHECKLIST.md)
+- [Stack](docs/STACK.md)
+- [Packages](docs/PACKAGES.md)
+- [Conformance](docs/CONFORMANCE.md)
 
 ## Installation
 
