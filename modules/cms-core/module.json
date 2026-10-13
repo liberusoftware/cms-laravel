@@ -2,11 +2,7 @@
     "name": "module-cms-core",
     "package": "liberusoftware/module-cms-core",
     "version": "0.1.0",
-    "layers": [
-        "core",
-        "api",
-        "filament"
-    ],
+    "layers": ["core"],
     "service_providers": [
         "Liberu\\Cms\\Core\\CmsCoreServiceProvider"
     ]

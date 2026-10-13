@@ -13,6 +13,6 @@ final class InsightQueue extends Component
 
     public function render(): mixed
     {
-        return view('module-cms-content-intelligence::insight-queue', ['insights' => app(ContentIntelligenceService::class)->insights(auth()->user()?->current_team_id, $this->metric, 'open')]);
+        return view()->make('module-cms-content-intelligence::insight-queue', ['insights' => app(ContentIntelligenceService::class)->insights(auth()->user()?->current_team_id, $this->metric, 'open')]);
     }
 }

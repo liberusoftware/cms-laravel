@@ -1,1 +1,1 @@
-{"name":"module-cms-contact-directory-filament","description":"Contact Directory Filament surface.","provider":"Liberu\\Cms\\ContactDirectoryFilament\\ContactDirectoryFilamentServiceProvider","version":"0.1.0"}
+{"name":"module-cms-contact-directory-filament","description":"Contact Directory Filament surface.","provider":"Liberu\\Cms\\ContactDirectoryFilament\\ContactDirectoryFilamentServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-contact-directory-filament"}

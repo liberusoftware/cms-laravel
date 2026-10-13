@@ -7,6 +7,13 @@ namespace Liberu\Cms\CacheAndPerformance\Models;
 use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property string $cache_key
+ * @property string $status
+ * @property int $hits
+ * @property int $misses
+ * @property array<int, string>|null $tags
+ */
 final class CacheEntry extends Model
 {
     use HasTenant;

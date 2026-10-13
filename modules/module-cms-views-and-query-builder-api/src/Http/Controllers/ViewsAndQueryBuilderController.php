@@ -6,6 +6,7 @@ namespace Liberu\Cms\ViewsAndQueryBuilderApi\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Liberu\Cms\ViewsAndQueryBuilder\Models\ViewDefinition;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ListingQueryService;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ViewDefinitionQuery;
 use Liberu\Cms\ViewsAndQueryBuilderApi\Http\Resources\ListingRecordResource;
@@ -24,7 +25,7 @@ final readonly class ViewsAndQueryBuilderController
     public function show(string $slug): ViewDefinitionResource
     {
         $view = $this->views->findPublished($slug);
-        if (! $view) {
+        if (! $view instanceof ViewDefinition) {
             throw new NotFoundHttpException;
         }
 
@@ -34,7 +35,7 @@ final readonly class ViewsAndQueryBuilderController
     public function execute(Request $request, string $slug): AnonymousResourceCollection
     {
         $view = $this->views->findPublished($slug);
-        if (! $view) {
+        if (! $view instanceof ViewDefinition) {
             throw new NotFoundHttpException;
         }
 

@@ -1,10 +1,9 @@
 {
-    "name": "module-cms-media",
-    "package": "liberusoftware/module-cms-media",
+    "name": "module-cms-media-library",
+    "package": "liberusoftware/module-cms-media-library",
     "version": "0.1.0",
     "layers": [
-        "core",
-        "filament"
+        "core"
     ],
     "service_providers": [
         "Liberu\\Cms\\Media\\MediaServiceProvider"

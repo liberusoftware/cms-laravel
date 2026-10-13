@@ -1,6 +1,6 @@
 {
-    "name": "module-cms-menus",
-    "package": "liberusoftware/module-cms-menus",
+    "name": "module-cms-navigation",
+    "package": "liberusoftware/module-cms-navigation",
     "version": "0.1.0",
     "layers": [
         "core",

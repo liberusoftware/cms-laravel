@@ -8,6 +8,9 @@ interface CopilotHandlerInterface
 {
     public function capability(): string;
 
-    /** @return array<string, mixed> */
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
     public function handle(string $prompt, array $input): array;
 }

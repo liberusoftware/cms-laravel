@@ -13,6 +13,6 @@ final class IntegrityReport extends Component
 
     public function render(): mixed
     {
-        return view('module-cms-content-integrity::integrity-report', ['findings' => app(ContentIntegrityService::class)->findings(auth()->user()?->current_team_id, $this->status)]);
+        return view()->make('module-cms-content-integrity::integrity-report', ['findings' => app(ContentIntegrityService::class)->findings(auth()->user()?->current_team_id, $this->status)]);
     }
 }

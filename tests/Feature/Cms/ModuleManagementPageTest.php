@@ -118,5 +118,5 @@ it('falls back to the default navigation group for invalid configuration', funct
     actingAsModuleAdmin();
     config()->set('cms-admin.navigation_group', ['invalid']);
 
-    expect(ModuleManagement::getNavigationGroup())->toBe('CMS');
+    expect(ModuleManagement::getNavigationGroup())->toBe('Administration');
 });

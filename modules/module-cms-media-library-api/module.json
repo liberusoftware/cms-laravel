@@ -1,0 +1,7 @@
+{
+    "name": "module-cms-media-library-api",
+    "package": "liberusoftware/module-cms-media-library-api",
+    "version": "0.1.0",
+    "layers": ["api"],
+    "service_providers": ["Liberu\\Cms\\MediaLibraryApi\\MediaLibraryApiServiceProvider"]
+}

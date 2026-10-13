@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\Core\Actions\CoreMutationService;
 use Liberu\Cms\Core\Models\Channel;
+use Liberu\Cms\Core\Models\ContentAlias;
 use Liberu\Cms\Core\Models\Site;
 use Liberu\Cms\Core\Queries\CoreQueryService;
 use Liberu\Cms\CoreApi\Http\Resources\CoreAliasResource;
@@ -61,7 +62,7 @@ final readonly class CoreApiController
     public function site(string $site): CoreSiteResource
     {
         $record = $this->queries->site($site);
-        if (! $record) {
+        if (! $record instanceof Site) {
             throw new NotFoundHttpException;
         }
 
@@ -82,7 +83,7 @@ final readonly class CoreApiController
     public function alias(string $site, string $alias): CoreAliasResource
     {
         $record = $this->queries->alias($site, $alias);
-        if (! $record) {
+        if (! $record instanceof ContentAlias) {
             throw new NotFoundHttpException;
         }
 

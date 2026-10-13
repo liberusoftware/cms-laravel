@@ -7,14 +7,17 @@
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
-    <testsuite name="Modules">
-            <directory suffix="Test.php">./modules/*/tests</directory>
+        <testsuite name="Modules">
+            <directory suffix="Test.php">./modules/cms-*/tests</directory>
         </testsuite>
     </testsuites>
     <source>
         <include>
             <directory>app</directory>
-            <directory>modules/*/src</directory>
+            <directory>modules/cms-*/src</directory>
+            <directory>modules/module-cms-*-api/src</directory>
+            <directory>modules/module-cms-*-filament/src</directory>
+            <directory>modules/module-cms-*-livewire/src</directory>
         </include>
     </source>
     <php>

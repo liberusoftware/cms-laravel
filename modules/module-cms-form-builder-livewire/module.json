@@ -1,0 +1,1 @@
+{"name":"module-cms-form-builder-livewire","title":"Form Builder Livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\FormBuilderLivewire\\FormBuilderLivewireServiceProvider"],"package":"liberusoftware/module-cms-form-builder-livewire"}

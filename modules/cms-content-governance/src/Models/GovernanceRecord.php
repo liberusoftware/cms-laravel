@@ -7,6 +7,11 @@ namespace Liberu\Cms\ContentGovernance\Models;
 use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int|null $team_id
+ * @property bool $legal_hold
+ * @property array<int, array<string, mixed>>|null $evidence
+ */
 final class GovernanceRecord extends Model
 {
     use HasTenant;

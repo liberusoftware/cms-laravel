@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\CacheAndPerformanceApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\CacheAndPerformanceApi\Http\CacheAndPerformanceController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class CacheAndPerformanceApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/cache-and-performance')->middleware('api')->group(function (): void {
-            Route::post('remember', [CacheAndPerformanceController::class, 'remember'])->name('cms.cache-and-performance.remember');
-            Route::post('invalidate', [CacheAndPerformanceController::class, 'invalidate'])->name('cms.cache-and-performance.invalidate');
-            Route::get('diagnostics', [CacheAndPerformanceController::class, 'diagnostics'])->name('cms.cache-and-performance.diagnostics');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('cache-and-performance-api', new ApiEndpoint('cms/cache-and-performance/remember', CacheAndPerformanceController::class, 'remember', 'cms.cache-and-performance.remember', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('cache-and-performance-api', new ApiEndpoint('cms/cache-and-performance/invalidate', CacheAndPerformanceController::class, 'invalidate', 'cms.cache-and-performance.invalidate', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('cache-and-performance-api', new ApiEndpoint('cms/cache-and-performance/diagnostics', CacheAndPerformanceController::class, 'diagnostics', 'cms.cache-and-performance.diagnostics'));
     }
 }

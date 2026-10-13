@@ -25,7 +25,7 @@ final readonly class WebDeliveryController
     public function show(string $path): DeliveryRouteResource
     {
         $route = $this->routes->find($path);
-        if (! $route) {
+        if (! $route instanceof DeliveryRoute) {
             throw new NotFoundHttpException;
         }
 

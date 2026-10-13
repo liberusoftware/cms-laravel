@@ -37,7 +37,7 @@ final class ApiTokenResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedKey;
 
     #[\Override]
-    protected static string|UnitEnum|null $navigationGroup = 'CMS';
+    protected static string|UnitEnum|null $navigationGroup = 'Developer tools';
 
     #[\Override]
     protected static ?string $slug = 'cms-api-tokens';

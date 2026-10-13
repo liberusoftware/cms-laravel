@@ -5,9 +5,9 @@ declare(strict_types=1);
 use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Liberu\Cms\Admin\AdminResourceRegistry;
-use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentBundleResource;
 use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
-use Liberu\Cms\Media\Filament\MediaResource;
+use Liberu\Cms\MediaLibraryFilament\Resources\MediaResource;
 use Liberu\Cms\Menus\Filament\MenuItemResource;
 use Liberu\Cms\Menus\Filament\MenuResource;
 use Liberu\Cms\Pages\Filament\PageResource;
@@ -34,11 +34,11 @@ it('collects each content module resource into the shared registry', function ()
     $registry = app(AdminResourceRegistryInterface::class)->resources();
 
     expect($registry)
-        ->toHaveKeys(['pages', 'posts', 'media', 'content-types'])
+        ->toHaveKeys(['pages', 'posts', 'media-library', 'content-entities'])
         ->and($registry['pages'])->toContain(PageResource::class)
         ->and($registry['posts'])->toContain(PostResource::class)
-        ->and($registry['media'])->toContain(MediaResource::class)
-        ->and($registry['content-types'])->toContain(ContentTypeResource::class);
+        ->and($registry['media-library'])->toContain(MediaResource::class)
+        ->and($registry['content-entities'])->toContain(ContentBundleResource::class);
 });
 
 it('registers every module resource onto the panel', function (): void {
@@ -48,7 +48,7 @@ it('registers every module resource onto the panel', function (): void {
         ->toContain(PageResource::class)
         ->toContain(PostResource::class)
         ->toContain(MediaResource::class)
-        ->toContain(ContentTypeResource::class)
+        ->toContain(ContentBundleResource::class)
         ->toContain(MenuResource::class)
         ->toContain(MenuItemResource::class);
 });

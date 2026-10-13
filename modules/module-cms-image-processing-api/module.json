@@ -1,0 +1,1 @@
+{"name":"module-cms-image-processing-api","title":"Image Processing API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\ImageProcessingApi\\ImageProcessingApiServiceProvider"],"package":"liberusoftware/module-cms-image-processing-api"}

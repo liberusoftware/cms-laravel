@@ -8,11 +8,9 @@ use Illuminate\Auth\Events\Failed;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Events\Dispatcher;
-use Liberu\Cms\Audit\Filament\AuditLogResource;
 use Liberu\Cms\Contracts\Access\AccessScope;
 use Liberu\Cms\Contracts\Access\PermissionGroup;
 use Liberu\Cms\Contracts\Access\PermissionRegistrarInterface;
-use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Liberu\Cms\Contracts\Events\Content\ContentPublished;
 use Liberu\Cms\Contracts\Events\Content\ContentStateChanged;
 use Liberu\Cms\Contracts\Events\EventBusInterface;
@@ -37,10 +35,6 @@ final class CmsAuditServiceProvider extends ModuleServiceProvider
         $this->app->singleton(AuditLogger::class);
         $this->app->singleton(AuditSubscriber::class);
 
-        if ($this->app->bound(AdminResourceRegistryInterface::class)) {
-            $this->app->make(AdminResourceRegistryInterface::class)
-                ->registerResource('audit', AuditLogResource::class);
-        }
     }
 
     protected function bootModule(): void

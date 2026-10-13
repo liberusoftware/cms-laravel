@@ -7,11 +7,11 @@
     "require": {
         "php": "^8.5",
         "livewire/livewire": "^4.0",
-        "liberusoftware/module-cms-content-types": "^0.1"
+        "liberusoftware/module-cms-content-entities": "^0.1"
     },
     "autoload": {"psr-4": {"Liberu\\Cms\\FieldSystemLivewire\\": "src/"}},
     "extra": {
-        "liberu": {"name": "module-cms-field-system-livewire", "core": "liberusoftware/module-cms-content-types"},
+        "liberu": {"name": "module-cms-field-system-livewire", "core": "liberusoftware/module-cms-content-entities"},
         "laravel": {"providers": ["Liberu\\Cms\\FieldSystemLivewire\\FieldSystemLivewireServiceProvider"]}
     }
 }

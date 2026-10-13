@@ -15,8 +15,10 @@ use Liberu\Cms\ExtensionMarketplace\Models\ExtensionListing;
 
 final class ExtensionListingResource extends Resource
 {
+    #[\Override]
     protected static ?string $model = ExtensionListing::class;
 
+    #[\Override]
     protected static ?string $slug = 'cms-extension-marketplace';
 
     public static function form(Schema $schema): Schema

@@ -34,7 +34,7 @@ class WidgetOverview extends Page
     #[\Override]
     public static function getNavigationGroup(): string|UnitEnum|null
     {
-        return 'CMS';
+        return 'Experience';
     }
 
     /**

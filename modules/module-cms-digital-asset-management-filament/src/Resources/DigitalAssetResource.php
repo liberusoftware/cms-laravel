@@ -16,6 +16,6 @@ final class DigitalAssetResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('asset_type'), TextColumn::make('license'), TextColumn::make('status'), TextColumn::make('approved')->boolean(), TextColumn::make('expires_at')->dateTime()]);
+        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('asset_type'), TextColumn::make('license'), TextColumn::make('status'), TextColumn::make('approved'), TextColumn::make('expires_at')->dateTime()]);
     }
 }

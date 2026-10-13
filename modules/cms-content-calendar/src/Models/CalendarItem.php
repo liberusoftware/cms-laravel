@@ -5,8 +5,16 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentCalendar\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property int|null $team_id
+ * @property string|null $channel
+ * @property string|null $site
+ * @property Carbon $starts_at
+ * @property Carbon|null $deadline_at
+ */
 final class CalendarItem extends Model
 {
     use HasTenant;

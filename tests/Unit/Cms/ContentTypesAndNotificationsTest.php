@@ -47,7 +47,7 @@ it('maps content entry search hits with and without a loaded content type', func
     $repository = Mockery::mock(ContentEntryRepositoryInterface::class);
     $repository->expects('search')->once()->andReturn([$withType, $withoutType]);
 
-    $results = iterator_to_array((new ContentEntrySearchSource($repository))->search('search'));
+    $results = iterator_to_array(new ContentEntrySearchSource($repository)->search('search'));
 
     expect($results[0]->type)->toBe('portfolio')
         ->and($results[0]->score)->toBe(2.0)

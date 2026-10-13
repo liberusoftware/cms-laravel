@@ -6,6 +6,7 @@ namespace Liberu\Cms\FieldSystem\Services;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\Contracts\Fields\FieldTypeDefinition;
 use Liberu\Cms\Contracts\Fields\FieldTypeRegistryInterface;
 use Liberu\Cms\FieldSystem\Models\FieldSchema;
 
@@ -56,7 +57,7 @@ final readonly class FieldSystemService
             }
             $values = ($field['cardinality'] ?? 'one') === 'many' ? ($value ?? []) : [$value];
             foreach ($values as $item) {
-                if ($item !== null && $this->types->get((string) ($field['type'] ?? ''))?->matches && ! ($this->types->get((string) $field['type'])->matches)($item)) {
+                if ($item !== null && $this->types->get((string) ($field['type'] ?? ''))?->matches instanceof \Closure && ! ($this->types->get((string) $field['type'])->matches)($item)) {
                     throw ValidationException::withMessages([$name => 'The field value has the wrong type.']);
                 }
             }
@@ -76,7 +77,7 @@ final readonly class FieldSystemService
                 throw ValidationException::withMessages(['fields' => 'Field names must be unique lowercase identifiers.']);
             }
             $names[$field['name']] = true;
-            if (! $this->types->get((string) ($field['type'] ?? ''))) {
+            if (! $this->types->get((string) ($field['type'] ?? '')) instanceof FieldTypeDefinition) {
                 throw ValidationException::withMessages(['fields' => 'Every field type must be registered.']);
             }
             if (! in_array($field['cardinality'] ?? 'one', ['one', 'many'], true)) {

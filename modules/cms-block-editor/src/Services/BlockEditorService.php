@@ -15,6 +15,7 @@ final readonly class BlockEditorService
 {
     public function __construct(private BlockTypeRegistry $registry, private BlockRenderer $renderer) {}
 
+    /** @param array<mixed, mixed> $blocks */
     public function save(?int $teamId, string $subjectType, string $subjectId, array $blocks, ?int $expectedVersion = null): BlockDocument
     {
         $this->validateTree($blocks);
@@ -27,12 +28,13 @@ final readonly class BlockEditorService
             if ($document && $expectedVersion !== null && $document->version !== $expectedVersion) {
                 throw ValidationException::withMessages(['version' => 'The block document changed since it was loaded.']);
             }
-            $version = ($document?->version ?? 0) + 1;
+            $version = ($document ? $document->version : 0) + 1;
 
             return BlockDocument::query()->updateOrCreate(['team_id' => $teamId, 'subject_type' => $subjectType, 'subject_id' => $subjectId], ['blocks' => $blocks, 'version' => $version, 'preview_html' => $this->renderer->renderMany($blocks)]);
         });
     }
 
+    /** @param array<mixed, mixed> $blocks */
     public function createPattern(?int $teamId, string $name, array $blocks, bool $reusable = true): BlockPattern
     {
         $this->validateTree($blocks);
@@ -47,9 +49,15 @@ final readonly class BlockEditorService
     {
         $document->update(['locked' => $locked]);
 
-        return $document->fresh();
+        $fresh = $document->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The block document could not be refreshed.');
+        }
+
+        return $fresh;
     }
 
+    /** @param array<mixed, mixed> $blocks */
     private function validateTree(array $blocks, int $depth = 0): void
     {
         if ($depth > 32) {

@@ -19,6 +19,6 @@ final class ContactResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('department'), TextColumn::make('email'), TextColumn::make('is_public')->boolean()]);
+        return $table->columns([TextColumn::make('name')->searchable(), TextColumn::make('department'), TextColumn::make('email'), TextColumn::make('is_public')]);
     }
 }

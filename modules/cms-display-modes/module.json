@@ -1,1 +1,1 @@
-{"name":"cms-display-modes","description":"Configurable content display modes and API projections.","provider":"Liberu\\Cms\\DisplayModes\\DisplayModesServiceProvider","version":"0.1.0"}
+{"name":"cms-display-modes","description":"Configurable content display modes and API projections.","provider":"Liberu\\Cms\\DisplayModes\\DisplayModesServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-display-modes"}

@@ -3,3 +3,26 @@
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
 @source '../../../../vendor/biostate/filament-menu-builder/resources/views/**/*';
+
+/* Keep long module catalogues scannable: groups are landmarks, links are calm. */
+.fi-sidebar-group-label {
+    letter-spacing: .055em;
+    text-transform: uppercase;
+    font-size: .6875rem;
+    font-weight: 700;
+}
+
+.fi-sidebar-item-button {
+    border-radius: .75rem;
+    transition: background-color .15s ease, color .15s ease, transform .15s ease;
+}
+
+.fi-sidebar-item-button:hover {
+    transform: translateX(2px);
+}
+
+.fi-sidebar-group + .fi-sidebar-group {
+    margin-top: .35rem;
+    padding-top: .35rem;
+    border-top: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}

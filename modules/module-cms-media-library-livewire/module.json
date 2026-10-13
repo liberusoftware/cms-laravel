@@ -1,0 +1,1 @@
+{"name":"module-cms-media-library-livewire","package":"liberusoftware/module-cms-media-library-livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\MediaLibraryLivewire\\MediaLibraryLivewireServiceProvider"]}

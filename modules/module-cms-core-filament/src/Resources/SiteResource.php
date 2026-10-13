@@ -55,7 +55,10 @@ final class SiteResource extends Resource
             TextColumn::make('domain')->searchable(),
             TextColumn::make('channels_count')->counts('channels'),
         ])->defaultSort('name')->recordActions([
-            EditAction::make()->using(fn (Site $record, array $data): Site => app(CoreMutationService::class)->updateSite($record, $data)),
+            EditAction::make()->using(
+                /** @param array<string, mixed> $data */
+                fn (Site $record, array $data): Site => app(CoreMutationService::class)->updateSite($record, $data),
+            ),
             DeleteAction::make()->using(function (Site $record): void {
                 app(CoreMutationService::class)->deleteSite($record);
             }),

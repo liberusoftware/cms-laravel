@@ -8,7 +8,10 @@ use Illuminate\Validation\ValidationException;
 
 final class AccessibilityAssistantService
 {
-    /** @return array<int, array{code:string, severity:string, message:string}> */
+    /**
+     * @param  array<int, string>  $exceptions
+     * @return array<int, array{code:string, severity:string, message:string}>
+     */
     public function analyze(string $html, array $exceptions = []): array
     {
         if (trim($html) === '') {
@@ -26,7 +29,10 @@ final class AccessibilityAssistantService
         return $findings;
     }
 
-    /** @param array<int, array{code:string, severity:string, message:string}> $findings */
+    /**
+     * @param  array<int, array{code:string, severity:string, message:string}>  $findings
+     * @param  array<int, string>  $exceptions
+     */
     private function finding(array &$findings, string $code, string $severity, string $message, bool $failed, array $exceptions): void
     {
         if ($failed && ! in_array($code, $exceptions, true)) {

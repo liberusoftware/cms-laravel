@@ -1,10 +1,10 @@
-# cms-content-types
+# cms-content-entities
 
 ## Repository
 
-Source, issues, and release history: https://github.com/liberusoftware/module-cms-content-types
+Source, issues, and release history: https://github.com/liberusoftware/module-cms-content-entities
 
-Composer package: https://packagist.org/packages/liberusoftware/module-cms-content-types
+Composer package: https://packagist.org/packages/liberusoftware/module-cms-content-entities
 
 Custom content types for Liberu CMS — define your own content shapes (portfolio
 items, products, case studies, docs) with a JSON field schema, then create

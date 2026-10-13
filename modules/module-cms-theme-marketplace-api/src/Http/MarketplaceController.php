@@ -27,7 +27,7 @@ final class MarketplaceController
     public function show(string $key, ThemeMarketplaceQuery $themes): MarketplaceThemeResource
     {
         $theme = $themes->find($key);
-        if (! $theme || $theme->status !== 'published' || $theme->security_status !== 'approved') {
+        if (! $theme instanceof MarketplaceTheme || $theme->status !== 'published' || $theme->security_status !== 'approved') {
             throw new NotFoundHttpException;
         }
 
@@ -44,7 +44,7 @@ final class MarketplaceController
     public function install(Request $request, string $key, ThemeMarketplaceQuery $themes, ThemeMarketplaceService $service): ThemeInstallationResource
     {
         $theme = $themes->find($key, $request->input('version'));
-        if (! $theme) {
+        if (! $theme instanceof MarketplaceTheme) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['site_key' => ['required', 'string', 'max:255'], 'cms_version' => ['required', 'string', 'max:64'], 'features' => ['sometimes', 'array']]);
@@ -55,7 +55,7 @@ final class MarketplaceController
     public function rate(Request $request, string $key, ThemeMarketplaceQuery $themes, ThemeMarketplaceService $service): MarketplaceThemeResource
     {
         $theme = $themes->find($key);
-        if (! $theme) {
+        if (! $theme instanceof MarketplaceTheme) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['reviewer_type' => ['required', 'string', 'max:100'], 'reviewer_id' => ['required', 'string', 'max:255'], 'rating' => ['required', 'integer', 'between:1,5'], 'review' => ['nullable', 'string', 'max:5000']]);
@@ -67,7 +67,7 @@ final class MarketplaceController
     public function security(Request $request, string $key, ThemeMarketplaceQuery $themes, ThemeMarketplaceService $service): MarketplaceThemeResource
     {
         $theme = $themes->find($key);
-        if (! $theme) {
+        if (! $theme instanceof MarketplaceTheme) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['security_status' => ['required', 'in:pending,approved,rejected']]);

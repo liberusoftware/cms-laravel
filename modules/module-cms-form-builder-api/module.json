@@ -1,0 +1,1 @@
+{"name":"module-cms-form-builder-api","title":"Form Builder API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\FormBuilderApi\\FormBuilderApiServiceProvider"],"package":"liberusoftware/module-cms-form-builder-api"}

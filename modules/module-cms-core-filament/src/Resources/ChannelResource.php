@@ -55,7 +55,10 @@ final class ChannelResource extends Resource
             TextColumn::make('site.name')->label('Site')->sortable(),
             TextColumn::make('type')->badge(),
         ])->defaultSort('name')->recordActions([
-            EditAction::make()->using(fn (Channel $record, array $data): Channel => app(CoreMutationService::class)->updateChannel($record, $data)),
+            EditAction::make()->using(
+                /** @param array<string, mixed> $data */
+                fn (Channel $record, array $data): Channel => app(CoreMutationService::class)->updateChannel($record, $data),
+            ),
             DeleteAction::make()->using(function (Channel $record): void {
                 app(CoreMutationService::class)->deleteChannel($record);
             }),

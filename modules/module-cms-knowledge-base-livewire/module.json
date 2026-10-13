@@ -1,0 +1,1 @@
+{"name":"module-cms-knowledge-base-livewire","description":"Livewire adapter for the CMS Knowledge Base.","version":"0.1.0","enabled":true,"dependencies":["module-cms-knowledge-base"],"package":"liberusoftware/module-cms-knowledge-base-livewire"}

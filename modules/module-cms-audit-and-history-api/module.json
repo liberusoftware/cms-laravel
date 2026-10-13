@@ -1,0 +1,1 @@
+{"name":"module-cms-audit-and-history-api","package":"liberusoftware/module-cms-audit-and-history-api","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\AuditAndHistoryApi\\AuditAndHistoryApiServiceProvider"]}

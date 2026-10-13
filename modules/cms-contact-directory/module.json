@@ -1,1 +1,1 @@
-{"name":"cms-contact-directory","description":"People, locations, forms, protected fields, and directory views.","provider":"Liberu\\Cms\\ContactDirectory\\ContactDirectoryServiceProvider","version":"0.1.0"}
+{"name":"cms-contact-directory","description":"People, locations, forms, protected fields, and directory views.","provider":"Liberu\\Cms\\ContactDirectory\\ContactDirectoryServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-contact-directory"}

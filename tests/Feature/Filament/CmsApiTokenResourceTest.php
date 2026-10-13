@@ -113,7 +113,6 @@ it('handles token issuance when the panel has no API-capable tenant', function (
     Filament::setTenant(null);
 
     $method = new ReflectionMethod(ListApiTokens::class, 'getHeaderActions');
-    $method->setAccessible(true);
     $action = $method->invoke(app(ListApiTokens::class))[0];
 
     $action->getActionFunction()(['name' => 'orphan', 'write' => false]);

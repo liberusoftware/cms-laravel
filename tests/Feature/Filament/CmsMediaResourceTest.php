@@ -8,9 +8,9 @@ use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Liberu\Cms\Media\Filament\MediaResource;
-use Liberu\Cms\Media\Filament\Pages\ListMedia;
 use Liberu\Cms\Media\Models\Media;
+use Liberu\Cms\MediaLibraryFilament\Resources\MediaResource;
+use Liberu\Cms\MediaLibraryFilament\Resources\Pages\ListMedia;
 use Livewire\Livewire;
 
 uses(RefreshDatabase::class);

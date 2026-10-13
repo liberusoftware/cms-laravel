@@ -1,0 +1,4 @@
+{
+    "name":"liberusoftware/module-cms-knowledge-base","description":"Hierarchical, versioned knowledge-base articles for Liberu CMS.","type":"liberu-module","license":"MIT","version":"0.1.0",
+    "require":{"php":"^8.5","liberusoftware/module-cms-core":"^0.1"},"autoload":{"psr-4":{"Liberu\\Cms\\KnowledgeBase\\":"src/"}},"extra":{"liberu":{"name":"module-cms-knowledge-base"},"laravel":{"providers":["Liberu\\Cms\\KnowledgeBase\\KnowledgeBaseServiceProvider"]}}
+}
