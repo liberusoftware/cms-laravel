@@ -28,7 +28,7 @@ it('handles database module state query failures safely', function (): void {
     $resolver = Mockery::mock(ConnectionResolverInterface::class);
     $resolver->shouldReceive('connection')->andReturn($connection);
 
-    expect((new DatabaseModuleStateRepository($resolver))->isEnabled('missing', false))->toBeFalse();
+    expect(new DatabaseModuleStateRepository($resolver)->isEnabled('missing', false))->toBeFalse();
 });
 
 it('handles theme state connection failures safely', function (): void {
@@ -50,5 +50,5 @@ it('handles theme state query failures safely', function (): void {
     $resolver = Mockery::mock(ConnectionResolverInterface::class);
     $resolver->shouldReceive('connection')->andReturn($connection);
 
-    expect((new ThemeStateRepository($resolver))->activeKey())->toBeNull();
+    expect(new ThemeStateRepository($resolver)->activeKey())->toBeNull();
 });

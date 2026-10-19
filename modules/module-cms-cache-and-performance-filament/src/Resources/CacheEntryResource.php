@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 
 final class CacheEntryResource extends Resource
 {
+    #[\Override]
     protected static ?string $slug = 'cache-entries';
 
     public static function form(Schema $schema): Schema

@@ -1,1 +1,1 @@
-{"name":"module-cms-digital-asset-management-api","description":"Digital Asset Management HTTP API.","provider":"Liberu\\Cms\\DigitalAssetManagementApi\\DigitalAssetManagementApiServiceProvider","version":"0.1.0"}
+{"name":"module-cms-digital-asset-management-api","description":"Digital Asset Management HTTP API.","provider":"Liberu\\Cms\\DigitalAssetManagementApi\\DigitalAssetManagementApiServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-digital-asset-management-api"}

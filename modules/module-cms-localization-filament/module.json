@@ -1,0 +1,1 @@
+{"name":"module-cms-localization-filament","title":"Localization Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\LocalizationFilament\\LocalizationFilamentServiceProvider"],"package":"liberusoftware/module-cms-localization-filament"}

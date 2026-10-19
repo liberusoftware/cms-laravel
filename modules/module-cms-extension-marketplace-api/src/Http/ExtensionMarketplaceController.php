@@ -6,6 +6,7 @@ namespace Liberu\Cms\ExtensionMarketplaceApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\ExtensionMarketplace\Models\ExtensionListing;
 use Liberu\Cms\ExtensionMarketplace\Queries\ExtensionMarketplaceQuery;
 use Liberu\Cms\ExtensionMarketplace\Services\ExtensionMarketplaceService;
 use Liberu\Cms\ExtensionMarketplaceApi\Http\Resources\ExtensionListingResource;
@@ -24,7 +25,7 @@ final class ExtensionMarketplaceController
     public function show(string $key, ExtensionMarketplaceQuery $query): ExtensionListingResource
     {
         $listing = $query->find($key);
-        if (! $listing || $listing->status !== 'published' || $listing->security_status !== 'approved') {
+        if (! $listing instanceof ExtensionListing || $listing->status !== 'published' || $listing->security_status !== 'approved') {
             throw new NotFoundHttpException;
         }
 
@@ -41,7 +42,7 @@ final class ExtensionMarketplaceController
     public function security(Request $request, string $key, ExtensionMarketplaceQuery $query, ExtensionMarketplaceService $service): ExtensionListingResource
     {
         $listing = $query->find($key);
-        if (! $listing) {
+        if (! $listing instanceof ExtensionListing) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['security_status' => ['required', 'in:pending,approved,rejected']]);
@@ -52,7 +53,7 @@ final class ExtensionMarketplaceController
     public function publish(string $key, ExtensionMarketplaceQuery $query, ExtensionMarketplaceService $service): ExtensionListingResource
     {
         $listing = $query->find($key);
-        if (! $listing) {
+        if (! $listing instanceof ExtensionListing) {
             throw new NotFoundHttpException;
         }
 

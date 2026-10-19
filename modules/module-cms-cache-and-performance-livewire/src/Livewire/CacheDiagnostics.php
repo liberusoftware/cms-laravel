@@ -10,7 +10,8 @@ use Livewire\Component;
 
 final class CacheDiagnostics extends Component
 {
-    public array $diagnostics = [];
+    /** @var array{entries:int,warm:int,hits:int,misses:int,hit_rate:float} */
+    public array $diagnostics = ['entries' => 0, 'warm' => 0, 'hits' => 0, 'misses' => 0, 'hit_rate' => 0.0];
 
     public function refreshDiagnostics(CacheAndPerformanceService $service): void
     {

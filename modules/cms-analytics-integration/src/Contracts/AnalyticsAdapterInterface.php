@@ -11,5 +11,9 @@ interface AnalyticsAdapterInterface
     public function key(): string;
 
     /** @return array<string, mixed> */
+    /**
+     * @param  array<string, mixed>  $mapping
+     * @return array<string, mixed>
+     */
     public function payload(AnalyticsEvent $event, array $mapping): array;
 }

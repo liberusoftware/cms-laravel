@@ -6,6 +6,7 @@ namespace Liberu\Cms\TranslationManagementLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Liberu\Cms\TranslationManagement\Actions\TranslationManagementService;
+use Liberu\Cms\TranslationManagement\Models\TranslationJob;
 use Liberu\Cms\TranslationManagement\Queries\TranslationJobQuery;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -40,7 +41,7 @@ final class JobBrowser extends Component
 
     public function reconcile(string $publicId, TranslationJobQuery $jobs, TranslationManagementService $service): void
     {
-        if ($job = $jobs->find($publicId)) {
+        if (($job = $jobs->find($publicId)) instanceof TranslationJob) {
             $service->reconcile($job);
         }
     }

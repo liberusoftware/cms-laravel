@@ -1,0 +1,1 @@
+{"name":"module-cms-media-assistant-livewire","title":"Media Assistant Livewire","version":"0.1.0","layers":["livewire"],"service_providers":["Liberu\\Cms\\MediaAssistantLivewire\\MediaAssistantLivewireServiceProvider"],"package":"liberusoftware/module-cms-media-assistant-livewire"}

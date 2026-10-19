@@ -23,7 +23,7 @@ final class NavigationMenu extends Component
         $menu = $menus->forLocation($this->location, $this->variant);
 
         return view('cms-navigation-livewire::navigation-menu', [
-            'nodes' => ! $menu instanceof Menu ? [] : $builder->tree($menu, $this->path === '' ? null : $this->path),
+            'nodes' => $menu instanceof Menu ? $builder->tree($menu, $this->path === '' ? null : $this->path) : [],
         ]);
     }
 }

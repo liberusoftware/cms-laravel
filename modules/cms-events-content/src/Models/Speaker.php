@@ -12,8 +12,10 @@ final class Speaker extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_event_speakers';
 
+    #[\Override]
     protected $fillable = ['name', 'bio', 'email', 'metadata', 'team_id'];
 
     protected function casts(): array

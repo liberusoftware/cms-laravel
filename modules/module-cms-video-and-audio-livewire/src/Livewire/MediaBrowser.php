@@ -6,6 +6,7 @@ namespace Liberu\Cms\VideoAndAudioLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Liberu\Cms\VideoAndAudio\Actions\MediaManagementService;
+use Liberu\Cms\VideoAndAudio\Models\MediaAsset;
 use Liberu\Cms\VideoAndAudio\Queries\MediaAssetQuery;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -42,7 +43,7 @@ final class MediaBrowser extends Component
 
     public function play(string $publicId, MediaAssetQuery $assets, MediaManagementService $service): void
     {
-        if ($asset = $assets->find($publicId)) {
+        if (($asset = $assets->find($publicId)) instanceof MediaAsset) {
             try {
                 $metadata = $service->playback($asset);
                 $this->playback = ['title' => $metadata->title, 'stream_uri' => $metadata->streamUri, 'poster_uri' => $metadata->posterUri, 'tracks' => $metadata->tracks];

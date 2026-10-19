@@ -21,7 +21,6 @@ use Liberu\Cms\Core\Models\Site;
  */
 final class CoreMutationService
 {
-    /** @param array<string, mixed> $attributes */
     public function createSite(array $attributes): Site
     {
         $this->requireString($attributes, 'key', 255);
@@ -39,7 +38,6 @@ final class CoreMutationService
         ]));
     }
 
-    /** @param array<string, mixed> $attributes */
     public function createChannel(Site|int|string $site, array $attributes): Channel
     {
         $site = $this->site($site);
@@ -54,7 +52,6 @@ final class CoreMutationService
         ]));
     }
 
-    /** @param array<string, mixed> $attributes */
     public function updateSite(Site $site, array $attributes): Site
     {
         foreach (['key', 'name'] as $required) {
@@ -73,7 +70,6 @@ final class CoreMutationService
         });
     }
 
-    /** @param array<string, mixed> $attributes */
     public function updateChannel(Channel $channel, array $attributes): Channel
     {
         foreach (['key', 'name'] as $required) {
@@ -100,7 +96,6 @@ final class CoreMutationService
         DB::transaction(fn (): ?bool => $channel->delete());
     }
 
-    /** @param array<string, mixed> $attributes */
     public function createIdentity(Site|int|string $site, array $attributes): ContentIdentity
     {
         $site = $this->site($site);
@@ -116,7 +111,6 @@ final class CoreMutationService
         return DB::transaction(fn (): ContentIdentity => $site->identities()->create($attributes));
     }
 
-    /** @param array<string, mixed> $attributes */
     public function createAlias(Site|int|string $site, array $attributes): ContentAlias
     {
         $site = $this->site($site);
@@ -196,7 +190,6 @@ final class CoreMutationService
         }
     }
 
-    /** @param array<string, mixed> $attributes */
     private function requireString(array $attributes, string $key, int $maxLength): void
     {
         $value = $attributes[$key] ?? null;

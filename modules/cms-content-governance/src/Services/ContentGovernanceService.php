@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentGovernance\Services;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ContentGovernance\Models\GovernanceRecord;
 
 final readonly class ContentGovernanceService
 {
+    /** @return LengthAwarePaginator<int, GovernanceRecord> */
     public function records(?int $teamId, int $perPage = 25): LengthAwarePaginator
     {
-        return GovernanceRecord::query()->where('team_id', $teamId)->latest()->paginate(max(1, min($perPage, (int) config('content-governance.pagination.max', 100))));
+        $maximum = config('content-governance.pagination.max', 100);
+
+        return GovernanceRecord::query()->where('team_id', $teamId)->latest()->paginate(max(1, min($perPage, is_int($maximum) ? $maximum : 100)));
     }
 
+    /** @param array<string, mixed> $data */
     public function record(string $subjectType, string $subjectKey, array $data = [], ?int $teamId = null): GovernanceRecord
     {
         if ($subjectType === '' || $subjectKey === '') {
@@ -38,23 +42,40 @@ final readonly class ContentGovernanceService
         }
         $record->update(['legal_hold' => true, 'legal_hold_at' => now(), 'legal_hold_reason' => $reason]);
 
-        return $record->fresh();
+        $fresh = $record->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The governance record could not be refreshed.');
+        }
+
+        return $fresh;
     }
 
     public function releaseLegalHold(GovernanceRecord $record): GovernanceRecord
     {
         $record->update(['legal_hold' => false, 'legal_hold_at' => null, 'legal_hold_reason' => null]);
 
-        return $record->fresh();
+        $fresh = $record->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The governance record could not be refreshed.');
+        }
+
+        return $fresh;
     }
 
+    /** @param array<string, mixed> $evidence */
     public function addEvidence(GovernanceRecord $record, array $evidence): GovernanceRecord
     {
         if (blank($evidence['type'] ?? null) || blank($evidence['reference'] ?? null)) {
             throw ValidationException::withMessages(['evidence' => 'Evidence type and reference are required.']);
         }
-        $record->update(['evidence' => [...($record->evidence ?? []), [...$evidence, 'recorded_at' => now()->toIso8601String()]]]);
+        $existing = is_array($record->evidence) ? $record->evidence : [];
+        $record->update(['evidence' => [...$existing, [...$evidence, 'recorded_at' => now()->toIso8601String()]]]);
 
-        return $record->fresh();
+        $fresh = $record->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The governance record could not be refreshed.');
+        }
+
+        return $fresh;
     }
 }

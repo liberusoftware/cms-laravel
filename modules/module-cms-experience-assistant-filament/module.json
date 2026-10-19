@@ -1,0 +1,1 @@
+{"name":"module-cms-experience-assistant-filament","description":"Filament adapter for CMS Experience Assistant.","version":"0.1.0","enabled":true,"dependencies":["module-cms-experience-assistant"],"package":"liberusoftware/module-cms-experience-assistant-filament"}

@@ -10,8 +10,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 final class Session extends Model
 {
+    #[\Override]
     protected $table = 'cms_event_sessions';
 
+    #[\Override]
     protected $fillable = ['event_id', 'key', 'title', 'description', 'starts_at', 'ends_at', 'room'];
 
     protected function casts(): array

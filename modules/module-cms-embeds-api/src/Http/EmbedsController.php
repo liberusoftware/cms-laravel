@@ -4,6 +4,7 @@ namespace Liberu\Cms\EmbedsApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\Embeds\Models\Embed;
 use Liberu\Cms\Embeds\Queries\EmbedsQuery;
 use Liberu\Cms\Embeds\Services\EmbedsService;
 use Liberu\Cms\EmbedsApi\Http\Resources\EmbedResource;
@@ -22,11 +23,11 @@ class EmbedsController
     public function show(int $id, EmbedsQuery $q): EmbedResource
     {
         $e = $q->find($id);
-        if (! $e || $e->status !== 'published') {
+        if (! $e instanceof Embed || $e->status !== 'published') {
             throw new NotFoundHttpException;
         }
 
-return new EmbedResource($e);
+        return new EmbedResource($e);
     }
 
     public function store(Request $r, EmbedsService $s): EmbedResource
@@ -39,10 +40,10 @@ return new EmbedResource($e);
     public function render(int $id, Request $r, EmbedsQuery $q, EmbedsService $s): JsonResponse
     {
         $e = $q->find($id);
-        if (! $e) {
+        if (! $e instanceof Embed) {
             throw new NotFoundHttpException;
         }
 
-return response()->json(['data' => $s->render($e, (bool) $r->boolean('consented'))]);
+        return response()->json(['data' => $s->render($e, (bool) $r->boolean('consented'))]);
     }
 }

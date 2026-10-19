@@ -25,7 +25,7 @@ it('serializes core sites through an explicit API resource contract', function (
     ]);
     $site->setRawAttributes([...$site->getAttributes(), 'id' => 7]);
 
-    $payload = (new CoreSiteResource($site))->toArray(Request::create('/'));
+    $payload = new CoreSiteResource($site)->toArray(Request::create('/'));
 
     expect($payload)->toMatchArray([
         'id' => '7',
@@ -40,7 +40,7 @@ it('serializes channel type without conflating it with the resource type', funct
     $channel = new Channel(['id' => 3, 'site_id' => 7, 'key' => 'web', 'name' => 'Web', 'type' => 'web']);
     $channel->setRawAttributes([...$channel->getAttributes(), 'id' => 3]);
 
-    expect((new CoreChannelResource($channel))->toArray(Request::create('/')))->toMatchArray([
+    expect(new CoreChannelResource($channel)->toArray(Request::create('/')))->toMatchArray([
         'id' => '3',
         'type' => 'cms-channel',
         'site_id' => '7',
@@ -54,6 +54,6 @@ it('serializes core aliases and identities with explicit resource types', functi
     $alias->setRawAttributes([...$alias->getAttributes(), 'id' => 4]);
     $identity->setRawAttributes([...$identity->getAttributes(), 'id' => 5]);
 
-    expect((new CoreAliasResource($alias))->toArray(Request::create('/')))->toMatchArray(['id' => '4', 'type' => 'cms-content-alias', 'alias' => '/old'])
-        ->and((new CoreIdentityResource($identity))->toArray(Request::create('/')))->toMatchArray(['id' => '5', 'type' => 'cms-content-identity', 'canonical_path' => '/new']);
+    expect(new CoreAliasResource($alias)->toArray(Request::create('/')))->toMatchArray(['id' => '4', 'type' => 'cms-content-alias', 'alias' => '/old'])
+        ->and(new CoreIdentityResource($identity)->toArray(Request::create('/')))->toMatchArray(['id' => '5', 'type' => 'cms-content-identity', 'canonical_path' => '/new']);
 });

@@ -1,0 +1,1 @@
+{"name":"module-cms-localization-api","title":"Localization API","version":"0.1.0","layers":["api"],"service_providers":["Liberu\\Cms\\LocalizationApi\\LocalizationApiServiceProvider"],"package":"liberusoftware/module-cms-localization-api"}

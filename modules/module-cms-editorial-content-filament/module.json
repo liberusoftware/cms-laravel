@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-content-filament","title":"Editorial Content Filament","version":"0.1.0","layers":["filament"],"service_providers":["Liberu\\Cms\\EditorialContentFilament\\EditorialContentFilamentServiceProvider"],"package":"liberusoftware/module-cms-editorial-content-filament"}

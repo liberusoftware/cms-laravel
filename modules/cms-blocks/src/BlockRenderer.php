@@ -24,11 +24,13 @@ final readonly class BlockRenderer implements BlockRendererInterface
         private HookBusInterface $hooks,
     ) {}
 
+    /** @param array<mixed, mixed> $block */
     public function render(array $block): string
     {
         return $this->renderAtDepth($block, 0);
     }
 
+    /** @param array<mixed, mixed> $block */
     private function renderAtDepth(array $block, int $depth): string
     {
         $configuredMaxDepth = config('cms-blocks.max_nesting_depth', 32);
@@ -52,11 +54,13 @@ final readonly class BlockRenderer implements BlockRendererInterface
         return $this->hooks->apply(new BlockRenderFilter($html, $key, $data))->html;
     }
 
+    /** @param array<mixed, mixed> $blocks */
     public function renderMany(array $blocks): string
     {
         return $this->renderChildren($blocks, 0);
     }
 
+    /** @param array<mixed, mixed> $blocks */
     private function renderChildren(array $blocks, int $depth): string
     {
         $html = '';

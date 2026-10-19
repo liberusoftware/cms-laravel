@@ -4,19 +4,22 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentLockingApi;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Liberu\Cms\ContentLockingApi\Http\ContentLockingController;
+use Liberu\Cms\Contracts\Api\ApiEndpoint;
+use Liberu\Cms\Contracts\Api\ApiResourceRegistryInterface;
 
 final class ContentLockingApiServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
-        Route::prefix('api/v1/cms/content-locking')->middleware('api')->group(function (): void {
-            Route::post('locks', [ContentLockingController::class, 'acquire'])->name('cms.content-locking.locks.acquire');
-            Route::post('locks/{lock}/renew', [ContentLockingController::class, 'renew'])->name('cms.content-locking.locks.renew');
-            Route::post('locks/{lock}/compare', [ContentLockingController::class, 'compare'])->name('cms.content-locking.locks.compare');
-            Route::delete('locks/{lock}', [ContentLockingController::class, 'release'])->name('cms.content-locking.locks.release');
-        });
+        if (! $this->app->bound(ApiResourceRegistryInterface::class)) {
+            return;
+        }
+        $registry = $this->app->make(ApiResourceRegistryInterface::class);
+        $registry->registerEndpoint('content-locking-api', new ApiEndpoint('cms/content-locking/locks', ContentLockingController::class, 'acquire', 'cms.content-locking.locks.acquire', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-locking-api', new ApiEndpoint('cms/content-locking/locks/{lock}/renew', ContentLockingController::class, 'renew', 'cms.content-locking.locks.renew', 'POST', ['abilities:content:write']));
+        $registry->registerEndpoint('content-locking-api', new ApiEndpoint('cms/content-locking/locks/{lock}/compare', ContentLockingController::class, 'compare', 'cms.content-locking.locks.compare', 'POST'));
+        $registry->registerEndpoint('content-locking-api', new ApiEndpoint('cms/content-locking/locks/{lock}', ContentLockingController::class, 'release', 'cms.content-locking.locks.release', 'DELETE', ['abilities:content:write']));
     }
 }

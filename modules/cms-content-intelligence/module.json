@@ -1,1 +1,1 @@
-{"name":"cms-content-intelligence","description":"Content intelligence insights and improvement queues.","provider":"Liberu\\Cms\\ContentIntelligence\\ContentIntelligenceServiceProvider","version":"0.1.0"}
+{"name":"cms-content-intelligence","description":"Content intelligence insights and improvement queues.","provider":"Liberu\\Cms\\ContentIntelligence\\ContentIntelligenceServiceProvider","version":"0.1.0","package":"liberusoftware/module-cms-content-intelligence"}

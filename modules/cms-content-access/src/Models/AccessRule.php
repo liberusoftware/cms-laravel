@@ -5,8 +5,16 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentAccess\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property string $visibility
+ * @property array<int, string>|null $audiences
+ * @property bool $preview_allowed
+ * @property Carbon|null $available_from
+ * @property Carbon|null $available_until
+ */
 final class AccessRule extends Model
 {
     use HasTenant;

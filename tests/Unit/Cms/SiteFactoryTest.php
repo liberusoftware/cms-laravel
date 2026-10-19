@@ -30,7 +30,7 @@ it('normalizes site keys before duplicate detection and validates templates', fu
 
 it('exposes a loadable API controller with distinct action and serializer methods', function (): void {
     expect(class_exists(SiteFactoryController::class))->toBeTrue()
-        ->and((new ReflectionClass(SiteFactoryController::class))->hasMethod('templateData'))->toBeTrue();
+        ->and(new ReflectionClass(SiteFactoryController::class)->hasMethod('templateData'))->toBeTrue();
 });
 
 it('records completed lifecycle operations and preserves template initialization data', function (): void {

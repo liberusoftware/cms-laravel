@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 namespace Liberu\Cms\ContentIntelligence\Services;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Validation\ValidationException;
 use Liberu\Cms\ContentIntelligence\Models\ContentInsight;
 
 final readonly class ContentIntelligenceService
 {
+    /** @return LengthAwarePaginator<int, ContentInsight> */
     public function insights(?int $teamId, ?string $metric = null, ?string $status = null, int $perPage = 25): LengthAwarePaginator
     {
-        return ContentInsight::query()->where('team_id', $teamId)->when($metric !== null, fn ($q) => $q->where('metric', $metric))->when($status !== null, fn ($q) => $q->where('status', $status))->latest()->paginate(max(1, min($perPage, (int) config('content-intelligence.pagination.max', 100))));
+        $maximum = config('content-intelligence.pagination.max', 100);
+
+        return ContentInsight::query()->where('team_id', $teamId)->when($metric !== null, fn ($q) => $q->where('metric', $metric))->when($status !== null, fn ($q) => $q->where('status', $status))->latest()->paginate(max(1, min($perPage, is_int($maximum) ? $maximum : 100)));
     }
 
+    /** @param array<string, mixed> $data */
     public function analyze(array $data, ?int $teamId = null): ContentInsight
     {
         if (blank($data['subject_type'] ?? null) || blank($data['subject_key'] ?? null) || blank($data['metric'] ?? null) || blank($data['summary'] ?? null)) {
@@ -41,6 +45,11 @@ final readonly class ContentIntelligenceService
         }
         $insight->update(['status' => $status, 'reviewed_at' => now()]);
 
-        return $insight->fresh();
+        $fresh = $insight->fresh();
+        if (! $fresh) {
+            throw new \RuntimeException('The content insight could not be refreshed.');
+        }
+
+        return $fresh;
     }
 }

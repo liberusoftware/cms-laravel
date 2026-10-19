@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Liberu\Cms\TaxonomyLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Liberu\Cms\Taxonomy\Models\Taxonomy;
 use Liberu\Cms\Taxonomy\Queries\TaxonomyQuery;
 use Livewire\Component;
 
@@ -25,6 +26,6 @@ final class TaxonomyBrowser extends Component
     {
         $taxonomy = $this->taxonomyId === null ? null : $this->taxonomyQuery->taxonomy($this->taxonomyId);
 
-        return view('cms-taxonomy-livewire::taxonomy-browser', ['taxonomy' => $taxonomy, 'terms' => $taxonomy ? $this->taxonomyQuery->terms((int) $taxonomy->id, $this->search) : []]);
+        return view('cms-taxonomy-livewire::taxonomy-browser', ['taxonomy' => $taxonomy, 'terms' => $taxonomy instanceof Taxonomy ? $this->taxonomyQuery->terms((int) $taxonomy->id, $this->search) : []]);
     }
 }

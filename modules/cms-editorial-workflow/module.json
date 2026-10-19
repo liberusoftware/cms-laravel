@@ -1,0 +1,1 @@
+{"name":"module-cms-editorial-workflow","title":"Editorial Workflow","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\EditorialWorkflow\\EditorialWorkflowServiceProvider"],"package":"liberusoftware/module-cms-editorial-workflow"}

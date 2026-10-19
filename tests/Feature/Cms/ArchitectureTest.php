@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentBundleResource;
+use Liberu\Cms\ContentEntitiesFilament\Resources\ContentEntityResource;
+use Liberu\Cms\ContentTypes\Filament\ContentEntryResource;
+use Liberu\Cms\ContentTypes\Filament\ContentTypeResource;
+use Liberu\Cms\Contracts\Admin\AdminResourceRegistryInterface;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -173,4 +178,15 @@ it('discovers the foundational CMS packages', function (): void {
             'Liberu\Cms\Hello',
             'Liberu\Cms\Users',
         ]);
+});
+
+it('keeps the content entities Filament surface inside its adapter package', function (): void {
+    $resources = app(AdminResourceRegistryInterface::class)
+        ->resources()['content-entities'] ?? [];
+
+    expect($resources)
+        ->toContain(ContentBundleResource::class)
+        ->toContain(ContentEntityResource::class)
+        ->not->toContain(ContentTypeResource::class)
+        ->not->toContain(ContentEntryResource::class);
 });

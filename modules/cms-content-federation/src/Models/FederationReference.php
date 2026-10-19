@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Liberu\Cms\ContentFederation\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
+/** @property Carbon|null $cached_until */
 final class FederationReference extends Model
 {
     #[\Override]

@@ -1,12 +1,12 @@
 {
-    "name": "liberusoftware/module-cms-menus",
+    "name": "liberusoftware/module-cms-navigation",
     "description": "Menu & navigation for Liberu CMS: multi-level menus by location with permission-aware rendering.",
     "type": "liberu-module",
     "license": "MIT",
-    "homepage": "https://github.com/liberusoftware/module-cms-menus",
+    "homepage": "https://github.com/liberusoftware/module-cms-navigation",
     "support": {
-        "issues": "https://github.com/liberusoftware/module-cms-menus/issues",
-        "source": "https://github.com/liberusoftware/module-cms-menus"
+        "issues": "https://github.com/liberusoftware/module-cms-navigation/issues",
+        "source": "https://github.com/liberusoftware/module-cms-navigation"
     },
     "version": "0.1.0",
     "require": {
@@ -31,7 +31,7 @@
     },
     "extra": {
         "liberu": {
-            "name": "module-cms-menus"
+            "name": "module-cms-navigation"
         },
         "laravel": {
             "providers": [

@@ -1,0 +1,1 @@
+{"name":"module-cms-localization","title":"Localization","version":"0.1.0","layers":["domain"],"service_providers":["Liberu\\Cms\\Localization\\LocalizationServiceProvider"],"package":"liberusoftware/module-cms-localization"}

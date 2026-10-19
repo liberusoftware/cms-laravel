@@ -12,6 +12,7 @@ final class DigitalAssetManagementLivewireServiceProvider extends ServiceProvide
 {
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'module-cms-digital-asset-management');
         Livewire::component('module-cms-digital-asset-management::asset-library', AssetLibrary::class);
     }
 }

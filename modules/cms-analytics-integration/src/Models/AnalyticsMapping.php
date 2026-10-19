@@ -7,6 +7,11 @@ namespace Liberu\Cms\AnalyticsIntegration\Models;
 use Illuminate\Database\Eloquent\Model;
 use Liberu\Cms\Core\Tenant\HasTenant;
 
+/**
+ * @property string $measurement_key
+ * @property bool $enabled
+ * @property array<string, mixed>|null $config
+ */
 final class AnalyticsMapping extends Model
 {
     use HasTenant;

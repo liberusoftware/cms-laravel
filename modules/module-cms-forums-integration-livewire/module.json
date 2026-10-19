@@ -1,0 +1,1 @@
+{"name":"module-cms-forums-integration-livewire","description":"Livewire adapter for CMS Forums Integration.","version":"0.1.0","enabled":true,"dependencies":["module-cms-forums-integration"],"package":"liberusoftware/module-cms-forums-integration-livewire"}
