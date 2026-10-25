@@ -11,7 +11,7 @@ use Spatie\Permission\Models\Permission;
  * Materialises every module-declared permission into the Spatie backend.
  *
  * Spatie is an internal implementation detail of the Users module (Golden Rule
- * 2d); no other module references it. Idempotent via findOrCreate.
+ * 2d); no other module references it.
  */
 final readonly class SyncPermissions
 {
@@ -28,7 +28,7 @@ final readonly class SyncPermissions
         $names = $this->registrar->permissions();
 
         foreach ($names as $name) {
-            Permission::findOrCreate($name, $this->guard);
+            Permission::query()->firstOrCreate(['name' => $name, 'guard_name' => $this->guard]);
         }
 
         return $names;
