@@ -26,7 +26,7 @@ class EmbedsController
             throw new NotFoundHttpException;
         }
 
-return new EmbedResource($e);
+        return new EmbedResource($e);
     }
 
     public function store(Request $r, EmbedsService $s): EmbedResource
@@ -43,6 +43,6 @@ return new EmbedResource($e);
             throw new NotFoundHttpException;
         }
 
-return response()->json(['data' => $s->render($e, (bool) $r->boolean('consented'))]);
+        return response()->json(['data' => $s->render($e, (bool) $r->boolean('consented'))]);
     }
 }

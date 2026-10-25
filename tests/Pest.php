@@ -14,7 +14,7 @@ use Liberu\Cms\Users\Access\SyncPermissions;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
-uses(TestCase::class)->in('Feature', 'Unit');
+uses(TestCase::class)->in('Feature', 'Unit', '../modules/cms-*/tests');
 
 /**
  * Materialise the module-declared CMS permissions and grant the given subset to

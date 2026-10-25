@@ -15,7 +15,7 @@ final class AnalyticsIntegrationController
     {
         $data = $request->validate(['event_type' => ['required', 'string'], 'event_name' => ['required', 'string', 'max:120'], 'idempotency_key' => ['required', 'string', 'max:255'], 'subject_type' => ['sometimes', 'string', 'max:120'], 'subject_id' => ['sometimes', 'string', 'max:120'], 'consent_category' => ['sometimes', 'string', 'max:80'], 'consent_granted' => ['sometimes', 'boolean'], 'payload' => ['sometimes', 'array'], 'occurred_at' => ['sometimes', 'date']]);
 
-        return (new AnalyticsEventResource($service->recordEvent(null, $data)))->response()->setStatusCode(201);
+        return new AnalyticsEventResource($service->recordEvent(null, $data))->response()->setStatusCode(201);
     }
 
     public function mapping(Request $request, AnalyticsIntegrationService $service): JsonResponse

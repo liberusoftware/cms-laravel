@@ -11,7 +11,7 @@ use Liberu\Cms\BackupAndRestore\Models\BackupSchedule;
 
 final readonly class BackupAndRestoreService
 {
-    private const TYPES = ['content', 'configuration', 'database', 'files', 'full'];
+    private const array TYPES = ['content', 'configuration', 'database', 'files', 'full'];
 
     public function createArtifact(?int $teamId, array $data): BackupArtifact
     {

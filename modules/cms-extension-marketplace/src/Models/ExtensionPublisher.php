@@ -12,8 +12,10 @@ final class ExtensionPublisher extends Model
 {
     use HasTenant;
 
+    #[\Override]
     protected $table = 'cms_extension_publishers';
 
+    #[\Override]
     protected $fillable = ['key', 'name', 'website', 'status', 'team_id'];
 
     public function listings(): HasMany

@@ -11,7 +11,7 @@ use Liberu\Cms\Copilot\Models\CopilotRequest;
 
 final class CopilotService
 {
-    private const CAPABILITIES = ['search', 'summary', 'draft', 'transform', 'metadata', 'internal-links', 'action-confirmation'];
+    private const array CAPABILITIES = ['search', 'summary', 'draft', 'transform', 'metadata', 'internal-links', 'action-confirmation'];
 
     /** @var array<string, CopilotHandlerInterface> */
     private array $handlers = [];

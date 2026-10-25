@@ -39,8 +39,8 @@ final class CacheAndPerformanceService
 
     public function invalidate(?int $teamId, array $tags = [], array $keys = [], string $idempotencyKey = ''): CacheInvalidation
     {
-        $tags = array_values(array_filter(array_unique(array_map('strval', $tags)), fn (string $tag): bool => trim($tag) !== ''));
-        $keys = array_values(array_filter(array_unique(array_map('strval', $keys)), fn (string $key): bool => trim($key) !== ''));
+        $tags = array_values(array_filter(array_unique(array_map(strval(...), $tags)), fn (string $tag): bool => trim($tag) !== ''));
+        $keys = array_values(array_filter(array_unique(array_map(strval(...), $keys)), fn (string $key): bool => trim($key) !== ''));
         if ($tags === [] && $keys === []) {
             throw ValidationException::withMessages(['cache' => 'At least one cache tag or key is required.']);
         }
