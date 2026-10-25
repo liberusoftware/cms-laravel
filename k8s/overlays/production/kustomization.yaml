@@ -18,6 +18,7 @@ patches:
 
 configMapGenerator:
 - name: cms-config
+  namespace: cms-laravel
   behavior: merge
   literals:
   - APP_ENV=production
