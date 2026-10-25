@@ -50,7 +50,6 @@ jobs:
         run: ./vendor/bin/pest --no-coverage
 
   docker:
-    if: github.event_name == 'push'
     needs: laravel-tests
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -63,6 +62,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Login to Docker Hub
+        if: github.event_name == 'push'
         uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -87,8 +87,8 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          push: true
+          push: ${{ github.event_name == 'push' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=liberu/cms:buildcache
-          cache-to: type=registry,ref=liberu/cms:buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

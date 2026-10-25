@@ -18,6 +18,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy composer files
 COPY composer.json composer.lock ./
+COPY modules ./modules
 
 # Install composer dependencies (no autoloader yet, will optimize in final stage)
 RUN composer install \
@@ -125,6 +126,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy vendor from composer-deps stage for better caching
 COPY --chown=${USER}:${USER} --from=composer-deps /app/vendor ./vendor
+COPY --chown=${USER}:${USER} --from=composer-deps /app/modules ./modules
 
 # Copy composer files (needed for autoloader generation)
 COPY --chown=${USER}:${USER} composer.json composer.lock ./
