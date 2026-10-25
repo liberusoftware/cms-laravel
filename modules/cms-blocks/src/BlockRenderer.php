@@ -29,6 +29,7 @@ final readonly class BlockRenderer implements BlockRendererInterface
         return $this->renderAtDepth($block, 0);
     }
 
+    /** @param array<array-key, mixed> $block */
     private function renderAtDepth(array $block, int $depth): string
     {
         $configuredMaxDepth = config('cms-blocks.max_nesting_depth', 32);
@@ -57,6 +58,7 @@ final readonly class BlockRenderer implements BlockRendererInterface
         return $this->renderChildren($blocks, 0);
     }
 
+    /** @param array<array-key, mixed> $blocks */
     private function renderChildren(array $blocks, int $depth): string
     {
         $html = '';
