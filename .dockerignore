@@ -4,6 +4,7 @@
 .gitattributes
 .editorconfig
 node_modules
+vendor
 tests
 *.md
 *.log
