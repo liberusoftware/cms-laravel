@@ -8892,7 +8892,7 @@
             "version": "0.1.0",
             "dist": {
                 "type": "path",
-                "url": "modules/module-cms-drupal-migration",
+                "url": "modules/cms-drupal-migration",
                 "reference": "1f0210d0fcfc941fa35bb1c834b2769b6cc4855e"
             },
             "require": {
