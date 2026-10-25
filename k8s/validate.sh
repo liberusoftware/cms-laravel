@@ -26,11 +26,11 @@ check_command() {
 validate_yaml() {
     local file="$1"
     if check_command python3; then
-        if python3 -c "import yaml; yaml.safe_load_all(open('$file'))" 2>/dev/null; then
+        if python3 -c "import yaml; list(yaml.safe_load_all(open('$file')))" 2>/dev/null; then
             success "YAML syntax valid: $file"
         else
             error "YAML syntax error: $file"
-            ((ERRORS++))
+            ERRORS=$((ERRORS + 1))
         fi
     fi
 }
@@ -63,7 +63,7 @@ for file in "${REQUIRED_FILES[@]}"; do
         success "Found: $file"
     else
         error "Missing: $file"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
     fi
 done
 
@@ -82,7 +82,7 @@ if check_command kubectl; then
             success "Kustomize overlay valid: $overlay"
         else
             error "Kustomize overlay invalid: $overlay"
-            ((ERRORS++))
+            ERRORS=$((ERRORS + 1))
         fi
     done
 fi
