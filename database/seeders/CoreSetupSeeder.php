@@ -8,6 +8,7 @@ use App\Models\User;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class CoreSetupSeeder extends Seeder
 {
@@ -16,13 +17,19 @@ class CoreSetupSeeder extends Seeder
      */
     public function run(): void
     {
+        $adminPassword = (string) (config('app.seed_admin_password') ?: Str::random(64));
+
         // 1. Create Admin User
         $admin = User::create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make($adminPassword),
             'email_verified_at' => now(),
         ]);
+
+        if (app()->environment('local') && $admin->wasRecentlyCreated && blank(config('app.seed_admin_password'))) {
+            $this->command?->info("Admin password: {$adminPassword}");
+        }
 
         $roleData = [
             'name' => 'super_admin',
@@ -42,7 +49,7 @@ class CoreSetupSeeder extends Seeder
             $roleData['team_id'] = $team->id;
         }
 
-        $superAdminRole = Role::create($roleData);
+        $superAdminRole = Role::firstOrCreate($roleData);
 
         // 3. Assign super_admin role
         $admin->assignRole($superAdminRole);

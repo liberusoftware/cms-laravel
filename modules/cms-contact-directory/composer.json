@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.5",
-        "laravel/framework": "^13.0",
+        "laravel/framework": "^13.38.0",
         "liberusoftware/module-cms-core": "^0.1"
     },
     "autoload": {

@@ -12,10 +12,10 @@
     "require": {
         "php": "^8.5",
         "liberusoftware/module-cms-contracts": "^0.1",
-        "illuminate/contracts": "^13.0",
-        "illuminate/database": "^13.0",
-        "illuminate/support": "^13.0",
-        "symfony/html-sanitizer": "^7.0|^8.0"
+        "illuminate/contracts": "^13.38.0",
+        "illuminate/database": "^13.38.0",
+        "illuminate/support": "^13.38.0",
+        "symfony/html-sanitizer": "^8.1.8"
     },
     "autoload": {
         "psr-4": {

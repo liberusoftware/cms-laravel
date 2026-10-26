@@ -13,11 +13,11 @@
         "php": "^8.5",
         "liberusoftware/module-cms-contracts": "^0.1",
         "liberusoftware/module-cms-core": "^0.1",
-        "illuminate/auth": "^13.0",
-        "illuminate/console": "^13.0",
-        "illuminate/contracts": "^13.0",
-        "illuminate/support": "^13.0",
-        "spatie/laravel-permission": "^7.0"
+        "illuminate/auth": "^13.38.0",
+        "illuminate/console": "^13.38.0",
+        "illuminate/contracts": "^13.38.0",
+        "illuminate/support": "^13.38.0",
+        "spatie/laravel-permission": "^8.3.2"
     },
     "autoload": {
         "psr-4": {

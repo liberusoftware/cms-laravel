@@ -12,11 +12,11 @@
     "require": {
         "php": "^8.5",
         "liberusoftware/module-cms-contracts": "^0.1",
-        "illuminate/console": "^13.0",
-        "illuminate/contracts": "^13.0",
-        "illuminate/database": "^13.0",
-        "illuminate/events": "^13.0",
-        "illuminate/support": "^13.0"
+        "illuminate/console": "^13.38.0",
+        "illuminate/contracts": "^13.38.0",
+        "illuminate/database": "^13.38.0",
+        "illuminate/events": "^13.38.0",
+        "illuminate/support": "^13.38.0"
     },
     "autoload": {
         "psr-4": {
