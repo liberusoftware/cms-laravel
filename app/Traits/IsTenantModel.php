@@ -2,13 +2,9 @@
 
 namespace App\Traits;
 
-use App\Models\Team;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Liberu\Foundation\Tenancy\Concerns\BelongsToTeam;
 
 trait IsTenantModel
 {
-    public function team(): BelongsTo
-    {
-        return $this->belongsTo(Team::class);
-    }
+    use BelongsToTeam;
 }
