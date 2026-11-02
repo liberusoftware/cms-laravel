@@ -1,0 +1,1578 @@
+{
+  "liberusoftware/module-cms-cms-copilot": {
+    "path": "modules/cms-copilot",
+    "reference": "bd97838b4ff40b2a2f7fbcebf2bd34abb84601eb",
+    "repository": "https://github.com/liberusoftware/module-cms-copilot",
+    "source_signature": "aef5709ac0bb2fc04799d169a9c74e40ec007843a58372eecd99da7e73ec459a",
+    "source_tree": "c632c13e7c581d4f5de1527f80866e43569c1704",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-collections": {
+    "path": "modules/cms-collections",
+    "reference": "8df005c85afd6bc182b52ac2271b2d09a6b7f356",
+    "repository": "https://github.com/liberusoftware/module-cms-collections",
+    "source_signature": "77342b3abef1de8ff33529202b25df70d2cd3f43521360fb6f321c60065bec3e",
+    "source_tree": "ad5030f66a144d81c1ec8e22bc9b5d5b9d25f4d1",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-collections-livewire": {
+    "path": "modules/module-cms-collections-livewire",
+    "reference": "78b79b4da7627412383089f0853b0af2c574af92",
+    "repository": "https://github.com/liberusoftware/module-cms-collections-livewire",
+    "source_signature": "54ba145a94c6fbce414e6b76121344f8bb7feb8c330f01c73e49a1ccf7b852c7",
+    "source_tree": "1a87548da1e004bb055508f7d8c56a83f45fbd99",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-comments-and-discussion-api": {
+    "path": "modules/module-cms-comments-and-discussion-api",
+    "reference": "605e9b76c0ff60ceceb4474159b523dea6e9ae71",
+    "repository": "https://github.com/liberusoftware/module-cms-comments-and-discussion-api",
+    "source_signature": "f64da27d697d627b5252af2f5d7f4ba219ea789019a9f90d8e0aef73799545ee",
+    "source_tree": "5bcda94df9d7b64dc2c162401b74d6a578b1301f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-comments-and-discussion-filament": {
+    "path": "modules/module-cms-comments-and-discussion-filament",
+    "reference": "191f66bb882d8413aa8daca6966ffee4c44ed3f7",
+    "repository": "https://github.com/liberusoftware/module-cms-comments-and-discussion-filament",
+    "source_signature": "204d0bd6f3332da8b805a2656b56c7d0072657ea3dc1ef5f6b69a5de2712cc16",
+    "source_tree": "f42240a5b1eda489476396df4d3865521bff1bed",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-comments-and-discussion-livewire": {
+    "path": "modules/module-cms-comments-and-discussion-livewire",
+    "reference": "737db81a465cfbb6979165a29176f584c71ec08f",
+    "repository": "https://github.com/liberusoftware/module-cms-comments-and-discussion-livewire",
+    "source_signature": "b81d7d904d79e9aa3dd8846fcef3ade0b75496776f8d8c253ff1e76ce91ec7ee",
+    "source_tree": "8943eab7ad2eaaa1e16447a2b0dc01c341e33d65",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-configuration-management-api": {
+    "path": "modules/module-cms-configuration-management-api",
+    "reference": "e80e78148b9cf9b16b8f11be4baa634f76087938",
+    "repository": "https://github.com/liberusoftware/module-cms-configuration-management-api",
+    "source_signature": "83296f0fbc43395f4e9dd310eef3703408caeade13bdb44d6c6775b0f8e3a46d",
+    "source_tree": "2ed0ddba405366e0a1ea9fc4b1c51e794748d5c4",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-configuration-management-filament": {
+    "path": "modules/module-cms-configuration-management-filament",
+    "reference": "351c50b06faa765c17321e52bc1324f6ee32538d",
+    "repository": "https://github.com/liberusoftware/module-cms-configuration-management-filament",
+    "source_signature": "a7e7fa91c899f7e2c9b1f1a029f5e62924c215fd3cbbd9b205f1048099a554f9",
+    "source_tree": "726e5a6809c8db23e3e0605b2a509a63b5ac9d11",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-configuration-management-livewire": {
+    "path": "modules/module-cms-configuration-management-livewire",
+    "reference": "32507d212f69b3d38954095497e8f2a950cb5f14",
+    "repository": "https://github.com/liberusoftware/module-cms-configuration-management-livewire",
+    "source_signature": "8f76bf05fb7c2cf624c43ee31119437b0b38d9d0c8ca159a5f3b3c23947a06c1",
+    "source_tree": "7cbd92178ce57013d8fa10ab04a28c2704bc7e9a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-contact-directory-api": {
+    "path": "modules/module-cms-contact-directory-api",
+    "reference": "acaf459b7a7c8d6b189812d2fb8d2add4d2f5ee7",
+    "repository": "https://github.com/liberusoftware/module-cms-contact-directory-api",
+    "source_signature": "b48b600a4a366ba28bb305b24d07958ecf8638f7c834a66fff7d74297291d745",
+    "source_tree": "d44f6adf34b0a00d18f7c6bac138041470ede552",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-contact-directory-filament": {
+    "path": "modules/module-cms-contact-directory-filament",
+    "reference": "5e3c8ff68cbf53ab222156ff3512ca5dd33d4302",
+    "repository": "https://github.com/liberusoftware/module-cms-contact-directory-filament",
+    "source_signature": "96590c6119e91e44d640dfe5ec4a344aebfe613a8092bc422e07b8c54c0c6f32",
+    "source_tree": "c6c0e0789effccbd79ace439c7e17db18a8bf14b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-contact-directory-livewire": {
+    "path": "modules/module-cms-contact-directory-livewire",
+    "reference": "4623fe160ae33482df7d49ab8f6e3432e0de76e1",
+    "repository": "https://github.com/liberusoftware/module-cms-contact-directory-livewire",
+    "source_signature": "2c7b67845e9ed63f87b0c84490e07b2d9ed6df2029b07bdf53c8bcf7ee0eec85",
+    "source_tree": "c2b4438a0f85790ecc719e0f7c2fd50f44288575",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-access-api": {
+    "path": "modules/module-cms-content-access-api",
+    "reference": "0a6206d1185fdb944fa572eb724f29869bbaeebd",
+    "repository": "https://github.com/liberusoftware/module-cms-content-access-api",
+    "source_signature": "e33ca88d41f75e30e1253af2b97d00432c25f16d210a1c8bb83ce3a08814c45b",
+    "source_tree": "214b9086479c745eb62ce3c79a9ea62948de3d21",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-access-filament": {
+    "path": "modules/module-cms-content-access-filament",
+    "reference": "c95eccb56e83b03bb0a27439012d448422ad014b",
+    "repository": "https://github.com/liberusoftware/module-cms-content-access-filament",
+    "source_signature": "7298757d566f17743829e02c9908df44a98678c7b9b7130b1127692561631544",
+    "source_tree": "8b1334b22f93ec920cbe63be43849b83f25e2b42",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-access-livewire": {
+    "path": "modules/module-cms-content-access-livewire",
+    "reference": "fcacdcb557930e998e7507f394d617f9d2bb39e9",
+    "repository": "https://github.com/liberusoftware/module-cms-content-access-livewire",
+    "source_signature": "2cecb316b2a6e052e96fc1da6860719445a099917ac0c58dd7f3e0949caa7d0b",
+    "source_tree": "d3ad83fdbaac3dd494826d8f2e6c8ce5e761c2b3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-calendar-api": {
+    "path": "modules/module-cms-content-calendar-api",
+    "reference": "f93718215e294a379b6571ab53a5ac98d5a028e4",
+    "repository": "https://github.com/liberusoftware/module-cms-content-calendar-api",
+    "source_signature": "5ca2e878596d7d223652fc8892676c6a84520b31f3e8c6a2edfed99c1d425b4b",
+    "source_tree": "4dcbca2bac4eab63e397b991965eb7351b5eacad",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-calendar-filament": {
+    "path": "modules/module-cms-content-calendar-filament",
+    "reference": "c487c6f60cf7baa0c8d24a0711bbc2d1248b8f67",
+    "repository": "https://github.com/liberusoftware/module-cms-content-calendar-filament",
+    "source_signature": "b43fdf4c744904aa0bf77e84bb85f90cb2e621ce56686566d4306a75acd9b160",
+    "source_tree": "5809e680bda36ca46c8663ee4e94e21a3df6b404",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-calendar-livewire": {
+    "path": "modules/module-cms-content-calendar-livewire",
+    "reference": "d28a8104404955fabd12bab323d483f95716b5a9",
+    "repository": "https://github.com/liberusoftware/module-cms-content-calendar-livewire",
+    "source_signature": "29689d53ebb77cc275fe6f38cff7e336ba222e0596de156ab2a30f15b97dcccf",
+    "source_tree": "f07b854fb6fc7fec0842d192626ca9593f78633f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-entities-api": {
+    "path": "modules/module-cms-content-entities-api",
+    "reference": "ef7e88cfffa414acbde4ac857013a7910ceb7c11",
+    "repository": "https://github.com/liberusoftware/module-cms-content-entities-api",
+    "source_signature": "3bf39eaca07c800270ebb73a12676d65997f6b04e5ecec8df64c62bc31c165d0",
+    "source_tree": "857eaa79b60f4b31480a42c15c99de7695f8d2a0",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-entities-filament": {
+    "path": "modules/module-cms-content-entities-filament",
+    "reference": "cf0f6234dd8200ec48586ad00f361a93d59a5358",
+    "repository": "https://github.com/liberusoftware/module-cms-content-entities-filament",
+    "source_signature": "9d5879e3b0b4a64d18d461dc05c0c49d7473878c67298de26d26c48b406f04aa",
+    "source_tree": "51a500834132fc0bfea3bf8c29e55c666b1d6dd3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-entities-livewire": {
+    "path": "modules/module-cms-content-entities-livewire",
+    "reference": "524d3d97ac37ec1318751c216afb6b3f19a15a00",
+    "repository": "https://github.com/liberusoftware/module-cms-content-entities-livewire",
+    "source_signature": "f05ec8035ab43f74887562fb9282413020a73a653c939400f69c31cf5fa2dca1",
+    "source_tree": "06feac13380f7997862206203fc8fd53ccaa697c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-federation-api": {
+    "path": "modules/module-cms-content-federation-api",
+    "reference": "899d948edd808d5770c5fdd460ecab9b57893b16",
+    "repository": "https://github.com/liberusoftware/module-cms-content-federation-api",
+    "source_signature": "3bc0c5c96f08b8a17f37a3e95e0f95deb001b3214ec1146b2f5eb0fcbdbe2644",
+    "source_tree": "064aa4a92d525ed82883495f6d4e33e5881a4254",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-federation-filament": {
+    "path": "modules/module-cms-content-federation-filament",
+    "reference": "26f4ddde10c7903af54b9046afbc6aa10ab8dc32",
+    "repository": "https://github.com/liberusoftware/module-cms-content-federation-filament",
+    "source_signature": "7080ef6851c1b6789bedf0c5c4fa377655f117c475c64d0ac0ed8c46adce19ad",
+    "source_tree": "36d20660830e3ba183be28850ad3024480408495",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-federation-livewire": {
+    "path": "modules/module-cms-content-federation-livewire",
+    "reference": "9d886506f380a5661e6a7a7a22ebca1fd50e3f1f",
+    "repository": "https://github.com/liberusoftware/module-cms-content-federation-livewire",
+    "source_signature": "bf8fdf4d9766180c2c94f0246ce0452f213f799231ca7a7efbfafc9f3ba675af",
+    "source_tree": "641e96ab323da9a8ed7835b14eabbbd10476203a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-governance-api": {
+    "path": "modules/module-cms-content-governance-api",
+    "reference": "3049f8cb243cddbc09350888d3d223ca0fcc4b03",
+    "repository": "https://github.com/liberusoftware/module-cms-content-governance-api",
+    "source_signature": "c6c8102b588e71ee0ec05c9f6a75d6aa0cf96ac4562de1ea3648e24e97184130",
+    "source_tree": "682560c4ae8cb1c97d5df308d03adc1e79c4a5a3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-governance-filament": {
+    "path": "modules/module-cms-content-governance-filament",
+    "reference": "afaae13d07c77eb0cb5468b8c1458f07dd5852ab",
+    "repository": "https://github.com/liberusoftware/module-cms-content-governance-filament",
+    "source_signature": "8ca150f6d340d37ce3466070318c0d6cf7223296700e7677abd1ceb0fc34b6a6",
+    "source_tree": "80335528bed2f609f6e56d09556ebbfb324091d9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-governance-livewire": {
+    "path": "modules/module-cms-content-governance-livewire",
+    "reference": "4cfd207b123becb6c43b5f28150a720b7daacc06",
+    "repository": "https://github.com/liberusoftware/module-cms-content-governance-livewire",
+    "source_signature": "d0097c9c281cd154d06fb3c31441d54756c3552567ab9ebe2939cf41db95c3cd",
+    "source_tree": "57b112e2de14c78aa97fc96ec1a70a9b6ffbf629",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-integrity": {
+    "path": "modules/cms-content-integrity",
+    "reference": "1eea4825c2ff19f07116146376238916b0a9307f",
+    "repository": "https://github.com/liberusoftware/module-cms-content-integrity",
+    "source_signature": "e1189ebf61a78c86a83c86aad3cb0a74d5e44b598f657d6ab953a2e5d997b795",
+    "source_tree": "f4f9997524a86f6d66ccb17ab4ffa365895dd2c7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-integrity-api": {
+    "path": "modules/module-cms-content-integrity-api",
+    "reference": "a65df03790f889eaf0f1d930d4e390a58448f8c6",
+    "repository": "https://github.com/liberusoftware/module-cms-content-integrity-api",
+    "source_signature": "b34d56c294e93ae886931ef2f623c50860bdf0873dfddd9a28acfedcda5d21c5",
+    "source_tree": "56c68b7efc7ef3bfcc9feb72bedaa3715c782462",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-integrity-filament": {
+    "path": "modules/module-cms-content-integrity-filament",
+    "reference": "b37d24ae28ae46a69de5b451ec662425d1771ec5",
+    "repository": "https://github.com/liberusoftware/module-cms-content-integrity-filament",
+    "source_signature": "6db141e3fa80a6f6c2d9e64b6c4c756b8e6fca6c2e7f0547b7f6e17ea4123ca9",
+    "source_tree": "74463283a2311e2dc3355d4c9a263fde9aec6043",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-integrity-livewire": {
+    "path": "modules/module-cms-content-integrity-livewire",
+    "reference": "8da5d43a45ab12ee480e53265a512bff2306a802",
+    "repository": "https://github.com/liberusoftware/module-cms-content-integrity-livewire",
+    "source_signature": "5d7ea6f5ab8e37363813c06013704cdf2b2b39923fbc71112de5658440ed9f88",
+    "source_tree": "719caf509420a4447f85c355cd8a646b335381be",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-intelligence-api": {
+    "path": "modules/module-cms-content-intelligence-api",
+    "reference": "3381ebcb8eff0bf9dffe0a7e230b4d160616a266",
+    "repository": "https://github.com/liberusoftware/module-cms-content-intelligence-api",
+    "source_signature": "465800640e8b18f0c373db2fe7e5b44ccfcaf785b7b01c0599ed5d99eb041a26",
+    "source_tree": "210563e865b96bb6937520cba819700905bd8abe",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-intelligence-filament": {
+    "path": "modules/module-cms-content-intelligence-filament",
+    "reference": "a9ef038e9ada52bb768dc8ba6cc91430e7ba22cc",
+    "repository": "https://github.com/liberusoftware/module-cms-content-intelligence-filament",
+    "source_signature": "72fe12565cdc0296509b0107efa8bc9380ca36eacde6920030f06cb46e5c59c6",
+    "source_tree": "018396052118d067e87229f9653d2c7d02313e03",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-intelligence-livewire": {
+    "path": "modules/module-cms-content-intelligence-livewire",
+    "reference": "ab71f2bbdf8f83a0f67979a9d7986184292fbefa",
+    "repository": "https://github.com/liberusoftware/module-cms-content-intelligence-livewire",
+    "source_signature": "a5d94f22817a912cbbc5fdf835722489722a0cd3365d90d689f8a18cca78452c",
+    "source_tree": "bf9aeb6b4787f99005e27dec3cf707bbdf09831a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-locking": {
+    "path": "modules/cms-content-locking",
+    "reference": "fbcc9000daae094325c5a3d8105071e8820aee36",
+    "repository": "https://github.com/liberusoftware/module-cms-content-locking",
+    "source_signature": "90ce806e15083b2bf43c14aac6b4b1007ec91734178f4e4a065e33ef29fbe875",
+    "source_tree": "cac5925b5d2fc94bbf91d364765aa0e1c07d6c21",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-locking-api": {
+    "path": "modules/module-cms-content-locking-api",
+    "reference": "81ae7b2b3713edb59b4e0b958e51de998e57a0bf",
+    "repository": "https://github.com/liberusoftware/module-cms-content-locking-api",
+    "source_signature": "c083af217444ddcfa7b0a4fc60685ae903dc092787a011196756e377c9a6dd2f",
+    "source_tree": "d1b8082fb4d9a44e88c7adb0404ac927d1bb4c6f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-locking-filament": {
+    "path": "modules/module-cms-content-locking-filament",
+    "reference": "3adda8c60833593f6f590aa4f77b6480a39934e7",
+    "repository": "https://github.com/liberusoftware/module-cms-content-locking-filament",
+    "source_signature": "2177c7e96322718d2f3b7e9e4ef48c74feddf96adce453a9a3c8a020499e5e44",
+    "source_tree": "9e60c29bdb280c67f648c679b5cf3d7d27f2ee55",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-locking-livewire": {
+    "path": "modules/module-cms-content-locking-livewire",
+    "reference": "02680e74ee0cea36a0a254e862c77968a801358f",
+    "repository": "https://github.com/liberusoftware/module-cms-content-locking-livewire",
+    "source_signature": "fe3ff25d8397ebabc84eb1aedd20bce3b1c7f755fdec6f3a7e1dc5b578c2cf15",
+    "source_tree": "e9ce260ac6537ac5de7a252b79fc8a01bd0378d7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-search-api": {
+    "path": "modules/module-cms-content-search-api",
+    "reference": "97292f9cc23863d51e1d9b132bd85d6ce485ee52",
+    "repository": "https://github.com/liberusoftware/module-cms-content-search-api",
+    "source_signature": "26f0ff3dc624acfb51fd0d4acc5ce8869c5daf6e98c64b4eb51aad770ff1f1a5",
+    "source_tree": "7b2671f30fa8250d68179457eb40ace355217ca9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-search-filament": {
+    "path": "modules/module-cms-content-search-filament",
+    "reference": "b2dc7d429e8043512c1606dd656e01a547f65ae4",
+    "repository": "https://github.com/liberusoftware/module-cms-content-search-filament",
+    "source_signature": "04caf6ce915ef23af71f5901d21d7560a6f64056e276b93a199ad23593c4d5a9",
+    "source_tree": "f1d07c807e5116a3f3ca440bb6fa36b3e3eb97bc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-search-livewire": {
+    "path": "modules/module-cms-content-search-livewire",
+    "reference": "f96a1665afc6172319fb1e3a155ce1898783df9f",
+    "repository": "https://github.com/liberusoftware/module-cms-content-search-livewire",
+    "source_signature": "410d9a700e14d378b02efb6c31b6be5f0a1d221e9efe8adbee36b7cfcc11e0e7",
+    "source_tree": "619096a145022897f7cebb9ebe91c9d7a581f4dc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-templates": {
+    "path": "modules/cms-content-templates",
+    "reference": "fc4333212c86f8b6407638b2c0d2bd7a1be1d4d0",
+    "repository": "https://github.com/liberusoftware/module-cms-content-templates",
+    "source_signature": "61c1a27b5fb37a8886750b0ed82735c7b94f62e9d749b13d343d8b896b347324",
+    "source_tree": "b1805a504aeb35d8e872678a5dcb3d645640cfe5",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-templates-api": {
+    "path": "modules/module-cms-content-templates-api",
+    "reference": "70e4ff939c56069a7ff423a48d4b33f99cfe5777",
+    "repository": "https://github.com/liberusoftware/module-cms-content-templates-api",
+    "source_signature": "7eac0c52ecbbf9a25b953305ba17ae76e573c059691cc3f1857dac16efb57372",
+    "source_tree": "91c206baeea71dd12671cda73bceac70d043aab9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-templates-filament": {
+    "path": "modules/module-cms-content-templates-filament",
+    "reference": "4913ec509285e9278d01bcc65f66f6b46cab1e4e",
+    "repository": "https://github.com/liberusoftware/module-cms-content-templates-filament",
+    "source_signature": "4ca1bf5c538cf9baa96d9571c0463ee32c578edecd30167d7cc84e4d59b9eabf",
+    "source_tree": "576a7e1f7f75eef5a167487312c052ff6b97cb41",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-content-templates-livewire": {
+    "path": "modules/module-cms-content-templates-livewire",
+    "reference": "38a3ccd158db4d044130839f5f3aaa3745227e71",
+    "repository": "https://github.com/liberusoftware/module-cms-content-templates-livewire",
+    "source_signature": "ca1cc38e7c4e83ac5d076cb51004b1b2d6113a53929118eec5efa1342e3d89be",
+    "source_tree": "9ac5ec019b429b2bd8b364dc363a31b92aeeec4d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-copilot-filament": {
+    "path": "modules/module-cms-copilot-filament",
+    "reference": "ec58c05bd676798fb9ba5687d15177e1633cc1b4",
+    "repository": "https://github.com/liberusoftware/module-cms-copilot-filament",
+    "source_signature": "0d31487603f5f69f8a6b26d167721e8a323fcc94d51590af04435e54b5047187",
+    "source_tree": "906564c79c4a94fb7c93ff95c3238bdddcb650ac",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-core-api": {
+    "path": "modules/module-cms-core-api",
+    "reference": "ca92a98beeecd91d6352a56da4d9fd1fae904219",
+    "repository": "https://github.com/liberusoftware/module-cms-core-api",
+    "source_signature": "cfa1d8a8344767f556d98c7860711989cd61f54da2def80bc0391f7a2b8d7dc1",
+    "source_tree": "701f8d66615f2bd7526186e05488cdbc88b3f011",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-core-filament": {
+    "path": "modules/module-cms-core-filament",
+    "reference": "242a5bf72bd22485117b7d5100366da38ab575db",
+    "repository": "https://github.com/liberusoftware/module-cms-core-filament",
+    "source_signature": "3b2c9cfe5c46371e5f8c76f57da197741b39cae984f77d2f3b9627fc57415bc2",
+    "source_tree": "049167edc3ae94e20bf5c9ac3047dbfe86e6d24a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-core-livewire": {
+    "path": "modules/module-cms-core-livewire",
+    "reference": "c9124e7c075526ad06bf27378d123816d44810f4",
+    "repository": "https://github.com/liberusoftware/module-cms-core-livewire",
+    "source_signature": "74c115a23defb80b2534c1b948c31a535a78359647ba794076534cb1d0933335",
+    "source_tree": "e52661ef00ef0697ace2736dabcb1df4086d0565",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-digital-asset-management": {
+    "path": "modules/cms-digital-asset-management",
+    "reference": "6bb3d808401a4c85340b684f3882926cddaa936c",
+    "repository": "https://github.com/liberusoftware/module-cms-digital-asset-management",
+    "source_signature": "da2259f28d57eba0bd0fd7e9e19529d1b2400028c4ca2bd0b91825a8a6321e8d",
+    "source_tree": "c8306fad0aa9c3df365b4ec91392a073e4b91150",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-digital-asset-management-api": {
+    "path": "modules/module-cms-digital-asset-management-api",
+    "reference": "c6008b7d4233632e2ce73c88c9dc87f4f4006bb5",
+    "repository": "https://github.com/liberusoftware/module-cms-digital-asset-management-api",
+    "source_signature": "6acdb7a41e00fb4e32f974a94fd0c1c0a3fd60ddec10fdb3d08c2574762eead2",
+    "source_tree": "0c7f32925a9dbe7f0c10c19c13f5d7629af9df7d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-digital-asset-management-filament": {
+    "path": "modules/module-cms-digital-asset-management-filament",
+    "reference": "42ffc591952dfc972ad2eb2bfaf31e7f875b9b0d",
+    "repository": "https://github.com/liberusoftware/module-cms-digital-asset-management-filament",
+    "source_signature": "273da370d63679a5a012bdf084fd7b2dd171f95c30df454f2b1bb2bc2f99a2e7",
+    "source_tree": "5011351ec98413c4824829dbfa2c503b03f622d2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-digital-asset-management-livewire": {
+    "path": "modules/module-cms-digital-asset-management-livewire",
+    "reference": "f12a29379d23ae783638321c546e63de7857610c",
+    "repository": "https://github.com/liberusoftware/module-cms-digital-asset-management-livewire",
+    "source_signature": "464e86bc2827d599cacf80bb2bbd7f16baf80f1a67b97c96fad36192898cb3a2",
+    "source_tree": "53f0586c406efdb73a82b0b3ae8d8c93ea9a4dfe",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-display-modes": {
+    "path": "modules/cms-display-modes",
+    "reference": "83de180673367c7128b851d41065fac057161c88",
+    "repository": "https://github.com/liberusoftware/module-cms-display-modes",
+    "source_signature": "8311af1b06b37d80bb7820c2c556bdb62c74c64b01155c17e6bd9ef24325d280",
+    "source_tree": "493b55200ad66d5d0cd4b60d8665658e21524e96",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-display-modes-api": {
+    "path": "modules/module-cms-display-modes-api",
+    "reference": "5b4fd49d3175ff822c968952eeccafc55cb3c5a6",
+    "repository": "https://github.com/liberusoftware/module-cms-display-modes-api",
+    "source_signature": "8582e1a19f33f7477d6335db8f67d795ddd97bb8bd6f4cc0a28e9967d8953f3c",
+    "source_tree": "465adecb65a7ad7736729cf010696f15f8dab2be",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-display-modes-filament": {
+    "path": "modules/module-cms-display-modes-filament",
+    "reference": "a3e1f9bed90646c0916e72a307c8e94db1fecbce",
+    "repository": "https://github.com/liberusoftware/module-cms-display-modes-filament",
+    "source_signature": "34bbb1599398ff0d05c5644ebcfb452996e07eef8c0072c2c3f0dc39cc966302",
+    "source_tree": "aa1da29c3634357fd432e02934c3e3b29ece7d00",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-display-modes-livewire": {
+    "path": "modules/module-cms-display-modes-livewire",
+    "reference": "681f620af611570141c2704efc10168adf14f13c",
+    "repository": "https://github.com/liberusoftware/module-cms-display-modes-livewire",
+    "source_signature": "1503754f976b54231e6af66b4e7fa49ed7296c75ef37e3015bfc306ce970f84f",
+    "source_tree": "3b828fd43c2d687d5624a74366aa2c738b9caa63",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-document-management": {
+    "path": "modules/cms-document-management",
+    "reference": "616b9f64cc03bf5e2fe614724beaaa04c40035bd",
+    "repository": "https://github.com/liberusoftware/module-cms-document-management",
+    "source_signature": "a565fe49f055058140ee9fdb592b8535e0de5894316b0c6f8f623d15d2479883",
+    "source_tree": "fb129c0b86aabf01b6aed69ab4e4152b1d7d220f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-document-management-api": {
+    "path": "modules/module-cms-document-management-api",
+    "reference": "f1a3df7ed3becfca32ce197b6658b240d0d6fcf0",
+    "repository": "https://github.com/liberusoftware/module-cms-document-management-api",
+    "source_signature": "70e6efd15e5c95620a83668fbf410e6b73d19196ed3375d5ee368eb94b03b48c",
+    "source_tree": "bc39db0237faec607f318ed28f32a389d678db6b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-document-management-filament": {
+    "path": "modules/module-cms-document-management-filament",
+    "reference": "39cec99315af521e28357727c44e8d96d5f40573",
+    "repository": "https://github.com/liberusoftware/module-cms-document-management-filament",
+    "source_signature": "83ee58b8f117543ef492a5232a189fb52c3f73483854610e2106653088deb9ee",
+    "source_tree": "6562d3f5abee5eb476c644ae9b54f76c7b42d433",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-document-management-livewire": {
+    "path": "modules/module-cms-document-management-livewire",
+    "reference": "005a21dd658bb46460406f1bda5ee928acbfdf2c",
+    "repository": "https://github.com/liberusoftware/module-cms-document-management-livewire",
+    "source_signature": "3c60be337fe95c1b35e4e0fae577ec7c8ce522f0680460800248d077c06c581b",
+    "source_tree": "4ffed673bd1378f308bc6bf586fe0574618ea875",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-drupal-migration": {
+    "path": "modules/cms-drupal-migration",
+    "reference": "db3600e8f72521178e94411df6c2584ab8a19160",
+    "repository": "https://github.com/liberusoftware/module-cms-drupal-migration",
+    "source_signature": "b280fe1126833aa6780079e5e30d4153bc3c1dc6501a078f3d415bb41cd1dc77",
+    "source_tree": "4c6c81565599004a8eaf86cb975d2b2c4a94ee12",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-embeds": {
+    "path": "modules/cms-embeds",
+    "reference": "0145aa358dd4a9e8fc401181e9d04c40f470c8d5",
+    "repository": "https://github.com/liberusoftware/module-cms-embeds",
+    "source_signature": "823a2b7b0be6109ad87400d5416c40da21de4721eb251de8e1d4ffffbcdf16f6",
+    "source_tree": "15738f0ee4f879cbb683395c5c31311fcb856b10",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-embeds-api": {
+    "path": "modules/module-cms-embeds-api",
+    "reference": "a9de1d2325f47e303e9aa4cb9bdf8320bd25c185",
+    "repository": "https://github.com/liberusoftware/module-cms-embeds-api",
+    "source_signature": "3addd8d8be28bc341b38470a2b889f25e313f15147db8f7e278f1f28e2630b94",
+    "source_tree": "c73bd0deeba60eef5b799f3ab186e660536090c1",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-embeds-filament": {
+    "path": "modules/module-cms-embeds-filament",
+    "reference": "aa60ecb089200e20dfa266b1ddd4a9edf3b8fe27",
+    "repository": "https://github.com/liberusoftware/module-cms-embeds-filament",
+    "source_signature": "ccbdd483275836b3bf350912e67b5ad49d72062c33269ceb0cdd982424e0d59f",
+    "source_tree": "d38def54dbb7d4fb26a6369e386ee433e2cf033d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-embeds-livewire": {
+    "path": "modules/module-cms-embeds-livewire",
+    "reference": "99ecae159368837767b9080e22e53a45cc96075d",
+    "repository": "https://github.com/liberusoftware/module-cms-embeds-livewire",
+    "source_signature": "9c54adddac58c607a8f86280edf91876cddb5ca18813c65210e4bff78b7cabd1",
+    "source_tree": "999957b120ac42bc4f886ea7449a85ae3bd227fc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-extension-manager": {
+    "path": "modules/cms-extension-manager",
+    "reference": "f6c508b529589ff20a47039e9adf4540d1c54040",
+    "repository": "https://github.com/liberusoftware/module-cms-extension-manager",
+    "source_signature": "68e25055f6dd0c3315ddf56118e8d55b49d16afe8cad939cff858baf8f348814",
+    "source_tree": "4dbfc8279b1a4134e2166702583d68b3dd70514c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-extension-manager-api": {
+    "path": "modules/module-cms-extension-manager-api",
+    "reference": "bd8dcd38e55422ff7b1f2a6c4a6b3f0e056a7faf",
+    "repository": "https://github.com/liberusoftware/module-cms-extension-manager-api",
+    "source_signature": "15b45485745192c3e0eee96b488a3489389dcd5fdc7321f3e636a083e1fb0eac",
+    "source_tree": "f80af4e73b0d29293d8e4220357065a46a44007a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-field-system-api": {
+    "path": "modules/module-cms-field-system-api",
+    "reference": "25970efdc424dc23815316025794bd456a3b3127",
+    "repository": "https://github.com/liberusoftware/module-cms-field-system-api",
+    "source_signature": "919d36898023d4a02adf055abb7354fcaaf0ff39e9dcd31353324fd214ba7f43",
+    "source_tree": "65e5a82a405955d5c682a39f8a68727710061391",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-field-system-filament": {
+    "path": "modules/module-cms-field-system-filament",
+    "reference": "f80a64124d5d73609a17593080b8bb8f62f99f6e",
+    "repository": "https://github.com/liberusoftware/module-cms-field-system-filament",
+    "source_signature": "2c960d801a7793ebadc89007008f2742067acf1594f2e7ddb61f82ef55d02524",
+    "source_tree": "c49e02cf78303793713e4dcf1ae77b87c5519c8e",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-field-system-livewire": {
+    "path": "modules/module-cms-field-system-livewire",
+    "reference": "9a229928899f8a1bf90db1ed1af0e99dbb23642f",
+    "repository": "https://github.com/liberusoftware/module-cms-field-system-livewire",
+    "source_signature": "0d9fa7f42780f1beb4e2363cc9e719ce2155ef12261a807330132a200d299d06",
+    "source_tree": "4070e7e9f698422fcb15542e6821b82bc588ff31",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-integration-directory-api": {
+    "path": "modules/module-cms-integration-directory-api",
+    "reference": "5f52ebb305bd8926491e0fd80039c7d19c88ce16",
+    "repository": "https://github.com/liberusoftware/module-cms-integration-directory-api",
+    "source_signature": "ba360e8e82ba99a6fe215c93ddae28aa1d214260d5b8c761b41edfc0f2c0454c",
+    "source_tree": "2189e64b4b09e3dab2cf84bbad646adb4a8514ec",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-joomla-migration": {
+    "path": "modules/cms-joomla-migration",
+    "reference": "0e6247a0b048b9b2c0aa32e67870480474e25f2b",
+    "repository": "https://github.com/liberusoftware/module-cms-joomla-migration",
+    "source_signature": "5f56a5bb478a0dfd93e6da77cd6f5786f0d63b57660ebca427583294d413a6d8",
+    "source_tree": "ff4b6c75b1bbe52304e57b157051ce3d635edf8d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-layout-builder-api": {
+    "path": "modules/module-cms-layout-builder-api",
+    "reference": "ac315596c6d211e501dce8ff4b361620b81bdaac",
+    "repository": "https://github.com/liberusoftware/module-cms-layout-builder-api",
+    "source_signature": "cc978d87289f8357909a5dc04255d3a0c25a23e3e38494a5ba44cf845a9078b7",
+    "source_tree": "add1ef72b50fe158926b52a9dba61987d5d55903",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-metadata-api": {
+    "path": "modules/module-cms-metadata-api",
+    "reference": "be8fe67447db9920376c2d5a4a455d57c687ec56",
+    "repository": "https://github.com/liberusoftware/module-cms-metadata-api",
+    "source_signature": "5a0d8a9eccd5f84cecd62907c1c5702203bde8c8b23c4d9186bd3e803800610e",
+    "source_tree": "143a00d642da7885c5dbc79ed6afe5cb90d9d6c3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-migration-framework-api": {
+    "path": "modules/module-cms-migration-framework-api",
+    "reference": "fa5ea867689330b100be3c3c97cbfc2620cb14b4",
+    "repository": "https://github.com/liberusoftware/module-cms-migration-framework-api",
+    "source_signature": "23cda8705ed32f3e6c2cbdecfad2601dbc4ddb46eec01f9fee4abdaebc061d44",
+    "source_tree": "2b7470fe7a25bb6fa0485ce03a865c9afc1ee31d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-multisite": {
+    "path": "modules/cms-multisite",
+    "reference": "d827a33ab2010092edee115025d0ea43bfa752b9",
+    "repository": "https://github.com/liberusoftware/module-cms-multisite",
+    "source_signature": "c4cc2884629df21b343bf64b71401d709ecf8ccff557e7c90cd7209238afb7cd",
+    "source_tree": "707f926ef3dabd9941cf361acfb7ebe765113c3b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-multisite-api": {
+    "path": "modules/module-cms-multisite-api",
+    "reference": "d7bd55d8590f924c2a54cbee715bffdd44ab0636",
+    "repository": "https://github.com/liberusoftware/module-cms-multisite-api",
+    "source_signature": "16fe4c224353c178310fbaccfadb0c73ada1c42ebbfcd674acfc55efcda02a20",
+    "source_tree": "133da269f81cc3e86b217c7a434ed30a9f006aa0",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-multisite-filament": {
+    "path": "modules/module-cms-multisite-filament",
+    "reference": "70a78ada18cbba49533aa3ac247063bb2f3eee52",
+    "repository": "https://github.com/liberusoftware/module-cms-multisite-filament",
+    "source_signature": "a8a48f8dc42467bafc7308134452f5d54462f8f6e862bd0499dd9303364cb29a",
+    "source_tree": "e58106aa3227d7d275a8b680adaea0733a8e02b6",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-multisite-livewire": {
+    "path": "modules/module-cms-multisite-livewire",
+    "reference": "c414246cca909389bcff71f761614fac4516f0f2",
+    "repository": "https://github.com/liberusoftware/module-cms-multisite-livewire",
+    "source_signature": "49c3d6b747073de2814a953df91edd26c0c6dd6565b7eff949d3d5ab4847a496",
+    "source_tree": "244ae29bce4b2e61fe8aa8431ab82d38268bb7fb",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-navigation-api": {
+    "path": "modules/module-cms-navigation-api",
+    "reference": "465bc7d43480a1c369d3390f9c8442108d5c1560",
+    "repository": "https://github.com/liberusoftware/module-cms-navigation-api",
+    "source_signature": "dbb26bde3a719cfaad9179a64798266345a0dbfea5a8a4c9c705a590895cd531",
+    "source_tree": "5f46a52041ff6c13e295ddcdef54da3994c6ccd2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-navigation-filament": {
+    "path": "modules/module-cms-navigation-filament",
+    "reference": "b69795a8ee53d4e148a8f26a888e865bc3e4f749",
+    "repository": "https://github.com/liberusoftware/module-cms-navigation-filament",
+    "source_signature": "5a80d9e48573029eb5076c8c3db91cffe892f69f94976d6d64f76e2db2e4143a",
+    "source_tree": "92debff43db0c8d881c020b3c9b5b7f4b1a23fa5",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-navigation-livewire": {
+    "path": "modules/module-cms-navigation-livewire",
+    "reference": "6a939b937a4de6f8612f3e149a4222a4104194d7",
+    "repository": "https://github.com/liberusoftware/module-cms-navigation-livewire",
+    "source_signature": "7b07622296a4123419090fa72bb488df9868697dab3b27cb55bc195740e209ff",
+    "source_tree": "00b003c26c65d7355b6b4fb0220b265a1e6f173e",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-notifications-and-subscriptions": {
+    "path": "modules/cms-notifications-and-subscriptions",
+    "reference": "a72d83c4d1136f21f1372a7d643928a9a9032657",
+    "repository": "https://github.com/liberusoftware/module-cms-notifications-and-subscriptions",
+    "source_signature": "508d563d0bb72088d8762f7eca2c3c25f848438c8e95f99dc74d8514f6ad1465",
+    "source_tree": "ed653a52c17fa28f422eef74a493090539e563f6",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-notifications-and-subscriptions-api": {
+    "path": "modules/module-cms-notifications-and-subscriptions-api",
+    "reference": "e334f7d60a1c2f66e2458d661886ed635fd96822",
+    "repository": "https://github.com/liberusoftware/module-cms-notifications-and-subscriptions-api",
+    "source_signature": "b09f436e7d44c7a9922a5fd71501148114ba4c4dc97690f9a6ce01156fce548e",
+    "source_tree": "06950f3a00eac9bb5af0bc71c69ada019a587e53",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-notifications-and-subscriptions-filament": {
+    "path": "modules/module-cms-notifications-and-subscriptions-filament",
+    "reference": "50530a9bf4fd5a78a1c3fc2f124403ab9771ba38",
+    "repository": "https://github.com/liberusoftware/module-cms-notifications-and-subscriptions-filament",
+    "source_signature": "5677c8700fcbfaf462a42631062bd04f39d641560ba5f733c5d70e5ce748f577",
+    "source_tree": "07dd29ab7eba67254df44266ead18368d7b58e0d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-notifications-and-subscriptions-livewire": {
+    "path": "modules/module-cms-notifications-and-subscriptions-livewire",
+    "reference": "850034c31e5e0944449cab696f9b83528ccf0f73",
+    "repository": "https://github.com/liberusoftware/module-cms-notifications-and-subscriptions-livewire",
+    "source_signature": "e132e950446ed192ed42510b36abe2cc012eccecaa0129ec986a1ba027b79ebe",
+    "source_tree": "50c619059c2798c60a905bdc01d1ea0f9be8fd50",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-offline-and-pwa": {
+    "path": "modules/cms-offline-and-pwa",
+    "reference": "edfd8642f138c3d7c1bafcfdd49dd1702aad6fa5",
+    "repository": "https://github.com/liberusoftware/module-cms-offline-and-pwa",
+    "source_signature": "1c432796a005f7007e30e27ffa892d05ebad7f27f4807078cb5874454d9a349a",
+    "source_tree": "71517f5fe8f6b79567649104ee345831afaa09df",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-offline-and-pwa-api": {
+    "path": "modules/module-cms-offline-and-pwa-api",
+    "reference": "bc534091695390fe177010527262071426800fd6",
+    "repository": "https://github.com/liberusoftware/module-cms-offline-and-pwa-api",
+    "source_signature": "0e4cef6580e39a684fda3d72dc55daac825bbb928241936f0ac04a31ea2a60e2",
+    "source_tree": "9bd200984aec564da7ee43325136bb0c815d9ce6",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-offline-and-pwa-filament": {
+    "path": "modules/module-cms-offline-and-pwa-filament",
+    "reference": "bce6476dac8718efd2acd7bd898f559cfb324be4",
+    "repository": "https://github.com/liberusoftware/module-cms-offline-and-pwa-filament",
+    "source_signature": "a62ca23e3292bf30d66e5c0de549bc9f1b9eb8fb76c28a5c05a3bdd208a44c6d",
+    "source_tree": "d77e0b5744b7cb2e2014f4f6d456533845c85728",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-offline-and-pwa-livewire": {
+    "path": "modules/module-cms-offline-and-pwa-livewire",
+    "reference": "a9980c6808c38a74f8c4419f374bf1e7351a4823",
+    "repository": "https://github.com/liberusoftware/module-cms-offline-and-pwa-livewire",
+    "source_signature": "627121ea688b0942905593aa03e88aaba9b305f34e275ec318fff424adeccfe6",
+    "source_tree": "090d1c091e9c60363b1be426dc75b58bf2cb03b4",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-pages-api": {
+    "path": "modules/module-cms-pages-api",
+    "reference": "88acb380f36a00a9467b2907fafcca4a3bc4d56f",
+    "repository": "https://github.com/liberusoftware/module-cms-pages-api",
+    "source_signature": "c493230df89395f6273d09f776cfae8d66a85c9c963ea1d72da6f344f9957908",
+    "source_tree": "154478d51da56f6d31ad47ab22b2839c20db092e",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-pages-filament": {
+    "path": "modules/module-cms-pages-filament",
+    "reference": "e125fb9321568ef039bc04cfc6bdf6b316c317e6",
+    "repository": "https://github.com/liberusoftware/module-cms-pages-filament",
+    "source_signature": "3c62d1c179b2826ced9096859cf45be529684748e4b46fc0b00ba01dbcadd7ea",
+    "source_tree": "f471b294db53f20907c3bee7aa5fce8fb4bdebd7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-pages-livewire": {
+    "path": "modules/module-cms-pages-livewire",
+    "reference": "59ae94cb426e8800cf374e08736c0b924e757428",
+    "repository": "https://github.com/liberusoftware/module-cms-pages-livewire",
+    "source_signature": "53382650bfbd7e499cb47c04caf26f8e95229cf8789bd007947f48de9b6c73b4",
+    "source_tree": "2c88fa5ecb5c769e5112fea050fdebc8f6cfeac9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-personalization": {
+    "path": "modules/cms-personalization",
+    "reference": "e646cb6043ced55bfe4fb8206594d4bdafc3fc6d",
+    "repository": "https://github.com/liberusoftware/module-cms-personalization",
+    "source_signature": "592cdf441553085c0bee1b938ecc105938477a82a4eb2bf85d55e6ea0eb6e2e1",
+    "source_tree": "b8bb62eb1c0a3967898903a658e0c60f0b9021d7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-personalization-api": {
+    "path": "modules/module-cms-personalization-api",
+    "reference": "b1ecefd37d0b34d6d2e686f2332673c20617e467",
+    "repository": "https://github.com/liberusoftware/module-cms-personalization-api",
+    "source_signature": "8e0d3eba090f65f4fb6b455207443ac85f753acde929a3b8ea0bb0dd297255cc",
+    "source_tree": "9088aa42ceccc8a297a4f800ae574cd98792be4b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-personalization-filament": {
+    "path": "modules/module-cms-personalization-filament",
+    "reference": "367abff9780402f9b091dbe5f39b30e5e73683f1",
+    "repository": "https://github.com/liberusoftware/module-cms-personalization-filament",
+    "source_signature": "0b7bb783a6d8db0cea22bdd4860156a3688c1e9747bfead4342c90ccc5dad7a7",
+    "source_tree": "d9282825c6445ab50c0371337fa54d0e92fa2128",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-personalization-livewire": {
+    "path": "modules/module-cms-personalization-livewire",
+    "reference": "8596785627d2418322b663fa58d968508d269f92",
+    "repository": "https://github.com/liberusoftware/module-cms-personalization-livewire",
+    "source_signature": "8d17eecdd1e82b73a1664c2c078e98f62e8dce3d0e2e1546d29df447ff9ab436",
+    "source_tree": "afd36baa8d07580618181e123bdb5ea6ec932ef8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-polls-and-surveys": {
+    "path": "modules/cms-polls-and-surveys",
+    "reference": "42d95d593469a417f9146d8e7af03027533fc443",
+    "repository": "https://github.com/liberusoftware/module-cms-polls-and-surveys",
+    "source_signature": "0f74d577c8800e7dd7e8b4ccd131622c545ce3c2209b8be502930fa0f6f703fc",
+    "source_tree": "e96053dff45d5cccf217fdc7438906c5aefc4bf9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-polls-and-surveys-api": {
+    "path": "modules/module-cms-polls-and-surveys-api",
+    "reference": "0732f38985c8a8a33808c33585c09c911cc9e2a9",
+    "repository": "https://github.com/liberusoftware/module-cms-polls-and-surveys-api",
+    "source_signature": "4ec431aa5df72a32c8d303b5e5f3f9946c2a773b46842a1dd63fce5562cf3316",
+    "source_tree": "7d6c161207d56bbbd2463a219ee6aaec66be6648",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-polls-and-surveys-filament": {
+    "path": "modules/module-cms-polls-and-surveys-filament",
+    "reference": "747ea1ec65d7d6016ce88863bce948c798c486e4",
+    "repository": "https://github.com/liberusoftware/module-cms-polls-and-surveys-filament",
+    "source_signature": "34759bc770f68b237e85d6e993d715e1d1291806ee8df9aedc8f3d87a9a80001",
+    "source_tree": "68f4bdb6296597b446db177e564976079af1733d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-polls-and-surveys-livewire": {
+    "path": "modules/module-cms-polls-and-surveys-livewire",
+    "reference": "43bd1343f329ffb3555d809ed9c5e6578a34d407",
+    "repository": "https://github.com/liberusoftware/module-cms-polls-and-surveys-livewire",
+    "source_signature": "8e0b034c410ae390fe9fc65218dbe123ca30cec0ac7bee1b710d82b9df9ec2f4",
+    "source_tree": "d15e3c347b433711cefbf870e3111e403630e075",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-publishing": {
+    "path": "modules/cms-publishing",
+    "reference": "c7c009e29a90a5743a048f95445a370765d62bc2",
+    "repository": "https://github.com/liberusoftware/module-cms-publishing",
+    "source_signature": "2e864609442649724782643d6c187f2443fe0b652879edde8ca96336c34b05ea",
+    "source_tree": "9c5a56458989c6cf50888cf61f521f0df9b7f9da",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-publishing-api": {
+    "path": "modules/module-cms-publishing-api",
+    "reference": "6776e07d0ac94f64dcb1103a169ed058d275009e",
+    "repository": "https://github.com/liberusoftware/module-cms-publishing-api",
+    "source_signature": "73192ff40a9ddb76d4048771c91854a232228d206554a98fbf73774f28ae565e",
+    "source_tree": "c2c0d39164056caae51ba9603e1af4f6b71bd4e2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-publishing-filament": {
+    "path": "modules/module-cms-publishing-filament",
+    "reference": "8f682baa179157a50243b4e114fc82556d433475",
+    "repository": "https://github.com/liberusoftware/module-cms-publishing-filament",
+    "source_signature": "5a47441008da08516efd3f3854698cd63c0cb69fe2b2cdaa57c570d6264b9b6e",
+    "source_tree": "232f6c21ec96c709d2024384245096cfe67187f6",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-publishing-livewire": {
+    "path": "modules/module-cms-publishing-livewire",
+    "reference": "563fd97fa3af5dc444ae79bf67c35ec05b83c933",
+    "repository": "https://github.com/liberusoftware/module-cms-publishing-livewire",
+    "source_signature": "a1e37c2971abfcbf43f3499b06620f990c88ef9b64682392028b5dd1577b7dfc",
+    "source_tree": "7271521b6b98c2f0bfc2a9260dfe5c2aae35174c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-recommendations": {
+    "path": "modules/cms-recommendations",
+    "reference": "ea066531ef1855f0a05942570e691da42f03d7bd",
+    "repository": "https://github.com/liberusoftware/module-cms-recommendations",
+    "source_signature": "b67d992a06d16245d5703b97a85c19b68360f93a5f1b8594d2b59e91adfcfc84",
+    "source_tree": "5b34145374041ec0a6a4b1541d71a14f2fac17e7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-recommendations-api": {
+    "path": "modules/module-cms-recommendations-api",
+    "reference": "943fdf19dd1b501f0d570e2bd4d65ef14764e8cf",
+    "repository": "https://github.com/liberusoftware/module-cms-recommendations-api",
+    "source_signature": "bbe3b6d7327f1790ccbb21e2e70c1b70194c4873f055d4d723d12f2beabc81b2",
+    "source_tree": "ec89196eb229f4eee25de21575d5cf97e59d61dc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-recommendations-filament": {
+    "path": "modules/module-cms-recommendations-filament",
+    "reference": "4690bbd5b8fae89a3462ea069c5827dc86ba0597",
+    "repository": "https://github.com/liberusoftware/module-cms-recommendations-filament",
+    "source_signature": "14fe16b7a90faa47fc6b8e4d43e6e265644d22f265de9072640143bfb92eca3d",
+    "source_tree": "356dc19c27a5d3781a62a40356f934d10a95d6f2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-recommendations-livewire": {
+    "path": "modules/module-cms-recommendations-livewire",
+    "reference": "327bd70d9fe3c37102eaa05fcc974c2b5664be51",
+    "repository": "https://github.com/liberusoftware/module-cms-recommendations-livewire",
+    "source_signature": "ec1bf94709f484c7d0f16f5dd9141ac495aaecaceb2a3bd3a8feeb27310174be",
+    "source_tree": "031db4ac7e009f9981db2bba66edecd5541dc9f3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-redirects": {
+    "path": "modules/cms-redirects",
+    "reference": "d588301bf601b860ce5d267e8dcd26a05719b091",
+    "repository": "https://github.com/liberusoftware/module-cms-redirects",
+    "source_signature": "cbb311c450a7b03dc67f245a7ed3afb9764481f6e5fc67748c21a292e37c63d6",
+    "source_tree": "ecd3ccaa8422674da95a739757e6d8eb2546b35f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-redirects-api": {
+    "path": "modules/module-cms-redirects-api",
+    "reference": "8dec251d9cc33384e6908564c3b009ccd0f982b8",
+    "repository": "https://github.com/liberusoftware/module-cms-redirects-api",
+    "source_signature": "5d7264b484c9a4e153356600e482904616d98c17003b80af9a99b39ab766ff14",
+    "source_tree": "d5b11d18cad60dee28a0e784bb97dc8665a52b7d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-redirects-filament": {
+    "path": "modules/module-cms-redirects-filament",
+    "reference": "5a8a0b0ada4fcde82844e9809c49edc172aded52",
+    "repository": "https://github.com/liberusoftware/module-cms-redirects-filament",
+    "source_signature": "520108e64ce8c1e82a917b50b5cd71f008f92e75c18767118b6e984a15a0ae3f",
+    "source_tree": "1e578ceec2a1a990595c1fe0a6b268a7220e5888",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-redirects-livewire": {
+    "path": "modules/module-cms-redirects-livewire",
+    "reference": "5acb8b9d48d829607aaa74465c09d662318a9779",
+    "repository": "https://github.com/liberusoftware/module-cms-redirects-livewire",
+    "source_signature": "4dca6176f136c55ab91b8bc896caaf0bc25d94ccf6e55be80d35de525920555a",
+    "source_tree": "20df8835f4a4777a9b0f89cdead176295ba4b526",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-regions-and-widgets": {
+    "path": "modules/cms-regions-and-widgets",
+    "reference": "4cc9fb714ee01de50b7e8bc2887747f178da0191",
+    "repository": "https://github.com/liberusoftware/module-cms-regions-and-widgets",
+    "source_signature": "72d5ba256f024495a026338327e196a08a783e49c7fffad3494e72195b1b9236",
+    "source_tree": "71865ba6999f46e4fe37a89675cdf3f4d358328b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-regions-and-widgets-api": {
+    "path": "modules/module-cms-regions-and-widgets-api",
+    "reference": "9a632fe02eb11229bce52e19542a9fd38de1a629",
+    "repository": "https://github.com/liberusoftware/module-cms-regions-and-widgets-api",
+    "source_signature": "06d058401ce29d797298c510096a21b1ec4919b6db2caf51589aaeb36b104a06",
+    "source_tree": "cc061491293ce62ca1936d73704e464cfe196420",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-regions-and-widgets-filament": {
+    "path": "modules/module-cms-regions-and-widgets-filament",
+    "reference": "8cf208df849a6b71160b8368dccab4aa6894f451",
+    "repository": "https://github.com/liberusoftware/module-cms-regions-and-widgets-filament",
+    "source_signature": "1c641fbec32ad10e7b1a7b8c028120258cf954f86ba80dbe4f58ae559a169934",
+    "source_tree": "2f2d80949c07bef01fcc07049690f761b752a8e5",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-regions-and-widgets-livewire": {
+    "path": "modules/module-cms-regions-and-widgets-livewire",
+    "reference": "fcf3c6f404f26f4602da828a271240b9c7679ff0",
+    "repository": "https://github.com/liberusoftware/module-cms-regions-and-widgets-livewire",
+    "source_signature": "62e524d84d9978485176a9dd8bf9f145b57da3168ac6b253f0b123097ec001b1",
+    "source_tree": "31f885ae717ae8d07304df6628afddcd8c3b0366",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-related-content": {
+    "path": "modules/cms-related-content",
+    "reference": "868a32557114eb6b5e0e251d1b3bacd325811fbe",
+    "repository": "https://github.com/liberusoftware/module-cms-related-content",
+    "source_signature": "a82aee895239f2a97087b2a6fd5cb52eb4a131b97570883bb80591397c586473",
+    "source_tree": "96cc61c32d371a4320ffb178ef4eb59c59f15d7d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-related-content-api": {
+    "path": "modules/module-cms-related-content-api",
+    "reference": "f2266594fbbfd2b7c0335c576fefec2dbc4c7ad0",
+    "repository": "https://github.com/liberusoftware/module-cms-related-content-api",
+    "source_signature": "7f75590c86898ae16081469341481d76428854a6e762e0f34cbb76001da7fa5b",
+    "source_tree": "5d5afbd49e5292d6de39e0f87008bb01c2f23030",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-related-content-filament": {
+    "path": "modules/module-cms-related-content-filament",
+    "reference": "1858dd5eabc9d682a82efcafcb12365f1dea2004",
+    "repository": "https://github.com/liberusoftware/module-cms-related-content-filament",
+    "source_signature": "95c7da4497e9c235b9d05c15f5a4d7e97360f110350777e01671d46e5e008c21",
+    "source_tree": "9d69bfe3fde30478c7e51aaf6e7d46c0f26725bc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-related-content-livewire": {
+    "path": "modules/module-cms-related-content-livewire",
+    "reference": "73826e591cb18cfe11afee16f6d02d3c8816166e",
+    "repository": "https://github.com/liberusoftware/module-cms-related-content-livewire",
+    "source_signature": "d8a702445f19cf08b03fc8231ea4f4212c66223027ec7e954843bead3b70c8c1",
+    "source_tree": "6de1d0eb0a0e2b0f92d11453ae9ca3b6cc20301b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-revisions": {
+    "path": "modules/cms-revisions",
+    "reference": "cbced48d3cf33e5beb9ee7ab6e7811c4740ae07b",
+    "repository": "https://github.com/liberusoftware/module-cms-revisions",
+    "source_signature": "3b5b3209a48e3b9e001552c908d4ba6669c6773c17a4499c5d64f4a3454452b7",
+    "source_tree": "042cffe0ffc74b04823871be8abd78a926674670",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-revisions-api": {
+    "path": "modules/module-cms-revisions-api",
+    "reference": "f280fa5b76c4561fd1386a1e4daeff788465d7b1",
+    "repository": "https://github.com/liberusoftware/module-cms-revisions-api",
+    "source_signature": "07c4213aa63024d1a05d58cf05b9d61294a8347f6e020251c6bada60da1ac2e7",
+    "source_tree": "4abb3b29547f39bfb7022e25ac2d1c70f90dd93b",
+    "version": "0.1.1"
+  },
+  "liberusoftware/module-cms-revisions-filament": {
+    "path": "modules/module-cms-revisions-filament",
+    "reference": "d7a0c96e551258d4bfdcf67b7b628a4d83e31962",
+    "repository": "https://github.com/liberusoftware/module-cms-revisions-filament",
+    "source_signature": "c78523360447bdddfde1e3b97ff74a3c594005cd57b1a38ccb134e3e66692f9d",
+    "source_tree": "b5013c99ebcd41d023db490d3439266f7f6be505",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-revisions-livewire": {
+    "path": "modules/module-cms-revisions-livewire",
+    "reference": "27e19cbe3bde539d88bd6b51c0fb5c07f3558775",
+    "repository": "https://github.com/liberusoftware/module-cms-revisions-livewire",
+    "source_signature": "0ad2a096ba007897106365f06c007e12d02d64d21ca3902cc8a6a0dc48a75777",
+    "source_tree": "345b9e2a0ffb8aa6baf84f6db51b435b7b4d423a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-rich-text-editor": {
+    "path": "modules/cms-rich-text-editor",
+    "reference": "5f779daf928a7eec82ce3396374c01229e807b2d",
+    "repository": "https://github.com/liberusoftware/module-cms-rich-text-editor",
+    "source_signature": "d31249fd4e014f3ae8d21dc06eb7c741668d2dde362895b717706f6f749c2020",
+    "source_tree": "632dd1a030d8021e75ed6d68ee1873a659e808e5",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-rich-text-editor-api": {
+    "path": "modules/module-cms-rich-text-editor-api",
+    "reference": "ac7cd609243fdfff7b1b2a162b6352852065a8e8",
+    "repository": "https://github.com/liberusoftware/module-cms-rich-text-editor-api",
+    "source_signature": "97273cf89f5fab8ff2e41abe0b0e466693b046f0eef911389ee06c7bda02a88a",
+    "source_tree": "ec52873dbb91c0a26b8749968a7706fde8289ba7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-rich-text-editor-filament": {
+    "path": "modules/module-cms-rich-text-editor-filament",
+    "reference": "6a464a3bcd455d531d9e26525dd9360c3e4af23f",
+    "repository": "https://github.com/liberusoftware/module-cms-rich-text-editor-filament",
+    "source_signature": "06e1d71805d08ecb7b804219521213a6c9d918f0e9c2001b4272ce692b8c1e16",
+    "source_tree": "67408d95ab97659f39eb95b84f7c415086b6bc1b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-rich-text-editor-livewire": {
+    "path": "modules/module-cms-rich-text-editor-livewire",
+    "reference": "ab4965665a528c3bf813def4242aef95b169d9cf",
+    "repository": "https://github.com/liberusoftware/module-cms-rich-text-editor-livewire",
+    "source_signature": "64065576b3ebfc19aa03e6d2d252d8443299404abee4370013bf470249dec10f",
+    "source_tree": "d524541670ed173f03789a67afff68d3c1493a5d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-security-operations": {
+    "path": "modules/cms-security-operations",
+    "reference": "eb73afbea6f6fe6a5a59679700f8e8e4c7dcbb95",
+    "repository": "https://github.com/liberusoftware/module-cms-security-operations",
+    "source_signature": "7d19a68852f41d9426fd482388780f90a217f3a3fc93520f6eee4831ff6fa70c",
+    "source_tree": "16424df066ecba33c4ab964e7d4fceb5195369cd",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-security-operations-api": {
+    "path": "modules/module-cms-security-operations-api",
+    "reference": "f987a30918abb2a52812c01fc7a571820206aa6c",
+    "repository": "https://github.com/liberusoftware/module-cms-security-operations-api",
+    "source_signature": "a8a6e4e948a9b6114daefbe3ddcb562648a7b07e50abde740a7c8cbb2abe800c",
+    "source_tree": "1a09d7ad056677e4948042fd1fc25d6fc1819b88",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-security-operations-filament": {
+    "path": "modules/module-cms-security-operations-filament",
+    "reference": "cca4584b9c5e7fb9ec239aeabe7ea3c73ecba862",
+    "repository": "https://github.com/liberusoftware/module-cms-security-operations-filament",
+    "source_signature": "ab9581c08e8bcaa7e76c6a70b9ae3a8b5fbd158aaedf6dd6fb78ec86c4153d97",
+    "source_tree": "00d7bbd2d31777fb164fc94ad2731e7adf286602",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-security-operations-livewire": {
+    "path": "modules/module-cms-security-operations-livewire",
+    "reference": "c520ee9206ecc34f27a4c04c654748075643b62a",
+    "repository": "https://github.com/liberusoftware/module-cms-security-operations-livewire",
+    "source_signature": "a754f3ae88d3e82ea509a9fb81ec0c529dff56c2cc7447f4f8a6261a0cdc3951",
+    "source_tree": "f057f0eeba8c7022623416f0f0c916fa7eecdbd3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-seo-api": {
+    "path": "modules/module-cms-seo-api",
+    "reference": "e2f83e0848c6deb8cc6b9d32a51743982b9f410d",
+    "repository": "https://github.com/liberusoftware/module-cms-seo-api",
+    "source_signature": "2079a9d3ddab5cbc12aacc5dab1405d23071fbfa1b52b65281f7b08baa87c98a",
+    "source_tree": "a53b867247a6ed47431b9b0df3f5183d458f9f2c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-seo-filament": {
+    "path": "modules/module-cms-seo-filament",
+    "reference": "8defbcffc64166c18662f43f6f6a9e037988d80f",
+    "repository": "https://github.com/liberusoftware/module-cms-seo-filament",
+    "source_signature": "a280e32ebaa67e055626fcd6ad53d627e8b74b0708a83a02f7d2949eb28f14f6",
+    "source_tree": "a9632ec0fbc47986b44fbe0b5ed6c0ff05d1fbf8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-seo-livewire": {
+    "path": "modules/module-cms-seo-livewire",
+    "reference": "de59505398cfe30975defbd1d9791e2e94f24168",
+    "repository": "https://github.com/liberusoftware/module-cms-seo-livewire",
+    "source_signature": "d1c7ed2a7f37e9cf3cbb432b155af4384e9c0f8b90697a9246a29abd4f1e3edb",
+    "source_tree": "0275b6d6fa73b3906c22cf5c6d925c57a00a41af",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-factory": {
+    "path": "modules/cms-site-factory",
+    "reference": "edd7a99cbdfb4463ed292fde7f322b657492e1a0",
+    "repository": "https://github.com/liberusoftware/module-cms-site-factory",
+    "source_signature": "8acd9ecdb1fd49db64b697cbc878e368deb2bf0228c4c83e0258dd2edbff796a",
+    "source_tree": "2250e459262d9894b3880dc56bcb6f224684f102",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-factory-api": {
+    "path": "modules/module-cms-site-factory-api",
+    "reference": "0d9a45382b3b4a1a965c05475861d2eeef4b4d13",
+    "repository": "https://github.com/liberusoftware/module-cms-site-factory-api",
+    "source_signature": "8389a23a42e433cf8e80369cba997cdc83ad93a6fa601c3a456de757e2a6a9ba",
+    "source_tree": "7fc25701fe736f24fa6b222bf4aee9594e3da694",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-factory-filament": {
+    "path": "modules/module-cms-site-factory-filament",
+    "reference": "75cd28783c479a80879a5e82f52fb6ce6d8c1b39",
+    "repository": "https://github.com/liberusoftware/module-cms-site-factory-filament",
+    "source_signature": "2e0a6c4e2eb053cb583e2fde20b9a7eb4b9a4eb754469126911c3ad28c700d59",
+    "source_tree": "2dba690d74d17a45417a3c29c5897462bf346fb3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-factory-livewire": {
+    "path": "modules/module-cms-site-factory-livewire",
+    "reference": "31d347d7c6a33f3a803681734bbd42ab5501a251",
+    "repository": "https://github.com/liberusoftware/module-cms-site-factory-livewire",
+    "source_signature": "7d347a390b78ae398e8bfa8dbacc82b594e0ed6c45cf0d61d92e8a55f71abcd9",
+    "source_tree": "a444181cd1b16b291d8058d757414dd84a88fa9c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-recipes": {
+    "path": "modules/cms-site-recipes",
+    "reference": "8d2fb642de853bb7b800594b11e1680d9ca51dad",
+    "repository": "https://github.com/liberusoftware/module-cms-site-recipes",
+    "source_signature": "3e8086eb03fc84a812fc31b11f02a5269cc11c97da678fab2d596b96c0cceacf",
+    "source_tree": "3b28d505104cabb687967ab963ce87fec3fce603",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-recipes-api": {
+    "path": "modules/module-cms-site-recipes-api",
+    "reference": "1521384f6b4e57184bac2c9fbd5d367c8ecb0c78",
+    "repository": "https://github.com/liberusoftware/module-cms-site-recipes-api",
+    "source_signature": "7d94de4b9e949ecf66c0d4416eabc0150701f20e319c4be75a721f8634355c63",
+    "source_tree": "afa6685c0b9a166aaf7e7c2552baa52dfb6901fc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-recipes-filament": {
+    "path": "modules/module-cms-site-recipes-filament",
+    "reference": "dc0024ac0d7cb404ff0dc7f04cd98c5f7c8dacb0",
+    "repository": "https://github.com/liberusoftware/module-cms-site-recipes-filament",
+    "source_signature": "684953bc80ddd43eb06a251de7c8c3ff4794cf8e6e8774d77d3d2e386c60942f",
+    "source_tree": "0dccc7b96671e2c431b0953499a42778d91c3af1",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-site-recipes-livewire": {
+    "path": "modules/module-cms-site-recipes-livewire",
+    "reference": "82cf9a7938670cf1b4bfe16d6a1465a60ee6895a",
+    "repository": "https://github.com/liberusoftware/module-cms-site-recipes-livewire",
+    "source_signature": "5be6579c6146a64a668e9274c5ae045ee904d6e1ffc5b8fcb5f9aff9bcd6411a",
+    "source_tree": "59eec5e22c61cac5879b7dd434db78d397e9eed0",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-sitemaps-api": {
+    "path": "modules/module-cms-sitemaps-api",
+    "reference": "3f56c72195bc06b78da1f1496f281591a5e47a15",
+    "repository": "https://github.com/liberusoftware/module-cms-sitemaps-api",
+    "source_signature": "7d7bd094385b76818896c8f26bfca8726faaf0804e392919cc00290157cf5d8c",
+    "source_tree": "64dc7714d6760d1b27870c2fab3997e09d6d1260",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-sitemaps-filament": {
+    "path": "modules/module-cms-sitemaps-filament",
+    "reference": "59354cd08048e0f0d24987dca73ad8189ab6aab3",
+    "repository": "https://github.com/liberusoftware/module-cms-sitemaps-filament",
+    "source_signature": "37b9979acd4a42bd6eed51940a2c0158e896f29a2f04f05833e287a3e7da9a66",
+    "source_tree": "1119cd88d592325974a3f5ff5f76e2337c40a35e",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-sitemaps-livewire": {
+    "path": "modules/module-cms-sitemaps-livewire",
+    "reference": "f7a264582efbfdb8fb4d14cd50974b04da352ca3",
+    "repository": "https://github.com/liberusoftware/module-cms-sitemaps-livewire",
+    "source_signature": "e9553bdb53b430944797285ebb60c8bd11ab788fc3e846f2ca17cc6b765cce8e",
+    "source_tree": "7ac434a0394200afffffe5f7110cfea6028f9fb0",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-static-publishing": {
+    "path": "modules/cms-static-publishing",
+    "reference": "c3f2d70f4c8eb95e4334055211844e95cac8875f",
+    "repository": "https://github.com/liberusoftware/module-cms-static-publishing",
+    "source_signature": "d9738b98b9702f62534e9ba87b7f10b2b29b77282268f6c17978d16e401c20db",
+    "source_tree": "cd1ee95157d3180d07417ccb3831dd23877ee952",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-static-publishing-api": {
+    "path": "modules/module-cms-static-publishing-api",
+    "reference": "fe73b288f91147e4ec9b923c41d9b7de848c09e9",
+    "repository": "https://github.com/liberusoftware/module-cms-static-publishing-api",
+    "source_signature": "2bfb55382493adbd2f81147ae7dd5999dfda5f68a82babd7263ecb82f9da6e23",
+    "source_tree": "460953ae6952060fd4de06df9b735d2356bc3241",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-static-publishing-filament": {
+    "path": "modules/module-cms-static-publishing-filament",
+    "reference": "3eeba249771663516ccfc13ca05b8f5cc809db86",
+    "repository": "https://github.com/liberusoftware/module-cms-static-publishing-filament",
+    "source_signature": "38969e0c9ec7acd5a9460bc1d800658b578ea00d598395d4835b083ece26e737",
+    "source_tree": "525f30c26d4ec6c3839da6621676c379bb374d0b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-static-publishing-livewire": {
+    "path": "modules/module-cms-static-publishing-livewire",
+    "reference": "33d4ec9fe5eded2c0ceb31b068ceb11e13eae17e",
+    "repository": "https://github.com/liberusoftware/module-cms-static-publishing-livewire",
+    "source_signature": "b99d27e5c7de34b80b6ea51b258fb432c0b8cddbf444dcd53f888ae4fbae7ebd",
+    "source_tree": "e6a79615f2b6129985e72a43b24a08c26efefdc6",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-structured-collections": {
+    "path": "modules/cms-structured-collections",
+    "reference": "ffe0346525364390388bd35bc218e65e8b59d878",
+    "repository": "https://github.com/liberusoftware/module-cms-structured-collections",
+    "source_signature": "53a764d7ba1104f822914edfc88b4cb9221c603cc550ccc3ca3fd736a19ce194",
+    "source_tree": "d6666ba7928cd24ae79866bb706832b8c59ce64c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-structured-collections-api": {
+    "path": "modules/module-cms-structured-collections-api",
+    "reference": "f9fc6d40862e3a15feebd3e18606678785886c26",
+    "repository": "https://github.com/liberusoftware/module-cms-structured-collections-api",
+    "source_signature": "f3b70e1b70bc7e25d6f6dc4a5f7619bc15e33b76b7ebdf2cb9ffc94f9288dd57",
+    "source_tree": "b5b413cf8c83a26b9353c8060c9c12cc10efb207",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-structured-collections-filament": {
+    "path": "modules/module-cms-structured-collections-filament",
+    "reference": "1b954534cb3d165fc78a2f64902bd01ce5106af4",
+    "repository": "https://github.com/liberusoftware/module-cms-structured-collections-filament",
+    "source_signature": "e24b6e69f6a5f9305dafb7b46989fae9646655bf5da704f57fcfda2032565323",
+    "source_tree": "8c1058353a97679455e563b35080c3f0d474def3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-structured-collections-livewire": {
+    "path": "modules/module-cms-structured-collections-livewire",
+    "reference": "3937673023fee0c442a6ea79c5e0c31335879577",
+    "repository": "https://github.com/liberusoftware/module-cms-structured-collections-livewire",
+    "source_signature": "067b9698ae0ffa3f4b03b6f183a404114a549ab762ab189e64c52bf1f1ef06a9",
+    "source_tree": "0afbb9f504bbefdd5fb88406755d2c74b051941c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-syndication-and-feeds": {
+    "path": "modules/cms-syndication-and-feeds",
+    "reference": "bc0618e355475773e200b496dc3f0b6a6782fd0c",
+    "repository": "https://github.com/liberusoftware/module-cms-syndication-and-feeds",
+    "source_signature": "cca5b1e1dfff269e381f4960767f97189999ef52e300a859e036e5aee9e37ea8",
+    "source_tree": "c7c22e436b6ce3e0c3dba9c0d42de0941fe57c0b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-syndication-and-feeds-api": {
+    "path": "modules/module-cms-syndication-and-feeds-api",
+    "reference": "397b3b05464209485557f0503fbd054bc2da13eb",
+    "repository": "https://github.com/liberusoftware/module-cms-syndication-and-feeds-api",
+    "source_signature": "bb5b93d618f36c0f8473ce93ceab145f4ad900ed22535f085961016246c4d3a4",
+    "source_tree": "7a50be5b9c3960aaee71975f1cc1a52c5eebbf6b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-syndication-and-feeds-filament": {
+    "path": "modules/module-cms-syndication-and-feeds-filament",
+    "reference": "0e8a3632f317fb02a29b2d4aa31d9d59ba649edb",
+    "repository": "https://github.com/liberusoftware/module-cms-syndication-and-feeds-filament",
+    "source_signature": "fbd687eff6e3d763ff22db4cd51e47dc7d1f871b52d10cbe5f30c0e9720272a6",
+    "source_tree": "302f83b4f069a159011ebc922fb998ca8eb654f8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-syndication-and-feeds-livewire": {
+    "path": "modules/module-cms-syndication-and-feeds-livewire",
+    "reference": "8aa7f4bc6324f50705e2c9f83863fa10240f6577",
+    "repository": "https://github.com/liberusoftware/module-cms-syndication-and-feeds-livewire",
+    "source_signature": "ad4df364bd79146c15690154fa905003d500899cae744460a3bc034c625ad92c",
+    "source_tree": "7981a08ae716988baa433150b08dcc362332fbb2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-taxonomy": {
+    "path": "modules/cms-taxonomy",
+    "reference": "ec13c8f68d7a17826fbfd1904a7329e2d71cfe38",
+    "repository": "https://github.com/liberusoftware/module-cms-taxonomy",
+    "source_signature": "666aa975edf6d0570aed1a0de24ec61fcf63dcf049692fd8f520b7989d00a3e8",
+    "source_tree": "ee16b61e8e354c4ca552fa0d5a0e53c0e23b1703",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-taxonomy-api": {
+    "path": "modules/module-cms-taxonomy-api",
+    "reference": "89ea983a51f3806392e02b15e37a21ca368cf5df",
+    "repository": "https://github.com/liberusoftware/module-cms-taxonomy-api",
+    "source_signature": "df7607d85e48e50b19bf73495e12953fae71604499569354307b4f61ba7b8c5a",
+    "source_tree": "1a5090d46d313a09c2caaed0976280cb82f53e2d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-taxonomy-filament": {
+    "path": "modules/module-cms-taxonomy-filament",
+    "reference": "f4abd4e8b64aa8f3dff2113ef3d132ff108c34af",
+    "repository": "https://github.com/liberusoftware/module-cms-taxonomy-filament",
+    "source_signature": "f0c82440ba4a6d9611263434f95cc0bd0f5daffb1abc40c08108c202adcfcedc",
+    "source_tree": "8f3d56da4147ef9895fe219c3e52cf9e79d9949b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-taxonomy-livewire": {
+    "path": "modules/module-cms-taxonomy-livewire",
+    "reference": "b2734a64349533a5e17a38442de524ef99d674d9",
+    "repository": "https://github.com/liberusoftware/module-cms-taxonomy-livewire",
+    "source_signature": "07f26392f13afec75fc4506ec5f8098c3b2bb772951c4ce55744da1f5d2e71c1",
+    "source_tree": "021a052694784df674a3a8a1f68ff653353e1ff8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-integration": {
+    "path": "modules/cms-theme-integration",
+    "reference": "f87a22a4825db72565b6626b13ca0ce88f44a826",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-integration",
+    "source_signature": "6b2bbb2b0763eba8ddea973a302ac1153c7e09988f9c8d024e254c7dc75d7030",
+    "source_tree": "d657f4b8787fe792c78b90d8e164cddb3c34e7a7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-integration-api": {
+    "path": "modules/module-cms-theme-integration-api",
+    "reference": "53ececef56773d97e453c889add89468f04cd924",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-integration-api",
+    "source_signature": "cbaaaffd86074d3c871d261e143c7ee46bf038d40d8c13ca98514b2245bc7544",
+    "source_tree": "4abad55cdb1fadeb886d0d0ac239f04f25d6f2b2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-integration-filament": {
+    "path": "modules/module-cms-theme-integration-filament",
+    "reference": "b82594d394bbe61501f8e4d4b576222de3ce8412",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-integration-filament",
+    "source_signature": "02e43cfd57c8dd5ce7214a313e6e7d398c301fe3cbcb929eaacda6b41aab7f69",
+    "source_tree": "ce51847c7a9083943e6f9eb0841f1f696519053f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-integration-livewire": {
+    "path": "modules/module-cms-theme-integration-livewire",
+    "reference": "c364e2f0d34837b4f201bd39dd2b7947b995f0ca",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-integration-livewire",
+    "source_signature": "99a015e7a0221d2c29180a5d3184c809b1f02b7596c2d18daf853033e379cb76",
+    "source_tree": "a8b2ade99bdccf534ec671506cff8a41fd909de8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-marketplace": {
+    "path": "modules/cms-theme-marketplace",
+    "reference": "5ca7747e318fb318b983dffbdd772a376657aa70",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-marketplace",
+    "source_signature": "04289b3b1ab1f0ea943490e47bb43454691edcdeca91471d35925d50acaabab8",
+    "source_tree": "48cad930861fb5d5eadc8379dbe868c64b3f8f13",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-marketplace-api": {
+    "path": "modules/module-cms-theme-marketplace-api",
+    "reference": "e8d3d5f20d563535ee7e02f80f4002060689183b",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-marketplace-api",
+    "source_signature": "80fe94561ea8367525cb7bc210e861007e142e9d58c68eb9d6b8b721889bf43a",
+    "source_tree": "50197e4214bc30bca55299b4e3ed6f3995a0710a",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-marketplace-filament": {
+    "path": "modules/module-cms-theme-marketplace-filament",
+    "reference": "5a71f20425d0a0e653abe2a45f37cf8adad4a8f9",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-marketplace-filament",
+    "source_signature": "bbd227298496b80013b04f5d1fcb734b6fcf97df1d7cd94165aef35b6de711aa",
+    "source_tree": "8c04e4426d203e44f6fb98d4875a1f4936e2c9d8",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-theme-marketplace-livewire": {
+    "path": "modules/module-cms-theme-marketplace-livewire",
+    "reference": "a07d8d145e97b3a42673f5bcabbf325075f11de9",
+    "repository": "https://github.com/liberusoftware/module-cms-theme-marketplace-livewire",
+    "source_signature": "3e1ab8d00e80d22122aa4b7a206faa55b3b629c181e754c59c856daeb8d1f52e",
+    "source_tree": "022cdf3f71048ef871fc60e5d616147b017f9510",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-assistant": {
+    "path": "modules/cms-translation-assistant",
+    "reference": "911fa8078b913c8410f34c6f0fe5d54defbae55d",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-assistant",
+    "source_signature": "a1977a4b415fa188c85e5121fcd6b9cff6f9fdcf3ad8433a0986de433a11a22e",
+    "source_tree": "6e1e4e27ac891fc0dfb53f22e99a0846c73362e3",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-assistant-api": {
+    "path": "modules/module-cms-translation-assistant-api",
+    "reference": "60f4c49de20d5e8938dcf33206528ea84eecaf8c",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-assistant-api",
+    "source_signature": "13d4e924de0a035781daa91c184bdfad17b7126628f5743f8c4bcceb2c60786f",
+    "source_tree": "395e23ee1a4e9c8f37e4ba1c45b9ec0118cdbf81",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-assistant-filament": {
+    "path": "modules/module-cms-translation-assistant-filament",
+    "reference": "11ce6363066c70d1ceb5849bfa9699954fc55831",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-assistant-filament",
+    "source_signature": "fb749bd57c253e6c429a83e61c1b00fc60d3c9b290c98df2f07dbeda026dca57",
+    "source_tree": "4cc7195542ec0c89743c1f6645f445aada71b9e1",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-assistant-livewire": {
+    "path": "modules/module-cms-translation-assistant-livewire",
+    "reference": "0dd318575d8af9dac9f83513b20e5bc095ebe62c",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-assistant-livewire",
+    "source_signature": "fe0d1d809c6353e4696b713b95da8cb75fffbb31441dd0b8cf220c1a6354826e",
+    "source_tree": "0ee209fe5cb2788b4c31d95a183fd875b3bb49d7",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-management": {
+    "path": "modules/cms-translation-management",
+    "reference": "10936823ecd2e2dffbaeaa9cb5d4f39ad5c0283a",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-management",
+    "source_signature": "1141af574f196a44c95fedbd19907a6c92649e87d170290867e076ab4d099949",
+    "source_tree": "a31669fb09943613eb1dffd02b86923cdbb55edb",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-management-api": {
+    "path": "modules/module-cms-translation-management-api",
+    "reference": "30a743b4e00bbd6f79c3dfb50da0eacb994b1f3a",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-management-api",
+    "source_signature": "cade1502592c1301cad038d95999baf5dbab45956ffab4bca03795d5a4ffc93c",
+    "source_tree": "0073678a8c196a0a730fec83759bf79665b4ad21",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-management-filament": {
+    "path": "modules/module-cms-translation-management-filament",
+    "reference": "60d48716973bbf5b344247209c920821be41d4c5",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-management-filament",
+    "source_signature": "f0b8ac635043b41fa213c21ecdefb5e4ddb44b5840fe55df06dd9125833d4ef2",
+    "source_tree": "301966e58708bcb13c89a3468a805350c2446bf0",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-translation-management-livewire": {
+    "path": "modules/module-cms-translation-management-livewire",
+    "reference": "a67e99f06ea7e51f14fc5bcb016a5d80b6f09dab",
+    "repository": "https://github.com/liberusoftware/module-cms-translation-management-livewire",
+    "source_signature": "0c9c1f4dfeb15a57899cbae1d29f7e7cf205a024879d02b9858c9726f043be23",
+    "source_tree": "7e7068e0cc4f09ab19c30b72d081ae3d475d683b",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-video-and-audio": {
+    "path": "modules/cms-video-and-audio",
+    "reference": "316bf7cf4e3a178dbbdf1ff9f3cf310811917594",
+    "repository": "https://github.com/liberusoftware/module-cms-video-and-audio",
+    "source_signature": "68857ff43086cae2fd88ecc6efa1b98ccec67f577b0c597e1697788b607453e8",
+    "source_tree": "aee3a3ccc9545f91c7f82278275f5c88f7eda01f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-video-and-audio-api": {
+    "path": "modules/module-cms-video-and-audio-api",
+    "reference": "86172b4ace15aa2de022c43a04f389a928776325",
+    "repository": "https://github.com/liberusoftware/module-cms-video-and-audio-api",
+    "source_signature": "353bf525d7973a3fa75ee67b6a0549432987cc8c51a7410a02042e6cf199ff60",
+    "source_tree": "3f90ac316807be23804ef994ab358d0916523c6f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-video-and-audio-filament": {
+    "path": "modules/module-cms-video-and-audio-filament",
+    "reference": "0bca156992f9b169c1d053ca383eced773db0102",
+    "repository": "https://github.com/liberusoftware/module-cms-video-and-audio-filament",
+    "source_signature": "6e1d8b86ea6b2edcbd10f0dffd5c5aaeb67a29a6c1beb5a6382b19bd97f224d5",
+    "source_tree": "fa48fb7f820f3ea128b59ef6039e4c753b2d922f",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-video-and-audio-livewire": {
+    "path": "modules/module-cms-video-and-audio-livewire",
+    "reference": "c2626e99d9430ad2b2e6883df401523f9b119c23",
+    "repository": "https://github.com/liberusoftware/module-cms-video-and-audio-livewire",
+    "source_signature": "00faa8978f829361e1698109c967b19ae6e7827fa7de3a75712ebb8a8cd5d18f",
+    "source_tree": "44051e045b263d9ccd6c9f7de18ef542e6b009f9",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-views-and-query-builder-api": {
+    "path": "modules/module-cms-views-and-query-builder-api",
+    "reference": "3b478b0aae399f6a989321aae3ef1ff199db42d9",
+    "repository": "https://github.com/liberusoftware/module-cms-views-and-query-builder-api",
+    "source_signature": "e1dc18a4a1a8b3bcebdb5c56ceb1b1ff8b5fbb3e6d06d8a355188c04f58ad487",
+    "source_tree": "7acbbf2be06a60c42d5d99841e458ffda7238589",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-views-and-query-builder-filament": {
+    "path": "modules/module-cms-views-and-query-builder-filament",
+    "reference": "45eac958a7d10bb7a81becbb4a8943aa446af134",
+    "repository": "https://github.com/liberusoftware/module-cms-views-and-query-builder-filament",
+    "source_signature": "5403e60499f149c97e0dcca5f8ac0ce0b8f0e008d55920ef982d91fe6c2d2343",
+    "source_tree": "56b99e63ced1c14d38644f3f839d665a0f91b1c2",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-views-and-query-builder-livewire": {
+    "path": "modules/module-cms-views-and-query-builder-livewire",
+    "reference": "4a3bbc811dbfaf04a64143a9344e04a89024454e",
+    "repository": "https://github.com/liberusoftware/module-cms-views-and-query-builder-livewire",
+    "source_signature": "427b722af70009d1413f80b2ca6cd5baa50ed997a2984e373b5df6e18076fe3a",
+    "source_tree": "6606b247dd7fa5f806f1f74b7655d6b98dd4db69",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-web-delivery": {
+    "path": "modules/cms-web-delivery",
+    "reference": "b0b1a85ca8ce34d42a113038531a9f4f00a8af4e",
+    "repository": "https://github.com/liberusoftware/module-cms-web-delivery",
+    "source_signature": "ca270922f38a28daa2f21e679367047b3bc3a3cd07f5ac52508bc8778b5c0e14",
+    "source_tree": "1959bba5916ee803a55c27cdf2086b179964248d",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-web-delivery-api": {
+    "path": "modules/module-cms-web-delivery-api",
+    "reference": "f6fd192ee1999ccf6f69da23e20822e66700842b",
+    "repository": "https://github.com/liberusoftware/module-cms-web-delivery-api",
+    "source_signature": "36e47bf4a2a58cbc94c2377c5cdcae8c0e5ebca0ff00a4ca2ff867e92f4c7147",
+    "source_tree": "25680bbe139b9343e7d7ce382c906183d94874ce",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-web-delivery-filament": {
+    "path": "modules/module-cms-web-delivery-filament",
+    "reference": "cea4c63829cfc1ac7ac25355e98118f0b3e6f424",
+    "repository": "https://github.com/liberusoftware/module-cms-web-delivery-filament",
+    "source_signature": "f47b6787d2a4959c68c1cc61e2959dc69ebab4e410dcc706dc7946323b78701c",
+    "source_tree": "a43aee0ffae46ec18628ff4490e8c8f1996a86ae",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-web-delivery-livewire": {
+    "path": "modules/module-cms-web-delivery-livewire",
+    "reference": "35f26304d4f6a0637c88f17f9b9dad5fff81b2b9",
+    "repository": "https://github.com/liberusoftware/module-cms-web-delivery-livewire",
+    "source_signature": "12e9cb039bcabaf5408a5e8ed0db722955ee4fb9b0774ca7e67f8b0d291ac9dd",
+    "source_tree": "58153a62a5672aba4cb004071c94fdcfc9e14ddc",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-wordpress-migration": {
+    "path": "modules/cms-wordpress-migration",
+    "reference": "6f5e441d1515010f6e0c8f0de17bc3ebf7b897cd",
+    "repository": "https://github.com/liberusoftware/module-cms-wordpress-migration",
+    "source_signature": "b612c491db29eb60d966ba1f0244bf5241d7c4e55806cd1f3310503d77381ceb",
+    "source_tree": "01bb5c1bdd151290cbe38ae906e0cb648dbee9b5",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-wordpress-migration-api": {
+    "path": "modules/module-cms-wordpress-migration-api",
+    "reference": "bbe876928b0011b62641fd583340c43baa14e8d4",
+    "repository": "https://github.com/liberusoftware/module-cms-wordpress-migration-api",
+    "source_signature": "54b98ec336f24e16fb27667b159df1a02be1a9b8965559c0b7fc824c60bbda19",
+    "source_tree": "bcfc554fbb81d0aac868043c6ef0b32f9c6b5a24",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-wordpress-migration-filament": {
+    "path": "modules/module-cms-wordpress-migration-filament",
+    "reference": "5c95ed3253181344dd9e3cf52a985af3a52bae23",
+    "repository": "https://github.com/liberusoftware/module-cms-wordpress-migration-filament",
+    "source_signature": "84c4e80b35ca21b49938fe19ba11524f3c3c190b4f15489d8789ae83d9172d38",
+    "source_tree": "7078b57e547b79d06fb8f8832adee42d42fb5a57",
+    "version": "0.1.0"
+  },
+  "liberusoftware/module-cms-wordpress-migration-livewire": {
+    "path": "modules/module-cms-wordpress-migration-livewire",
+    "reference": "6df153bbb46699bcaaa3f95b1ad3337d1a272514",
+    "repository": "https://github.com/liberusoftware/module-cms-wordpress-migration-livewire",
+    "source_signature": "305e0414088cd30a3deb2e597982100425f34e4d94c7b3cb40d1740941a94529",
+    "source_tree": "f70c7a049e07057459568bb5878afc4dacab3d3c",
+    "version": "0.1.0"
+  },
+  "liberusoftware/tenancy": {
+    "path": "modules/tenancy",
+    "reference": "32cdb9096690f29205255f2eafee4b2b2847fcaa",
+    "repository": "https://github.com/liberusoftware/module-tenancy",
+    "source_signature": "ee0fe468adef9cab22c285b554e35807cceb4a6e2e0dcf81a23a69ed39dcfe74",
+    "source_tree": "c9c9a1bb887b98e67db718633f7c50f40638bb54",
+    "version": "1.0.1"
+  },
+  "liberusoftware/users-roles": {
+    "path": "modules/users-roles",
+    "reference": "930fa694d6b3abe610e1fe243e94b5be8506ff39",
+    "repository": "https://github.com/liberusoftware/module-users-roles",
+    "source_signature": "178cdc9ecbc22c560beb9a14a7e0d221ab1f3903449e9b25929555c420c49806",
+    "source_tree": "8732964144ac6afc06d15dead77a8aef5203e318",
+    "version": "1.0.2"
+  }
+}
