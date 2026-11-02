@@ -186,6 +186,18 @@ def repository_name(path):
     return name
 
 
+def configured_repository(package):
+    path = Path('.liberu-meta.json')
+    if not path.exists():
+        return None
+    name = json.loads(path.read_text()).get('additionalPackages', {}).get(package)
+    if not name:
+        return None
+    if not re.fullmatch(r'[a-z0-9][a-z0-9.-]*', name):
+        raise ValueError(f'Invalid configured repository: {name}')
+    return 'https://github.com/liberusoftware/' + name
+
+
 def changed_packages(before, head):
     if before and set(before) != {'0'}:
         paths = git('diff', '--name-only', '--no-renames', '-z', before, head,
@@ -219,10 +231,11 @@ def packagist(package, repository):
     if existing:
         registered = existing['package']['repository'].removesuffix('.git').rstrip('/')
         if registered != repository:
+            planned_move = registered.startswith('https://github.com/liberusoftware/') and configured_repository(package) == repository
             relocated = None
-            if registered.startswith('https://github.com/'):
+            if not planned_move and registered.startswith('https://github.com/'):
                 relocated = github('repos/' + registered.removeprefix('https://github.com/'), missing_ok=True)
-            if not relocated or relocated.get('html_url') != repository:
+            if not planned_move and (not relocated or relocated.get('html_url') != repository):
                 raise RuntimeError(f'{package} already belongs to {registered}')
             edited = request(f'https://packagist.org/api/packages/{package}', {'repository': repository},
                              os.environ['PACKAGIST_USERNAME'] + ':' + os.environ['PACKAGIST_API_TOKEN'], method='PUT')
@@ -246,7 +259,7 @@ def publish(path, head, before):
     if not re.fullmatch(r'liberusoftware/[a-z0-9_.-]+', package):
         raise ValueError(f'{path}: expected a liberusoftware Composer package name')
     registered = request(f'https://packagist.org/packages/{package}.json', missing_ok=True)
-    if registered:
+    if registered and not configured_repository(package):
         registered_url = registered['package']['repository'].removesuffix('.git').rstrip('/')
         if not registered_url.startswith('https://github.com/liberusoftware/'):
             raise RuntimeError(f'{package} belongs to a repository outside liberusoftware')
@@ -491,6 +504,33 @@ def write_json(path, metadata):
             temporary.unlink()
 
 
+def materialize_source_aliases(head):
+    root = Path.cwd().resolve()
+    aliases = [path for kind in ('modules', 'themes') if Path(kind).exists()
+               for path in Path(kind).iterdir() if path.is_symlink()]
+    if not aliases:
+        return
+    with tempfile.TemporaryDirectory(prefix='.liberu-source-copies-', dir=root) as temporary:
+        prepared = []
+        for index, alias in enumerate(aliases):
+            target = alias.resolve(strict=True)
+            if not target.is_dir() or not target.is_relative_to(root):
+                raise RuntimeError(f'{alias}: expected a tracked directory inside this repository')
+            archive = subprocess.check_output(['git', 'archive', f'{head}:{target.relative_to(root)}'])
+            copy = Path(temporary) / str(index)
+            copy.mkdir()
+            with tarfile.open(fileobj=io.BytesIO(archive)) as source:
+                source.extractall(copy, filter='data')
+            prepared.append((alias, copy, os.readlink(alias)))
+        for alias, copy, original in prepared:
+            alias.unlink()
+            try:
+                copy.replace(alias)
+            except OSError:
+                alias.symlink_to(original, target_is_directory=True)
+                raise
+
+
 def use_packagist(metadata_cache=None):
     head = git('rev-parse', 'HEAD')
     packages = package_paths(changed_packages('', head))
@@ -506,6 +546,7 @@ def use_packagist(metadata_cache=None):
             raise RuntimeError(f'{path}: source changed after publication')
     with ThreadPoolExecutor(max_workers=10) as pool:
         list(pool.map(lambda package: verify_release(package, releases[package], metadata_cache), packages))
+    materialize_source_aliases(head)
     project_file = Path('composer.json')
     project = json.loads(project_file.read_text())
     for section in ('require', 'require-dev'):

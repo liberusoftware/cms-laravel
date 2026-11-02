@@ -196,6 +196,38 @@ class PublishTests(unittest.TestCase):
         metadata = json.loads(self.real_git('--git-dir=remote.git', 'show', 'main:composer.json'))
         self.assertNotIn('version', metadata)
 
+    def test_repository_ci_files_survive_source_sync(self):
+        self.publish()
+        checkout = self.root / 'ci-checkout'
+        self.real_git('clone', '--quiet', str(self.root / 'remote.git'), str(checkout))
+        self.real_git('config', 'user.email', 'test@example.com', cwd=checkout)
+        self.real_git('config', 'user.name', 'Test', cwd=checkout)
+        (checkout / '.github').mkdir()
+        (checkout / '.github' / 'CODEOWNERS').write_text('* @maintainers\n')
+        self.real_git('add', '.github', cwd=checkout)
+        self.real_git('commit', '-m', 'ci: preserve ownership rules', cwd=checkout)
+        self.real_git('push', 'origin', 'main', cwd=checkout)
+        self.publish()
+        self.assertEqual(self.real_git('--git-dir=remote.git', 'show', 'main:.github/CODEOWNERS'), '* @maintainers')
+        metadata = json.loads(self.real_git('--git-dir=remote.git', 'show', 'main:composer.json'))
+        self.assertEqual(metadata['version'], '1.0.1')
+
+    def test_merged_release_metadata_is_tagged_without_another_version_bump(self):
+        self.publish()
+        checkout = self.root / 'merged-checkout'
+        self.real_git('clone', '--quiet', str(self.root / 'remote.git'), str(checkout))
+        self.real_git('config', 'user.email', 'test@example.com', cwd=checkout)
+        self.real_git('config', 'user.name', 'Test', cwd=checkout)
+        metadata = json.loads((checkout / 'composer.json').read_text())
+        metadata['version'] = '1.1.0'
+        (checkout / 'composer.json').write_text(json.dumps(metadata, indent=2) + '\n')
+        self.real_git('add', 'composer.json', cwd=checkout)
+        self.real_git('commit', '-m', 'Merge approved package release', cwd=checkout)
+        self.real_git('push', 'origin', 'main', cwd=checkout)
+        self.publish()
+        self.assertIn('v1.1.0', self.releases)
+        self.assertEqual(self.real_git('--git-dir=remote.git', 'rev-list', '--count', 'main'), '2')
+
     def test_release_keeps_composer_and_manifests_in_agreement(self):
         for filename in ('module.json', 'theme.json'):
             (self.package / filename).write_text(json.dumps({'name': 'example', 'version': '1.0.0'}))
@@ -281,6 +313,15 @@ class PublishTests(unittest.TestCase):
                 sync.use_packagist()
         self.assertEqual(json.loads(Path('composer.json').read_text()), original)
 
+    def test_source_aliases_become_real_copies_without_removing_the_original(self):
+        alias = self.root / 'modules' / 'module-example'
+        alias.symlink_to('example', target_is_directory=True)
+        self.commit('fix: retain a source alias')
+        sync.materialize_source_aliases(self.real_git('rev-parse', 'HEAD'))
+        self.assertFalse(alias.is_symlink())
+        self.assertEqual((alias / 'source.php').read_text(), 'first')
+        self.assertEqual((self.package / 'source.php').read_text(), 'first')
+
 
 class PackagistTests(unittest.TestCase):
     def test_minified_metadata_preserves_inherited_distribution_fields(self):
@@ -319,6 +360,16 @@ class PackagistTests(unittest.TestCase):
         new = 'https://github.com/liberusoftware/module-example'
         with patch.dict(os.environ, {'PACKAGIST_USERNAME': 'test', 'PACKAGIST_API_TOKEN': 'token'}), \
                 patch.object(sync, 'github', return_value={'html_url': new}), \
+                patch.object(sync, 'request', side_effect=[{'package': {'repository': old}},
+                                                         {'status': 'success'}, {'status': 'success'}]) as request:
+            sync.packagist('liberusoftware/example', new)
+        self.assertEqual(request.call_args_list[1].kwargs, {'method': 'PUT'})
+
+    def test_explicit_same_organization_relocation_updates_registration(self):
+        old = 'https://github.com/liberusoftware/module-example'
+        new = 'https://github.com/liberusoftware/module-foundation-example'
+        with patch.dict(os.environ, {'PACKAGIST_USERNAME': 'test', 'PACKAGIST_API_TOKEN': 'token'}), \
+                patch.object(sync, 'configured_repository', return_value=new), \
                 patch.object(sync, 'request', side_effect=[{'package': {'repository': old}},
                                                          {'status': 'success'}, {'status': 'success'}]) as request:
             sync.packagist('liberusoftware/example', new)
