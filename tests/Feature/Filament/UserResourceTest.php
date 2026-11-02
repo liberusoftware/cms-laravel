@@ -9,12 +9,17 @@ use Filament\Facades\Filament;
 use Filament\Schemas\Schema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
+use Spatie\Permission\Models\Permission;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function (): void {
     $this->user = User::factory()->create();
     $this->team = Team::factory()->create(['user_id' => $this->user->id]);
+    setPermissionsTeamId($this->team->id);
+    foreach (['ViewAny:User', 'Delete:User', 'DeleteAny:User'] as $permission) {
+        $this->user->givePermissionTo(Permission::findOrCreate($permission, 'web'));
+    }
     $this->actingAs($this->user);
     Filament::setCurrentPanel(Filament::getPanel('app'));
     Filament::setTenant($this->team);
@@ -23,6 +28,12 @@ beforeEach(function (): void {
 it('can render the list page', function (): void {
     Livewire::test(ListUsers::class)
         ->assertSuccessful();
+});
+
+it('rejects users without the list permission', function (): void {
+    $this->user->revokePermissionTo('ViewAny:User');
+
+    Livewire::test(ListUsers::class)->assertForbidden();
 });
 
 it('can list users in the table', function (): void {

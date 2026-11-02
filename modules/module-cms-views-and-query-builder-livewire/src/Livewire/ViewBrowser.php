@@ -6,6 +6,7 @@ namespace Liberu\Cms\ViewsAndQueryBuilderLivewire\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
+use Liberu\Cms\ViewsAndQueryBuilder\Models\ViewDefinition;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ListingQueryService;
 use Liberu\Cms\ViewsAndQueryBuilder\Queries\ViewDefinitionQuery;
 use Livewire\Component;
@@ -44,7 +45,7 @@ final class ViewBrowser extends Component
     public function render(ViewDefinitionQuery $views, ListingQueryService $listings): View
     {
         $definition = $views->findPublished($this->view);
-        $records = $definition ? $listings->execute($definition, $this->perPage, []) : null;
+        $records = $definition instanceof ViewDefinition ? $listings->execute($definition, $this->perPage, []) : null;
 
         return view('module-cms-views-and-query-builder-livewire::livewire.view-browser', ['definition' => $definition, 'records' => $records]);
     }

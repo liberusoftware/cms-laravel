@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
 
-        $adminPassword = (string) (config('app.seed_admin_password') ?: Str::random(64));
+        $configuredPassword = config('app.seed_admin_password');
+        $adminPassword = is_string($configuredPassword) && $configuredPassword ? $configuredPassword : Str::random(64);
         $adminUser = User::create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
