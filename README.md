@@ -9,12 +9,12 @@
 ![](https://img.shields.io/badge/Livewire-4-informational?style=flat&logo=Livewire&color=fb70a9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg)
-[![Latest Release](https://img.shields.io/github/v/release/liberusoftware/cms-laravel)](https://github.com/liberusoftware/cms-laravel/releases)
+[![Latest Release](https://img.shields.io/github/v/release/liberusoftware/project-cms-laravel-filament)](https://github.com/liberusoftware/project-cms-laravel-filament/releases)
 [![codecov](https://codecov.io/gh/liberusoftware/cms-laravel/branch/main/graph/badge.svg)](https://codecov.io/gh/liberusoftware/cms-laravel)
 
-[![Install](https://github.com/liberusoftware/cms-laravel/actions/workflows/install.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/install.yml)
-[![Tests](https://github.com/liberusoftware/cms-laravel/actions/workflows/tests.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/tests.yml)
-[![Docker](https://github.com/liberusoftware/cms-laravel/actions/workflows/main.yml/badge.svg)](https://github.com/liberusoftware/cms-laravel/actions/workflows/main.yml)
+[![Install](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/install.yml/badge.svg)](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/install.yml)
+[![Tests](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/tests.yml/badge.svg)](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/tests.yml)
+[![Docker](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/main.yml/badge.svg)](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/main.yml)
 
 ## About Liberu CMS
 
@@ -54,7 +54,7 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 * [Automation](https://github.com/liberu-automation/automation-laravel)
 * [Billing](https://github.com/liberu-billing/billing-laravel)
 * [Browser Game](https://github.com/liberu-browser-game/browser-game-laravel)
-* [CMS](https://github.com/liberusoftware/cms-laravel)
+* [CMS](https://github.com/liberusoftware/project-cms-laravel-filament)
 * [Control Panel](https://github.com/liberu-control-panel/control-panel-laravel)
 * [CRM](https://github.com/liberu-crm/crm-laravel)
 * [E-Commerce](https://github.com/liberu-ecommerce/ecommerce-laravel)
@@ -77,7 +77,7 @@ Whether you're a solo creator or a team managing large-scale digital content, Li
 The easiest way to get started is to run the included setup script from the command line. It will guide you through copying your environment file, installing dependencies, running migrations, and seeding the database.
 
 ```bash
-git clone https://github.com/liberusoftware/cms-laravel.git
+git clone https://github.com/liberusoftware/project-cms-laravel-filament.git
 cd cms-laravel
 ./setup.sh
 ```
@@ -93,7 +93,7 @@ The script will prompt you to confirm each step, including whether to overwrite 
 If you prefer to install manually, run the following commands:
 
 ```bash
-git clone https://github.com/liberusoftware/cms-laravel.git
+git clone https://github.com/liberusoftware/project-cms-laravel-filament.git
 cd cms-laravel
 cp .env.example .env
 composer install
@@ -127,7 +127,7 @@ Once running, access the application at `http://localhost`. For more details, se
 
 ### Graphical Installer
 
-For users who prefer a GUI-based setup, a graphical installer is available. Download and run it from the [Releases page](https://github.com/liberusoftware/cms-laravel/releases) — it walks you through environment configuration and installation without needing to use the command line.
+For users who prefer a GUI-based setup, a graphical installer is available. Download and run it from the [Releases page](https://github.com/liberusoftware/project-cms-laravel-filament/releases) — it walks you through environment configuration and installation without needing to use the command line.
 
 ## Testing and coverage
 
@@ -161,7 +161,7 @@ Contributions are warmly welcome! Whether you want to fix a bug, add a feature, 
 4. Submit a pull request to the `main` branch with a clear description of what you've changed and why.
 5. The maintainers will review your PR and may request changes before merging.
 
-If you're not comfortable writing code, raising a [GitHub Issue](https://github.com/liberusoftware/cms-laravel/issues) is equally valuable — it helps us track bugs, ideas, and improvements.
+If you're not comfortable writing code, raising a [GitHub Issue](https://github.com/liberusoftware/project-cms-laravel-filament/issues) is equally valuable — it helps us track bugs, ideas, and improvements.
 
 We believe in an inclusive, collaborative community where every contribution is respected and appreciated.
 
@@ -184,7 +184,7 @@ This permissive approach makes Liberu CMS an ideal foundation for both individua
 
 ## Contributors
 
-<a href = "https://github.com/liberusoftware/cms-laravel/graphs/contributors">
+<a href = "https://github.com/liberusoftware/project-cms-laravel-filament/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=liberusoftware/cms-laravel"/>
 
 
@@ -233,3 +233,42 @@ The source project and its lockfile are not rewritten by publication. Different
 projects publishing the same directory name share a destination repository;
 coordinate their package contents. Run the publisher's local tests with
 `python3 -m unittest discover -s .github/scripts -p 'test_sync_packages.py'`.
+
+<!-- presentation-family:begin -->
+## Project family and presentation options
+
+This repository hosts **CMS with Laravel and Filament**. Content authoring, publishing and delivery. Its existing installation instructions and manifests govern this application. The other presentations are independent skeletons derived from their matching Boilerplate foundation; repository availability does not establish product feature parity.
+
+### Other Laravel and Filament projects
+
+| Project | Scope |
+| --- | --- |
+| [Boilerplate](https://github.com/liberusoftware/project-boilerplate-laravel-filament) | Shared application foundation and module composition |
+| [Accounting ERP](https://github.com/liberusoftware/project-accounting-erp-laravel-filament) | Ledgers, tax, reporting and finance workflows |
+| [Automation](https://github.com/liberusoftware/project-automation-laravel-filament) | AI gateways, approvals, rules and integrations |
+| [Billing](https://github.com/liberusoftware/project-billing-laravel-filament) | Subscriptions, pricing, payments and provisioning |
+| [Browser Game](https://github.com/liberusoftware/project-browser-game-laravel-filament) | Game worlds, players and community workflows |
+| [Control Panel](https://github.com/liberusoftware/project-control-panel-laravel-filament) | Infrastructure and hosting operations |
+| [CRM](https://github.com/liberusoftware/project-crm-laravel-filament) | Relationships, sales pipelines and customer service |
+| [Ecommerce](https://github.com/liberusoftware/project-ecommerce-laravel-filament) | Catalogs, checkout, orders and fulfillment |
+| [Enterprise SAP](https://github.com/liberusoftware/project-enterprise-sap-laravel-filament) | Enterprise workspace and cross-product orchestration |
+| [Genealogy](https://github.com/liberusoftware/project-genealogy-laravel-filament) | Family trees, research, evidence and collaboration |
+| [Liberu Platform](https://github.com/liberusoftware/project-liberu-official-laravel-filament) | Official sites, staff applications and platform composition |
+| [Maintenance](https://github.com/liberusoftware/project-maintenance-laravel-filament) | Assets, work orders, schedules and field operations |
+| [Music DAW](https://github.com/liberusoftware/project-music-daw-laravel-filament) | Composition, recording, sequencing and audio production |
+| [Real Estate](https://github.com/liberusoftware/project-real-estate-laravel-filament) | Listings, sales, lettings and agency operations |
+| [Social Network](https://github.com/liberusoftware/project-social-network-laravel-filament) | Profiles, feeds, communities and moderation |
+
+### Other presentations for CMS
+
+- [Laravel · Inertia · Vue](https://github.com/liberusoftware/project-cms-laravel-inertia-vue): Laravel routes and sessions with Vue pages over the Inertia protocol.
+- [Laravel · Inertia · React](https://github.com/liberusoftware/project-cms-laravel-inertia-react): Laravel routes and sessions with React pages over the Inertia protocol.
+- [Nuxt · Vue](https://github.com/liberusoftware/project-cms-nuxt-vue): Independent Vue application with Nuxt server rendering and reviewed API integration.
+- [Next.js · React](https://github.com/liberusoftware/project-cms-next-react): Independent React application with explicit Next.js server/client boundaries.
+- [React Native · Expo](https://github.com/liberusoftware/project-cms-mobile-react): Native iOS/Android application using React Native and Expo.
+- [Flutter · Mobile](https://github.com/liberusoftware/project-cms-mobile-flutter): Flutter iOS/Android application using Dart and mobile widgets.
+- [Dart · Desktop](https://github.com/liberusoftware/project-cms-dart-desktop): Dedicated Dart desktop application with a Flutter host for Linux, macOS and Windows.
+- [Dart · Mobile](https://github.com/liberusoftware/project-cms-dart-mobile): Separate Dart mobile application with a Flutter host for iOS and Android.
+
+Use the [presentation implementation guides](https://github.com/liberusoftware/documentation/blob/main/guides/presentation/README.md) and [product documentation](https://github.com/liberusoftware/documentation/blob/main/projects/cms/README.md) to select compatible modules, reviewed contracts and the correct deployment boundary. Laravel remains authoritative for domain rules and tenant authorization across all clients.
+<!-- presentation-family:end -->

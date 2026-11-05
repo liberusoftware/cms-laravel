@@ -5436,7 +5436,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-analytics-integration-api",
-                "reference": "801d0899fa25f0b97f633359bfa9e071a8d469d7"
+                "reference": "94701d62b45643c920f2679881f6e6b4af7fe886"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -5460,6 +5460,9 @@
                     "Liberu\\Cms\\AnalyticsIntegrationApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "API adapter for CMS Analytics Integration.",
             "transport-options": {
                 "symlink": true,
@@ -5472,7 +5475,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-analytics-integration-filament",
-                "reference": "8c66295c4c27f1f714d3ac23423773b1183a0a71"
+                "reference": "6b24c8e7b5af23d99dd860f2edd9a9a446a0845c"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -5496,6 +5499,9 @@
                     "Liberu\\Cms\\AnalyticsIntegrationFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Filament adapter for CMS Analytics Integration.",
             "transport-options": {
                 "symlink": true,
@@ -5508,7 +5514,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-analytics-integration-livewire",
-                "reference": "8dd1c48f5261cb1b1dc3f3860e559d966fcd6cca"
+                "reference": "2b2d9fcf40195f3ac3ba8b335e52561bf9ef6082"
             },
             "require": {
                 "liberusoftware/module-cms-analytics-integration": "^0.1",
@@ -5532,6 +5538,9 @@
                     "Liberu\\Cms\\AnalyticsIntegrationLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Livewire adapter for CMS Analytics Integration.",
             "transport-options": {
                 "symlink": true,
@@ -5693,7 +5702,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-backup-and-restore-api",
-                "reference": "8cfc50c5672ac9884accf2ea7e4172caa6037da1"
+                "reference": "9fa336f9e84173580b7fece80a79fb672817f1e0"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -5717,6 +5726,9 @@
                     "Liberu\\Cms\\BackupAndRestoreApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "API adapter for CMS Backup and Restore.",
             "transport-options": {
                 "symlink": true,
@@ -5729,7 +5741,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-backup-and-restore-filament",
-                "reference": "eb6a284eceb716950ebc333b299fef9d3e716a7c"
+                "reference": "e4f446efe6b6257c94e7a2acbb1f7d7345a7d531"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -5753,6 +5765,9 @@
                     "Liberu\\Cms\\BackupAndRestoreFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Filament adapter for CMS Backup and Restore.",
             "transport-options": {
                 "symlink": true,
@@ -5765,7 +5780,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-backup-and-restore-livewire",
-                "reference": "d6a4e02e6037fe78dfd1a2e8a6c6298b198cbdac"
+                "reference": "1c987955a315154f3d484be82766bc882ffe241d"
             },
             "require": {
                 "liberusoftware/module-cms-backup-and-restore": "^0.1",
@@ -5789,6 +5804,9 @@
                     "Liberu\\Cms\\BackupAndRestoreLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Livewire adapter for CMS Backup and Restore.",
             "transport-options": {
                 "symlink": true,
@@ -5841,7 +5859,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-block-editor-api",
-                "reference": "34c3776d9bd702c1240960518560df3b57a84a48"
+                "reference": "23d669c05b16782cf1ed3c69cdc69c7862eaf0a0"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -5865,6 +5883,9 @@
                     "Liberu\\Cms\\BlockEditorApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "API adapter for CMS Block Editor.",
             "transport-options": {
                 "symlink": true,
@@ -5877,7 +5898,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-block-editor-filament",
-                "reference": "e4d1d42f74951474ea0883e97e63c7994e7e4acc"
+                "reference": "05a30913695d285bb7355172bb9bb279169ca3ba"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -5901,6 +5922,9 @@
                     "Liberu\\Cms\\BlockEditorFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Filament adapter for CMS Block Editor.",
             "transport-options": {
                 "symlink": true,
@@ -5913,7 +5937,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-block-editor-livewire",
-                "reference": "d47ffd657840d3d551ef6db2a1b21fc46b75fb02"
+                "reference": "2149eb47778da20b9a94b917940ee812cd95902d"
             },
             "require": {
                 "liberusoftware/module-cms-block-editor": "^0.1",
@@ -5937,6 +5961,9 @@
                     "Liberu\\Cms\\BlockEditorLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Livewire adapter for CMS Block Editor.",
             "transport-options": {
                 "symlink": true,
@@ -6037,7 +6064,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-cache-and-performance-api",
-                "reference": "09054be1493fd0a56fd4198b1c3b592f9f937d2f"
+                "reference": "ee925e795fa2df636e118f2f0a81b89003e1f714"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -6061,6 +6088,9 @@
                     "Liberu\\Cms\\CacheAndPerformanceApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "API adapter for CMS Cache and Performance.",
             "transport-options": {
                 "symlink": true,
@@ -6073,7 +6103,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-cache-and-performance-filament",
-                "reference": "69789f8c22695bb4a704f6e745b386d7fa89a6de"
+                "reference": "94288cfbbdf4e4f8e4e3ceea423d50c604c70bef"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -6097,6 +6127,9 @@
                     "Liberu\\Cms\\CacheAndPerformanceFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Filament adapter for CMS Cache and Performance.",
             "transport-options": {
                 "symlink": true,
@@ -6109,7 +6142,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-cache-and-performance-livewire",
-                "reference": "9b36360c3f27a604125ab3ed5c5ef14ce102d64c"
+                "reference": "596efe33d4d8373bfab185278927ce824baefadf"
             },
             "require": {
                 "liberusoftware/module-cms-cache-and-performance": "^0.1",
@@ -6133,6 +6166,9 @@
                     "Liberu\\Cms\\CacheAndPerformanceLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Livewire adapter for CMS Cache and Performance.",
             "transport-options": {
                 "symlink": true,
@@ -6615,7 +6651,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-contact-directory-api",
-                "reference": "ba21ed04b63549f7055cef6f05ec8a045acacd5d"
+                "reference": "64ce036f5d50840a2e659ef7e8de17ea3f8b66dc"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -6638,6 +6674,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Contact Directory HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6649,7 +6686,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-contact-directory-filament",
-                "reference": "85c4d382d707fcce0acb73d2d110ad9555562c12"
+                "reference": "13f1a742b495a9beb63c1cb99e06e003024fc13d"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -6672,6 +6709,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Contact Directory Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6683,7 +6721,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-contact-directory-livewire",
-                "reference": "31370b5ddf1c60ef0a4fe20d0198e0d54015910b"
+                "reference": "d266f1856eb2da2f9cd083d40039b60aa04ab735"
             },
             "require": {
                 "liberusoftware/module-cms-contact-directory": "^0.1",
@@ -6706,6 +6744,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Contact Directory Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6807,7 +6846,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-access-api",
-                "reference": "8f127c1fb06c1dc2cb3df6d29f221ac3b2e96608"
+                "reference": "7c9c7352d7fa79c9fc50ef5a6854e03b3ed6f343"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -6830,6 +6869,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Access HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6841,7 +6881,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-access-filament",
-                "reference": "fe6077c14a07716ad5013c72a8ed65c643d70a81"
+                "reference": "27640c9f930f0085935a341364fbc2a1399e578b"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -6864,6 +6904,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Access Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6875,7 +6916,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-access-livewire",
-                "reference": "a12f91f7e93b4ce362d74bebe468648a78b6449d"
+                "reference": "f7b853563471fbe549159e58a7ab9a236016f9f4"
             },
             "require": {
                 "liberusoftware/module-cms-content-access": "^0.1",
@@ -6898,6 +6939,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Access Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6948,7 +6990,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-calendar-api",
-                "reference": "6d9b8e9eddf041b80ebb99d5dca72ee0708ddd63"
+                "reference": "28b55e3af0148aa2c06cb5f44ac651b18ff50ff7"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -6971,6 +7013,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Calendar HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -6982,7 +7025,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-calendar-filament",
-                "reference": "07295f7bc8747d392b0123ea59518c86918f4be5"
+                "reference": "34aee35a269c61361a180d8d6d466959ec19f300"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7005,6 +7048,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Calendar Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7016,7 +7060,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-calendar-livewire",
-                "reference": "1503fb8734304447180e308376a487ee6c8cfd6f"
+                "reference": "25db0df62154645bcb2f408778a24e22d04d8308"
             },
             "require": {
                 "liberusoftware/module-cms-content-calendar": "^0.1",
@@ -7039,6 +7083,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Calendar Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7207,7 +7252,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-federation-api",
-                "reference": "980257ca9553086a7e9b608f3da03ea6511674ff"
+                "reference": "026c0c0168e5c13703e3ae058419ce86fa99ab66"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7230,6 +7275,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Federation HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7241,7 +7287,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-federation-filament",
-                "reference": "3a8cc1698aa2bb2eeec7979034b377df4e6fa166"
+                "reference": "4cfbc228452656ee76c36b2b147bb3dc1419cc31"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7264,6 +7310,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Federation Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7275,7 +7322,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-federation-livewire",
-                "reference": "7c53b4cca9d0f511f236aa6f0c63cec24c8e3d75"
+                "reference": "37d9032262849607a16386c9cd37d5f841253432"
             },
             "require": {
                 "liberusoftware/module-cms-content-federation": "^0.1",
@@ -7298,6 +7345,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Federation Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7348,7 +7396,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-governance-api",
-                "reference": "e9df68519a4b7bfe78c055515a38b17e226ec609"
+                "reference": "34f071966f7b0e1395bafccb2d6187915fa09f49"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7371,6 +7419,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Governance HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7382,7 +7431,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-governance-filament",
-                "reference": "3a7276ba9d4672671c2dd522057e34e77bee03f2"
+                "reference": "3b7b52110adead8f0cf9e1a54576a229b2c7d3cd"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7405,6 +7454,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Governance Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7416,7 +7466,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-governance-livewire",
-                "reference": "ab8156fcbfbe134208d3ec23846d97c48afd9ba2"
+                "reference": "b425e6ae54124808797da03c7cdda73be071c351"
             },
             "require": {
                 "liberusoftware/module-cms-content-governance": "^0.1",
@@ -7439,6 +7489,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Governance Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7489,7 +7540,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-integrity-api",
-                "reference": "918c4686d179f87d97121d4b6b271bff0091671f"
+                "reference": "74e9aef89bfc2f3221d7cfbf640ac69e4bb164b5"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7512,6 +7563,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Integrity HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7523,7 +7575,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-integrity-filament",
-                "reference": "5b5a59ff7c7401a751faddf1562545cb6cd67b61"
+                "reference": "cdcac00f008261bd40da4f6f649532a95a7aa156"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7546,6 +7598,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Integrity Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7557,7 +7610,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-integrity-livewire",
-                "reference": "b4613e7d94360e9cbaf91c68f8eb36e50108782b"
+                "reference": "2b1c00d0a752e8353eb6675e9ab3ca8b905a35eb"
             },
             "require": {
                 "liberusoftware/module-cms-content-integrity": "^0.1",
@@ -7580,6 +7633,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Integrity Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7630,7 +7684,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-intelligence-api",
-                "reference": "5ce06f6842cb0ec32f9374114ab9f565789d59d1"
+                "reference": "55286ca917bbc278e6df5d358e041fc4d5391551"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7653,6 +7707,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Intelligence HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7664,7 +7719,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-intelligence-filament",
-                "reference": "26eaad5283cf2bc1a075fc8a30f9177e0ecbd55d"
+                "reference": "1ddcbc80aec5a438ce87292637f54e18d9964596"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7687,6 +7742,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Intelligence Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7698,7 +7754,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-intelligence-livewire",
-                "reference": "49f3d129f219dc4832b6ab5422084c78a8c36c22"
+                "reference": "9f86030a1745402c7f8f7de69a44f716db8baf24"
             },
             "require": {
                 "liberusoftware/module-cms-content-intelligence": "^0.1",
@@ -7721,6 +7777,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Intelligence Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7771,7 +7828,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-locking-api",
-                "reference": "d26ff6135858a3751941f2fb2a8f993ebfa85418"
+                "reference": "3fb80f04261fe190c484668f5f1dc87a64f5f5d3"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7794,6 +7851,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Locking HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7805,7 +7863,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-locking-filament",
-                "reference": "84f446b6a3049ad6037718f6fb6841e21a26de00"
+                "reference": "f5bfb262e943e872afd324a59aaa4996cb0f31cf"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7828,6 +7886,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Locking Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7839,7 +7898,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-locking-livewire",
-                "reference": "66de74519334593a26f89598e3866a8166b3945f"
+                "reference": "45c9f46a3ccf0293b3f77bdbe63d50dd37c2bc0e"
             },
             "require": {
                 "liberusoftware/module-cms-content-locking": "^0.1",
@@ -7862,6 +7921,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Locking Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7873,7 +7933,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-search-api",
-                "reference": "5b2d0d890e36fc14868ebc965621c2de3ace8748"
+                "reference": "5fc21f96159c80d1c7f7b0e50a4acfefff78afa6"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -7896,6 +7956,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Search HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7907,7 +7968,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-search-filament",
-                "reference": "371dcffc58e5f339dce1913e1c1c7a9e95449a62"
+                "reference": "2e00c7a3e51d8bde58ee4d3d67abafad57a331ea"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -7930,6 +7991,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Search Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -7941,7 +8003,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-search-livewire",
-                "reference": "da526d8039d9b020cba83c5351de1168090c4cba"
+                "reference": "966b2ede640f59d2ac8d7a397da832391d9e5248"
             },
             "require": {
                 "liberusoftware/module-cms-search": "^0.1",
@@ -7964,6 +8026,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Search Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8014,7 +8077,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-templates-api",
-                "reference": "403223c69a18438477d03f5cab4fb7a6e0b444bd"
+                "reference": "78e1a8ae348be6eadc8f55430c2f9b5b503326bf"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -8037,6 +8100,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Templates HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8048,7 +8112,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-templates-filament",
-                "reference": "4512587d11d9caebd97a271199e43670d52a9630"
+                "reference": "da452684d782179f3f2725584295c4dc5cc01df6"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -8071,6 +8135,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Templates Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8082,7 +8147,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-content-templates-livewire",
-                "reference": "baf7023796cb4dffa4b3f297f509b9d26f69220d"
+                "reference": "33e16e4b2f52766de992869258ceb7003079c2a2"
             },
             "require": {
                 "liberusoftware/module-cms-content-templates": "^0.1",
@@ -8105,6 +8170,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Content Templates Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8211,7 +8277,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-copilot-api",
-                "reference": "dfd2c4b932bd6c9896581b4eaf6e072e900266d6"
+                "reference": "cdce3ed2c12173a474b0744a8deedfb6b8346c01"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -8235,6 +8301,9 @@
                     "Liberu\\Cms\\CopilotApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "API adapter for CMS Copilot.",
             "transport-options": {
                 "symlink": true,
@@ -8247,7 +8316,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-copilot-filament",
-                "reference": "b5f8fa556644fa25792c7d852002fdf1637a7d5a"
+                "reference": "5c87bf7884480913e6fb44f8fcef5921ff709fc7"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -8271,6 +8340,9 @@
                     "Liberu\\Cms\\CopilotFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Filament adapter for CMS Copilot.",
             "transport-options": {
                 "symlink": true,
@@ -8283,7 +8355,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-copilot-livewire",
-                "reference": "8f4753e09409fcf31ef9c7fd1453b7a055a7c8ce"
+                "reference": "23f9485c6b34cc8a3e6f60b1c824cc7b1c0f1e62"
             },
             "require": {
                 "liberusoftware/module-cms-cms-copilot": "^0.1",
@@ -8307,6 +8379,9 @@
                     "Liberu\\Cms\\CopilotLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Livewire adapter for CMS Copilot.",
             "transport-options": {
                 "symlink": true,
@@ -8531,7 +8606,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-digital-asset-management-api",
-                "reference": "ff654b6f8a22b20a3b9779a3150af8b0a1452043"
+                "reference": "0e7abf920d2df6a0ee17dc8cbfd470ceb86485c9"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -8554,6 +8629,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Digital Asset Management HTTP API.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8565,7 +8641,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-digital-asset-management-filament",
-                "reference": "75848e5b46652d9adadfa7ea5e4e250d02ca9376"
+                "reference": "e60bfa6e6131080943d067e6b9048bbb95a8746b"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -8588,6 +8664,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Digital Asset Management Filament surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8599,7 +8676,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-digital-asset-management-livewire",
-                "reference": "24fafbdf1340dc7ad276087799d475c7a19b89fd"
+                "reference": "98be2cb37f16ba1000991a22203e626956d2b295"
             },
             "require": {
                 "liberusoftware/module-cms-digital-asset-management": "^0.1",
@@ -8622,6 +8699,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Digital Asset Management Livewire surface.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8672,7 +8750,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-display-modes-api",
-                "reference": "28521c837a019428fe9021797830a483c5b40161"
+                "reference": "c17d3f0b5ca7dd85ec770d8f72c3231cbaec652f"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -8695,6 +8773,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "API projection and selection endpoints for CMS display modes.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8706,7 +8785,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-display-modes-filament",
-                "reference": "7ee1b180fb4439ef99879d878bfb2c18d22f7921"
+                "reference": "2162b113a5a1e914d457ae344a67942f53c43ec2"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -8729,6 +8808,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Filament administration for CMS display modes.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8740,7 +8820,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-display-modes-livewire",
-                "reference": "a5edf9d442cc8cc0dc26db15414d4869177bf2a4"
+                "reference": "a853b1124f066eed2d4f2da11ffb80c56a8e8420"
             },
             "require": {
                 "liberusoftware/module-cms-display-modes": "^0.1",
@@ -8763,6 +8843,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Livewire display mode selector for CMS content.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8774,7 +8855,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-document-management",
-                "reference": "eea745e798bf037110dc983308726ea7b6f91d82"
+                "reference": "7a00b2336ed4208905c08ab5e793375d96307c9d"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -8800,6 +8881,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Documents, versions, previews, extraction, access, downloads, watermarks, and retention.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8811,7 +8893,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-document-management-api",
-                "reference": "67af445d4d2eccc80be8d3ef4d64e6b5f3afe47f"
+                "reference": "701ba8c8c53a1f9e1fe7e3f6d0d5f651c4be0ee0"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -8834,6 +8916,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "HTTP API for document management.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8845,7 +8928,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-document-management-filament",
-                "reference": "baf75d716cb9fe393e817272826b96c0a70ccc1c"
+                "reference": "39116c3adfec8fdfba72bd83abeb266ded8ca439"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -8868,6 +8951,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Filament administration for documents.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8879,7 +8963,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-document-management-livewire",
-                "reference": "cd7bd4700ea3ebd78a4a2384bd07ac24804413bc"
+                "reference": "71977ff2a8fcdd64f798d0d1366e3aeb870ab03a"
             },
             "require": {
                 "liberusoftware/module-cms-document-management": "^0.1",
@@ -8902,6 +8986,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "Livewire document management browser.",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -9071,7 +9156,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/cms-embeds",
-                "reference": "57c9c373d72ccef8e531296dcb4db306a6f1fa95"
+                "reference": "8c553b3441ebb44e444c8f417c81d9fbeab80ce3"
             },
             "require": {
                 "laravel/framework": "^13.38.0",
@@ -9095,6 +9180,9 @@
                     "Liberu\\Cms\\Embeds\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Provider-neutral, privacy-aware CMS embeds.",
             "transport-options": {
                 "symlink": true,
@@ -9107,7 +9195,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-embeds-api",
-                "reference": "f318ac8099985f5f2cb1c608594e4dca2c578a60"
+                "reference": "b297f75c469272af674b596e66d4b33da31575d5"
             },
             "require": {
                 "liberusoftware/module-cms-embeds": "^0.1",
@@ -9130,6 +9218,10 @@
                     "Liberu\\Cms\\EmbedsApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
+            "description": "Module cms embeds api",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -9141,7 +9233,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-embeds-filament",
-                "reference": "be5da6c26bb17522dc929423bce68a12441c8708"
+                "reference": "732b374c3517af57b506fdd593244095277c209c"
             },
             "require": {
                 "liberusoftware/module-cms-embeds": "^0.1",
@@ -9164,6 +9256,10 @@
                     "Liberu\\Cms\\EmbedsFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
+            "description": "Module cms embeds filament",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -9175,7 +9271,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-embeds-livewire",
-                "reference": "8716f2382e1d9a96b85415b43941fc4dd9a8d461"
+                "reference": "9949566d842aaf61ccab0ab8c0ace2b497c96ec5"
             },
             "require": {
                 "liberusoftware/module-cms-embeds": "^0.1",
@@ -9199,6 +9295,10 @@
                     "Liberu\\Cms\\EmbedsLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
+            "description": "Module cms embeds livewire",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -11064,7 +11164,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-multisite-api",
-                "reference": "33b80d55d3eef6b499b322d1d689f275bf0dbfea"
+                "reference": "738aa9e1aa042b55b253b958d122a471cb92ff26"
             },
             "require": {
                 "illuminate/http": "^13.38.0",
@@ -11090,6 +11190,9 @@
                     "Liberu\\Cms\\MultisiteApi\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Multisite API for Liberu CMS",
             "transport-options": {
                 "symlink": true,
@@ -11102,7 +11205,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-multisite-filament",
-                "reference": "44e1cdebba9c2450deeaecffb533104317859915"
+                "reference": "8ac55ca7d604ef29d362f0400b1a619bffb282a4"
             },
             "require": {
                 "filament/filament": "^5.11.0",
@@ -11126,6 +11229,9 @@
                     "Liberu\\Cms\\MultisiteFilament\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Multisite Filament administration for Liberu CMS",
             "transport-options": {
                 "symlink": true,
@@ -11138,7 +11244,7 @@
             "dist": {
                 "type": "path",
                 "url": "modules/module-cms-multisite-livewire",
-                "reference": "40b2dd1308af2f806401a6cb9d1573b879672c32"
+                "reference": "bcb39fa81fd6507192220c73576fe825706aa447"
             },
             "require": {
                 "liberusoftware/module-cms-multisite": "^0.1",
@@ -11162,6 +11268,9 @@
                     "Liberu\\Cms\\MultisiteLivewire\\": "src/"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Multisite Livewire surfaces for Liberu CMS",
             "transport-options": {
                 "symlink": true,
