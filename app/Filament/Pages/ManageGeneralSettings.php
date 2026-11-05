@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Admin\Pages\PlatformSetup;
 use App\Settings\GeneralSettings;
 use BackedEnum;
 use Filament\Forms\Components\Textarea;
@@ -28,6 +29,11 @@ class ManageGeneralSettings extends SettingsPage
 
     #[\Override]
     protected static ?string $navigationLabel = 'General Settings';
+
+    public static function canAccess(): bool
+    {
+        return PlatformSetup::canAccess();
+    }
 
     #[\Override]
     public function form(Schema $schema): Schema

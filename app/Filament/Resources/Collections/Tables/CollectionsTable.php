@@ -13,6 +13,10 @@ class CollectionsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('updated_at', 'desc')
+            ->emptyStateHeading(__('Organize reusable content'))
+            ->emptyStateDescription(__('Create a collection for structured content such as services, people or projects.'))
+            ->emptyStateIcon('heroicon-o-squares-2x2')
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),

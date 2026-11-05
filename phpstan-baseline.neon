@@ -150,11 +150,6 @@ parameters:
 			count: 1
 			path: app/Models/Category.php
 
-		-
-			message: '#^Method App\\Models\\Category\:\:team\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
-			identifier: missingType.generics
-			count: 1
-			path: app/Models/Category.php
 
 		-
 			message: '#^Class App\\Models\\Collection uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
@@ -174,11 +169,6 @@ parameters:
 			count: 1
 			path: app/Models/Collection.php
 
-		-
-			message: '#^Method App\\Models\\Collection\:\:team\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
-			identifier: missingType.generics
-			count: 1
-			path: app/Models/Collection.php
 
 		-
 			message: '#^Class App\\Models\\CollectionItem uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
@@ -192,11 +182,6 @@ parameters:
 			count: 1
 			path: app/Models/CollectionItem.php
 
-		-
-			message: '#^Method App\\Models\\CollectionItem\:\:team\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
-			identifier: missingType.generics
-			count: 1
-			path: app/Models/CollectionItem.php
 
 		-
 			message: '#^Class App\\Models\\ConnectedAccount uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
@@ -234,11 +219,6 @@ parameters:
 			count: 1
 			path: app/Models/Tag.php
 
-		-
-			message: '#^Method App\\Models\\Tag\:\:team\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
-			identifier: missingType.generics
-			count: 1
-			path: app/Models/Tag.php
 
 		-
 			message: '#^Cannot access property \$email on mixed\.$#'

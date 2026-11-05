@@ -3,3 +3,41 @@
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
 @source '../../../../vendor/biostate/filament-menu-builder/resources/views/**/*';
+
+/* Host-owned components use Filament's colors and controls in both themes. */
+.cms-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid var(--color-indigo-200);
+    border-radius: 1rem;
+    background: linear-gradient(120deg, var(--color-indigo-50), var(--color-white));
+}
+.cms-welcome-copy { max-width: 42rem; }
+.cms-eyebrow { color: var(--color-indigo-700); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.cms-welcome h2 { margin-top: .75rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; font-weight: 700; color: var(--color-gray-950); }
+.cms-welcome h2 + p { margin-top: 1rem; color: var(--color-gray-600); line-height: 1.7; }
+.cms-welcome-action { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.cms-status { display: block; font-size: .8125rem; color: var(--color-gray-600); }
+.cms-welcome-symbol { padding: 1.5rem; border-radius: 1.5rem; background: var(--color-indigo-100); color: var(--color-indigo-600); }
+.cms-section-title { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+.cms-shortcuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+.cms-shortcut { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: .75rem; background: var(--color-white); transition: border-color .15s; }
+.cms-shortcut > svg { flex-shrink: 0; color: var(--color-indigo-600); }
+.cms-shortcut h3 { font-weight: 600; }
+.cms-shortcut p { margin-top: .5rem; color: var(--color-gray-600); font-size: .875rem; line-height: 1.6; }
+.cms-shortcut-arrow { margin-left: auto; }
+.cms-shortcut:hover { border-color: var(--color-indigo-400); }
+.cms-shortcut:focus-visible { outline: 3px solid var(--color-indigo-500); outline-offset: 3px; }
+.cms-setup-note { display: flex; align-items: center; gap: .75rem; padding: 1rem; border-radius: .75rem; background: var(--color-indigo-50); color: var(--color-indigo-800); font-size: .875rem; }
+.cms-setup-note svg { flex-shrink: 0; }
+.dark .cms-welcome { background: linear-gradient(120deg, var(--color-gray-900), var(--color-gray-950)); border-color: var(--color-indigo-900); }
+.dark .cms-welcome h2 { color: var(--color-white); }
+.dark .cms-eyebrow, .dark .cms-shortcut > svg { color: var(--color-indigo-300); }
+.dark .cms-welcome h2 + p, .dark .cms-status, .dark .cms-shortcut p { color: var(--color-gray-400); }
+.dark .cms-welcome-symbol, .dark .cms-setup-note { background: var(--color-indigo-950); color: var(--color-indigo-200); }
+.dark .cms-shortcut { border-color: var(--color-gray-800); background: var(--color-gray-900); }
+.dark .cms-shortcut:hover { border-color: var(--color-indigo-500); }
+@media (max-width: 640px) { .cms-welcome-symbol { display: none; } }

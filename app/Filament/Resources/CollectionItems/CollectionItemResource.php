@@ -18,6 +18,8 @@ use Filament\Tables\Table;
 
 class CollectionItemResource extends Resource
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'Content';
+
     #[\Override]
     protected static ?string $model = CollectionItem::class;
 

@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class CollectionResource extends Resource
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'Content';
+
     #[\Override]
     protected static ?string $model = Collection::class;
 

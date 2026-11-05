@@ -81,12 +81,13 @@ class User extends Authenticatable implements FilamentUser, HasPasskeys, HasTena
     {
         return [
             'email_verified_at' => 'datetime',
+            'is_platform_admin' => 'boolean',
         ];
     }
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return $panel->getId() !== 'admin' || (bool) $this->is_platform_admin;
     }
 
     /**

@@ -52,6 +52,10 @@ class EnsureTwoFactorForPrivilegedUsers
 
     private function isPrivileged(User $user): bool
     {
+        if ($user->is_platform_admin) {
+            return true;
+        }
+
         // Resolve roles in the user's own team so the check is deterministic
         // regardless of when the panel tenant is bound during the request.
         if (config('permission.teams')) {

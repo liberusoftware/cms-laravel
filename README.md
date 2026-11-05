@@ -129,6 +129,58 @@ Once running, access the application at `http://localhost`. For more details, se
 
 For users who prefer a GUI-based setup, a graphical installer is available. Download and run it from the [Releases page](https://github.com/liberusoftware/project-cms-laravel-filament/releases) — it walks you through environment configuration and installation without needing to use the command line.
 
+## CMS workspace and onboarding
+
+The website app panel retains `/admin` and the existing team switcher. Team owners
+can open **Website setup** to enter a website name, optional domain, language and
+timezone. Each **Next** saves progress for that team. Finishing creates (or updates)
+a CMS Core site in draft through the public Core actions; it does not publish
+content, configure DNS or enable modules. Website settings and progress are isolated
+per team. Other team members retain their normal content permissions and see the
+website overview without owner-only setup controls.
+
+### Enable onboarding on your installation
+
+After installing or updating the application, run the migration and build the
+panel assets from the project directory:
+
+```bash
+php artisan migrate
+npm run build
+php artisan cms:platform-admin administrator@example.com
+```
+
+Replace `administrator@example.com` with the email address of an **existing user**
+on your installation. Then:
+
+1. Sign in at `/platform-admin` with that account and complete the platform setup
+   wizard. Complete two-factor enrolment first if enforcement is enabled.
+2. Sign in at `/admin` as a website team owner, select the appropriate team, and
+   choose **Website setup** from the overview or sidebar.
+3. Repeat website setup for each website team. Progress is saved separately for
+   each team when you choose **Next**.
+
+To remove platform administrator access later:
+
+```bash
+php artisan cms:platform-admin administrator@example.com --revoke
+```
+
+Platform access is separate from a team's `super_admin` role and cannot be assigned
+through the user edit form or public registration. The platform wizard saves shared
+name, contact email, language and currency to the existing General Settings store.
+These global settings are available only in the platform panel. Both panels retain
+the configured two-factor requirements; platform administrators are privileged users.
+Email delivery, backups and infrastructure configuration remain deployment tasks.
+
+Both wizards are optional and can be revisited from the overview or sidebar. They
+preserve existing accounts, sessions and content. The interface uses the same
+responsive Filament controls, keyboard focus indicators and light/dark theme.
+
+Validate the onboarding journeys with
+`php artisan test tests/Feature/Filament/OnboardingTest.php`, and build the shared
+panel theme with `npm run build`.
+
 ## Testing and coverage
 
 Run the application test suite with:

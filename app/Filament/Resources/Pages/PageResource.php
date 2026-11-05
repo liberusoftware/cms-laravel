@@ -16,6 +16,8 @@ use Liberu\Cms\Pages\Models\Page;
 
 class PageResource extends Resource
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'Content';
+
     #[\Override]
     protected static ?string $model = Page::class;
 
