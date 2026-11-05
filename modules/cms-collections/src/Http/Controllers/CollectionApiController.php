@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\Collections\Http\Resources\CollectionItemResource;
 use Liberu\Cms\Collections\Http\Resources\CollectionResource;
+use Liberu\Cms\Collections\Models\Collection;
+use Liberu\Cms\Collections\Models\CollectionItem;
 use Liberu\Cms\Collections\Queries\CollectionQuery;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -23,7 +25,7 @@ final readonly class CollectionApiController
     public function show(string $slug): CollectionResource
     {
         $collection = $this->collections->publishedCollection($slug);
-        if (! $collection) {
+        if (! $collection instanceof Collection) {
             throw new NotFoundHttpException;
         }
 
@@ -42,7 +44,7 @@ final readonly class CollectionApiController
     public function item(string $collection, string $slug): CollectionItemResource
     {
         $item = $this->collections->item($collection, $slug);
-        if (! $item) {
+        if (! $item instanceof CollectionItem) {
             throw new NotFoundHttpException;
         }
 

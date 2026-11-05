@@ -6,6 +6,8 @@ namespace Liberu\Cms\StructuredCollectionsApi\Http;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Liberu\Cms\Collections\Models\Collection;
+use Liberu\Cms\Collections\Models\CollectionItem;
 use Liberu\Cms\StructuredCollections\Actions\StructuredCollectionMutationService;
 use Liberu\Cms\StructuredCollections\Queries\StructuredCollectionQuery;
 use Liberu\Cms\StructuredCollectionsApi\Http\Resources\StructuredCollectionRecordResource;
@@ -24,7 +26,7 @@ final class StructuredCollectionsController
     public function show(string $slug, StructuredCollectionQuery $query): StructuredCollectionResource
     {
         $collection = $query->collection($slug);
-        if (! $collection) {
+        if (! $collection instanceof Collection) {
             throw new NotFoundHttpException;
         }
 
@@ -41,7 +43,7 @@ final class StructuredCollectionsController
     public function update(Request $request, string $slug, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): StructuredCollectionResource
     {
         $collection = $query->collection($slug);
-        if (! $collection) {
+        if (! $collection instanceof Collection) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['name' => ['sometimes', 'string', 'max:255'], 'slug' => ['sometimes', 'string', 'max:255'], 'type' => ['sometimes', 'string', 'max:64'], 'description' => ['nullable', 'string'], 'schema' => ['nullable', 'array']]);
@@ -52,7 +54,7 @@ final class StructuredCollectionsController
     public function delete(string $slug, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): Response
     {
         $collection = $query->collection($slug);
-        if (! $collection) {
+        if (! $collection instanceof Collection) {
             throw new NotFoundHttpException;
         }
         $service->delete($collection);
@@ -62,7 +64,7 @@ final class StructuredCollectionsController
 
     public function records(Request $request, string $slug, StructuredCollectionQuery $query): mixed
     {
-        if (! $query->collection($slug)) {
+        if (! $query->collection($slug) instanceof Collection) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['search' => ['sometimes', 'nullable', 'string', 'max:255'], 'per_page' => ['sometimes', 'integer', 'min:1', 'max:100']]);
@@ -73,7 +75,7 @@ final class StructuredCollectionsController
     public function record(string $slug, string $record, StructuredCollectionQuery $query): StructuredCollectionRecordResource
     {
         $model = $query->record($slug, $record);
-        if (! $model) {
+        if (! $model instanceof CollectionItem) {
             throw new NotFoundHttpException;
         }
 
@@ -83,7 +85,7 @@ final class StructuredCollectionsController
     public function createRecord(Request $request, string $slug, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): StructuredCollectionRecordResource
     {
         $collection = $query->collection($slug);
-        if (! $collection) {
+        if (! $collection instanceof Collection) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['title' => ['required', 'string', 'max:255'], 'slug' => ['nullable', 'string', 'max:255'], 'content' => ['nullable', 'string'], 'excerpt' => ['nullable', 'string'], 'data' => ['nullable', 'array'], 'metadata' => ['nullable', 'array'], 'status' => ['nullable', 'string', 'max:32'], 'published_at' => ['nullable', 'date']]);
@@ -94,7 +96,7 @@ final class StructuredCollectionsController
     public function updateRecord(Request $request, string $slug, string $record, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): StructuredCollectionRecordResource
     {
         $model = $query->recordForMutation($slug, $record);
-        if (! $model) {
+        if (! $model instanceof CollectionItem) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['title' => ['sometimes', 'string', 'max:255'], 'slug' => ['sometimes', 'string', 'max:255'], 'content' => ['nullable', 'string'], 'excerpt' => ['nullable', 'string'], 'data' => ['nullable', 'array'], 'metadata' => ['nullable', 'array'], 'status' => ['nullable', 'string', 'max:32'], 'published_at' => ['nullable', 'date']]);
@@ -105,7 +107,7 @@ final class StructuredCollectionsController
     public function deleteRecord(string $slug, string $record, StructuredCollectionQuery $query, StructuredCollectionMutationService $service): Response
     {
         $model = $query->recordForMutation($slug, $record);
-        if (! $model) {
+        if (! $model instanceof CollectionItem) {
             throw new NotFoundHttpException;
         }
         $service->deleteRecord($model);

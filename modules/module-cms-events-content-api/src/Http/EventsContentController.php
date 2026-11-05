@@ -6,6 +6,7 @@ namespace Liberu\Cms\EventsContentApi\Http;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Liberu\Cms\EventsContent\Models\Event;
 use Liberu\Cms\EventsContent\Queries\EventsContentQuery;
 use Liberu\Cms\EventsContent\Services\EventsContentService;
 use Liberu\Cms\EventsContentApi\Http\Resources\EventResource;
@@ -24,7 +25,7 @@ final class EventsContentController
     public function show(string $key, EventsContentQuery $query): EventResource
     {
         $event = $query->find($key);
-        if (! $event || $event->status !== 'published') {
+        if (! $event instanceof Event || $event->status !== 'published') {
             throw new NotFoundHttpException;
         }
 
@@ -41,7 +42,7 @@ final class EventsContentController
     public function publish(string $key, EventsContentQuery $query, EventsContentService $service): EventResource
     {
         $event = $query->find($key);
-        if (! $event) {
+        if (! $event instanceof Event) {
             throw new NotFoundHttpException;
         }
 
@@ -51,7 +52,7 @@ final class EventsContentController
     public function archive(string $key, EventsContentQuery $query, EventsContentService $service): EventResource
     {
         $event = $query->find($key);
-        if (! $event) {
+        if (! $event instanceof Event) {
             throw new NotFoundHttpException;
         }
 

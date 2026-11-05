@@ -1,0 +1,1382 @@
+{
+  "module-cms-accessibility-assistant": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-accessibility-assistant-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-accessibility-assistant-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-accessibility-assistant-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-admin": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-analytics-integration": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-analytics-integration-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-analytics-integration-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-analytics-integration-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-audit": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-backup-and-restore": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-backup-and-restore-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-backup-and-restore-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-backup-and-restore-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-block-editor": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-block-editor-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-block-editor-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-block-editor-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-blocks": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-cache-and-performance": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-cache-and-performance-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-cache-and-performance-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-cache-and-performance-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-cms-copilot": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-comments-and-discussion": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-comments-and-discussion-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-comments-and-discussion-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-comments-and-discussion-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-configuration-management": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-configuration-management-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-configuration-management-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-configuration-management-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-contact-directory": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-contact-directory-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-contact-directory-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-contact-directory-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-access": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-access-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-access-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-access-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-calendar": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-calendar-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-calendar-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-calendar-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-entities-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-entities-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-entities-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-federation": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-federation-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-federation-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-federation-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-governance": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-governance-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-governance-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-governance-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-integrity": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-integrity-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-integrity-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-integrity-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-intelligence": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-intelligence-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-intelligence-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-intelligence-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-locking": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-locking-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-locking-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-locking-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-search-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-search-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-search-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-templates": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-templates-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-templates-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-templates-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-content-types": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-contracts": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-copilot-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-copilot-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-core": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-core-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-core-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-digital-asset-management": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-digital-asset-management-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-digital-asset-management-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-digital-asset-management-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-display-modes": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-display-modes-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-display-modes-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-display-modes-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-document-management-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-document-management-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-document-management-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-drupal-migration": {
+    "archived": false,
+    "default_branch": "sync-drupal-domain",
+    "private": false
+  },
+  "module-cms-drupal-migration-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-drupal-migration-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-drupal-migration-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-embeds": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-embeds-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-embeds-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-embeds-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-events-content": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-events-content-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-events-content-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-events-content-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-experimentation": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-experimentation-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-experimentation-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-experimentation-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-manager": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-manager-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-manager-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-manager-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-marketplace": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-marketplace-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-marketplace-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-extension-marketplace-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-field-system": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-field-system-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-field-system-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-field-system-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-forms": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-hello": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-hello-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-integration-directory": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-integration-directory-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-integration-directory-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-integration-directory-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-joomla-migration": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-joomla-migration-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-joomla-migration-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-joomla-migration-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-layout-builder": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-layout-builder-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-layout-builder-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-layout-builder-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-media": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-menus": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-metadata": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-metadata-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-metadata-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-metadata-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-migration-framework": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-migration-framework-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-migration-framework-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-migration-framework-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-multisite": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-multisite-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-multisite-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-multisite-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-navigation-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-navigation-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-navigation-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-notifications": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-notifications-and-subscriptions": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-notifications-and-subscriptions-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-notifications-and-subscriptions-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-notifications-and-subscriptions-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-observability": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-offline-and-pwa": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-offline-and-pwa-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-offline-and-pwa-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-offline-and-pwa-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-pages": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-pages-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-pages-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-pages-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-personalization": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-personalization-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-personalization-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-personalization-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-polls-and-surveys": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-polls-and-surveys-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-polls-and-surveys-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-polls-and-surveys-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-posts": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-publishing": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-publishing-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-publishing-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-publishing-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-recommendations": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-recommendations-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-recommendations-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-recommendations-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-redirects": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-redirects-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-redirects-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-redirects-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-regions-and-widgets": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-regions-and-widgets-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-regions-and-widgets-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-regions-and-widgets-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-related-content": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-related-content-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-related-content-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-related-content-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-revisions": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-revisions-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-revisions-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-revisions-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-rich-text-editor": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-rich-text-editor-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-rich-text-editor-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-rich-text-editor-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-search": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-security-operations": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-security-operations-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-security-operations-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-security-operations-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-seo": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-seo-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-seo-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-seo-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-factory": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-factory-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-factory-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-factory-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-recipes": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-recipes-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-recipes-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-site-recipes-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-sitemaps": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-sitemaps-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-sitemaps-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-sitemaps-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-static-publishing": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-static-publishing-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-static-publishing-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-static-publishing-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-structured-collections": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-structured-collections-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-structured-collections-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-structured-collections-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-syndication-and-feeds": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-syndication-and-feeds-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-syndication-and-feeds-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-syndication-and-feeds-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-taxonomy": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-taxonomy-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-taxonomy-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-taxonomy-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-integration": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-integration-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-integration-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-integration-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-marketplace": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-marketplace-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-marketplace-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-theme-marketplace-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-themes": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-assistant": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-assistant-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-assistant-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-assistant-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-management": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-management-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-management-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-translation-management-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-users": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-video-and-audio": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-video-and-audio-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-video-and-audio-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-views-and-query-builder": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-views-and-query-builder-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-views-and-query-builder-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-web-delivery": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-web-delivery-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-web-delivery-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-web-delivery-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-widgets": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-wordpress-migration": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-wordpress-migration-api": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-wordpress-migration-filament": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-cms-wordpress-migration-livewire": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  },
+  "module-users-roles": {
+    "archived": false,
+    "default_branch": "main",
+    "private": false
+  }
+}

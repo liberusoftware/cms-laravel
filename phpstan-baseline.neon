@@ -397,13 +397,13 @@ parameters:
 			path: app/Support/FilamentTenantResolver.php
 
 		-
-			message: '#^Parameter \#1 \$state of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\ConnectedAccount\>\:\:state\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>, Illuminate\\Database\\Eloquent\\Model\|null\)\: array\<string, mixed\>\), Closure\(array, App\\Models\\User\)\: array\{provider\: string, user_id\: int\} given\.$#'
+			message: '#^Parameter \#1 \$state of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\ConnectedAccount\>\:\:state\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>, Illuminate\\Database\\Eloquent\\Model\|null\)\: array\<string, mixed\>\), Closure\(array, App\\Models\\User\)\: array\{provider\: string, user_id\: int\<0, max\>\} given\.$#'
 			identifier: argument.type
 			count: 1
 			path: database/factories/UserFactory.php
 
 		-
-			message: '#^Parameter \#1 \$state of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\Team\>\:\:state\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>, Illuminate\\Database\\Eloquent\\Model\|null\)\: array\<string, mixed\>\), Closure\(array, App\\Models\\User\)\: array\{name\: non\-falsy\-string, user_id\: int, personal_team\: true\} given\.$#'
+			message: '#^Parameter \#1 \$state of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\Team\>\:\:state\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>, Illuminate\\Database\\Eloquent\\Model\|null\)\: array\<string, mixed\>\), Closure\(array, App\\Models\\User\)\: array\{name\: non\-falsy\-string, user_id\: int\<0, max\>, personal_team\: true\} given\.$#'
 			identifier: argument.type
 			count: 1
 			path: database/factories/UserFactory.php
@@ -499,13 +499,13 @@ parameters:
 			path: database/migrations/2025_12_08_110853_create_permission_tables.php
 
 		-
-			message: '#^Parameter \#1 \$table of static method Illuminate\\Support\\Facades\\Schema\:\:create\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$table of static method Illuminate\\Database\\Schema\\Builder\:\:create\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: database/migrations/2025_12_08_110853_create_permission_tables.php
 
 		-
-			message: '#^Parameter \#1 \$table of static method Illuminate\\Support\\Facades\\Schema\:\:drop\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$table of static method Illuminate\\Database\\Schema\\Builder\:\:drop\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: database/migrations/2025_12_08_110853_create_permission_tables.php
@@ -523,13 +523,13 @@ parameters:
 			path: database/migrations/2025_12_29_060511_add_team_column_to_tables.php
 
 		-
-			message: '#^Parameter \#1 \$table of static method Illuminate\\Support\\Facades\\Schema\:\:hasColumn\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$table of static method Illuminate\\Database\\Schema\\Builder\:\:hasColumn\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: database/migrations/2025_12_29_060511_add_team_column_to_tables.php
 
 		-
-			message: '#^Parameter \#1 \$table of static method Illuminate\\Support\\Facades\\Schema\:\:table\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$table of static method Illuminate\\Database\\Schema\\Builder\:\:table\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: database/migrations/2025_12_29_060511_add_team_column_to_tables.php

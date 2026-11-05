@@ -7,6 +7,7 @@ namespace Liberu\Cms\TranslationManagementApi\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Liberu\Cms\TranslationManagement\Actions\TranslationManagementService;
+use Liberu\Cms\TranslationManagement\Models\TranslationJob;
 use Liberu\Cms\TranslationManagement\Models\TranslationSourceChange;
 use Liberu\Cms\TranslationManagement\Queries\TranslationJobQuery;
 use Liberu\Cms\TranslationManagementApi\Http\Resources\TranslationGlossaryResource;
@@ -28,7 +29,7 @@ final readonly class TranslationManagementController
     public function show(string $publicId): TranslationJobResource
     {
         $job = $this->jobs->find($publicId);
-        if (! $job) {
+        if (! $job instanceof TranslationJob) {
             throw new NotFoundHttpException;
         }
 
@@ -45,7 +46,7 @@ final readonly class TranslationManagementController
     public function sourceChange(Request $request, string $publicId): TranslationSourceChangeResource
     {
         $job = $this->jobs->find($publicId);
-        if (! $job) {
+        if (! $job instanceof TranslationJob) {
             throw new NotFoundHttpException;
         }
         $data = $request->validate(['subject_type' => ['required', 'string', 'max:255'], 'subject_id' => ['required', 'string', 'max:255'], 'field' => ['required', 'string', 'max:255'], 'source_text' => ['required', 'string'], 'source_version' => ['nullable', 'string', 'max:255']]);
@@ -78,7 +79,7 @@ final readonly class TranslationManagementController
     public function reconcile(string $publicId): TranslationJobResource
     {
         $job = $this->jobs->find($publicId);
-        if (! $job) {
+        if (! $job instanceof TranslationJob) {
             throw new NotFoundHttpException;
         }
 
@@ -88,7 +89,7 @@ final readonly class TranslationManagementController
     public function queue(string $publicId): TranslationJobResource
     {
         $job = $this->jobs->find($publicId);
-        if (! $job) {
+        if (! $job instanceof TranslationJob) {
             throw new NotFoundHttpException;
         }
 
@@ -98,7 +99,7 @@ final readonly class TranslationManagementController
     public function cancel(string $publicId): TranslationJobResource
     {
         $job = $this->jobs->find($publicId);
-        if (! $job) {
+        if (! $job instanceof TranslationJob) {
             throw new NotFoundHttpException;
         }
 

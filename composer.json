@@ -306,6 +306,7 @@
         "liberusoftware/module-cms-wordpress-migration-api": "^0.1",
         "liberusoftware/module-cms-wordpress-migration-filament": "^0.1",
         "liberusoftware/module-cms-wordpress-migration-livewire": "^0.1",
+        "liberusoftware/tenancy": "^1.0.1",
         "liberusoftware/users-roles": "^1.0",
         "livewire/livewire": "^4.4.8",
         "php": "^8.5",
@@ -383,7 +384,10 @@
             "url": "modules/*",
             "options": {
                 "symlink": true
-            }
+            },
+            "exclude": [
+                "liberusoftware/tenancy"
+            ]
         },
         {
             "type": "path",
@@ -674,7 +678,10 @@
                     "liberusoftware/module-cms-wordpress-migration-filament": "0.1.0",
                     "liberusoftware/module-cms-wordpress-migration-livewire": "0.1.0"
                 }
-            }
+            },
+            "exclude": [
+                "liberusoftware/tenancy"
+            ]
         },
         {
             "type": "vcs",
