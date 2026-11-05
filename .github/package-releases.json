@@ -1561,11 +1561,11 @@
   },
   "liberusoftware/tenancy": {
     "path": "modules/tenancy",
-    "reference": "32cdb9096690f29205255f2eafee4b2b2847fcaa",
+    "reference": "dd222c63cb0de954eef87d0e18f67d162d2e923e",
     "repository": "https://github.com/liberusoftware/module-tenancy",
-    "source_signature": "ee0fe468adef9cab22c285b554e35807cceb4a6e2e0dcf81a23a69ed39dcfe74",
-    "source_tree": "c9c9a1bb887b98e67db718633f7c50f40638bb54",
-    "version": "1.0.1"
+    "source_signature": "c58028355c31f17531aa74dd676bfe829d0043d795191a28102e060e1de35bf6",
+    "source_tree": "690bd014cb4f7567897939a729d053f2169cff36",
+    "version": "1.2.0"
   },
   "liberusoftware/users-roles": {
     "path": "modules/users-roles",
