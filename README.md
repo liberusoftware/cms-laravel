@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg)
 [![Latest Release](https://img.shields.io/github/v/release/liberusoftware/project-cms-laravel-filament)](https://github.com/liberusoftware/project-cms-laravel-filament/releases)
-[![codecov](https://codecov.io/gh/liberusoftware/cms-laravel/branch/main/graph/badge.svg)](https://codecov.io/gh/liberusoftware/cms-laravel)
+[![codecov](https://codecov.io/gh/liberusoftware/project-cms-laravel-filament/branch/main/graph/badge.svg)](https://codecov.io/gh/liberusoftware/project-cms-laravel-filament)
 
 [![Install](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/install.yml/badge.svg)](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/install.yml)
 [![Tests](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/tests.yml/badge.svg)](https://github.com/liberusoftware/project-cms-laravel-filament/actions/workflows/tests.yml)
